@@ -633,7 +633,7 @@ function specifyCanvasSize(windowWidth,windowHeight)
 	if (windowWidth/2 >= windowHeight)
 	{
 		canvas.width = windowHeight/2;
-		
+
 	}
 	else
 	{
@@ -644,6 +644,47 @@ function specifyCanvasSize(windowWidth,windowHeight)
 	
 }
 
+function handleTouchEnd(event)
+{
+	event.preventDefault();
+	endPoint.xPos = event.changedTouches[event.changedTouches.length-1].clientX;
+	endPoint.yPos = event.changedTouches[event.changedTouches.length-1].clientY;
+	console.log(`Ended : (${endPoint.xPos},${endPoint.yPos})`);
+	specifyMovementDirec();
+
+}
+
+function handleTouchStart(event)
+{
+	event.preventDefault();
+	startPoint.xPos = event.touches[0].clientX;
+	startPoint.yPos = event.touches[0].clientY;
+	console.log(`Started : (${startPoint.xPos},${startPoint.yPos})`)
+}
+
+function specifyMovementDirec()
+{
+	var dir = new Vector2(endPoint.xPos - startPoint.xPos,endPoint.yPos - startPoint.yPos);
+	console.log(`Direction : (${dir.xPos},${dir.yPos})`);
+	handleTouchInput(dir);
+}
+
+function handleTouchInput(dir)
+{
+	if (player.playerState == PlayerState.Stable)
+	{
+		if (Math.abs(dir.xPos)>= 10 && dir.xPos >= 0 && player.line != 2)
+		{
+			player.setState(PlayerState.GoingRight);
+		}
+
+		else if (Math.abs(dir.xPos)>= 10 && dir.xPos <= 0 && player.line != 1)
+		{
+			player.setState(PlayerState.GoingLeft);
+		}
+	}
+}
+
 
 
 var lastFrameTime = Date.now();
@@ -652,6 +693,7 @@ var canvas = document.querySelector('canvas');
 console.log(canvas);
 
 specifyCanvasSize(window.innerWidth,window.innerHeight);
+
 let canvasHeight = canvas.height;
 let canvasWidth = canvas.width;
 
@@ -712,9 +754,13 @@ var scoreElement = document.getElementById("scoreElement");
 speedElement.style.width = `${Math.floor(canvasWidth/2) - horiItemDis}px`;
 scoreElement.style.width = `${Math.floor(canvasWidth/2) - horiItemDis}px`;
 
-	
+var startPoint = new Vector2(0,0);
+var endPoint = new Vector2(0,0);
 window.addEventListener("keydown",(event)=>{
 	handleInput(event);
 });
+
+window.addEventListener("touchend",handleTouchEnd,{passive : false});
+window.addEventListener("touchstart",handleTouchStart,{passive : false});
 
 play();
