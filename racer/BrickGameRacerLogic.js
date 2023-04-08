@@ -628,6 +628,22 @@ function play()
 
 }
 
+function specifyCanvasSize(windowWidth,windowHeight)
+{
+	if (windowWidth/2 >= windowHeight)
+	{
+		canvas.width = windowHeight/2;
+		
+	}
+	else
+	{
+		canvas.width = windowHeight/3;
+	}
+
+	canvas.height = windowHeight;
+	
+}
+
 
 
 var lastFrameTime = Date.now();
@@ -635,24 +651,25 @@ var lastFrameTime = Date.now();
 var canvas = document.querySelector('canvas');
 console.log(canvas);
 
-var canvasHeight = window.innerHeight;
-var canvasWidth = Math.floor(canvasHeight/2);
+specifyCanvasSize(window.innerWidth,window.innerHeight);
+let canvasHeight = canvas.height;
+let canvasWidth = canvas.width;
 
-var globalSpeed = canvasHeight/5;
+var globalSpeed = Math.floor(canvasHeight/7);
 var initialSpeed = globalSpeed;
-var speedIncreasePerSec = 10;
+var speedIncreasePerSec = Math.floor(canvasHeight / 10);
 console.log('globalSpeed speed ' + globalSpeed);
-
-canvas.height = canvasHeight;
-canvas.width = canvasWidth;
 
 var context = canvas.getContext('2d');
 
-const borderRectWidth = Math.floor(canvasWidth/15);
+const borderRectWidth = Math.floor(0.05 * canvasWidth);
 const borderRectHeight = Math.floor(canvasHeight * 3/20);
 
-const carWidth = Math.floor(0.3225 * canvasWidth);
-const carHeight = Math.floor(canvasHeight / 4);
+const carWidth = Math.floor(0.35 * canvasWidth);
+console.log("car width is " + carWidth);
+const carHeight = carWidth;
+//const carHeight = Math.floor(canvasHeight / 10);
+console.log("car height is " + carHeight);
 const carMinVerDis = Math.floor(canvasHeight/5);
 
 const horiItemDis = Math.floor (0.05 * canvasWidth);
