@@ -6,3 +6,9 @@ ToDo
 	5 - Adjust distance between generated cars					Done
 	6 - Adding images to game								Done
 	7 - Adding a pause menu									Done
+
+	8 - Start making game responsive for different devices
+	9 - A proper start menu and pause menu 
+	10 - Fixing bugs on other browsers like firefox and edge
+	
+
