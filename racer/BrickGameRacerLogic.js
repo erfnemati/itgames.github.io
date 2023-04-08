@@ -647,19 +647,28 @@ function specifyCanvasSize(windowWidth,windowHeight)
 function handleTouchEnd(event)
 {
 	event.preventDefault();
-	endPoint.xPos = event.changedTouches[event.changedTouches.length-1].clientX;
-	endPoint.yPos = event.changedTouches[event.changedTouches.length-1].clientY;
-	console.log(`Ended : (${endPoint.xPos},${endPoint.yPos})`);
-	specifyMovementDirec();
+	if (isTapped == true)
+	{
+		isTapped = false;
+	}
+	// endPoint.xPos = event.changedTouches[event.changedTouches.length-1].clientX;
+	// endPoint.yPos = event.changedTouches[event.changedTouches.length-1].clientY;
+	// console.log(`Ended : (${endPoint.xPos},${endPoint.yPos})`);
+	// specifyMovementDirec();
 
 }
 
 function handleTouchStart(event)
 {
 	event.preventDefault();
-	startPoint.xPos = event.touches[0].clientX;
-	startPoint.yPos = event.touches[0].clientY;
-	console.log(`Started : (${startPoint.xPos},${startPoint.yPos})`)
+	if (isTapped == false)
+	{
+		isTapped = true;
+		handleTouchInput();
+	}
+	// startPoint.xPos = event.touches[0].clientX;
+	// startPoint.yPos = event.touches[0].clientY;
+	// console.log(`Started : (${startPoint.xPos},${startPoint.yPos})`)
 }
 
 function specifyMovementDirec()
@@ -669,19 +678,28 @@ function specifyMovementDirec()
 	handleTouchInput(dir);
 }
 
-function handleTouchInput(dir)
+function handleTouchInput()
 {
 	if (player.playerState == PlayerState.Stable)
 	{
-		if (Math.abs(dir.xPos)>= 10 && dir.xPos >= 0 && player.line != 2)
+		if (player.line == 1)
 		{
 			player.setState(PlayerState.GoingRight);
 		}
-
-		else if (Math.abs(dir.xPos)>= 10 && dir.xPos <= 0 && player.line != 1)
+		else if (player.line == 2)
 		{
 			player.setState(PlayerState.GoingLeft);
 		}
+		// if (Math.abs(dir.xPos)>= 2 && dir.xPos >= 0 && player.line != 2)
+		// {
+		// 	player.setState(PlayerState.GoingRight);
+		// }
+
+		// else if (Math.abs(dir.xPos)>= 2 && dir.xPos <= 0 && player.line != 1)
+		// {
+		// 	player.setState(PlayerState.GoingLeft);
+		// }
+
 	}
 }
 
@@ -754,8 +772,10 @@ var scoreElement = document.getElementById("scoreElement");
 speedElement.style.width = `${Math.floor(canvasWidth/2) - horiItemDis}px`;
 scoreElement.style.width = `${Math.floor(canvasWidth/2) - horiItemDis}px`;
 
-var startPoint = new Vector2(0,0);
-var endPoint = new Vector2(0,0);
+// var startPoint = new Vector2(0,0);
+// var endPoint = new Vector2(0,0);
+
+var isTapped = false;
 window.addEventListener("keydown",(event)=>{
 	handleInput(event);
 });
