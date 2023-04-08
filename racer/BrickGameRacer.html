@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BrickGameRacer</title>
+	<style type="text/css">
+		canvas 
+		{
+			border: 1px solid;
+			
+			
+		}
+
+		body
+		{
+			margin: 0px;
+		}
+
+		#overlayUiContainer
+		{
+			text-align: center;
+			position: absolute;
+			left: 0;
+			right: 0;
+		}
+
+		#scoreElement
+		{
+			display: inline-block;
+			vertical-align: middle;
+			text-align: middle;
+			color: blue;
+			background-color: rgba(137, 196, 244, 1.0);
+			border-radius: 25px;
+		}
+
+		#speedElement
+		{
+			display: inline-block;
+			vertical-align: middle;
+			text-align: middle;
+			background-color: rgba(137, 196, 244, 1.0);
+			border-radius: 25px;
+			color: blue;
+
+			
+		}
+
+		#gameOverScreen
+		{
+			display: none;
+			position: absolute;
+			background-color: rgba(137, 196, 244, 1.0);
+			border-radius: 10px;
+			top:50%;
+			right: 	50%;
+			transform: 	translate(50%,-50%);
+			text-align: center	;
+			text-align: center;
+			vertical-align: middle;
+			font-size: 1vw;
+		}
+
+
+	</style>
+</head>
+<body>
+
+	<div style="right: 50%;  position: absolute; transform: translateX(50%);">
+		<div id="overlayUiContainer">
+			<div id="scoreElement">score</div>
+			<div id="speedElement">speed</div>
+		</div>
+		<div id="gameOverScreen">
+			<h1>Game Over</h1>
+			<h3 id="playerSpeed">Speed is : 1G </h3>
+			<h3 id="playerScore">Score is : 1000</h3>
+			<br>
+			<h3>Press R to Restart</h3>
+
+		</div>
+
+		<canvas></canvas>
+		
+	</div>
+
+
+
+	<script src="BrickGameRacerLogic.js"></script>
+	<script src="BrickGameRacerUi.js"></script>
+
+</body>
+</html>
