@@ -5,6 +5,13 @@ var playerSpeedElement = document.getElementById("playerSpeed");
 var overlayUiElement = document.getElementById("overlayUiContainer");
 
 
+var speedElement = document.getElementById("speedElement");
+var scoreElement = document.getElementById("scoreElement");
+
+speedElement.style.width = `${Math.floor(canvasWidth/2) - horiItemDis}px`;
+scoreElement.style.width = `${Math.floor(canvasWidth/2) - horiItemDis}px`;
+
+
 
 function popGameOverScreen()
 {

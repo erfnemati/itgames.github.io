@@ -189,12 +189,12 @@ const PlayerState =
 
 class Player
 {
-	constructor(changeLineSpeed,position,line,rightMostRestriction,leftMostRestriction,color,icon)
+	constructor(changeLineSpeed,position,line,rightMostRestriction,leftMostRestriction,icon)
 	{
 		this.changeLineSpeed = changeLineSpeed;
 		this.position = position;
 		this.line = line;
-		this.color = color;
+		//this.color = color;
 		this.playerState = PlayerState.Stable;
 		this.rightMostRestriction = rightMostRestriction;
 		this.leftMostRestriction = leftMostRestriction;
@@ -223,7 +223,7 @@ class Player
 
 	draw()
 	{
-		context.fillStyle = this.color;
+		//context.fillStyle = this.color;
 		//context.fillRect(this.position.xPos,this.position.yPos,carWidth,carHeight);
 		context.drawImage(this.icon,this.position.xPos,this.position.yPos,carWidth ,carHeight);
 	}
@@ -623,9 +623,6 @@ function play()
 	increaseGloablSpeed(timeBetweenFrames);
 	updatePlayerScore(timeBetweenFrames);
 	updateSpeedUi();
-
-	
-
 }
 
 function specifyCanvasSize(windowWidth,windowHeight)
@@ -651,10 +648,6 @@ function handleTouchEnd(event)
 	{
 		isTapped = false;
 	}
-	// endPoint.xPos = event.changedTouches[event.changedTouches.length-1].clientX;
-	// endPoint.yPos = event.changedTouches[event.changedTouches.length-1].clientY;
-	// console.log(`Ended : (${endPoint.xPos},${endPoint.yPos})`);
-	// specifyMovementDirec();
 
 }
 
@@ -666,9 +659,6 @@ function handleTouchStart(event)
 		isTapped = true;
 		handleTouchInput();
 	}
-	// startPoint.xPos = event.touches[0].clientX;
-	// startPoint.yPos = event.touches[0].clientY;
-	// console.log(`Started : (${startPoint.xPos},${startPoint.yPos})`)
 }
 
 function specifyMovementDirec()
@@ -690,97 +680,113 @@ function handleTouchInput()
 		{
 			player.setState(PlayerState.GoingLeft);
 		}
-		// if (Math.abs(dir.xPos)>= 2 && dir.xPos >= 0 && player.line != 2)
-		// {
-		// 	player.setState(PlayerState.GoingRight);
-		// }
-
-		// else if (Math.abs(dir.xPos)>= 2 && dir.xPos <= 0 && player.line != 1)
-		// {
-		// 	player.setState(PlayerState.GoingLeft);
-		// }
-
 	}
 }
 
+function addListeners()
+{
+	window.addEventListener("keydown",handleInput);
+	window.addEventListener("touchend",handleTouchEnd,{passive : false});
+	window.addEventListener("touchstart",handleTouchStart,{passive : false});
+}
 
 
-var lastFrameTime = Date.now();
+function initialiseBorderRects()
+{
+	borderRectQueue = new Queue(15);
+	borderRect = new BorderRect(borderRectWidth,borderRectHeight,new Vector2(0,0));
+	lastBorderRect = borderRect;
+	borderRectQueue.enqueue(borderRect);
+}
 
+function initialiseObstacleCars()
+{
+	carDistanceQueue = new Queue(60);
+	carQueue = new Queue(15);
+	carLineQueue = new Queue (60);
+	firstCar = new Car(carWidth,carHeight,new Vector2(borderRectWidth + horiItemDis,-carHeight),1,carIcon);
+	lastGeneratedCar = firstCar;
+	carQueue.enqueue(lastGeneratedCar);
+}
+
+function initialisePlayer()
+{
+	player = new Player(changeLineSpeed,initialPlayerPos,2,rightMostRestriction,leftMostRestriction,playerIcone);
+	playerScore = 0;
+}
+
+function initialiseGlobalGameSettings()
+{
+	lastFrameTime = Date.now();
+	globalSpeed = initialSpeed;
+}
+
+function startGame()
+{
+	initialiseBorderRects();
+	initialiseObstacleCars();
+	initialisePlayer();
+	addListeners();
+	play();
+}
+
+//Canvas variables : 
 var canvas = document.querySelector('canvas');
-console.log(canvas);
-
 specifyCanvasSize(window.innerWidth,window.innerHeight);
-
 let canvasHeight = canvas.height;
 let canvasWidth = canvas.width;
-
-var globalSpeed = Math.floor(canvasHeight/7);
-var initialSpeed = globalSpeed;
-var speedIncreasePerSec = Math.floor(canvasHeight / 10);
-console.log('globalSpeed speed ' + globalSpeed);
-
 var context = canvas.getContext('2d');
 
+//Global game variable : 
+var lastFrameTime = Date.now();
+var initialSpeed = Math.floor(canvasHeight/7);
+var globalSpeed = initialSpeed;
+var speedIncreasePerSec = Math.floor(canvasHeight / 10);
+var isGameOver = false;
+var isTapped = false;
+
+//BorderRect constants : 
 const borderRectWidth = Math.floor(0.05 * canvasWidth);
 const borderRectHeight = Math.floor(canvasHeight * 3/20);
 
+//BorderRect variables : 
+var borderRectQueue;
+var borderRect;
+var lastBorderRect;
+
+
+
+//Obstacle cars const : 
 const carWidth = Math.floor(0.35 * canvasWidth);
-console.log("car width is " + carWidth);
 const carHeight = carWidth;
-//const carHeight = Math.floor(canvasHeight / 10);
-console.log("car height is " + carHeight);
 const carMinVerDis = Math.floor(canvasHeight/5);
-
 const horiItemDis = Math.floor (0.05 * canvasWidth);
-
-const playerCarHeight = carHeight; //TODO maybe I change this later.
-
-var borderRectQueue = new Queue(15);
-var borderRect = new BorderRect(borderRectWidth,borderRectHeight,new Vector2(0,0));
-var lastBorderRect = borderRect;
-borderRectQueue.enqueue(borderRect);
-
 const carIcon = new Image();
 carIcon.src = "Obstacle.svg";
-var carDistanceQueue = new Queue(60);
-var carQueue = new Queue(15);
-var carLineQueue = new Queue (60);
-var firstCar = new Car(carWidth,carHeight,new Vector2(borderRectWidth + horiItemDis,-carHeight),1,carIcon);
-var lastGeneratedCar = firstCar;
-carQueue.enqueue(lastGeneratedCar);
+
+//Obstacle cars variables : 
+var carDistanceQueue;
+var carQueue;
+var carLineQueue;
+var firstCar;
+var lastGeneratedCar;
 
 
+
+
+//Player constants : 
+const playerCarHeight = carHeight;
 const changeLineSpeed = canvasWidth * 5;
 const leftMostRestriction = borderRectWidth + horiItemDis ;
 const rightMostRestriction = canvasWidth - borderRectWidth - horiItemDis - carWidth;
-var initialPlayerPos = new Vector2(canvasWidth - borderRectWidth - horiItemDis - carWidth,
+const initialPlayerPos = new Vector2(canvasWidth - borderRectWidth - horiItemDis - carWidth,
 	canvasHeight - carMinVerDis - carHeight);
 const playerIcone = new Image();
 playerIcone.src = "Player.svg";
-var playerColor = 'blue';
-var player = new Player(changeLineSpeed,initialPlayerPos,2,rightMostRestriction,leftMostRestriction,playerColor,playerIcone);
 
-var isGameOver = false;
-
-var playerScore = 0;
+//Player variables : 
+var player;
+var playerScore;
 
 
-var speedElement = document.getElementById("speedElement");
-var scoreElement = document.getElementById("scoreElement");
-
-speedElement.style.width = `${Math.floor(canvasWidth/2) - horiItemDis}px`;
-scoreElement.style.width = `${Math.floor(canvasWidth/2) - horiItemDis}px`;
-
-// var startPoint = new Vector2(0,0);
-// var endPoint = new Vector2(0,0);
-
-var isTapped = false;
-window.addEventListener("keydown",(event)=>{
-	handleInput(event);
-});
-
-window.addEventListener("touchend",handleTouchEnd,{passive : false});
-window.addEventListener("touchstart",handleTouchStart,{passive : false});
-
-play();
+startGame();
