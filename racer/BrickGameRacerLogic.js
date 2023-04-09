@@ -610,7 +610,9 @@ function play()
 {
 	if (isGameOver)
 	{
+		console.log('Paused');
 		return;
+
 	}
 
 	requestAnimationFrame(play);
@@ -688,6 +690,8 @@ function addListeners()
 	window.addEventListener("keydown",handleInput);
 	window.addEventListener("touchend",handleTouchEnd,{passive : false});
 	window.addEventListener("touchstart",handleTouchStart,{passive : false});
+	window.addEventListener("keydown",handleRestart);
+
 }
 
 
@@ -718,16 +722,40 @@ function initialisePlayer()
 function initialiseGlobalGameSettings()
 {
 	lastFrameTime = Date.now();
+	initialSpeed = Math.floor(canvasHeight/7)
 	globalSpeed = initialSpeed;
+	speedIncreasePerSec = Math.floor(canvasHeight / 10);
+	isGameOver = false;
+	isTapped = false;
 }
+function restartGame()
+{
+	initialiseGlobalGameSettings();
+	initialiseBorderRects();
+	initialiseObstacleCars();
+	initialisePlayer();
+	play();
+}
+ 
 
 function startGame()
 {
+	initialiseGlobalGameSettings();
 	initialiseBorderRects();
 	initialiseObstacleCars();
 	initialisePlayer();
 	addListeners();
 	play();
+}
+
+function handleRestart(event)
+{
+	if (event.key == 'r')
+	{
+		hidGameOverScreen();
+		restartGame();
+	}
+
 }
 
 //Canvas variables : 
@@ -738,12 +766,12 @@ let canvasWidth = canvas.width;
 var context = canvas.getContext('2d');
 
 //Global game variable : 
-var lastFrameTime = Date.now();
-var initialSpeed = Math.floor(canvasHeight/7);
-var globalSpeed = initialSpeed;
-var speedIncreasePerSec = Math.floor(canvasHeight / 10);
-var isGameOver = false;
-var isTapped = false;
+var lastFrameTime;
+var initialSpeed;
+var globalSpeed;
+var speedIncreasePerSec;
+var isGameOver;
+var isTapped;
 
 //BorderRect constants : 
 const borderRectWidth = Math.floor(0.05 * canvasWidth);

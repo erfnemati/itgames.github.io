@@ -21,16 +21,15 @@ function popGameOverScreen()
 	playerScoreElement.innerHTML = "Speed : " +speedElement.innerHTML;
 	playerSpeedElement.innerHTML = "Score : " + Math.floor(playerScore);
 
-	window.addEventListener("keydown",(event)=>{reloadPage(event)})
+	//window.addEventListener("keydown",reloadGame);
 }
 
-function reloadPage(event)
+function hidGameOverScreen()
 {
-	
-	if (event.key == "r")
-	{
-		window.location.reload();
-	}
+	overlayUiElement.style.display = "inline";
+	gameOverElement.style.display = "none";
 }
+
+
 
 
