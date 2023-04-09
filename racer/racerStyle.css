@@ -98,3 +98,11 @@ body
 	}
 }
 
+#restartButton
+{
+	border-radius: 20px;
+	width: 50%;
+	height: 50px;
+	font-size: 25px;
+}
+
