@@ -610,7 +610,6 @@ function play()
 {
 	if (isGameOver)
 	{
-		console.log('Paused');
 		return;
 
 	}
@@ -730,11 +729,20 @@ function initialiseGlobalGameSettings()
 }
 function restartGame()
 {
+	turnOffGameOverScreen();
 	initialiseGlobalGameSettings();
 	initialiseBorderRects();
 	initialiseObstacleCars();
 	initialisePlayer();
 	play();
+}
+function turnOffGameOverScreen()
+{
+	if (gameOverScreen.style.display != 'none')
+	{
+		gameOverScreen.style.display = 'none';
+	}
+	return;
 }
  
 
@@ -816,5 +824,10 @@ playerIcone.src = "Player.svg";
 var player;
 var playerScore;
 
+var gameOverScreen = document.getElementById('gameOverScreen');
+
+document.getElementById('restartButton').ontouchstart = function(event){
+	restartGame();
+}
 
 startGame();
