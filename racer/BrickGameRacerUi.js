@@ -5,32 +5,31 @@ var playerSpeedElement = document.getElementById("playerSpeed");
 var overlayUiElement = document.getElementById("overlayUiContainer");
 
 
+var speedElement = document.getElementById("speedElement");
+var scoreElement = document.getElementById("scoreElement");
+
+speedElement.style.width = `${Math.floor(canvasWidth/2) - horiItemDis}px`;
+scoreElement.style.width = `${Math.floor(canvasWidth/2) - horiItemDis}px`;
+
+
 
 function popGameOverScreen()
 {
 	overlayUiElement.style.display = "none";
 	gameOverElement.style.display = "inline";
-	var canvasWidth = canvas.width;
-	var canvasHeight = canvas.height;
-	const gameOverElementWidth = 0.8* canvasWidth;
-	const gameOverElementHeight = 0.5 * canvasHeight;
 
-	gameOverElement.style.width = `${gameOverElementWidth}px`;
-	//gameOverElement.style.height = `${gameOverElementHeight}px` ;
+	playerScoreElement.innerHTML = "Speed : " +speedElement.innerHTML;
+	playerSpeedElement.innerHTML = "Score : " + Math.floor(playerScore);
 
-	playerScoreElement.innerHTML = "Speed : " + Math.floor(playerScore);
-	playerSpeedElement.innerHTML = "Score : " + speedElement.innerHTML;
-
-	window.addEventListener("keydown",(event)=>{reloadPage(event)})
+	//window.addEventListener("keydown",reloadGame);
 }
 
-function reloadPage(event)
+function hidGameOverScreen()
 {
-	
-	if (event.key == "r")
-	{
-		window.location.reload();
-	}
+	overlayUiElement.style.display = "inline";
+	gameOverElement.style.display = "none";
 }
+
+
 
 
