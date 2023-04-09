@@ -10,16 +10,9 @@ function popGameOverScreen()
 {
 	overlayUiElement.style.display = "none";
 	gameOverElement.style.display = "inline";
-	var canvasWidth = canvas.width;
-	var canvasHeight = canvas.height;
-	const gameOverElementWidth = 0.8* canvasWidth;
-	const gameOverElementHeight = 0.5 * canvasHeight;
 
-	gameOverElement.style.width = `${gameOverElementWidth}px`;
-	//gameOverElement.style.height = `${gameOverElementHeight}px` ;
-
-	playerScoreElement.innerHTML = "Speed : " + Math.floor(playerScore);
-	playerSpeedElement.innerHTML = "Score : " + speedElement.innerHTML;
+	playerScoreElement.innerHTML = "Speed : " +speedElement.innerHTML;
+	playerSpeedElement.innerHTML = "Score : " + Math.floor(playerScore);
 
 	window.addEventListener("keydown",(event)=>{reloadPage(event)})
 }

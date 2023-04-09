@@ -39,15 +39,62 @@ body
 
 #gameOverScreen
 {
-	display: none;
 	position: absolute;
-	background-color: rgba(137, 196, 244, 1.0);
-	border-radius: 10px;
 	top:50%;
 	right: 	50%;
 	transform: 	translate(50%,-50%);
+
+	display: none;
+	
+	background-color: rgb(220,220,220);
+	border-radius: 10px;
+	
+	
+	
 	text-align: center	;
-	text-align: center;
 	vertical-align: middle;
-	font-size: 1vw;
 }
+
+@media (min-width : 1400px)
+{
+	#gameOverScreen{
+		
+		width: 450px;
+		font-size: 32px;
+		
+	}
+}
+@media (max-width : 1400px)
+{
+	#gameOverScreen{
+		
+		width: 400px;
+		font-size: 30px;	
+	}
+}
+
+@media (max-width : 1000px)
+{
+	#gameOverScreen{
+		width: 400px;
+		font-size: 28px;	
+	}
+}
+
+@media (max-width : 700px)
+{
+	#gameOverScreen{
+		width: 350px;
+		font-size: 25px;	
+	}
+}
+
+@media (max-width : 400px)
+{
+	#gameOverScreen{
+		width: 300px;
+		font-size: 22px;	
+
+	}
+}
+
