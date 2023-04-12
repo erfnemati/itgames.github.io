@@ -1,40 +1,47 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>BrickGameRacer</title>
-	<link rel="stylesheet" type="text/css" href="racerStyle.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BrickGameRacer</title>
+    <link rel="stylesheet" type="text/css" href="racerStyle.css" />
+  </head>
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-LGCZCTL7QX"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-	<div style="right: 50%;  position: absolute; transform: translateX(50%);">
-		<div id="overlayUiContainer">
-			<div id="scoreElement">score</div>
-			<div id="speedElement">speed</div>
-		</div>
-		<div id="gameOverScreen">
-			<div style="white-space: nowrap ;">
-				<h2>Game Over</h2>
-				<h3 id="playerSpeed">Speed is : 1G </h3>
-				<h3 id="playerScore">Score is : 1000</h3>
-			</div>
+    gtag("config", "G-LGCZCTL7QX");
+  </script>
+  <body>
+    <div style="right: 50%; position: absolute; transform: translateX(50%)">
+      <div id="overlayUiContainer">
+        <div id="scoreElement">score</div>
+        <div id="speedElement">speed</div>
+      </div>
+      <div id="gameOverScreen">
+        <div style="white-space: nowrap">
+          <h2>Game Over</h2>
+          <h3 id="playerSpeed">Speed is : 1G</h3>
+          <h3 id="playerScore">Score is : 1000</h3>
+        </div>
 
-			<span>
-				<button id="restartButton" onclick="restartGame()" >Restart</button>
-			</span>
+        <span>
+          <button id="restartButton" onclick="restartGame()">Restart</button>
+        </span>
+      </div>
 
+      <canvas></canvas>
+    </div>
 
-		</div>
-
-		<canvas></canvas>
-		
-	</div>
-
-
-
-	<script src="BrickGameRacerLogic.js"></script>
-	<script src="BrickGameRacerUi.js"></script>
-
-</body>
+    <script src="BrickGameRacerLogic.js"></script>
+    <script src="BrickGameRacerUi.js"></script>
+  </body>
 </html>
