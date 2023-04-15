@@ -729,6 +729,7 @@ function initialiseGlobalGameSettings()
 }
 function restartGame()
 {
+	hidGameOverScreen()
 	turnOffGameOverScreen();
 	initialiseGlobalGameSettings();
 	initialiseBorderRects();

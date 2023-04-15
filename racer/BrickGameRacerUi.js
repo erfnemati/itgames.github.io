@@ -4,7 +4,6 @@ var playerScoreElement = document.getElementById("playerScore");
 var playerSpeedElement = document.getElementById("playerSpeed");
 var overlayUiElement = document.getElementById("overlayUiContainer");
 
-
 var speedElement = document.getElementById("speedElement");
 var scoreElement = document.getElementById("scoreElement");
 
@@ -26,6 +25,7 @@ function popGameOverScreen()
 
 function hidGameOverScreen()
 {
+	console.log("hello" + overlayUiElement);
 	overlayUiElement.style.display = "inline";
 	gameOverElement.style.display = "none";
 }
