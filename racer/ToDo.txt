@@ -17,14 +17,18 @@ ToDo
 
 What's next?
 	
-	1- Normalize speed increase 
-	2- Make collision softer
-	3- Adding colors
-	4- Car rotation
+	1- Speed increase with a pattern (third) 
+	2- Make collision softer (sec)
+	3- Adding graphics (First)
+		Different cars for players
+		Different obstacle cars with different length
+		Add start menu
+		Side road blocks
+		Adding scenery images (Last priority)
+		Adding collision effect (With short amount of waiting )
+		Adding speed element ui
+	4-Adding scoreboard
+	5-Adding share option
 
 	
-	1-Adding telecommunication site and slow mtn sites
-	2-Become superman power up
-	3-Adding coins
-	4-Adding different cars
 
