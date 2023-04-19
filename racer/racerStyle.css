@@ -10,17 +10,41 @@ body
 }
 
 .startMenu{
-	width: 30%;
-	height: 40%;
-	max-width: 500px;
+	width: 60%;
+	height:30%;
+	max-width: 450px;
 	max-height: 600px;
 	background-color: rgba(220, 220, 220,0.5);
 	text-align: center;
+	border-radius: 10px;
+	margin: min(100px , 50%) auto;
+	padding: 1px 5px 5px 5px;
 	
 }
 
 .gameplayScreen{
 	display: none;
+}
+
+.car-image-container {
+	height: 40%;
+	width: 40%;
+	max-width: 200px;
+	max-height: 200px;
+	margin: 0 auto;
+	margin-top: 20%;
+	margin-bottom: 10%;
+}
+
+.action-button{
+	width: 30%;
+	height: 30%;
+	max-width: 400px;
+	max-height: 300px;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 #overlayUiContainer
