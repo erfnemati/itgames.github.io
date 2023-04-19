@@ -9,6 +9,20 @@ body
 	margin: 0px;
 }
 
+.startMenu{
+	width: 30%;
+	height: 40%;
+	max-width: 500px;
+	max-height: 600px;
+	background-color: rgba(220, 220, 220,0.5);
+	text-align: center;
+	
+}
+
+.gameplayScreen{
+	display: none;
+}
+
 #overlayUiContainer
 {
 	text-align: center;

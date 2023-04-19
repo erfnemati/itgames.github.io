@@ -831,4 +831,4 @@ document.getElementById('restartButton').ontouchstart = function(event){
 	restartGame();
 }
 
-startGame();
+//startGame();

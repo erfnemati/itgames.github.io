@@ -32,4 +32,21 @@ function hidGameOverScreen()
 
 
 
+//! From here start menu code begine : 
+var gameplayScreen = document.getElementById("gameplayScreen");
+var startMenuScreen = document.getElementById("startMenu");
+var selectedCarIcon = null;
+
+
+function hidStartMenu()
+{
+
+    gameplayScreen.style.display="block";
+	startMenuScreen.style.display="none";
+	startGame();
+}
+
+
+
+
 
