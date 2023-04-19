@@ -767,6 +767,11 @@ function handleRestart(event)
 
 }
 
+function setPlayerCarIcon(img)
+{
+	playerIcone.src = img;	
+}
+
 //Canvas variables : 
 var canvas = document.querySelector('canvas');
 specifyCanvasSize(window.innerWidth,window.innerHeight);
@@ -818,7 +823,7 @@ const leftMostRestriction = borderRectWidth + horiItemDis ;
 const rightMostRestriction = canvasWidth - borderRectWidth - horiItemDis - carWidth;
 const initialPlayerPos = new Vector2(canvasWidth - borderRectWidth - horiItemDis - carWidth,
 	canvasHeight - carMinVerDis - carHeight);
-const playerIcone = new Image();
+var playerIcone = new Image();
 playerIcone.src = "Player.svg";
 
 //Player variables : 

@@ -35,16 +35,43 @@ function hidGameOverScreen()
 //! From here start menu code begine : 
 var gameplayScreen = document.getElementById("gameplayScreen");
 var startMenuScreen = document.getElementById("startMenu");
+var playerCarImage = document.getElementById("playerCarImage");
 var selectedCarIcon = null;
 
+let playerImages = [];
+var playerImagesIndex = 0;
 
+function setPlayerImages()
+{
+	playerImages.push("Obstacle.svg");
+	playerImages.push("Player.svg");
+}
 function hidStartMenu()
 {
 
     gameplayScreen.style.display="block";
 	startMenuScreen.style.display="none";
+	setPlayerCarIcon(selectedCarIcon);
 	startGame();
 }
+
+
+function scrollRight()
+{
+	console.log("going right");
+	console.log(playerImages[playerImagesIndex])
+	selectedCarIcon = playerCarImage.src;
+	playerCarImage.style.width="100%";
+	playerCarImage.style.height="100%";
+	
+}
+
+function leftScroll()
+{
+	console.log("going left");
+}
+
+
 
 
 
