@@ -17,16 +17,18 @@ ToDo
 
 What's next?
 	
-	1- Speed increase with a pattern (third) 
-	2- Make collision softer (sec)
+	1- Speed increase with a pattern (third)  					One working day
+	2- Make collision softer (sec) 								2 hours
+	
 	3- Adding graphics (First)
-		Different cars for players
-		Different obstacle cars with different length
-		Add start menu
-		Side road blocks
+		Different cars for players								2 hours
+		Different obstacle cars with different length			2 hours
+		Add start menu											One working day
+		Side road blocks										2 hours
 		Adding scenery images (Last priority)
-		Adding collision effect (With short amount of waiting )
-		Adding speed element ui
+		Adding collision effect (With short amount of waiting ) 4 hours
+		Adding speed element ui 								One working day
+		
 	4-Adding scoreboard
 	5-Adding share option
 
