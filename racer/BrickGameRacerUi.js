@@ -48,7 +48,6 @@ function setPlayerImages()
 }
 function hidStartMenu()
 {
-
     gameplayScreen.style.display="block";
 	startMenuScreen.style.display="none";
 	setPlayerCarIcon(selectedCarIcon);
@@ -58,8 +57,8 @@ function hidStartMenu()
 
 function scrollRight()
 {
-	console.log("going right");
-	console.log(playerImages[playerImagesIndex])
+	playerImagesIndex = (playerImagesIndex+1)%playerImages.length;
+	playerCarImage.src = playerImages[playerImagesIndex];
 	selectedCarIcon = playerCarImage.src;
 	playerCarImage.style.width="100%";
 	playerCarImage.style.height="100%";
@@ -68,8 +67,22 @@ function scrollRight()
 
 function leftScroll()
 {
-	console.log("going left");
+	if (playerImagesIndex <= 0)
+	{
+		playerImagesIndex = playerImages.length - 1;
+	}
+	else
+	{
+		playerImagesIndex--;
+	}
+
+	playerCarImage.src = playerImages[playerImagesIndex];
+	playerCarImage.style.width="100%";
+	playerCarImage.style.height="100%";
 }
+
+
+setPlayerImages();
 
 
 
