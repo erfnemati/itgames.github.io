@@ -36,7 +36,7 @@ function hidGameOverScreen()
 var gameplayScreen = document.getElementById("gameplayScreen");
 var startMenuScreen = document.getElementById("startMenu");
 var playerCarImage = document.getElementById("playerCarImage");
-var selectedCarIcon = null;
+var selectedCarIcon = "Obstacle.svg";
 
 let playerImages = [];
 var playerImagesIndex = 0;
@@ -45,6 +45,8 @@ function setPlayerImages()
 {
 	playerImages.push("Obstacle.svg");
 	playerImages.push("Player.svg");
+	//playerImages.push("/PlayerCarImages/Player1.svg")
+
 }
 function hidStartMenu()
 {
@@ -77,6 +79,7 @@ function leftScroll()
 	}
 
 	playerCarImage.src = playerImages[playerImagesIndex];
+	selectedCarIcon = playerCarImage.src
 	playerCarImage.style.width="100%";
 	playerCarImage.style.height="100%";
 }
