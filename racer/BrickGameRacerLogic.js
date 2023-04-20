@@ -525,6 +525,8 @@ function checkCarDeletion()
 
 function checkCarCallision()
 {
+	const xcollisionDetectionForgiveness = Math.floor(carHeight/2);
+	const ycollisionDetectionForgiveness = Math.floor(carHeight/5)
 	var cars = carQueue.getElements();
 	for(var i = 0 ; i < cars.length;i++)
 	{
@@ -557,10 +559,10 @@ function checkCarCallision()
 		}
 
 		if (rightCar.position.xPos >= leftCar.position.xPos
-			&& rightCar.position.xPos <= leftCar.position.xPos + carWidth)
+			&& rightCar.position.xPos <= leftCar.position.xPos + carWidth - xcollisionDetectionForgiveness)
 		{
 			if (lowerCar.position.yPos >= upperCar.position.yPos
-				&& lowerCar.position.yPos <= upperCar.position.yPos + carHeight)
+				&& lowerCar.position.yPos <= upperCar.position.yPos + carHeight - ycollisionDetectionForgiveness)
 			{
 				return true;
 			}
