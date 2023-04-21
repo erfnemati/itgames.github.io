@@ -152,8 +152,10 @@ class Queue
 
 class Car
 {
-	constructor(width,length,position,line,icon)
+	constructor(width,height,position,line,icon)
 	{
+		this.width = width;
+		this.height = height;
 		this.position  = position;
 		this.direction = new Vector2(0,1);
 		this.line = line;
@@ -164,7 +166,7 @@ class Car
 	{
 		//context.fillStyle = 'black';
 		//context.fillRect(this.position.xPos,this.position.yPos,carWidth,carHeight);
-		context.drawImage(this.icon,this.position.xPos,this.position.yPos,carWidth,carHeight);
+		context.drawImage(this.icon,this.position.xPos,this.position.yPos,this.width,this.height);
 	}
 
 	updatePos(timeBetweenFrames)
@@ -225,7 +227,7 @@ class Player
 	{
 		//context.fillStyle = this.color;
 		//context.fillRect(this.position.xPos,this.position.yPos,carWidth,carHeight);
-		context.drawImage(this.icon,this.position.xPos,this.position.yPos,carWidth ,carHeight);
+		context.drawImage(this.icon,this.position.xPos,this.position.yPos,playerCarWidth ,playerCarHeight);
 	}
 
 	checkRightRestriction()
@@ -389,7 +391,7 @@ function animatePlayer(player,timeBetweenFrames)
 		player.goRight(timeBetweenFrames);
 	}
 
-	if (checkCarCallision())
+	if (checkCarCollision())
 	{
 		isGameOver = true;
 		popGameOverScreen();
@@ -523,10 +525,11 @@ function checkCarDeletion()
 	}
 }
 
-function checkCarCallision()
+function checkCarCollision()
 {
-	const xcollisionDetectionForgiveness = Math.floor(carHeight/2);
-	const ycollisionDetectionForgiveness = Math.floor(carHeight/5)
+	
+	const xcollisionDetectionForgiveness = Math.floor(carHeight/3) ;
+	const ycollisionDetectionForgiveness = Math.floor(carHeight/8);
 	var cars = carQueue.getElements();
 	for(var i = 0 ; i < cars.length;i++)
 	{
@@ -535,34 +538,40 @@ function checkCarCallision()
 		var rightCar = currentCar;
 		var upperCar = currentCar;
 		var lowerCar = currentCar;
+		var upperCarHeight = 0;
+		var leftCarWidth = 0;
 
 		if (currentCar.position.xPos >= player.position.xPos)
 		{
 			rightCar = currentCar;
 			leftCar = player;
+			leftCarWidth = playerCarWidth;
 		}
 		else
 		{
 			rightCar = player;
 			leftCar = currentCar;
+			leftCarWidth = carWidth;
 		}
 
 		if (currentCar.position.yPos >= player.position.yPos)
 		{
 			upperCar = player;
 			lowerCar = currentCar;
+			upperCarHeight =  playerCarHeight;
 		}
 		else
 		{
 			upperCar = currentCar;
 			lowerCar = player;
+			upperCarHeight = currentCar.height;
 		}
 
 		if (rightCar.position.xPos >= leftCar.position.xPos
 			&& rightCar.position.xPos <= leftCar.position.xPos + carWidth - xcollisionDetectionForgiveness)
 		{
 			if (lowerCar.position.yPos >= upperCar.position.yPos
-				&& lowerCar.position.yPos <= upperCar.position.yPos + carHeight - ycollisionDetectionForgiveness)
+				&& lowerCar.position.yPos <= upperCar.position.yPos + upperCarHeight - ycollisionDetectionForgiveness)
 			{
 				return true;
 			}
@@ -769,9 +778,13 @@ function handleRestart(event)
 
 }
 
-function setPlayerCarIcon(img)
+function setPlayerCarIcon(img,originalImageWidth,originalImageLength)
 {
-	playerIcone.src = img;	
+	playerIcone.src = img;
+	var ratio = originalImageLength/originalImageWidth;
+	playerCarHeight = ratio * playerCarWidth;
+	alert(playerCarHeight);
+		
 }
 
 //Canvas variables : 
@@ -817,21 +830,24 @@ var lastGeneratedCar;
 
 
 
-
-//Player constants : 
-const playerCarHeight = carHeight;
-const changeLineSpeed = canvasWidth * 5;
-const leftMostRestriction = borderRectWidth + horiItemDis ;
-const rightMostRestriction = canvasWidth - borderRectWidth - horiItemDis - carWidth;
-const initialPlayerPos = new Vector2(canvasWidth - borderRectWidth - horiItemDis - carWidth,
-	canvasHeight - carMinVerDis - carHeight);
+//Player variables : 
+var playerCarHeight = canvasHeight/10;
+var player;
+var playerScore;
 var playerIcone = new Image();
 playerIcone.src = "Player.svg";
 
-//Player variables : 
-var player;
-var playerScore;
+//Player constants :
+const playerCarWidth = carWidth; 
+const changeLineSpeed = canvasWidth * 5;
+const leftMostRestriction = borderRectWidth + horiItemDis ;
+const rightMostRestriction = canvasWidth - borderRectWidth - horiItemDis - playerCarWidth;
+const initialPlayerPos = new Vector2(canvasWidth - borderRectWidth - horiItemDis - playerCarWidth,
+	canvasHeight - carMinVerDis - playerCarHeight);
+	
+	
 
+	
 var gameOverScreen = document.getElementById('gameOverScreen');
 
 document.getElementById('restartButton').ontouchstart = function(event){

@@ -9,11 +9,12 @@ body
 	margin: 0px;
 }
 
+
 .startMenu{
 	width: 60%;
-	height:30%;
+	height:40%;
 	max-width: 450px;
-	max-height: 600px;
+	max-height: 800px;
 	background-color: rgba(220, 220, 220,0.5);
 	text-align: center;
 	border-radius: 10px;
@@ -26,8 +27,11 @@ body
 	display: none;
 }
 
+
+
 .car-image-container {
-	height: 40%;
+	
+	height: 60%;
 	width: 40%;
 	max-width: 200px;
 	max-height: 200px;

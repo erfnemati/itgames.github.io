@@ -36,23 +36,24 @@ function hidGameOverScreen()
 var gameplayScreen = document.getElementById("gameplayScreen");
 var startMenuScreen = document.getElementById("startMenu");
 var playerCarImage = document.getElementById("playerCarImage");
-var selectedCarIcon = "Obstacle.svg";
+var selectedCarIcon = "/PlayerCarImages/PlayerCar1.svg";
 
 let playerImages = [];
 var playerImagesIndex = 0;
 
 function setPlayerImages()
 {
-	playerImages.push("Obstacle.svg");
-	playerImages.push("Player.svg");
-	//playerImages.push("/PlayerCarImages/Player1.svg")
+	playerImages.push("/PlayerCarImages/PlayerCar1.svg")
+	playerImages.push("/PlayerCarImages/PlayerCar2.svg")
+	playerImages.push("/PlayerCarImages/PlayerCar3.svg")
+	playerImages.push("/PlayerCarImages/PlayerCar4.svg")
 
 }
 function hidStartMenu()
 {
     gameplayScreen.style.display="block";
 	startMenuScreen.style.display="none";
-	setPlayerCarIcon(selectedCarIcon);
+	setPlayerCarIcon(selectedCarIcon,playerCarImage.naturalWidth,playerCarImage.naturalHeight);
 	startGame();
 }
 
