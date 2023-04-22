@@ -267,27 +267,58 @@ class Player
 
 class RandomisedCar
 {
-	constructor(carMinVerDis,canvasHeight,minCarLine,maxCarLine)
+	static lastCarLine = 0;
+	constructor()
 	{
+		
+		this.minCarLine = 1;
+		this.maxCarLine = 2;
+		this.maxDis = 1 * canvasHeight; //TODO :Think about changing this parameter
 		this.minDis = carMinVerDis;
-		this.maxDis = canvasHeight;
-		this.minCarLine = minCarLine;
-		this.maxCarLine = maxCarLine;
-		this.carLine =  this.getRandomCarLine();
-		this.distance = this.getRandomDis();
+		this.carLine = this.getRandCarLine();
+		this.distance = this.getRandomDis();//TODO : rename this method and refactor random functions.
+		this.carIcon = new Image();
+		this.carIcon.src = this.getRandomCarIcon();
+		this.width = carWidth;
+		this.height = this.setObstacleHeight();
+		
 	}
 
 	getRandomDis()
 	{
-		var randomDis = Math.floor(Math.random() * (this.maxDis	- this.minDis + 1) + this.minDis);
+		if (this.lastCarLine != this.carLine)
+		{
+			var randomDis = Math.floor(Math.random * (this.maxDis - (2 *this.minDis + playerCarHeight) + 1) + 2*this.minDis + playerCarHeight);
+		}
+		else
+		{
+			var randomDis = Math.floor(Math.random() * (this.maxDis	- this.minDis + 1) + this.minDis);
+
+		}
 		return randomDis;
 	}
 
-	getRandomCarLine()
+	getRandCarLine()
 	{
-		var randomCarLine = Math.floor(Math.random() * (this.maxCarLine - this.minCarLine + 1) + this.minCarLine )
+		var randomCarLine = Math.floor(Math.random() * (this.maxCarLine - this.minCarLine + 1) + this.minCarLine );
+		this.lastCarLine = randomCarLine;
 		return randomCarLine;
 	}
+
+	getRandomCarIcon()
+	{
+		var randomObstacleCarIndex = Math.floor(Math.random() * ((obstacleCarImages.length-1) - 0 + 1) + 0 );
+		var randomCarIcon = obstacleCarImages[randomObstacleCarIndex];
+		return randomCarIcon;
+	}
+
+	setObstacleHeight()
+	{
+		var ratio = 1.6//= this.carIcon.naturalHeight / this.carIcon.naturalWidth;
+		carHeight = carWidth * ratio;
+		return carHeight;
+	}
+
 }
 
 function getRandomisedCars(numberOfCars)
@@ -416,10 +447,11 @@ function handleInput(event)
 	
 }
 
-function generateCar(carLine)
+function generateCar()
 {
 	var nextCarPos = new Vector2(0,- carHeight);
-	if (carLine == 1)
+	var nextCar = randomObstacleCars[randomObsCarIndex];
+	if (nextCar.carLine == 1)
 	{
 		nextCarPos = new Vector2(borderRectWidth + horiItemDis,- carHeight);
 	}
@@ -428,85 +460,27 @@ function generateCar(carLine)
 		nextCarPos = new Vector2(canvasWidth - borderRectWidth - horiItemDis - carWidth, - carHeight);
 	}
 
-	var nextCar = new Car (carWidth,carHeight,nextCarPos,carLine,carIcon);
+	var nextCar = new Car (nextCar.width,nextCar.height,nextCarPos,nextCar.carLine,nextCar.carIcon);
 	carQueue.enqueue(nextCar);
-	carLineQueue.dequeue();
-	carDistanceQueue.dequeue();
+	randomObsCarIndex = (randomObsCarIndex + 1) % randomObstacleCars.length;
 	lastGeneratedCar = nextCar;
 }
 
 function isLastGeneratedCarFarEnough()
 {
-	if (lastGeneratedCar.position.yPos >= getRandomDist())
+	if (lastGeneratedCar.position.yPos >= randomObstacleCars[randomObsCarIndex].distance)
 	{
 		return true;
 	}
 	return false;
 }
 
-function getRandomDist()
-{
-	if (carDistanceQueue.isEmpty())
-	{
-		fillCarDisQueue(carMinVerDis,canvasHeight);
-	}
-	var randomDis = carDistanceQueue.peek();
-	return randomDis;
-}
-
-function getRandomCarLine(min , max)
-{
-	if (carLineQueue.isEmpty())
-	{
-		fillCarLineQueue(min,max);
-	}
-	var randomCarLine = carLineQueue.peek();
-	return randomCarLine;
-}
-function fillCarLineQueue(min , max)
-{
-	for(var i = 0 ; i < 50 ; i++)
-	{
-		var randomCarLine = Math.floor(Math.random() * (max - min + 1) + min );
-		carLineQueue.enqueue(randomCarLine);
-	}
-}
-
-function fillCarDisQueue(min,max)
-{
-	for (var i = 0 ; i < 50 ; i++)
-	{
-		var randomDis = Math.floor(Math.random() * (max - min + 1) + min);
-		carDistanceQueue.enqueue(randomDis);
-	}
-}
-
-function isLineFeasible(carLine)
-{
-	if (carLine == lastGeneratedCar.line)
-	{
-		return true;
-	}
-	else if (carLine != lastGeneratedCar.line)
-	{
-		if (lastGeneratedCar.position.yPos >= playerCarHeight + carMinVerDis )
-		{
-			return true;
-		}
-		return false;
-	}
-}
 
 function checkCarGeneration()
 {
 	if (isLastGeneratedCarFarEnough())
 	{
-		var carLine = getRandomCarLine(1,2);
-		if (isLineFeasible(carLine))
-		{
-			generateCar(carLine);
-		}
-
+		generateCar();
 	}
 
 }
@@ -528,7 +502,7 @@ function checkCarDeletion()
 function checkCarCollision()
 {
 	
-	const xcollisionDetectionForgiveness = Math.floor(carHeight/3) ;
+	const xcollisionDetectionForgiveness = Math.floor(carHeight/6) ;
 	const ycollisionDetectionForgiveness = Math.floor(carHeight/8);
 	var cars = carQueue.getElements();
 	for(var i = 0 ; i < cars.length;i++)
@@ -718,7 +692,13 @@ function initialiseObstacleCars()
 	carDistanceQueue = new Queue(60);
 	carQueue = new Queue(15);
 	carLineQueue = new Queue (60);
-	firstCar = new Car(carWidth,carHeight,new Vector2(borderRectWidth + horiItemDis,-carHeight),1,carIcon);
+	fillrandomObstacleCars();
+	randomObsCarIndex = (randomObsCarIndex + 1) % randomObstacleCars.length;
+	firstRanObsCar = randomObstacleCars[randomObsCarIndex];
+	firstCar = new Car(firstRanObsCar.width,firstRanObsCar.height,
+						new Vector2(borderRectWidth + horiItemDis,-carHeight),
+						firstRanObsCar.carLine,firstRanObsCar.carIcon);
+
 	lastGeneratedCar = firstCar;
 	carQueue.enqueue(lastGeneratedCar);
 }
@@ -787,6 +767,21 @@ function setPlayerCarIcon(img,originalImageWidth,originalImageLength)
 		
 }
 
+function setObstacleCarImages()
+{
+	obstacleCarImages.push("/ObstacleCarImages/ObstacleCar1.svg");
+	obstacleCarImages.push("/ObstacleCarImages/ObstacleCar2.svg");
+	obstacleCarImages.push("/ObstacleCarImages/ObstacleCar3.svg");
+}
+
+function fillrandomObstacleCars()
+{
+	for(var i = 0 ; i< numOfObstacleCars; i++)
+	{
+		randomObstacleCars.push(new RandomisedCar());
+	}
+}
+
 //Canvas variables : 
 var canvas = document.querySelector('canvas');
 specifyCanvasSize(window.innerWidth,window.innerHeight);
@@ -794,13 +789,16 @@ let canvasHeight = canvas.height;
 let canvasWidth = canvas.width;
 var context = canvas.getContext('2d');
 
-//Global game variable : 
+//Global game variables : 
 var lastFrameTime;
 var initialSpeed;
 var globalSpeed;
 var speedIncreasePerSec;
 var isGameOver;
 var isTapped;
+var obstacleCarImages = [];
+var randomObstacleCars= [];
+var randomObsCarIndex = 0;
 
 //BorderRect constants : 
 const borderRectWidth = Math.floor(0.05 * canvasWidth);
@@ -814,14 +812,18 @@ var lastBorderRect;
 
 
 //Obstacle cars const : 
+const numOfObstacleCars = 100;
 const carWidth = Math.floor(0.35 * canvasWidth);
-const carHeight = carWidth;
 const carMinVerDis = Math.floor(canvasHeight/5);
 const horiItemDis = Math.floor (0.05 * canvasWidth);
-const carIcon = new Image();
-carIcon.src = "Obstacle.svg";
 
-//Obstacle cars variables : 
+
+
+
+//Obstacle cars variables :
+var carIcon = new Image();
+carIcon.src = "/ObstacleCarImages/ObstacleCar1.svg";
+var carHeight = carWidth;
 var carDistanceQueue;
 var carQueue;
 var carLineQueue;
@@ -853,5 +855,7 @@ var gameOverScreen = document.getElementById('gameOverScreen');
 document.getElementById('restartButton').ontouchstart = function(event){
 	restartGame();
 }
+
+setObstacleCarImages();
 
 //startGame();

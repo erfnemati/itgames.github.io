@@ -32,7 +32,7 @@ function hidGameOverScreen()
 
 
 
-//! From here start menu code begine : 
+//* From here start menu code begine : 
 var gameplayScreen = document.getElementById("gameplayScreen");
 var startMenuScreen = document.getElementById("startMenu");
 var playerCarImage = document.getElementById("playerCarImage");
@@ -43,10 +43,13 @@ var playerImagesIndex = 0;
 
 function setPlayerImages()
 {
-	playerImages.push("/PlayerCarImages/PlayerCar1.svg")
-	playerImages.push("/PlayerCarImages/PlayerCar2.svg")
-	playerImages.push("/PlayerCarImages/PlayerCar3.svg")
-	playerImages.push("/PlayerCarImages/PlayerCar4.svg")
+	playerImages.push("/PlayerCarImages/PlayerCar1.svg");
+	playerImages.push("/PlayerCarImages/PlayerCar2.svg");
+	playerImages.push("/PlayerCarImages/PlayerCar3.svg");
+	playerImages.push("/PlayerCarImages/PlayerCar4.svg");
+	playerImages.push("/PlayerCarImages/PlayerCar5.svg");
+	playerImages.push("/PlayerCarImages/PlayerCar6.svg");
+
 
 }
 function hidStartMenu()
