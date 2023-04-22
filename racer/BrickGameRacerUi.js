@@ -25,7 +25,6 @@ function popGameOverScreen()
 
 function hidGameOverScreen()
 {
-	console.log("hello" + overlayUiElement);
 	overlayUiElement.style.display = "inline";
 	gameOverElement.style.display = "none";
 }

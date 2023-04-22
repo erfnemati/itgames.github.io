@@ -5,12 +5,14 @@ class BorderRect
 	position;
 	direction;
 
-	constructor(width,length,position)
+	constructor(width,length,position,borderRectIconSrc)
 	{
 		this.width = width;
 		this.length = length;
 		this.position = position;
 		this.direction = new Vector2(0,1);
+		this.borderRectIcon = new Image();
+		this.borderRectIcon.src = borderRectIconSrc;
 	}
 
 	updatePos(timeBetweenFrames)
@@ -23,8 +25,8 @@ class BorderRect
 	draw()
 	{
 		//this.updatePos();
-		context.fillStyle = 'black';
-		context.fillRect(this.position.xPos,this.position.yPos,this.width,this.length);
+		//context.fillStyle = 'black';
+		context.drawImage(this.borderRectIcon,this.position.xPos,this.position.yPos,this.width,this.length);
 	}
 
 	move(timeBetweenFrames)
@@ -270,7 +272,6 @@ class RandomisedCar
 	static lastCarLine = 0;
 	constructor()
 	{
-		
 		this.minCarLine = 1;
 		this.maxCarLine = 2;
 		this.maxDis = 1 * canvasHeight; //TODO :Think about changing this parameter
@@ -288,20 +289,20 @@ class RandomisedCar
 	{
 		if (this.lastCarLine != this.carLine)
 		{
-			var randomDis = Math.floor(Math.random * (this.maxDis - (2 *this.minDis + playerCarHeight) + 1) + 2*this.minDis + playerCarHeight);
+			var randomDis = Math.floor(Math.random() * (this.maxDis - (this.minDis + playerCarHeight) + 1) + this.minDis + playerCarHeight);
 		}
 		else
 		{
 			var randomDis = Math.floor(Math.random() * (this.maxDis	- this.minDis + 1) + this.minDis);
 
 		}
+		RandomisedCar.lastCarLine = this.carLine;
 		return randomDis;
 	}
 
 	getRandCarLine()
 	{
 		var randomCarLine = Math.floor(Math.random() * (this.maxCarLine - this.minCarLine + 1) + this.minCarLine );
-		this.lastCarLine = randomCarLine;
 		return randomCarLine;
 	}
 
@@ -345,7 +346,7 @@ function getTimeBetweenFrames()
 
 function isTimeForNewBorderRect(distance)
 {
-	if (lastBorderRect.position.yPos >= distance)
+	if (lastBorderRect.position.yPos >= -0.5)
 	{
 		return true;
 	}
@@ -373,14 +374,14 @@ function animateBorderRects(timeBetweenFrames)
 		elements[i].move(timeBetweenFrames);
 
 		var rightElement = new BorderRect(borderRectWidth,borderRectHeight,
-			new Vector2(canvasWidth - borderRectWidth,elements[i].position.yPos));
+			new Vector2(canvasWidth - borderRectWidth,elements[i].position.yPos),borderRectSrc);
 
 		rightElement.draw();
 	}
 
-	if (isTimeForNewBorderRect(borderRect.length))
+	if (isTimeForNewBorderRect(0))
 	{
-		var newBorderRect = new BorderRect(borderRectWidth,borderRectHeight,new Vector2(0,-borderRectHeight));
+		var newBorderRect = new BorderRect(borderRectWidth,borderRectHeight,new Vector2(0,-borderRectHeight),borderRectSrc);
 		lastBorderRect = newBorderRect;
 		borderRectQueue.enqueue(newBorderRect);
 	}
@@ -504,7 +505,8 @@ function checkCarCollision()
 	
 	const xcollisionDetectionForgiveness = Math.floor(carHeight/6) ;
 	const ycollisionDetectionForgiveness = Math.floor(carHeight/8);
-	var cars = carQueue.getElements();
+	var cars = [];
+	cars = carQueue.getElements();
 	for(var i = 0 ; i < cars.length;i++)
 	{
 		var currentCar = cars[i];
@@ -682,7 +684,7 @@ function addListeners()
 function initialiseBorderRects()
 {
 	borderRectQueue = new Queue(15);
-	borderRect = new BorderRect(borderRectWidth,borderRectHeight,new Vector2(0,0));
+	borderRect = new BorderRect(borderRectWidth,borderRectHeight,new Vector2(0,0),borderRectSrc);
 	lastBorderRect = borderRect;
 	borderRectQueue.enqueue(borderRect);
 }
@@ -763,7 +765,6 @@ function setPlayerCarIcon(img,originalImageWidth,originalImageLength)
 	playerIcone.src = img;
 	var ratio = originalImageLength/originalImageWidth;
 	playerCarHeight = ratio * playerCarWidth;
-	alert(playerCarHeight);
 		
 }
 
@@ -776,6 +777,8 @@ function setObstacleCarImages()
 
 function fillrandomObstacleCars()
 {
+	randomObstacleCars.length = 0;
+	randomObsCarIndex = 0;
 	for(var i = 0 ; i< numOfObstacleCars; i++)
 	{
 		randomObstacleCars.push(new RandomisedCar());
@@ -801,10 +804,11 @@ var randomObstacleCars= [];
 var randomObsCarIndex = 0;
 
 //BorderRect constants : 
-const borderRectWidth = Math.floor(0.05 * canvasWidth);
+const borderRectWidth = Math.floor(0.1 * canvasWidth);
 const borderRectHeight = Math.floor(canvasHeight * 3/20);
 
-//BorderRect variables : 
+//BorderRect variables :
+var borderRectSrc = "/SideroadBlocks/SideroadBlock1.svg"; 
 var borderRectQueue;
 var borderRect;
 var lastBorderRect;
