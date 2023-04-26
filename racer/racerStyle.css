@@ -135,7 +135,7 @@ body
 	right: 	50%;
 	transform: 	translate(50%,-50%);
 	display: none;
-	background-color: rgb(220,220,220);
+	background-color: #FFEF00;
 	border-radius: 10px;
 	text-align: center	;
 	vertical-align: middle;
