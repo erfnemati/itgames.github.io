@@ -11,19 +11,36 @@ body
 
 .speed-meter-container{
 	position: absolute;
-	width: 15px;
-	height: 99%;
-	border: 0.5px solid;
+	width: 20px;
+	height: 92%;
+	top:4%;
+	bottom: 4%;
 	border-color: black;
-	border-radius: 10px;
+	justify-content: center;
+	align-items: center;
 }
 
-.speed-meter{
+.speed-meter
+{
 	background-color: purple;
 	height: 50%;
-	border-radius: 10px;
 	position: relative;
+	
 
+}
+
+.speed-meter-text
+{
+	display: inline-block;
+	top : -30px;
+	left: -5px;
+	border: 1px solid;
+	color : white;
+	font-size: large;
+	border-radius: 20px;
+	position: absolute;
+	padding: 3px 3px 3px 3px;
+	background-color: black;
 }
 
 

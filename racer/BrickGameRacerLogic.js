@@ -564,6 +564,7 @@ function increaseGloablSpeed(timeBetweenFrames)
 	{
 		globalSpeed = maxSpeed;
 	}
+	updateSpeedBar(globalSpeed/maxSpeed);
 }
 
 function updatePlayerScore(timeBetweenFrames)
@@ -808,7 +809,7 @@ var obstacleCarImages = [];
 var randomObstacleCars= [];
 var randomObsCarIndex = 0;
 
-const maxSpeed = 20000;
+const maxSpeed = 1000;
 
 //BorderRect constants : 
 const borderRectWidth = Math.floor(0.1 * canvasWidth);

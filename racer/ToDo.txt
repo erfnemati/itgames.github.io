@@ -27,11 +27,17 @@ What's next?
 		
 		Side road blocks										Done
 		Adding collision effect (With short amount of waiting ) 4 hours
-		Adding speed element ui 								One working day
+		Adding speed element ui 								One work
 		Adding scenery images (Last priority)
 		
 	4-Adding scoreboard
 	5-Adding share option
+
+
+	colorful start and gameover screen
+	rotate car in second line
+	Colorful speed meter
+	
 
 	
 

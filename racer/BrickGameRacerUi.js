@@ -3,8 +3,10 @@ var canvas = document.querySelector('canvas');
 var playerScoreElement = document.getElementById("playerScore");
 var playerSpeedElement = document.getElementById("playerSpeed");
 var overlayUiElement = document.getElementById("overlayUiContainer");
+
 var speedBarContainer = document.getElementById("speed-meter-container");
 var speedBar = document.getElementById("speed-meter");
+var speedBarText = document.getElementById("speed-meter-text");
 
 var speedElement = document.getElementById("speedElement");
 var scoreElement = document.getElementById("scoreElement");
@@ -104,7 +106,6 @@ function initialiseSpeedBarContainer()
 	speedBarContainer.style.left = `${canvasXPos - xDiffOfCanvas}px`;
 
 	speedBarHeight = speedBarContainer.offsetHeight;
-	updateSpeedBar(0.75);
 }
 
 function updateSpeedBar(percentage)
@@ -120,12 +121,41 @@ function updateSpeedBar(percentage)
 
 function updateColor(percentage)
 {
-	//TODO update speed color.
+	if (percentage <= 0.2)
+	{
+		speedBar.style.backgroundColor = "green";
+		speedBarText.style.backgroundColor = "green";
+		updateText("1G");
+	}
+	else if (percentage <=0.4)
+	{
+		speedBar.style.backgroundColor = "#FFDF00";
+		speedBarText.style.backgroundColor="#FFDF00";
+		updateText("2G");
+	}
+	else if(percentage <= 0.6)
+	{
+		speedBar.style.backgroundColor="orange";
+		speedBarText.style.backgroundColor="orange";
+		updateText("3G");
+	}
+	else if (percentage <= 0.8)
+	{
+		speedBar.style.backgroundColor= "#FA5F55";
+		speedBarText.style.backgroundColor="#FA5F55";
+		updateText("4G");
+	}
+	else
+	{
+		speedBar.style.backgroundColor= "#D2042D";
+		speedBarText.style.backgroundColor="#D2042D";
+		updateText("5G");
+	}
 }
 
-function updateText()
+function updateText(speedText)
 {
-	//TODO time to update speed text
+	speedBarText.innerHTML = speedText;
 }
 
 
