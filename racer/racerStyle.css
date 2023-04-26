@@ -10,6 +10,7 @@ body
 }
 
 .speed-meter-container{
+	display: none;
 	position: absolute;
 	width: 20px;
 	height: 92%;
@@ -49,7 +50,7 @@ body
 	height:40%;
 	max-width: 450px;
 	max-height: 800px;
-	background-color: rgba(220, 220, 220,0.5);
+	background-color: #FFEF00;
 	text-align: center;
 	border-radius: 10px;
 	margin: min(150px , 30%) auto;
@@ -64,14 +65,20 @@ body
 
 
 .car-image-container {
-	
-	height: 60%;
+	display: block;
+	height: 70%;
 	width: 40%;
 	max-width: 200px;
 	max-height: 200px;
-	margin: 0 auto;
-	margin-top: 20%;
-	margin-bottom: 10%;
+	margin: 10% auto;
+}
+
+.player-car-image
+{
+	width: 70%;
+	height: 50%;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 .action-button{

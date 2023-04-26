@@ -77,8 +77,8 @@ function scrollRight()
 	playerImagesIndex = (playerImagesIndex+1)%playerImages.length;
 	playerCarImage.src = playerImages[playerImagesIndex];
 	selectedCarIcon = playerCarImage.src;
-	playerCarImage.style.width="100%";
-	playerCarImage.style.height="100%";
+	playerCarImage.style.width="70%";
+	playerCarImage.style.height="60%";
 	
 }
 
@@ -95,12 +95,13 @@ function leftScroll()
 
 	playerCarImage.src = playerImages[playerImagesIndex];
 	selectedCarIcon = playerCarImage.src
-	playerCarImage.style.width="100%";
-	playerCarImage.style.height="100%";
+	playerCarImage.style.width="70%";
+	playerCarImage.style.height="60%";
 }
 
 function initialiseSpeedBarContainer()
 {
+	speedBarContainer.style.display = "block";
 	var canvasXPos = window.scrollY + canvas.getBoundingClientRect().left;
 	
 	speedBarContainer.style.left = `${canvasXPos - xDiffOfCanvas}px`;

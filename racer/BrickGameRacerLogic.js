@@ -859,7 +859,7 @@ var obstacleCarImages = [];
 var randomObstacleCars= [];
 var randomObsCarIndex = 0;
 
-const maxSpeed = 1000;
+const maxSpeed = 1300;
 
 //BorderRect constants : 
 const borderRectWidth = Math.floor(0.05 * canvasWidth);
