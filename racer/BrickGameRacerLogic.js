@@ -4,15 +4,17 @@ class BorderRect
 	length;
 	position;
 	direction;
+	color
 
-	constructor(width,length,position,borderRectIconSrc)
+	constructor(width,length,position,color)
 	{
 		this.width = width;
 		this.length = length;
 		this.position = position;
 		this.direction = new Vector2(0,1);
-		this.borderRectIcon = new Image();
-		this.borderRectIcon.src = borderRectIconSrc;
+		//this.borderRectIcon = new Image();
+		this.color = color;
+		//this.borderRectIcon.src = borderRectIconSrc;
 	}
 
 	updatePos(timeBetweenFrames)
@@ -25,8 +27,8 @@ class BorderRect
 	draw()
 	{
 		//this.updatePos();
-		//context.fillStyle = 'black';
-		context.drawImage(this.borderRectIcon,this.position.xPos,this.position.yPos,this.width,this.length);
+		context.fillStyle = this.color;
+		context.fillRect(this.position.xPos,this.position.yPos,this.width,this.length);
 	}
 
 	move(timeBetweenFrames)
@@ -360,7 +362,6 @@ function isTimeForDeleteOldRect()
 	if (borderRectQueue.peek().position.yPos >= canvasHeight )
 	{
 		return true;
-		console.log('time to remove');
 	}
 	return false;
 }
@@ -374,14 +375,26 @@ function animateBorderRects(timeBetweenFrames)
 		elements[i].move(timeBetweenFrames);
 
 		var rightElement = new BorderRect(borderRectWidth,borderRectHeight,
-			new Vector2(canvasWidth - borderRectWidth,elements[i].position.yPos),borderRectSrc);
+			new Vector2(canvasWidth - borderRectWidth,elements[i].position.yPos),elements[i].color);
 
 		rightElement.draw();
 	}
 
-	if (isTimeForNewBorderRect(0))
+	if (isTimeForNewBorderRect(canvasHeight/5))
 	{
-		var newBorderRect = new BorderRect(borderRectWidth,borderRectHeight,new Vector2(0,-borderRectHeight),borderRectSrc);
+		var nextColor = "black";
+		if (isBlack)
+		{
+			nextColor = "#FFFF9F";
+			isBlack = false;
+		}
+		else
+		{	
+			nextColor = "black";
+			isBlack = true;
+		}
+
+		var newBorderRect = new BorderRect(borderRectWidth,borderRectHeight,new Vector2(0,-borderRectHeight),nextColor);
 		lastBorderRect = newBorderRect;
 		borderRectQueue.enqueue(newBorderRect);
 	}
@@ -690,7 +703,7 @@ function addListeners()
 function initialiseBorderRects()
 {
 	borderRectQueue = new Queue(15);
-	borderRect = new BorderRect(borderRectWidth,borderRectHeight,new Vector2(0,0),borderRectSrc);
+	borderRect = new BorderRect(borderRectWidth,borderRectHeight,new Vector2(0,0),"black");
 	lastBorderRect = borderRect;
 	borderRectQueue.enqueue(borderRect);
 }
@@ -812,7 +825,7 @@ var randomObsCarIndex = 0;
 const maxSpeed = 1000;
 
 //BorderRect constants : 
-const borderRectWidth = Math.floor(0.1 * canvasWidth);
+const borderRectWidth = Math.floor(0.05 * canvasWidth);
 const borderRectHeight = Math.floor(canvasHeight * 3/20);
 
 //BorderRect variables :
@@ -820,14 +833,15 @@ var borderRectSrc = "/SideroadBlocks/SideroadBlock1.svg";
 var borderRectQueue;
 var borderRect;
 var lastBorderRect;
+var isBlack = false;
 
 
 
 //Obstacle cars const : 
 const numOfObstacleCars = 100;
-const carWidth = Math.floor(0.35 * canvasWidth);
+const carWidth = Math.floor(0.30 * canvasWidth);
 const carMinVerDis = Math.floor(canvasHeight/5);
-const horiItemDis = Math.floor (0.05 * canvasWidth);
+const horiItemDis = Math.floor (0.07 * canvasWidth);
 
 
 
@@ -845,7 +859,7 @@ var lastGeneratedCar;
 
 
 //Player variables : 
-var playerCarHeight = canvasHeight/10;
+var playerCarHeight = canvasHeight/20;
 var player;
 var playerScore;
 var playerIcone = new Image();

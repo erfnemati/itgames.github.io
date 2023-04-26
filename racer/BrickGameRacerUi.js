@@ -147,8 +147,8 @@ function updateColor(percentage)
 	}
 	else
 	{
-		speedBar.style.backgroundColor= "#D2042D";
-		speedBarText.style.backgroundColor="#D2042D";
+		speedBar.style.backgroundColor= "red";
+		speedBarText.style.backgroundColor="red";
 		updateText("5G");
 	}
 }
