@@ -27,13 +27,20 @@
       <div class="car-image-container">
         <img src="PlayerCarImages/PlayerCar1.svg" alt="Obstacle" id="playerCarImage" class="player-car-image">
       </div>
+
       <div>
         <button class="left-button"  onclick="leftScroll()">Left</button>
         <button id="startGameButton" class="action-button" onclick="hidStartMenu()">Start</button>
         <button class="right-button" onclick="scrollRight()">Right</button>
       </div>
-      
     </div>
+
+    <div  id="speed-meter-container" class="speed-meter-container">
+      <div class="speed-meter" id="speed-meter">
+
+      </div>
+    </div>
+
     <div class="gameplayScreen" id="gameplayScreen">
       <div style="right: 50%; position: absolute; transform: translateX(50%)">
         <div id="overlayUiContainer">
@@ -53,9 +60,11 @@
         </div>
 
         <canvas></canvas>
+
       </div>
+      
       <script src="BrickGameRacerLogic.js"></script>
       <script src="BrickGameRacerUi.js"></script>
-      </div>
+    </div>
   </body>
 </html>

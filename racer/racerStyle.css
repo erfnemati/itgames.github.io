@@ -9,6 +9,23 @@ body
 	margin: 0px;
 }
 
+.speed-meter-container{
+	position: absolute;
+	width: 15px;
+	height: 99%;
+	border: 0.5px solid;
+	border-color: black;
+	border-radius: 10px;
+}
+
+.speed-meter{
+	background-color: purple;
+	height: 50%;
+	border-radius: 10px;
+	position: relative;
+
+}
+
 
 .startMenu{
 	width: 60%;

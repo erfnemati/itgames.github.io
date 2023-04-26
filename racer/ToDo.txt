@@ -24,10 +24,11 @@ What's next?
 		Different cars for players								Done
 		Different obstacle cars with different length			Done
 		Add start menu											Done
-		Side road blocks										2 hours
-		Adding scenery images (Last priority)
+		
+		Side road blocks										Done
 		Adding collision effect (With short amount of waiting ) 4 hours
 		Adding speed element ui 								One working day
+		Adding scenery images (Last priority)
 		
 	4-Adding scoreboard
 	5-Adding share option

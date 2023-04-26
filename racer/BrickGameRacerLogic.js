@@ -558,7 +558,12 @@ function checkCarCollision()
 
 function increaseGloablSpeed(timeBetweenFrames)
 {
+	
 	globalSpeed = globalSpeed + (speedIncreasePerSec * timeBetweenFrames);
+	if (globalSpeed >= maxSpeed)
+	{
+		globalSpeed = maxSpeed;
+	}
 }
 
 function updatePlayerScore(timeBetweenFrames)
@@ -802,6 +807,8 @@ var isTapped;
 var obstacleCarImages = [];
 var randomObstacleCars= [];
 var randomObsCarIndex = 0;
+
+const maxSpeed = 20000;
 
 //BorderRect constants : 
 const borderRectWidth = Math.floor(0.1 * canvasWidth);
