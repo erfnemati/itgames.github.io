@@ -26,17 +26,14 @@ What's next?
 		Add start menu											Done
 		
 		Side road blocks										Done
-		Adding collision effect (With short amount of waiting ) 4 hours
-		Adding speed element ui 								One work
+		Adding speed element ui 								Done
 		Adding scenery images (Last priority)
 		
-	4-Adding scoreboard
-	5-Adding share option
 
 
 	colorful start and gameover screen
 	rotate car in second line
-	Colorful speed meter
+	Colorful speed meter										Done
 	
 
 	

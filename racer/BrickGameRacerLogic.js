@@ -324,6 +324,43 @@ class RandomisedCar
 
 }
 
+class randomisedSpeed
+{
+	targetSpeed;
+	waitTime;
+	minTargetSpeed;
+	maxTargetSpeed;
+
+	minWaitTime;
+	maxWaitTime;
+
+	constructor(targetSpeed , waitTime)
+	{
+		this.targetSpeed = this.getRandomTargetSpeed();
+		this.waitTime = this.getRandomWaitTime();
+		this.minWaitTime = 1;
+		this.maxWaitTime = 5;
+		this.minTargetSpeed = 1;
+		this.maxTargetSpeed = 5;
+	}
+
+	getRandomTargetSpeed()
+	{
+		var randomSpeed = Math.floor(Math.random() * (this.maxTargetSpeed - this.minTargetSpeed + 1) + this.minTargetSpeed);
+		return randomSpeed;
+	}
+
+	getRandomWaitTime()
+	{
+		var randomWaitTime = Math.floor(Math.random * (this.maxWaitTime - this.minWaitTime + 1)+this.minWaitTime);
+		return randomWaitTime;
+
+	}
+
+
+
+}
+
 function getRandomisedCars(numberOfCars)
 {
 	var randomCars = new Queue(numberOfCars + 5);
