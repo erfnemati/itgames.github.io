@@ -4,13 +4,17 @@ class BorderRect
 	length;
 	position;
 	direction;
+	color
 
-	constructor(width,length,position)
+	constructor(width,length,position,color)
 	{
 		this.width = width;
 		this.length = length;
 		this.position = position;
 		this.direction = new Vector2(0,1);
+		//this.borderRectIcon = new Image();
+		this.color = color;
+		//this.borderRectIcon.src = borderRectIconSrc;
 	}
 
 	updatePos(timeBetweenFrames)
@@ -23,7 +27,7 @@ class BorderRect
 	draw()
 	{
 		//this.updatePos();
-		context.fillStyle = 'black';
+		context.fillStyle = this.color;
 		context.fillRect(this.position.xPos,this.position.yPos,this.width,this.length);
 	}
 
@@ -152,8 +156,10 @@ class Queue
 
 class Car
 {
-	constructor(width,length,position,line,icon)
+	constructor(width,height,position,line,icon)
 	{
+		this.width = width;
+		this.height = height;
 		this.position  = position;
 		this.direction = new Vector2(0,1);
 		this.line = line;
@@ -164,7 +170,7 @@ class Car
 	{
 		//context.fillStyle = 'black';
 		//context.fillRect(this.position.xPos,this.position.yPos,carWidth,carHeight);
-		context.drawImage(this.icon,this.position.xPos,this.position.yPos,carWidth,carHeight);
+		context.drawImage(this.icon,this.position.xPos,this.position.yPos,this.width,this.height);
 	}
 
 	updatePos(timeBetweenFrames)
@@ -225,7 +231,7 @@ class Player
 	{
 		//context.fillStyle = this.color;
 		//context.fillRect(this.position.xPos,this.position.yPos,carWidth,carHeight);
-		context.drawImage(this.icon,this.position.xPos,this.position.yPos,carWidth ,carHeight);
+		context.drawImage(this.icon,this.position.xPos,this.position.yPos,playerCarWidth ,playerCarHeight);
 	}
 
 	checkRightRestriction()
@@ -265,27 +271,94 @@ class Player
 
 class RandomisedCar
 {
-	constructor(carMinVerDis,canvasHeight,minCarLine,maxCarLine)
+	static lastCarLine = 0;
+	constructor()
 	{
+		this.minCarLine = 1;
+		this.maxCarLine = 2;
+		this.maxDis = 1 * canvasHeight; //TODO :Think about changing this parameter
 		this.minDis = carMinVerDis;
-		this.maxDis = canvasHeight;
-		this.minCarLine = minCarLine;
-		this.maxCarLine = maxCarLine;
-		this.carLine =  this.getRandomCarLine();
-		this.distance = this.getRandomDis();
+		this.carLine = this.getRandCarLine();
+		this.distance = this.getRandomDis();//TODO : rename this method and refactor random functions.
+		this.carIcon = new Image();
+		this.carIcon.src = this.getRandomCarIcon();
+		this.width = carWidth;
+		this.height = this.setObstacleHeight();
+		
 	}
 
 	getRandomDis()
 	{
-		var randomDis = Math.floor(Math.random() * (this.maxDis	- this.minDis + 1) + this.minDis);
+		if (this.lastCarLine != this.carLine)
+		{
+			var randomDis = Math.floor(Math.random() * (this.maxDis - (this.minDis + playerCarHeight) + 1) + this.minDis + playerCarHeight);
+		}
+		else
+		{
+			var randomDis = Math.floor(Math.random() * (this.maxDis	- this.minDis + 1) + this.minDis);
+
+		}
+		RandomisedCar.lastCarLine = this.carLine;
 		return randomDis;
 	}
 
-	getRandomCarLine()
+	getRandCarLine()
 	{
-		var randomCarLine = Math.floor(Math.random() * (this.maxCarLine - this.minCarLine + 1) + this.minCarLine )
+		var randomCarLine = Math.floor(Math.random() * (this.maxCarLine - this.minCarLine + 1) + this.minCarLine );
 		return randomCarLine;
 	}
+
+	getRandomCarIcon()
+	{
+		var randomObstacleCarIndex = Math.floor(Math.random() * ((obstacleCarImages.length-1) - 0 + 1) + 0 );
+		var randomCarIcon = obstacleCarImages[randomObstacleCarIndex];
+		return randomCarIcon;
+	}
+
+	setObstacleHeight()
+	{
+		var ratio = 1.6//= this.carIcon.naturalHeight / this.carIcon.naturalWidth;
+		carHeight = carWidth * ratio;
+		return carHeight;
+	}
+
+}
+
+class randomisedSpeed
+{
+	targetSpeed;
+	waitTime;
+	minTargetSpeed;
+	maxTargetSpeed;
+
+	minWaitTime;
+	maxWaitTime;
+
+	constructor(targetSpeed , waitTime)
+	{
+		this.targetSpeed = this.getRandomTargetSpeed();
+		this.waitTime = this.getRandomWaitTime();
+		this.minWaitTime = 1;
+		this.maxWaitTime = 5;
+		this.minTargetSpeed = 1;
+		this.maxTargetSpeed = 5;
+	}
+
+	getRandomTargetSpeed()
+	{
+		var randomSpeed = Math.floor(Math.random() * (this.maxTargetSpeed - this.minTargetSpeed + 1) + this.minTargetSpeed);
+		return randomSpeed;
+	}
+
+	getRandomWaitTime()
+	{
+		var randomWaitTime = Math.floor(Math.random * (this.maxWaitTime - this.minWaitTime + 1)+this.minWaitTime);
+		return randomWaitTime;
+
+	}
+
+
+
 }
 
 function getRandomisedCars(numberOfCars)
@@ -312,7 +385,7 @@ function getTimeBetweenFrames()
 
 function isTimeForNewBorderRect(distance)
 {
-	if (lastBorderRect.position.yPos >= distance)
+	if (lastBorderRect.position.yPos >= -0.5)
 	{
 		return true;
 	}
@@ -326,7 +399,6 @@ function isTimeForDeleteOldRect()
 	if (borderRectQueue.peek().position.yPos >= canvasHeight )
 	{
 		return true;
-		console.log('time to remove');
 	}
 	return false;
 }
@@ -340,14 +412,26 @@ function animateBorderRects(timeBetweenFrames)
 		elements[i].move(timeBetweenFrames);
 
 		var rightElement = new BorderRect(borderRectWidth,borderRectHeight,
-			new Vector2(canvasWidth - borderRectWidth,elements[i].position.yPos));
+			new Vector2(canvasWidth - borderRectWidth,elements[i].position.yPos),elements[i].color);
 
 		rightElement.draw();
 	}
 
-	if (isTimeForNewBorderRect(borderRect.length))
+	if (isTimeForNewBorderRect(canvasHeight/5))
 	{
-		var newBorderRect = new BorderRect(borderRectWidth,borderRectHeight,new Vector2(0,-borderRectHeight));
+		var nextColor = "black";
+		if (isBlack)
+		{
+			nextColor = "#FFFF9F";
+			isBlack = false;
+		}
+		else
+		{	
+			nextColor = "black";
+			isBlack = true;
+		}
+
+		var newBorderRect = new BorderRect(borderRectWidth,borderRectHeight,new Vector2(0,-borderRectHeight),nextColor);
 		lastBorderRect = newBorderRect;
 		borderRectQueue.enqueue(newBorderRect);
 	}
@@ -389,7 +473,7 @@ function animatePlayer(player,timeBetweenFrames)
 		player.goRight(timeBetweenFrames);
 	}
 
-	if (checkCarCallision())
+	if (checkCarCollision())
 	{
 		isGameOver = true;
 		popGameOverScreen();
@@ -414,10 +498,11 @@ function handleInput(event)
 	
 }
 
-function generateCar(carLine)
+function generateCar()
 {
 	var nextCarPos = new Vector2(0,- carHeight);
-	if (carLine == 1)
+	var nextCar = randomObstacleCars[randomObsCarIndex];
+	if (nextCar.carLine == 1)
 	{
 		nextCarPos = new Vector2(borderRectWidth + horiItemDis,- carHeight);
 	}
@@ -426,85 +511,27 @@ function generateCar(carLine)
 		nextCarPos = new Vector2(canvasWidth - borderRectWidth - horiItemDis - carWidth, - carHeight);
 	}
 
-	var nextCar = new Car (carWidth,carHeight,nextCarPos,carLine,carIcon);
+	var nextCar = new Car (nextCar.width,nextCar.height,nextCarPos,nextCar.carLine,nextCar.carIcon);
 	carQueue.enqueue(nextCar);
-	carLineQueue.dequeue();
-	carDistanceQueue.dequeue();
+	randomObsCarIndex = (randomObsCarIndex + 1) % randomObstacleCars.length;
 	lastGeneratedCar = nextCar;
 }
 
 function isLastGeneratedCarFarEnough()
 {
-	if (lastGeneratedCar.position.yPos >= getRandomDist())
+	if (lastGeneratedCar.position.yPos >= randomObstacleCars[randomObsCarIndex].distance)
 	{
 		return true;
 	}
 	return false;
 }
 
-function getRandomDist()
-{
-	if (carDistanceQueue.isEmpty())
-	{
-		fillCarDisQueue(carMinVerDis,canvasHeight);
-	}
-	var randomDis = carDistanceQueue.peek();
-	return randomDis;
-}
-
-function getRandomCarLine(min , max)
-{
-	if (carLineQueue.isEmpty())
-	{
-		fillCarLineQueue(min,max);
-	}
-	var randomCarLine = carLineQueue.peek();
-	return randomCarLine;
-}
-function fillCarLineQueue(min , max)
-{
-	for(var i = 0 ; i < 50 ; i++)
-	{
-		var randomCarLine = Math.floor(Math.random() * (max - min + 1) + min );
-		carLineQueue.enqueue(randomCarLine);
-	}
-}
-
-function fillCarDisQueue(min,max)
-{
-	for (var i = 0 ; i < 50 ; i++)
-	{
-		var randomDis = Math.floor(Math.random() * (max - min + 1) + min);
-		carDistanceQueue.enqueue(randomDis);
-	}
-}
-
-function isLineFeasible(carLine)
-{
-	if (carLine == lastGeneratedCar.line)
-	{
-		return true;
-	}
-	else if (carLine != lastGeneratedCar.line)
-	{
-		if (lastGeneratedCar.position.yPos >= playerCarHeight + carMinVerDis )
-		{
-			return true;
-		}
-		return false;
-	}
-}
 
 function checkCarGeneration()
 {
 	if (isLastGeneratedCarFarEnough())
 	{
-		var carLine = getRandomCarLine(1,2);
-		if (isLineFeasible(carLine))
-		{
-			generateCar(carLine);
-		}
-
+		generateCar();
 	}
 
 }
@@ -523,9 +550,13 @@ function checkCarDeletion()
 	}
 }
 
-function checkCarCallision()
+function checkCarCollision()
 {
-	var cars = carQueue.getElements();
+	
+	const xcollisionDetectionForgiveness = Math.floor(carHeight/6) ;
+	const ycollisionDetectionForgiveness = Math.floor(carHeight/8);
+	var cars = [];
+	cars = carQueue.getElements();
 	for(var i = 0 ; i < cars.length;i++)
 	{
 		var currentCar = cars[i];
@@ -533,34 +564,40 @@ function checkCarCallision()
 		var rightCar = currentCar;
 		var upperCar = currentCar;
 		var lowerCar = currentCar;
+		var upperCarHeight = 0;
+		var leftCarWidth = 0;
 
 		if (currentCar.position.xPos >= player.position.xPos)
 		{
 			rightCar = currentCar;
 			leftCar = player;
+			leftCarWidth = playerCarWidth;
 		}
 		else
 		{
 			rightCar = player;
 			leftCar = currentCar;
+			leftCarWidth = carWidth;
 		}
 
 		if (currentCar.position.yPos >= player.position.yPos)
 		{
 			upperCar = player;
 			lowerCar = currentCar;
+			upperCarHeight =  playerCarHeight;
 		}
 		else
 		{
 			upperCar = currentCar;
 			lowerCar = player;
+			upperCarHeight = currentCar.height;
 		}
 
 		if (rightCar.position.xPos >= leftCar.position.xPos
-			&& rightCar.position.xPos <= leftCar.position.xPos + carWidth)
+			&& rightCar.position.xPos <= leftCar.position.xPos + carWidth - xcollisionDetectionForgiveness)
 		{
 			if (lowerCar.position.yPos >= upperCar.position.yPos
-				&& lowerCar.position.yPos <= upperCar.position.yPos + carHeight)
+				&& lowerCar.position.yPos <= upperCar.position.yPos + upperCarHeight - ycollisionDetectionForgiveness)
 			{
 				return true;
 			}
@@ -571,7 +608,13 @@ function checkCarCallision()
 
 function increaseGloablSpeed(timeBetweenFrames)
 {
+	
 	globalSpeed = globalSpeed + (speedIncreasePerSec * timeBetweenFrames);
+	if (globalSpeed >= maxSpeed)
+	{
+		globalSpeed = maxSpeed;
+	}
+	updateSpeedBar(globalSpeed/maxSpeed);
 }
 
 function updatePlayerScore(timeBetweenFrames)
@@ -697,7 +740,7 @@ function addListeners()
 function initialiseBorderRects()
 {
 	borderRectQueue = new Queue(15);
-	borderRect = new BorderRect(borderRectWidth,borderRectHeight,new Vector2(0,0));
+	borderRect = new BorderRect(borderRectWidth,borderRectHeight,new Vector2(0,0),"black");
 	lastBorderRect = borderRect;
 	borderRectQueue.enqueue(borderRect);
 }
@@ -707,7 +750,13 @@ function initialiseObstacleCars()
 	carDistanceQueue = new Queue(60);
 	carQueue = new Queue(15);
 	carLineQueue = new Queue (60);
-	firstCar = new Car(carWidth,carHeight,new Vector2(borderRectWidth + horiItemDis,-carHeight),1,carIcon);
+	fillrandomObstacleCars();
+	randomObsCarIndex = (randomObsCarIndex + 1) % randomObstacleCars.length;
+	firstRanObsCar = randomObstacleCars[randomObsCarIndex];
+	firstCar = new Car(firstRanObsCar.width,firstRanObsCar.height,
+						new Vector2(borderRectWidth + horiItemDis,-carHeight),
+						firstRanObsCar.carLine,firstRanObsCar.carIcon);
+
 	lastGeneratedCar = firstCar;
 	carQueue.enqueue(lastGeneratedCar);
 }
@@ -767,6 +816,31 @@ function handleRestart(event)
 
 }
 
+function setPlayerCarIcon(img,originalImageWidth,originalImageLength)
+{
+	playerIcone.src = img;
+	var ratio = originalImageLength/originalImageWidth;
+	playerCarHeight = ratio * playerCarWidth;
+		
+}
+
+function setObstacleCarImages()
+{
+	obstacleCarImages.push("/ObstacleCarImages/ObstacleCar1.svg");
+	obstacleCarImages.push("/ObstacleCarImages/ObstacleCar2.svg");
+	obstacleCarImages.push("/ObstacleCarImages/ObstacleCar3.svg");
+}
+
+function fillrandomObstacleCars()
+{
+	randomObstacleCars.length = 0;
+	randomObsCarIndex = 0;
+	for(var i = 0 ; i< numOfObstacleCars; i++)
+	{
+		randomObstacleCars.push(new RandomisedCar());
+	}
+}
+
 //Canvas variables : 
 var canvas = document.querySelector('canvas');
 specifyCanvasSize(window.innerWidth,window.innerHeight);
@@ -774,34 +848,45 @@ let canvasHeight = canvas.height;
 let canvasWidth = canvas.width;
 var context = canvas.getContext('2d');
 
-//Global game variable : 
+//Global game variables : 
 var lastFrameTime;
 var initialSpeed;
 var globalSpeed;
 var speedIncreasePerSec;
 var isGameOver;
 var isTapped;
+var obstacleCarImages = [];
+var randomObstacleCars= [];
+var randomObsCarIndex = 0;
+
+const maxSpeed = 1300;
 
 //BorderRect constants : 
 const borderRectWidth = Math.floor(0.05 * canvasWidth);
 const borderRectHeight = Math.floor(canvasHeight * 3/20);
 
-//BorderRect variables : 
+//BorderRect variables :
+var borderRectSrc = "/SideroadBlocks/SideroadBlock1.svg"; 
 var borderRectQueue;
 var borderRect;
 var lastBorderRect;
+var isBlack = false;
 
 
 
 //Obstacle cars const : 
-const carWidth = Math.floor(0.35 * canvasWidth);
-const carHeight = carWidth;
+const numOfObstacleCars = 100;
+const carWidth = Math.floor(0.30 * canvasWidth);
 const carMinVerDis = Math.floor(canvasHeight/5);
-const horiItemDis = Math.floor (0.05 * canvasWidth);
-const carIcon = new Image();
-carIcon.src = "Obstacle.svg";
+const horiItemDis = Math.floor (0.07 * canvasWidth);
 
-//Obstacle cars variables : 
+
+
+
+//Obstacle cars variables :
+var carIcon = new Image();
+carIcon.src = "/ObstacleCarImages/ObstacleCar1.svg";
+var carHeight = carWidth;
 var carDistanceQueue;
 var carQueue;
 var carLineQueue;
@@ -810,25 +895,30 @@ var lastGeneratedCar;
 
 
 
-
-//Player constants : 
-const playerCarHeight = carHeight;
-const changeLineSpeed = canvasWidth * 5;
-const leftMostRestriction = borderRectWidth + horiItemDis ;
-const rightMostRestriction = canvasWidth - borderRectWidth - horiItemDis - carWidth;
-const initialPlayerPos = new Vector2(canvasWidth - borderRectWidth - horiItemDis - carWidth,
-	canvasHeight - carMinVerDis - carHeight);
-const playerIcone = new Image();
-playerIcone.src = "Player.svg";
-
 //Player variables : 
+var playerCarHeight = canvasHeight/20;
 var player;
 var playerScore;
+var playerIcone = new Image();
+playerIcone.src = "Player.svg";
 
+//Player constants :
+const playerCarWidth = carWidth; 
+const changeLineSpeed = canvasWidth * 5;
+const leftMostRestriction = borderRectWidth + horiItemDis ;
+const rightMostRestriction = canvasWidth - borderRectWidth - horiItemDis - playerCarWidth;
+const initialPlayerPos = new Vector2(canvasWidth - borderRectWidth - horiItemDis - playerCarWidth,
+	canvasHeight - carMinVerDis - playerCarHeight);
+	
+	
+
+	
 var gameOverScreen = document.getElementById('gameOverScreen');
 
 document.getElementById('restartButton').ontouchstart = function(event){
 	restartGame();
 }
 
-startGame();
+setObstacleCarImages();
+
+//startGame();

@@ -21,27 +21,51 @@
     gtag("config", "G-LGCZCTL7QX");
   </script>
   <body>
-    <div style="right: 50%; position: absolute; transform: translateX(50%)">
-      <div id="overlayUiContainer">
-        <div id="scoreElement">score</div>
-        <div id="speedElement">speed</div>
-      </div>
-      <div id="gameOverScreen">
-        <div style="white-space: nowrap">
-          <h2>Game Over</h2>
-          <h3 id="playerSpeed">Speed is : 1G</h3>
-          <h3 id="playerScore">Score is : 1000</h3>
-        </div>
-
-        <span>
-          <button id="restartButton" onclick="restartGame()">Restart</button>
-        </span>
+    <div class="startMenu" id="startMenu">
+      <h2>Hamrah Racer</h2>
+      <h3>Please choose your car</h3>
+      <div class="car-image-container">
+        <img src="PlayerCarImages/PlayerCar1.svg" alt="Obstacle" id="playerCarImage" class="player-car-image">
       </div>
 
-      <canvas></canvas>
+      <div>
+        <button class="left-button"  onclick="leftScroll()">Left</button>
+        <button id="startGameButton" class="action-button" onclick="hidStartMenu()">Start</button>
+        <button class="right-button" onclick="scrollRight()">Right</button>
+      </div>
     </div>
 
-    <script src="BrickGameRacerLogic.js"></script>
-    <script src="BrickGameRacerUi.js"></script>
+    <div  id="speed-meter-container" class="speed-meter-container">
+      <div class="speed-meter" id="speed-meter">
+        <div id="speed-meter-text" class="speed-meter-text">1G</div>
+
+      </div>
+    </div>
+
+    <div class="gameplayScreen" id="gameplayScreen">
+      <div style="right: 50%; position: absolute; transform: translateX(50%)">
+        <div id="overlayUiContainer">
+          <div id="scoreElement">score</div>
+          <div id="speedElement">speed</div>
+        </div>
+        <div id="gameOverScreen">
+          <div style="white-space: nowrap">
+            <h2>Game Over</h2>
+            <h3 id="playerSpeed">Speed is : 1G</h3>
+            <h3 id="playerScore">Score is : 1000</h3>
+          </div>
+
+          <span>
+            <button id="restartButton" onclick="restartGame()">Restart</button>
+          </span>
+        </div>
+
+        <canvas></canvas>
+
+      </div>
+      
+      <script src="BrickGameRacerLogic.js"></script>
+      <script src="BrickGameRacerUi.js"></script>
+    </div>
   </body>
 </html>

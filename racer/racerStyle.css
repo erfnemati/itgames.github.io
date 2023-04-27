@@ -9,6 +9,89 @@ body
 	margin: 0px;
 }
 
+.speed-meter-container{
+	display: none;
+	position: absolute;
+	width: 20px;
+	height: 92%;
+	top:4%;
+	bottom: 4%;
+	border-color: black;
+	justify-content: center;
+	align-items: center;
+}
+
+.speed-meter
+{
+	background-color: purple;
+	height: 50%;
+	position: relative;
+	
+
+}
+
+.speed-meter-text
+{
+	display: inline-block;
+	top : -30px;
+	left: -5px;
+	border: 1px solid;
+	color : white;
+	font-size: large;
+	border-radius: 20px;
+	position: absolute;
+	padding: 3px 3px 3px 3px;
+	background-color: black;
+}
+
+
+.startMenu{
+	width: 60%;
+	height:40%;
+	max-width: 450px;
+	max-height: 800px;
+	background-color: #FFEF00;
+	text-align: center;
+	border-radius: 10px;
+	margin: min(150px , 30%) auto;
+	padding: 1px 5px 5px 5px;
+	
+}
+
+.gameplayScreen{
+	display: none;
+}
+
+
+
+.car-image-container {
+	display: block;
+	height: 70%;
+	width: 40%;
+	max-width: 200px;
+	max-height: 200px;
+	margin: 10% auto;
+}
+
+.player-car-image
+{
+	width: 70%;
+	height: 50%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.action-button{
+	width: 30%;
+	height: 30%;
+	max-width: 400px;
+	max-height: 300px;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
 #overlayUiContainer
 {
 	text-align: center;
@@ -52,7 +135,7 @@ body
 	right: 	50%;
 	transform: 	translate(50%,-50%);
 	display: none;
-	background-color: rgb(220,220,220);
+	background-color: #FFEF00;
 	border-radius: 10px;
 	text-align: center	;
 	vertical-align: middle;
