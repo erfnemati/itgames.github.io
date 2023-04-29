@@ -826,9 +826,9 @@ function setPlayerCarIcon(img,originalImageWidth,originalImageLength)
 
 function setObstacleCarImages()
 {
-	obstacleCarImages.push("/ObstacleCarImages/ObstacleCar1.svg");
-	obstacleCarImages.push("/ObstacleCarImages/ObstacleCar2.svg");
-	obstacleCarImages.push("/ObstacleCarImages/ObstacleCar3.svg");
+	obstacleCarImages.push("./ObstacleCarImages/ObstacleCar1.svg");
+	obstacleCarImages.push("./ObstacleCarImages/ObstacleCar2.svg");
+	obstacleCarImages.push("./ObstacleCarImages/ObstacleCar3.svg");
 }
 
 function fillrandomObstacleCars()
@@ -885,7 +885,7 @@ const horiItemDis = Math.floor (0.07 * canvasWidth);
 
 //Obstacle cars variables :
 var carIcon = new Image();
-carIcon.src = "/ObstacleCarImages/ObstacleCar1.svg";
+carIcon.src = "./ObstacleCarImages/ObstacleCar1.svg";
 var carHeight = carWidth;
 var carDistanceQueue;
 var carQueue;
@@ -900,7 +900,7 @@ var playerCarHeight = canvasHeight/20;
 var player;
 var playerScore;
 var playerIcone = new Image();
-playerIcone.src = "Player.svg";
+playerIcone.src = "./PlayerCarImages/PlayerCar1.svg";
 
 //Player constants :
 const playerCarWidth = carWidth; 
