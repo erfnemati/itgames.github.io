@@ -193,6 +193,14 @@ const PlayerState =
 	GoingLeft : Symbol(3),
 }
 
+const SpeedState =
+{
+	Waiting : Symbol(1),
+	Increasing : Symbol(2),
+	Decreasing : Symbol(3),
+	Randomising : Symbol(4),
+}
+
 class Player
 {
 	constructor(changeLineSpeed,position,line,rightMostRestriction,leftMostRestriction,icon)
@@ -606,15 +614,100 @@ function checkCarCollision()
 	return false;
 }
 
-function increaseGloablSpeed(timeBetweenFrames)
+function updateGlobalSpeed(timeBetweenFrames)
+{
+	if (speedState == SpeedState.Increasing)
+	{
+		increaseSpeed(timeBetweenFrames);
+	}
+	
+	else if(speedState == SpeedState.Decreasing)
+	{
+		decreaseSpeed(timeBetweenFrames);
+	}
+	else if (speedState == SpeedState.Waiting)
+	{
+		wait(timeBetweenFrames)
+	}
+	else if (speedState == SpeedState.Randomising)
+	{
+		getRandomSpeed();
+	}
+
+	updateSpeedBar(globalSpeed/maxSpeed);
+}
+
+function decreaseSpeed(timeBetweenFrames)
+{
+	//console.log("Decreasing");
+	globalSpeed -= (speedIncreasePerSec * timeBetweenFrames);
+	if (globalSpeed <= targetSpeed)
+	{
+		globalSpeed = targetSpeed;
+		speedState = SpeedState.Waiting;
+		setRandWaitTime();
+	}
+	
+
+}
+
+function increaseSpeed(timeBetweenFrames)
+{
+	//console.log("Increasing");
+	globalSpeed += (speedIncreasePerSec * timeBetweenFrames);
+	if(globalSpeed >= targetSpeed)
+	{
+		globalSpeed = targetSpeed;
+		speedState = SpeedState.Waiting;
+		setRandWaitTime();
+	}
+		
+}
+
+function wait(timeBetweenFrames)
+{
+	//console.log("waiting and time is : " + waitTime);
+	elepsedTime = elepsedTime + timeBetweenFrames;
+	if (elepsedTime >= waitTime)
+	{
+		elepsedTime = 0;
+		speedState = SpeedState.Randomising;
+	}
+}
+
+function getRandomSpeed()
 {
 	
-	globalSpeed = globalSpeed + (speedIncreasePerSec * timeBetweenFrames);
-	if (globalSpeed >= maxSpeed)
+	var rand = Math.random();
+	rand = rand + delta;
+	if (rand > 1)
 	{
-		globalSpeed = maxSpeed;
+		rand = 1;
 	}
-	updateSpeedBar(globalSpeed/maxSpeed);
+
+	targetSpeed = rand * maxSpeed;
+	delta += deltaIncrease;
+	if (targetSpeed >= globalSpeed)
+	{
+		speedState = SpeedState.Increasing;
+	}
+
+	
+	else
+	{
+		speedState = SpeedState.Decreasing;
+	}
+	//console.log("randomising and targetSpeed is : " + targetSpeed);
+	//console.log("delta is " + delta);
+	
+}
+
+function setRandWaitTime()
+{
+	var minWaitTime = 1;
+	var maxWaitTime = 3;
+
+	waitTime = Math.floor(Math.random() * (maxWaitTime - minWaitTime + 1) + minWaitTime);
 }
 
 function updatePlayerScore(timeBetweenFrames)
@@ -664,7 +757,7 @@ function play()
 	animateBorderRects(timeBetweenFrames);
 	animateCars(timeBetweenFrames);
 	animatePlayer(player,timeBetweenFrames);
-	increaseGloablSpeed(timeBetweenFrames);
+	updateGlobalSpeed(timeBetweenFrames);
 	updatePlayerScore(timeBetweenFrames);
 	updateSpeedUi();
 }
@@ -770,9 +863,9 @@ function initialisePlayer()
 function initialiseGlobalGameSettings()
 {
 	lastFrameTime = Date.now();
-	initialSpeed = Math.floor(canvasHeight/7)
+	initialSpeed = 50;
 	globalSpeed = initialSpeed;
-	speedIncreasePerSec = Math.floor(canvasHeight / 10);
+	speedIncreasePerSec = 100;
 	isGameOver = false;
 	isTapped = false;
 }
@@ -784,6 +877,7 @@ function restartGame()
 	initialiseBorderRects();
 	initialiseObstacleCars();
 	initialisePlayer();
+	initializeSpeedVariables()
 	play();
 }
 function turnOffGameOverScreen()
@@ -839,6 +933,16 @@ function fillrandomObstacleCars()
 	{
 		randomObstacleCars.push(new RandomisedCar());
 	}
+}
+
+function initializeSpeedVariables()
+{
+	delta = 0;
+	deltaIncrease = 0.04;
+	targetSpeed = 200;
+	waitTime = 5;
+	elepsedTime = 0;
+	speedState = SpeedState.Increasing;
 }
 
 //Canvas variables : 
@@ -909,10 +1013,17 @@ const leftMostRestriction = borderRectWidth + horiItemDis ;
 const rightMostRestriction = canvasWidth - borderRectWidth - horiItemDis - playerCarWidth;
 const initialPlayerPos = new Vector2(canvasWidth - borderRectWidth - horiItemDis - playerCarWidth,
 	canvasHeight - carMinVerDis - playerCarHeight);
-	
-	
 
-	
+
+
+//Game speed variable : 
+var delta = 0;
+var deltaIncrease = 0.04;
+var targetSpeed = 200;
+var waitTime = 5;
+var elepsedTime = 0;
+var speedState = SpeedState.Increasing;
+		
 var gameOverScreen = document.getElementById('gameOverScreen');
 
 document.getElementById('restartButton').ontouchstart = function(event){
@@ -921,4 +1032,3 @@ document.getElementById('restartButton').ontouchstart = function(event){
 
 setObstacleCarImages();
 
-//startGame();
