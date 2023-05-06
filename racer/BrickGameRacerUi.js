@@ -8,15 +8,15 @@ var speedBarContainer = document.getElementById("speed-meter-container");
 var speedBar = document.getElementById("speed-meter");
 var speedBarText = document.getElementById("speed-meter-text");
 
-var speedElement = document.getElementById("speedElement");
+//var speedElement = document.getElementById("speedElement");
 var scoreElement = document.getElementById("scoreElement");
 
-speedElement.style.width = `${Math.floor(canvasWidth/2) - horiItemDis}px`;
+//speedElement.style.width = `${Math.floor(canvasWidth/2) - horiItemDis}px`;
 scoreElement.style.width = `${Math.floor(canvasWidth/2) - horiItemDis}px`;
 
 
 //speedbar container variables : 
-const xDiffOfCanvas = 30;
+const xDiffOfCanvas = 40;
 var speedBarHeight = 0;
 
 
@@ -28,8 +28,8 @@ function popGameOverScreen()
 	overlayUiElement.style.display = "none";
 	gameOverElement.style.display = "inline";
 
-	playerScoreElement.innerHTML = "Speed : " +speedElement.innerHTML;
-	playerSpeedElement.innerHTML = "Score : " + Math.floor(playerScore);
+	playerScoreElement.innerHTML = "Score : " + Math.floor(playerScore);
+	playerSpeedElement.innerHTML = "Speed : " + speedBarText.innerHTML;
 
 	//window.addEventListener("keydown",reloadGame);
 }
@@ -101,7 +101,7 @@ function leftScroll()
 
 function initialiseSpeedBarContainer()
 {
-	speedBarContainer.style.display = "block";
+	speedBarContainer.style.display = "inline-block";
 	var canvasXPos = window.scrollY + canvas.getBoundingClientRect().left;
 	
 	speedBarContainer.style.left = `${canvasXPos - xDiffOfCanvas}px`;

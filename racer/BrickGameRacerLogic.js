@@ -712,7 +712,7 @@ function setRandWaitTime()
 
 function updatePlayerScore(timeBetweenFrames)
 {
-	playerScore += (globalSpeed * timeBetweenFrames);
+	playerScore += (scoreIncreasePerFrame * timeBetweenFrames + globalSpeed/1000);
 	scoreElement.innerHTML = Math.round(playerScore);
 }
 
@@ -759,7 +759,7 @@ function play()
 	animatePlayer(player,timeBetweenFrames);
 	updateGlobalSpeed(timeBetweenFrames);
 	updatePlayerScore(timeBetweenFrames);
-	updateSpeedUi();
+	//updateSpeedUi();
 }
 
 function specifyCanvasSize(windowWidth,windowHeight)
@@ -962,6 +962,7 @@ var isTapped;
 var obstacleCarImages = [];
 var randomObstacleCars= [];
 var randomObsCarIndex = 0;
+var scoreIncreasePerFrame = 5;
 
 const maxSpeed = 1300;
 
@@ -1023,6 +1024,8 @@ var targetSpeed = 200;
 var waitTime = 5;
 var elepsedTime = 0;
 var speedState = SpeedState.Increasing;
+
+
 		
 var gameOverScreen = document.getElementById('gameOverScreen');
 

@@ -34,6 +34,12 @@ What's next?
 	colorful start and gameover screen
 	rotate car in second line
 	Colorful speed meter										Done
+
+	Remove top icon (3g)	Done
+	Rotate cars in first line
+	change start and game over screen
+	Add error message to start screen
+	Make score increase less.	Done 
 	
 
 	
