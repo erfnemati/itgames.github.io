@@ -50,13 +50,43 @@ body
 	height:40%;
 	max-width: 350px;
 	max-height: 800px;
-	background-color: #FFEF00;
+	background-color: #a1dff6;
 	text-align: center;
 	border-radius: 10px;
 	margin: min(150px , 30%) auto;
 	padding: 1px 5px 5px 5px;
 	
 }
+.game-title{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+
+	width: 70%;
+	vertical-align: middle;
+	background-color: #92D34F;
+	font-family: sans-serif;
+	color: #eef8b6;
+	border-radius: 10px;
+	border-color: #F7FFC7;
+	border: 5px solid;
+	padding-top: 3px;
+	padding-bottom: 10px;
+
+}
+
+.error-text{
+
+	margin: 10px auto;
+	width: 80%;
+	border: 3px rgb(241, 138, 3) solid;
+}
+.game-title h2{
+	text-align: center;
+}
+
+
+
 .left-button{
 	width: 50px;
 	height: 50px;
