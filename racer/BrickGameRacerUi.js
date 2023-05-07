@@ -54,9 +54,9 @@ var playerImagesIndex = 0;
 function setPlayerImages()
 {
 	playerImages.push("./PlayerCarImages/PlayerCar1.svg");
-	playerImages.push("./PlayerCarImages/PlayerCar2.svg");
-	playerImages.push("./PlayerCarImages/PlayerCar3.svg");
-	playerImages.push("./PlayerCarImages/PlayerCar4.svg");
+	//playerImages.push("./PlayerCarImages/PlayerCar2.svg");
+	//playerImages.push("./PlayerCarImages/PlayerCar3.svg");
+	//playerImages.push("./PlayerCarImages/PlayerCar4.svg");
 	playerImages.push("./PlayerCarImages/PlayerCar5.svg");
 	playerImages.push("./PlayerCarImages/PlayerCar6.svg");
 
