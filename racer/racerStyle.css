@@ -46,11 +46,13 @@ body
 
 
 .startMenu{
+	position: relative;
+	top : -100px;
 	width: 70%;
 	height:40%;
 	max-width: 350px;
 	max-height: 800px;
-	background-color: #a1dff6;
+	background-color: #c5e8f5;
 	text-align: center;
 	border-radius: 10px;
 	margin: min(150px , 30%) auto;
@@ -60,7 +62,7 @@ body
 .game-title{
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 10px;
+	margin-top: 15px;
 
 	width: 70%;
 	vertical-align: middle;
@@ -79,7 +81,7 @@ body
 
 	margin: 10px auto;
 	width: 80%;
-	border: 3px rgb(241, 138, 3) solid;
+	border: 3px black solid;
 }
 .game-title h2{
 	text-align: center;

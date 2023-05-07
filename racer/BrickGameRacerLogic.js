@@ -483,6 +483,7 @@ function animatePlayer(player,timeBetweenFrames)
 
 	if (checkCarCollision())
 	{
+		return;
 		isGameOver = true;
 		popGameOverScreen();
 	}
@@ -677,9 +678,11 @@ function wait(timeBetweenFrames)
 
 function getRandomSpeed()
 {
+	var rand = 1;
+	rand = (Math.random() * (1 - 0.5) + 0.5);
 	
-	var rand = Math.random();
 	rand = rand + delta;
+	console.log(rand);
 	if (rand > 1)
 	{
 		rand = 1;
@@ -687,6 +690,10 @@ function getRandomSpeed()
 
 	targetSpeed = rand * maxSpeed;
 	delta += deltaIncrease;
+	if (delta >= 0.15)
+	{
+		delta = 0.25;
+	}
 	if (targetSpeed >= globalSpeed)
 	{
 		speedState = SpeedState.Increasing;
@@ -937,7 +944,7 @@ function fillrandomObstacleCars()
 
 function initializeSpeedVariables()
 {
-	delta = 0;
+	delta = 0.1;
 	deltaIncrease = 0.04;
 	targetSpeed = 200;
 	waitTime = 5;
@@ -964,7 +971,7 @@ var randomObstacleCars= [];
 var randomObsCarIndex = 0;
 var scoreIncreasePerFrame = 5;
 
-const maxSpeed = 1300;
+const maxSpeed = 2000;
 
 //BorderRect constants : 
 const borderRectWidth = Math.floor(0.05 * canvasWidth);
@@ -1018,7 +1025,7 @@ const initialPlayerPos = new Vector2(canvasWidth - borderRectWidth - horiItemDis
 
 
 //Game speed variable : 
-var delta = 0;
+var delta = 0.1;
 var deltaIncrease = 0.04;
 var targetSpeed = 200;
 var waitTime = 5;
