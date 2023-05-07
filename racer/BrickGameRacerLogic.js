@@ -318,8 +318,19 @@ class RandomisedCar
 
 	getRandomCarIcon()
 	{
-		var randomObstacleCarIndex = Math.floor(Math.random() * ((obstacleCarImages.length-1) - 0 + 1) + 0 );
-		var randomCarIcon = obstacleCarImages[randomObstacleCarIndex];
+		var randomObstacleCarIndex = Math.floor(Math.random() * ((leftObstacleCarImages.length-1) - 0 + 1) + 0 );
+		var randomCarIcon = null;
+		if (this.carLine == 1)
+		{
+			
+			randomCarIcon = leftObstacleCarImages[randomObstacleCarIndex];
+		}
+
+		else if (this.carLine == 2)
+		{
+			
+			randomCarIcon = rightObstacleCarImages[randomObstacleCarIndex];
+		}
 		return randomCarIcon;
 	}
 
@@ -483,7 +494,7 @@ function animatePlayer(player,timeBetweenFrames)
 
 	if (checkCarCollision())
 	{
-		return;
+		return true;
 		isGameOver = true;
 		popGameOverScreen();
 	}
@@ -927,9 +938,13 @@ function setPlayerCarIcon(img,originalImageWidth,originalImageLength)
 
 function setObstacleCarImages()
 {
-	obstacleCarImages.push("./ObstacleCarImages/ObstacleCar1.svg");
-	obstacleCarImages.push("./ObstacleCarImages/ObstacleCar2.svg");
-	obstacleCarImages.push("./ObstacleCarImages/ObstacleCar3.svg");
+	leftObstacleCarImages.push("./ObstacleCarImages/LeftOnes/ObstacleCar1.svg");
+	leftObstacleCarImages.push("./ObstacleCarImages/LeftOnes/ObstacleCar2.svg");
+	leftObstacleCarImages.push("./ObstacleCarImages/LeftOnes/ObstacleCar3.svg");
+
+	rightObstacleCarImages.push("./ObstacleCarImages/RightOnes/BlueTruck.svg");
+	rightObstacleCarImages.push("./ObstacleCarImages/RightOnes/GreenCar.svg");
+	rightObstacleCarImages.push("./ObstacleCarImages/RightOnes/PoliceCar.svg");
 }
 
 function fillrandomObstacleCars()
@@ -966,12 +981,13 @@ var globalSpeed;
 var speedIncreasePerSec;
 var isGameOver;
 var isTapped;
-var obstacleCarImages = [];
+var leftObstacleCarImages = [];
+var rightObstacleCarImages = [];
 var randomObstacleCars= [];
 var randomObsCarIndex = 0;
 var scoreIncreasePerFrame = 5;
 
-const maxSpeed = 2000;
+const maxSpeed = 1700;
 
 //BorderRect constants : 
 const borderRectWidth = Math.floor(0.05 * canvasWidth);
@@ -997,7 +1013,7 @@ const horiItemDis = Math.floor (0.07 * canvasWidth);
 
 //Obstacle cars variables :
 var carIcon = new Image();
-carIcon.src = "./ObstacleCarImages/ObstacleCar1.svg";
+carIcon.src = "./ObstacleCarImages/RightOnes/BlueTruck.svg";
 var carHeight = carWidth;
 var carDistanceQueue;
 var carQueue;
