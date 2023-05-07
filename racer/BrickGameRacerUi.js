@@ -31,6 +31,10 @@ function popGameOverScreen()
 	playerScoreElement.innerHTML = "Score : " + Math.floor(playerScore);
 	playerSpeedElement.innerHTML = "Speed : " + speedBarText.innerHTML;
 
+	document.getElementById('homeButton').ontouchstart = function(event){
+		location.reload();
+	}
+
 	//window.addEventListener("keydown",reloadGame);
 }
 

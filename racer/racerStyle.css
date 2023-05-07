@@ -69,9 +69,8 @@ body
 	background-color: #92D34F;
 	font-family: sans-serif;
 	color: #eef8b6;
-	border-radius: 10px;
-	border-color: #F7FFC7;
-	border: 5px solid;
+	border-radius: 15px;
+	border: 5px solid #2F8986;
 	padding-top: 3px;
 	padding-bottom: 10px;
 
@@ -174,11 +173,35 @@ body
 	top:50%;
 	right: 	50%;
 	transform: 	translate(50%,-50%);
+	max-width: 350px;
 	display: none;
-	background-color: #FFEF00;
+	background-color: #c5e8f5;
 	border-radius: 10px;
 	text-align: center	;
 	vertical-align: middle;
+}
+
+.gameover-title{
+	width: 75%;
+	max-width: 400px;
+	height: 50px;
+	margin:  5px auto;
+	color: #eef8b6;
+	background-color: #92D34F;
+	border: 5px solid #2F8986;
+	border-radius: 20px;
+	padding: 15px;
+
+}
+
+.restart-button{
+	width: 80px;
+	height: 80px;
+}
+
+.home-button{
+	width: 80px;
+	height: 80px;
 }
 
 @media (min-width : 1400px)
@@ -224,11 +247,4 @@ body
 	}
 }
 
-#restartButton
-{
-	border-radius: 20px;
-	width: 50%;
-	height: 50px;
-	font-size: 25px;
-}
 

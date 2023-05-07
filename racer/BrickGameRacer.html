@@ -57,18 +57,19 @@
     <div class="gameplayScreen" id="gameplayScreen">
       <div style="right: 50%; position: absolute; transform: translateX(50%)">
         <div id="overlayUiContainer">
-          <div id="scoreElement">score</div>
+          <div id="scoreElement" style="background-color: #c5e8f5;">score</div>
           <!--<div id="speedElement">speed</div>-->
         </div>
         <div id="gameOverScreen">
           <div style="white-space: nowrap">
-            <h2>Game Over</h2>
+            <h2 class="gameover-title">Game Over</h2>
             <h3 id="playerSpeed">Speed is : 1G</h3>
             <h3 id="playerScore">Score is : 1000</h3>
           </div>
 
           <span>
-            <button id="restartButton" onclick="restartGame()">Restart</button>
+            <input type="image" src="./MenuIcons/Restart.svg" class="restart-button" id="restartButton"  onclick="restartGame()"/>
+            <input type="image" src="./MenuIcons/Home.svg" class="home-button" id="homeButton" onclick="location.reload()"/>
           </span>
         </div>
 

@@ -494,7 +494,6 @@ function animatePlayer(player,timeBetweenFrames)
 
 	if (checkCarCollision())
 	{
-		return true;
 		isGameOver = true;
 		popGameOverScreen();
 	}
@@ -1013,7 +1012,7 @@ const horiItemDis = Math.floor (0.07 * canvasWidth);
 
 //Obstacle cars variables :
 var carIcon = new Image();
-carIcon.src = "./ObstacleCarImages/RightOnes/BlueTruck.svg";
+carIcon.src = "./ObstacleCarImages/LeftOnes/ObstacleCar1.svg";
 var carHeight = carWidth;
 var carDistanceQueue;
 var carQueue;
