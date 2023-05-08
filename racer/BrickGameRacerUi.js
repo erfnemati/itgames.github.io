@@ -8,15 +8,15 @@ var speedBarContainer = document.getElementById("speed-meter-container");
 var speedBar = document.getElementById("speed-meter");
 var speedBarText = document.getElementById("speed-meter-text");
 
-var speedElement = document.getElementById("speedElement");
+//var speedElement = document.getElementById("speedElement");
 var scoreElement = document.getElementById("scoreElement");
 
-speedElement.style.width = `${Math.floor(canvasWidth/2) - horiItemDis}px`;
+//speedElement.style.width = `${Math.floor(canvasWidth/2) - horiItemDis}px`;
 scoreElement.style.width = `${Math.floor(canvasWidth/2) - horiItemDis}px`;
 
 
 //speedbar container variables : 
-const xDiffOfCanvas = 30;
+const xDiffOfCanvas = 40;
 var speedBarHeight = 0;
 
 
@@ -28,8 +28,12 @@ function popGameOverScreen()
 	overlayUiElement.style.display = "none";
 	gameOverElement.style.display = "inline";
 
-	playerScoreElement.innerHTML = "Speed : " +speedElement.innerHTML;
-	playerSpeedElement.innerHTML = "Score : " + Math.floor(playerScore);
+	playerScoreElement.innerHTML = "Score : " + Math.floor(playerScore);
+	playerSpeedElement.innerHTML = "Speed : " + speedBarText.innerHTML;
+
+	document.getElementById('homeButton').ontouchstart = function(event){
+		location.reload();
+	}
 
 	//window.addEventListener("keydown",reloadGame);
 }
@@ -54,9 +58,9 @@ var playerImagesIndex = 0;
 function setPlayerImages()
 {
 	playerImages.push("./PlayerCarImages/PlayerCar1.svg");
-	playerImages.push("./PlayerCarImages/PlayerCar2.svg");
-	playerImages.push("./PlayerCarImages/PlayerCar3.svg");
-	playerImages.push("./PlayerCarImages/PlayerCar4.svg");
+	//playerImages.push("./PlayerCarImages/PlayerCar2.svg");
+	//playerImages.push("./PlayerCarImages/PlayerCar3.svg");
+	//playerImages.push("./PlayerCarImages/PlayerCar4.svg");
 	playerImages.push("./PlayerCarImages/PlayerCar5.svg");
 	playerImages.push("./PlayerCarImages/PlayerCar6.svg");
 
@@ -101,7 +105,7 @@ function leftScroll()
 
 function initialiseSpeedBarContainer()
 {
-	speedBarContainer.style.display = "block";
+	speedBarContainer.style.display = "inline-block";
 	var canvasXPos = window.scrollY + canvas.getBoundingClientRect().left;
 	
 	speedBarContainer.style.left = `${canvasXPos - xDiffOfCanvas}px`;

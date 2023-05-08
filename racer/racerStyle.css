@@ -12,9 +12,9 @@ body
 .speed-meter-container{
 	display: none;
 	position: absolute;
-	width: 20px;
+	width: 25px;
 	height: 92%;
-	top:4%;
+	top:5%;
 	bottom: 4%;
 	border-color: black;
 	justify-content: center;
@@ -33,12 +33,12 @@ body
 .speed-meter-text
 {
 	display: inline-block;
-	top : -30px;
-	left: -5px;
+	top : -34px;
+	left: -6px;
 	border: 1px solid;
 	color : white;
-	font-size: large;
-	border-radius: 20px;
+	font-size: x-large;
+	border-radius: 23px;
 	position: absolute;
 	padding: 3px 3px 3px 3px;
 	background-color: black;
@@ -46,17 +46,54 @@ body
 
 
 .startMenu{
-	width: 60%;
+	position: relative;
+	top : -100px;
+	width: 70%;
 	height:40%;
-	max-width: 450px;
+	max-width: 350px;
 	max-height: 800px;
-	background-color: #FFEF00;
+	background-color: #c5e8f5;
 	text-align: center;
 	border-radius: 10px;
 	margin: min(150px , 30%) auto;
 	padding: 1px 5px 5px 5px;
 	
 }
+.game-title{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+
+	width: 70%;
+	vertical-align: middle;
+	background-color: #92D34F;
+	font-family: sans-serif;
+	color: #eef8b6;
+	border-radius: 15px;
+	border: 5px solid #2F8986;
+	padding-top: 3px;
+	padding-bottom: 10px;
+
+}
+
+.error-text{
+
+	margin: 10px auto;
+	width: 80%;
+	border: 3px black solid;
+}
+.game-title h2{
+	text-align: center;
+}
+
+
+
+.left-button{
+	width: 50px;
+	height: 50px;
+}
+
+
 
 .gameplayScreen{
 	display: none;
@@ -66,30 +103,30 @@ body
 
 .car-image-container {
 	display: block;
-	height: 70%;
-	width: 40%;
-	max-width: 200px;
-	max-height: 200px;
-	margin: 10% auto;
+	height: 75%;
+	width: 60%;
+	max-width: 150px;
+	max-height: 150px;
+	margin-right:auto;
+	margin-left: auto;
+	margin-bottom: 17%;
+
+
 }
 
 .player-car-image
 {
 	width: 70%;
 	height: 50%;
-	margin-top: 5px;
-	margin-bottom: 5px;
+	
 }
 
 .action-button{
-	width: 30%;
-	height: 30%;
-	max-width: 400px;
-	max-height: 300px;
-	margin-top: 5%;
-	margin-bottom: 5%;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	margin-top: 15px;
+	width: 100px;
+	height: 70px;
+	margin-right: 10px;
+	margin-left: 10px;
 }
 
 #overlayUiContainer
@@ -113,6 +150,8 @@ body
 	width: 50%;
 	height: 100%;
 	font-size: 5vh;
+	margin-top: 5px;
+	font-family: sans-serif;
 
 }
 
@@ -134,11 +173,35 @@ body
 	top:50%;
 	right: 	50%;
 	transform: 	translate(50%,-50%);
+	max-width: 350px;
 	display: none;
-	background-color: #FFEF00;
+	background-color: #c5e8f5;
 	border-radius: 10px;
 	text-align: center	;
 	vertical-align: middle;
+}
+
+.gameover-title{
+	width: 75%;
+	max-width: 400px;
+	height: 50px;
+	margin:  5px auto;
+	color: #eef8b6;
+	background-color: #92D34F;
+	border: 5px solid #2F8986;
+	border-radius: 20px;
+	padding: 15px;
+
+}
+
+.restart-button{
+	width: 80px;
+	height: 80px;
+}
+
+.home-button{
+	width: 80px;
+	height: 80px;
 }
 
 @media (min-width : 1400px)
@@ -184,11 +247,4 @@ body
 	}
 }
 
-#restartButton
-{
-	border-radius: 20px;
-	width: 50%;
-	height: 50px;
-	font-size: 25px;
-}
 

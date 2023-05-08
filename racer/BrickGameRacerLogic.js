@@ -318,8 +318,19 @@ class RandomisedCar
 
 	getRandomCarIcon()
 	{
-		var randomObstacleCarIndex = Math.floor(Math.random() * ((obstacleCarImages.length-1) - 0 + 1) + 0 );
-		var randomCarIcon = obstacleCarImages[randomObstacleCarIndex];
+		var randomObstacleCarIndex = Math.floor(Math.random() * ((leftObstacleCarImages.length-1) - 0 + 1) + 0 );
+		var randomCarIcon = null;
+		if (this.carLine == 1)
+		{
+			
+			randomCarIcon = leftObstacleCarImages[randomObstacleCarIndex];
+		}
+
+		else if (this.carLine == 2)
+		{
+			
+			randomCarIcon = rightObstacleCarImages[randomObstacleCarIndex];
+		}
 		return randomCarIcon;
 	}
 
@@ -677,9 +688,11 @@ function wait(timeBetweenFrames)
 
 function getRandomSpeed()
 {
+	var rand = 1;
+	rand = (Math.random() * (1 - 0.5) + 0.5);
 	
-	var rand = Math.random();
 	rand = rand + delta;
+	console.log(rand);
 	if (rand > 1)
 	{
 		rand = 1;
@@ -687,6 +700,10 @@ function getRandomSpeed()
 
 	targetSpeed = rand * maxSpeed;
 	delta += deltaIncrease;
+	if (delta >= 0.15)
+	{
+		delta = 0.25;
+	}
 	if (targetSpeed >= globalSpeed)
 	{
 		speedState = SpeedState.Increasing;
@@ -712,7 +729,7 @@ function setRandWaitTime()
 
 function updatePlayerScore(timeBetweenFrames)
 {
-	playerScore += (globalSpeed * timeBetweenFrames);
+	playerScore += (scoreIncreasePerFrame * timeBetweenFrames + globalSpeed/1000);
 	scoreElement.innerHTML = Math.round(playerScore);
 }
 
@@ -759,7 +776,7 @@ function play()
 	animatePlayer(player,timeBetweenFrames);
 	updateGlobalSpeed(timeBetweenFrames);
 	updatePlayerScore(timeBetweenFrames);
-	updateSpeedUi();
+	//updateSpeedUi();
 }
 
 function specifyCanvasSize(windowWidth,windowHeight)
@@ -920,9 +937,13 @@ function setPlayerCarIcon(img,originalImageWidth,originalImageLength)
 
 function setObstacleCarImages()
 {
-	obstacleCarImages.push("./ObstacleCarImages/ObstacleCar1.svg");
-	obstacleCarImages.push("./ObstacleCarImages/ObstacleCar2.svg");
-	obstacleCarImages.push("./ObstacleCarImages/ObstacleCar3.svg");
+	leftObstacleCarImages.push("./ObstacleCarImages/LeftOnes/ObstacleCar1.svg");
+	leftObstacleCarImages.push("./ObstacleCarImages/LeftOnes/ObstacleCar2.svg");
+	leftObstacleCarImages.push("./ObstacleCarImages/LeftOnes/ObstacleCar3.svg");
+
+	rightObstacleCarImages.push("./ObstacleCarImages/RightOnes/BlueTruck.svg");
+	rightObstacleCarImages.push("./ObstacleCarImages/RightOnes/GreenCar.svg");
+	rightObstacleCarImages.push("./ObstacleCarImages/RightOnes/PoliceCar.svg");
 }
 
 function fillrandomObstacleCars()
@@ -937,7 +958,7 @@ function fillrandomObstacleCars()
 
 function initializeSpeedVariables()
 {
-	delta = 0;
+	delta = 0.1;
 	deltaIncrease = 0.04;
 	targetSpeed = 200;
 	waitTime = 5;
@@ -959,11 +980,13 @@ var globalSpeed;
 var speedIncreasePerSec;
 var isGameOver;
 var isTapped;
-var obstacleCarImages = [];
+var leftObstacleCarImages = [];
+var rightObstacleCarImages = [];
 var randomObstacleCars= [];
 var randomObsCarIndex = 0;
+var scoreIncreasePerFrame = 5;
 
-const maxSpeed = 1300;
+const maxSpeed = 1700;
 
 //BorderRect constants : 
 const borderRectWidth = Math.floor(0.05 * canvasWidth);
@@ -989,7 +1012,7 @@ const horiItemDis = Math.floor (0.07 * canvasWidth);
 
 //Obstacle cars variables :
 var carIcon = new Image();
-carIcon.src = "./ObstacleCarImages/ObstacleCar1.svg";
+carIcon.src = "./ObstacleCarImages/LeftOnes/ObstacleCar1.svg";
 var carHeight = carWidth;
 var carDistanceQueue;
 var carQueue;
@@ -1017,12 +1040,14 @@ const initialPlayerPos = new Vector2(canvasWidth - borderRectWidth - horiItemDis
 
 
 //Game speed variable : 
-var delta = 0;
+var delta = 0.1;
 var deltaIncrease = 0.04;
 var targetSpeed = 200;
 var waitTime = 5;
 var elepsedTime = 0;
 var speedState = SpeedState.Increasing;
+
+
 		
 var gameOverScreen = document.getElementById('gameOverScreen');
 

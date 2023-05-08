@@ -22,16 +22,28 @@
   </script>
   <body>
     <div class="startMenu" id="startMenu">
-      <h2>Hamrah Racer</h2>
-      <h3>Please choose your car</h3>
-      <div class="car-image-container">
-        <img src="PlayerCarImages/PlayerCar1.svg" alt="Obstacle" id="playerCarImage" class="player-car-image">
+      
+      <div class="error-text">
+        <h4>ERROR NAME</h4>
+        <p>This is sample text for error message</p>
       </div>
-
       <div>
-        <button class="left-button"  onclick="leftScroll()">Left</button>
-        <button id="startGameButton" class="action-button" onclick="hidStartMenu()">Start</button>
-        <button class="right-button" onclick="scrollRight()">Right</button>
+        <div class="game-title">
+          <h2 class="tile">HAMRAH RACER</h2>
+        </div>
+
+        <h3 style="font-family: sans-serif;color: #060606;">Please choose your car</h3>
+        <div class="car-image-container">
+          <img src="PlayerCarImages/PlayerCar1.svg" alt="Obstacle" id="playerCarImage" class="player-car-image">
+        </div>
+
+        <div>
+          <!--<button  class="left-button"  onclick="leftScroll()"><span class="icon"></span>></button>-->
+          <input class="left-button" type="image" src="./MenuIcons/LeftDirection.svg" onclick="leftScroll()"/>
+          <input type="image"  src="./MenuIcons/Play.svg"  class="action-button" onclick="hidStartMenu()"/>
+          <input class="left-button" type="image" src="./MenuIcons/RightDirection.svg" onclick="scrollRight()"/>
+          <!--<button class="right-button" onclick="scrollRight()">Right</button>-->
+        </div>
       </div>
     </div>
 
@@ -45,18 +57,19 @@
     <div class="gameplayScreen" id="gameplayScreen">
       <div style="right: 50%; position: absolute; transform: translateX(50%)">
         <div id="overlayUiContainer">
-          <div id="scoreElement">score</div>
-          <div id="speedElement">speed</div>
+          <div id="scoreElement" style="background-color: #c5e8f5;">score</div>
+          <!--<div id="speedElement">speed</div>-->
         </div>
         <div id="gameOverScreen">
           <div style="white-space: nowrap">
-            <h2>Game Over</h2>
+            <h2 class="gameover-title">Game Over</h2>
             <h3 id="playerSpeed">Speed is : 1G</h3>
             <h3 id="playerScore">Score is : 1000</h3>
           </div>
 
           <span>
-            <button id="restartButton" onclick="restartGame()">Restart</button>
+            <input type="image" src="./MenuIcons/Restart.svg" class="restart-button" id="restartButton"  onclick="restartGame()"/>
+            <input type="image" src="./MenuIcons/Home.svg" class="home-button" id="homeButton" onclick="location.reload()"/>
           </span>
         </div>
 
