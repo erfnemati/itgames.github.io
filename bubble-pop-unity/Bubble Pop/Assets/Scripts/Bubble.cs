@@ -8,13 +8,15 @@ namespace Assets.Scripts
 {
     public class Bubble : MonoBehaviour
     {
-        PackageContent content;
+        PackageContent m_content;
 
 
         [SerializeField] TMP_Text m_text;
         // Start is called before the first frame update
         void Start()
         {
+            m_content = new PackageContent();
+            Debug.Log(m_content.getPackageData());
             SetPackageText();
         }
 
@@ -25,17 +27,17 @@ namespace Assets.Scripts
             string callTimeText;
             string messagesCount;
             string packageContent;
-            if (content.getPackageData() - 1 < float.Epsilon)
+            if (m_content.getPackageData() - 1 < float.Epsilon)
             {
-                dataText = (content.getPackageData() * 1000) + "MB";
+                dataText = (m_content.getPackageData() * 1000) + "MB";
             }
             else
             {
-                dataText = content.getPackageData() + "GB";
+                dataText = m_content.getPackageData() + "GB\n";
             }
 
-            callTimeText = content.getPackageCallTime() + "Minutes";
-            messagesCount = content.getPackageMessages() + "Message";
+            callTimeText = m_content.getPackageCallTime() + "Mins\n";
+            messagesCount = m_content.getPackageMessages() + "SMS";
 
             packageContent = dataText + callTimeText + messagesCount;
 
