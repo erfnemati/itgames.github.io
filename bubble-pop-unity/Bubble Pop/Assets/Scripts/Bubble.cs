@@ -95,6 +95,11 @@ namespace Assets.Scripts
             
         }
 
+        public void Pop()
+        {
+            gameObject.SetActive(false);
+        }
+
         // Update is called once per frame
         void Update()
         {
