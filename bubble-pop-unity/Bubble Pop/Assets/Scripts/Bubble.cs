@@ -17,47 +17,20 @@ namespace Assets.Scripts
         // Start is called before the first frame update
         void Start()
         {
-            m_content = new PackageContent(1);
+            m_content = new PackageContent();
             SetSize();
-            SetPackageText();
+            SetText();
         }
 
-      
-        private void SetPackageText()
+        private void SetText()
         {
-            string dataText;
-            string callTimeText;
-            string messagesCount;
-            string packageContent;
-            
-           
-            dataText = m_content.getPackageData() + "GB\n";
-            callTimeText = m_content.getPackageCallTime() + "Mins\n";
-            messagesCount = m_content.getPackageMessages() + "SMS";
-
-            if (m_content.getPackageData() == 0)
-            {
-                dataText = null;
-            }
-            if (m_content.getPackageCallTime() == 0)
-            {
-                callTimeText = null;
-            }
-            if (m_content.getPackageMessages() == 0)
-            {
-                messagesCount = null;
-            }
-
-            packageContent = dataText + callTimeText + messagesCount;
-
-            m_text.text = packageContent;
+            m_text.text = m_content.GetPackageTextContent();
         }
+
 
         private void SetSizeState()
         {
-            if (m_content.getPackageData() != 0) m_typesOfContentCount++;
-            if (m_content.getPackageCallTime() != 0) m_typesOfContentCount++;
-            if (m_content.getPackageMessages() != 0) m_typesOfContentCount++;
+            m_typesOfContentCount = m_content.GetNumOfContents();
 
             if (m_typesOfContentCount <= 1)
             {
@@ -98,12 +71,6 @@ namespace Assets.Scripts
         public void Pop()
         {
             gameObject.SetActive(false);
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
     }
 

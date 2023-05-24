@@ -9,65 +9,94 @@ namespace Assets.Scripts
 {
     public class PackageContent
     {
-        private int m_data;//Unit is GB
-        private int m_callTime;//Unit is Minute
-        private int m_messages;//Unit is integers
 
-        public PackageContent(int packageData = 0 ,int packageCallTime = 0,  int packageMessagesCount = 0)
+        //TODO : We can change member fields so all of them inherit from an content interface
+        private Data m_data;//Unit is GB
+        private CallTime m_callTime;//Unit is Minute
+        private Message m_messages;//Unit is integers
+        private int m_numOfContents;
+
+        public PackageContent(Data packageData = null, CallTime packageCallTime = null, Message packageMessagesCount = null)
         {
             m_data = packageData;
             m_callTime = packageCallTime;
             m_messages = packageMessagesCount;
+            SetNumOfContents();
+            
         }
 
         public PackageContent()
         {
-            System.Random rand = new System.Random();
-            int integerPart = 0;
+            m_data = new Data();
+            m_callTime = new CallTime();
+            m_messages = new Message();
+            SetNumOfContents();
+        }
 
-            m_data = rand.Next(1, 100);
-            if (m_data - 10 > float.Epsilon)
+        public string GetPackageTextContent()
+        {
+            string dataText;
+            string callTimeText;
+            string messagesCount;
+            string packageContent;
+
+            if (m_data == null)
             {
-                integerPart = m_data / 10;
-                m_data = integerPart * 10;
-            }
-            
-            m_callTime = rand.Next(10, 1000);
-            if (m_callTime - 100 < float.Epsilon)
-            {
-                integerPart = m_data / 10;
-                m_callTime = integerPart * 10;
+                dataText = null;
             }
             else
             {
-                integerPart = m_callTime / 100;
-                m_callTime = integerPart * 100;
+                dataText = m_data.GetData() + "GB\n";
             }
             
+            if (m_callTime == null)
+            {
+                callTimeText = null;
+            }
+            else
+            {
+                callTimeText = m_callTime.getCallTime() + "Mins\n";
+            }
+            
+            if (m_messages == null)
+            {
+                messagesCount = null;
+            }
+            else
+            {
+                messagesCount = m_messages.GetMessageCount() + "SMS";
+            }
+           
+            packageContent = dataText + callTimeText + messagesCount;
+            return packageContent;
 
-            m_messages = rand.Next(100, 1000);
-            integerPart = m_messages / 100;
-            m_messages = (int)integerPart * 100;
         }
 
-        
-
-        public float getPackageData()
+        private void SetNumOfContents()
         {
-            return m_data;
+            if (m_data != null)
+            {
+                m_numOfContents++;
+            }
+
+            if (m_callTime != null)
+            {
+                m_numOfContents++;
+            }
+
+            if (m_messages != null)
+            {
+                m_numOfContents++;
+            }
         }
 
-        public float getPackageCallTime()
+        public int GetNumOfContents()
         {
-            return m_callTime;
+            return m_numOfContents;
         }
 
-        public int getPackageMessages()
-        {
-            return m_messages;
-        }
+
+
     }
 
-
-    
 }
