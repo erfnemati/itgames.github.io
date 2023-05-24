@@ -17,7 +17,7 @@ namespace Assets.Scripts
         // Start is called before the first frame update
         void Start()
         {
-            m_content = new PackageContent();
+            m_content = new PackageContent(1);
             SetSize();
             SetPackageText();
         }
