@@ -70,7 +70,7 @@ namespace Assets.Scripts
 
         public void Pop()
         {
-            //TODO
+            
             LevelManager.m_instance.AddItem(this);
             gameObject.SetActive(false);
         }

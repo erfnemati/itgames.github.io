@@ -22,7 +22,7 @@ namespace Assets.Scripts
                 integerPart = m_data / 10;
                 m_data = integerPart * 10;
             }
-            Debug.Log("Data is " + m_data);
+           
             
         }
 
