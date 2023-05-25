@@ -95,7 +95,20 @@ namespace Assets.Scripts
             return m_numOfContents;
         }
 
+        public Data GetDataContent()
+        {
+            return m_data;
+        }
 
+        public CallTime GetCallTime()
+        {
+            return m_callTime;
+        }
+
+        public Message GetMessage()
+        {
+            return m_messages;
+        }
 
     }
 

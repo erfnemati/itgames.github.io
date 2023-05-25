@@ -9,6 +9,7 @@ namespace Assets.Scripts
     public class Bubble : MonoBehaviour
     {
         PackageContent m_content;
+        
         BubbleSize m_bubbleSizeState = BubbleSize.Small;
 
 
@@ -16,7 +17,7 @@ namespace Assets.Scripts
         // Start is called before the first frame update
         void Start()
         {
-            m_content = new PackageContent(new Data(1));
+            m_content = new PackageContent(new Data());
             SetSize();
             SetText();
         }
@@ -69,8 +70,27 @@ namespace Assets.Scripts
 
         public void Pop()
         {
+            //TODO
+            LevelManager.m_instance.AddItem(this);
             gameObject.SetActive(false);
         }
+
+        public Data getBubbleData()
+        {
+            return (m_content.GetDataContent());
+        }
+
+        public CallTime GetBubbleCallTime()
+        {
+            return (m_content.GetCallTime());
+        }
+
+        public Message GetBubbleMessage()
+        {
+            return (m_content.GetMessage());
+        }
+
+
     }
 
     enum BubbleSize

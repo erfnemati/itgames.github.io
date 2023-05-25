@@ -26,7 +26,7 @@ namespace Assets.Scripts
             
         }
 
-        public Data (int data)
+        public Data (int data = 0)
         {
             m_data = data;
         }
@@ -34,6 +34,11 @@ namespace Assets.Scripts
         public int GetData()
         {
             return m_data;
+        }
+
+        public override void Add(int number)
+        {
+            m_data += number;
         }
     }
 }

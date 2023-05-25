@@ -34,7 +34,7 @@ namespace Assets.Scripts
             
         }
 
-        public CallTime(int callTime)
+        public CallTime(int callTime = 0)
         {
             m_callTime = callTime;
         }
@@ -42,6 +42,11 @@ namespace Assets.Scripts
         public int getCallTime()
         {
             return m_callTime;
+        }
+
+        public override void Add(int number)
+        {
+            m_callTime += number;
         }
     }
 }

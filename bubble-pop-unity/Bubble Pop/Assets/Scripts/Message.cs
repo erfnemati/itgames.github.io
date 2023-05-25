@@ -25,7 +25,7 @@ namespace Assets.Scripts
 
         }
 
-        public Message(int numOfMessage)
+        public Message(int numOfMessage = 0)
         {
             m_numOfMessages = numOfMessage;
         }
@@ -34,5 +34,12 @@ namespace Assets.Scripts
         {
             return m_numOfMessages;
         }
+
+        public override void Add(int number)
+        {
+            m_numOfMessages += number;
+        }
+
+        
     }
 }
