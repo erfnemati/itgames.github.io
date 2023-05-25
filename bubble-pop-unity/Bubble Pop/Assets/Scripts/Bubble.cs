@@ -8,7 +8,6 @@ namespace Assets.Scripts
 {
     public class Bubble : MonoBehaviour
     {
-        private int m_typesOfContentCount = 0;
         PackageContent m_content;
         BubbleSize m_bubbleSizeState = BubbleSize.Small;
 
@@ -17,7 +16,7 @@ namespace Assets.Scripts
         // Start is called before the first frame update
         void Start()
         {
-            m_content = new PackageContent();
+            m_content = new PackageContent(new Data(1));
             SetSize();
             SetText();
         }
@@ -30,14 +29,14 @@ namespace Assets.Scripts
 
         private void SetSizeState()
         {
-            m_typesOfContentCount = m_content.GetNumOfContents();
+            int numOfContentTypes = m_content.GetNumOfContents();
 
-            if (m_typesOfContentCount <= 1)
+            if (numOfContentTypes <= 1)
             {
                 m_bubbleSizeState = BubbleSize.Small;
             }
 
-            else if (m_typesOfContentCount == 2)
+            else if (numOfContentTypes == 2)
             {
                 m_bubbleSizeState = BubbleSize.Medium;
             }
