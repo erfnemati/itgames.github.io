@@ -13,7 +13,7 @@ namespace Assets.Scripts
         
       
 
-        private void Start()
+        private void Awake()
         {
             if (m_instance == null)
             {

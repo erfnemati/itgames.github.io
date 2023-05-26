@@ -17,7 +17,7 @@ namespace Assets.Scripts
         // Start is called before the first frame update
         void Start()
         {
-            m_content = new PackageContent(new Data());
+            m_content = new PackageContent();
             SetSize();
             SetText();
         }
@@ -53,7 +53,7 @@ namespace Assets.Scripts
             switch(m_bubbleSizeState)
             {
                 case BubbleSize.Small:
-                    transform.localScale = new Vector3(1, 1, 1);
+                    transform.localScale = new Vector3(1.5f, 1.5f, 1);
                     
                     break;
                 case BubbleSize.Medium:

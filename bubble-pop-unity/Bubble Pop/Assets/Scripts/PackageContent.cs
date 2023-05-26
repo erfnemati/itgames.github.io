@@ -27,9 +27,29 @@ namespace Assets.Scripts
 
         public PackageContent()
         {
-            m_data = new Data();
-            m_callTime = new CallTime();
-            m_messages = new Message();
+            System.Random rand = new System.Random();
+            int randomContentType = rand.Next(1, 4);
+            if (randomContentType == 1)
+            {
+                m_data = new Data();
+                m_callTime = null;
+                m_messages = null;
+            }
+            else if (randomContentType == 2)
+            {
+                m_data = null;
+                m_callTime = new CallTime();
+                m_messages = null;
+
+            }
+            else if (randomContentType == 3)
+            {
+                m_data = null;
+                m_callTime = null;
+                m_messages = new Message();
+
+            }
+
             SetNumOfContents();
         }
 
