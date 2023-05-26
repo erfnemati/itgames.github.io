@@ -19,10 +19,6 @@ namespace Assets.Scripts
             int integerPart = 0;
             integerPart = m_numOfMessages / 100;
             m_numOfMessages = integerPart * 100;
-            Debug.Log("Messages is " + m_numOfMessages);
-
-            
-
         }
 
         public Message(int numOfMessage = 0)

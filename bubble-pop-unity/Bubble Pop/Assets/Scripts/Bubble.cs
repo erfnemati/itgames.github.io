@@ -13,10 +13,12 @@ namespace Assets.Scripts
         BubbleSize m_bubbleSizeState = BubbleSize.Small;
 
 
+
         [SerializeField] TMP_Text m_text;
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
+            m_text = GetComponentInChildren<TMP_Text>();
             m_content = new PackageContent();
             SetSize();
             SetText();
@@ -75,9 +77,9 @@ namespace Assets.Scripts
             gameObject.SetActive(false);
         }
 
-        public Data getBubbleData()
+        public Data GetBubbleData()
         {
-            return (m_content.GetDataContent());
+            return m_content.GetDataContent();
         }
 
         public CallTime GetBubbleCallTime()
@@ -89,6 +91,8 @@ namespace Assets.Scripts
         {
             return (m_content.GetMessage());
         }
+
+        
 
 
     }

@@ -75,7 +75,7 @@ namespace Assets.Scripts
             }
             else
             {
-                callTimeText = m_callTime.getCallTime() + "Mins\n";
+                callTimeText = m_callTime.GetCallTime() + "Mins\n";
             }
             
             if (m_messages == null)

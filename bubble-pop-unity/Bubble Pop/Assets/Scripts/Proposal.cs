@@ -34,14 +34,14 @@ namespace Assets.Scripts
         {
             m_bubbleList.Add(bubble);
 
-            if (bubble.getBubbleData() != null)
+            if (bubble.GetBubbleData() != null)
             {
-                m_data.Add(bubble.getBubbleData().GetData());
+                m_data.Add(bubble.GetBubbleData().GetData());
             }
 
             if (bubble.GetBubbleCallTime() != null)
             {
-                m_callTime.Add(bubble.GetBubbleCallTime().getCallTime());
+                m_callTime.Add(bubble.GetBubbleCallTime().GetCallTime());
             }
 
             if (bubble.GetBubbleMessage() !=  null)
@@ -65,9 +65,9 @@ namespace Assets.Scripts
                 m_proposalText.text += dataText;
             }
 
-            if (m_callTime.getCallTime() != 0)
+            if (m_callTime.GetCallTime() != 0)
             {
-                string callTimeText = m_callTime.getCallTime() + "Mins\n";
+                string callTimeText = m_callTime.GetCallTime() + "Mins\n";
                 m_proposalText.text += callTimeText;
             }
 

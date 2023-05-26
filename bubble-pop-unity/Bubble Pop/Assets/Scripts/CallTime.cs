@@ -29,9 +29,6 @@ namespace Assets.Scripts
                 integerPart = m_callTime / 100;
                 m_callTime = integerPart * 100;
             }
-            Debug.Log("Call time is " + m_callTime);
-
-            
         }
 
         public CallTime(int callTime = 0)
@@ -39,7 +36,7 @@ namespace Assets.Scripts
             m_callTime = callTime;
         }
 
-        public int getCallTime()
+        public int GetCallTime()
         {
             return m_callTime;
         }
