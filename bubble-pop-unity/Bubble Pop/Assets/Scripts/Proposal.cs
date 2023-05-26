@@ -10,13 +10,7 @@ namespace Assets.Scripts
         CallTime m_callTime;
         Message m_messages;
 
-        List<Bubble> m_bubbleList = new List<Bubble>();
-
-        
-
         [SerializeField]TMP_Text m_proposalText;
-
-        
 
         public Proposal()
         {
@@ -32,7 +26,6 @@ namespace Assets.Scripts
 
         public void AddBubble(Bubble bubble)
         {
-            m_bubbleList.Add(bubble);
 
             if (bubble.GetBubbleData() != null)
             {
@@ -52,6 +45,29 @@ namespace Assets.Scripts
 
             UpdateProposalText();
 
+        }
+
+        public void Clear()
+        {
+            m_proposalText.text = "Empty";
+            m_data = new Data(0);
+            m_callTime = new CallTime(0);
+            m_messages = new Message(0);
+        }
+
+        public Data GetProposalData()
+        {
+            return m_data;
+        }
+
+        public CallTime GetProposalCallTime()
+        {
+            return m_callTime;
+        }
+
+        public Message GetProposalMessage()
+        {
+            return m_messages;
         }
 
         //UI code here : 

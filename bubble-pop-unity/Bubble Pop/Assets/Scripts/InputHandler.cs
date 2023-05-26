@@ -24,6 +24,17 @@ namespace Assets.Scripts
                 {
                     selectedObject.GetComponent<Bubble>().Pop();
                 }
+                if (selectedObject != null && selectedObject.CompareTag("SendButton"))
+                {
+                    Debug.Log("SendButton pressed");
+                    LevelManager.m_instance.SendProposal();
+                }
+
+                if (selectedObject != null && selectedObject.CompareTag("DiscardButton"))
+                {
+                    Debug.Log("DiscardButton pressed");
+                    LevelManager.m_instance.DiscardProposal();
+                }
             }
         }
 

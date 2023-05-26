@@ -16,9 +16,12 @@ namespace Assets.Scripts
         [SerializeField] GameObject m_bubblePrefab;
         [SerializeField] Transform[] m_bubbleTransfroms;
 
-        public List<Data> m_dataList = new List<Data>();
-        public List<CallTime> m_callTimeList = new List<CallTime>();
-        public List<Message> m_messageList = new List<Message>();
+        private List<Data> m_dataList = new List<Data>();
+        private List<CallTime> m_callTimeList = new List<CallTime>();
+        private List<Message> m_messageList = new List<Message>();
+
+        private List<Bubble> m_chosenBubbles = new List<Bubble>();
+        private List<Transform> vacantTransforms = new List<Transform>();
 
 
         Request m_currentRequest;
@@ -40,7 +43,87 @@ namespace Assets.Scripts
 
         public void AddItem(Bubble bubble)
         {
+            m_chosenBubbles.Add(bubble);
             m_proposal.AddBubble(bubble);
+        }
+
+        public void SendProposal()
+        {
+            if (IsRightProposalSent())
+            {
+                Debug.Log("You are right");
+                foreach(Bubble temp in m_chosenBubbles)
+                {
+                    GameObject newBubble = Instantiate(m_bubblePrefab, temp.transform.position, Quaternion.identity);
+                    CashBubbleInfo(newBubble);
+
+                    RemoveBubbleInfo(temp.GetComponent<Bubble>());
+                    Destroy(temp.gameObject);
+                }
+                m_proposal.Clear();
+                m_chosenBubbles.Clear();
+                SetRequest();
+            }
+            else
+            {
+                Debug.Log("You are wrong");
+                DiscardProposal();
+            }
+        }
+
+        public void RemoveBubbleInfo(Bubble bubble)
+        {
+            if (bubble.GetBubbleData() != null)
+            {
+                m_dataList.Remove(bubble.GetBubbleData());
+            }
+
+            if (bubble.GetBubbleCallTime() != null)
+            {
+                m_callTimeList.Remove(bubble.GetBubbleCallTime());
+            }
+
+            if (bubble.GetBubbleMessage() != null)
+            {
+                m_messageList.Remove(bubble.GetBubbleMessage());
+            }
+        }
+
+        public void DiscardProposal()
+        {
+            foreach(Bubble temp in m_chosenBubbles)
+            {
+                temp.gameObject.SetActive(true);
+            }
+            m_chosenBubbles.Clear();
+            m_proposal.Clear();
+        }
+
+        private bool IsRightProposalSent()
+        {
+            if (m_currentRequest.GetRequestData() != null)
+            {
+                if (m_currentRequest.GetRequestData().GetData() != m_proposal.GetProposalData().GetData())
+                {
+                    return false;
+                }
+            }
+            if (m_currentRequest.GetRequestCallTime() != null)
+            {
+                if (m_currentRequest.GetRequestCallTime().GetCallTime() != m_proposal.GetProposalCallTime().GetCallTime())
+                {
+                    return false;
+                }
+            }
+            if (m_currentRequest.GetRequestMessage() != null)
+            {
+                if (m_currentRequest.GetRequestMessage().GetMessageCount() != m_proposal.GetProposalMessage().GetMessageCount())
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         private void SetRequest()
@@ -53,26 +136,31 @@ namespace Assets.Scripts
         {
             for(int i = 0; i < numberOfBubbles; i++)
             {
-                
-                GameObject instantiatedOne = Instantiate(m_bubblePrefab, m_bubbleTransfroms[i].position,Quaternion.identity);
-                
-                Bubble bubbleScript = instantiatedOne.GetComponent<Bubble>();
-                
-                if (bubbleScript.GetBubbleData() != null )
-                {
-                    m_dataList.Add(bubbleScript.GetBubbleData());
-                }
 
-                if (bubbleScript.GetBubbleCallTime() != null)
-                {
-                    m_callTimeList.Add(bubbleScript.GetBubbleCallTime());
-                }
+                GameObject instantiatedOne = Instantiate(m_bubblePrefab, m_bubbleTransfroms[i].position, Quaternion.identity);
 
-                if (bubbleScript.GetBubbleMessage() != null)
-                {
-                    m_messageList.Add(bubbleScript.GetBubbleMessage());
-                }
-                
+                CashBubbleInfo(instantiatedOne);
+
+            }
+        }
+
+        private void CashBubbleInfo(GameObject instantiatedOne)
+        {
+            Bubble bubbleScript = instantiatedOne.GetComponent<Bubble>();
+
+            if (bubbleScript.GetBubbleData() != null)
+            {
+                m_dataList.Add(bubbleScript.GetBubbleData());
+            }
+
+            if (bubbleScript.GetBubbleCallTime() != null)
+            {
+                m_callTimeList.Add(bubbleScript.GetBubbleCallTime());
+            }
+
+            if (bubbleScript.GetBubbleMessage() != null)
+            {
+                m_messageList.Add(bubbleScript.GetBubbleMessage());
             }
         }
 
@@ -109,18 +197,5 @@ namespace Assets.Scripts
         {
             return m_messageList;
         }
-
-        public void SendProposal()
-        {
-            //TODO
-        }
-
-        public void DiscardProposal()
-        {
-            //TODO
-        }
-
-
-
     }
 }
