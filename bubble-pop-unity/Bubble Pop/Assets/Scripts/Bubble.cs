@@ -11,6 +11,13 @@ namespace Assets.Scripts
         PackageContent m_content;
         
         BubbleSize m_bubbleSizeState = BubbleSize.Small;
+        [SerializeField] float m_distance = 2f;
+
+        private bool m_isDirectionChosen = false;
+        private Vector2 m_flowingDirection = Vector2.zero;
+        private Vector3 m_initialPos;
+        private BubbleMovingState m_movingState = BubbleMovingState.GoingOut;
+        [SerializeField] float m_flowingSpeed = 0.5f;
 
 
 
@@ -18,17 +25,97 @@ namespace Assets.Scripts
         // Start is called before the first frame update
         void Awake()
         {
+          
             m_text = GetComponentInChildren<TMP_Text>();
             m_content = new PackageContent();
+            m_initialPos = transform.position;
             SetSize();
             SetText();
+        }
+
+        private void Update()
+        {
+            if (m_movingState == BubbleMovingState.GoingOut)
+            {
+                if (m_isDirectionChosen)
+                {
+                    Vector3 movement = new Vector3(m_flowingDirection.x, m_flowingDirection.y, 0) * Time.deltaTime * m_flowingSpeed;
+                    transform.position =
+                    transform.position + movement;
+                    
+                    if (Vector3.Distance(transform.position , m_initialPos)>= m_distance)
+                    {
+                        m_movingState = BubbleMovingState.GettingBack;
+                        m_isDirectionChosen = false;
+                       
+                    }
+                }
+                else
+                {
+                    float horizontal = Random.Range(-1f, 1f);
+                    float vertical = Random.Range(-1f, 1f);
+
+                    m_flowingDirection = new Vector2(horizontal, vertical);
+                    m_isDirectionChosen = true;
+                }
+            }
+            else if (m_movingState == BubbleMovingState.GettingBack)
+            {
+                m_flowingDirection = m_initialPos - transform.position;
+                Vector3 movement = new Vector3(m_flowingDirection.x, m_flowingDirection.y, 0) * Time.deltaTime * m_flowingSpeed;
+                transform.position =
+                transform.position + movement;
+
+                if (Vector3.Distance(transform.position,m_initialPos) <= 0.5)
+                {
+                    m_movingState = BubbleMovingState.GoingOut;
+                 
+                }
+
+            }
+
+            Vector3 viewPortPos = Camera.main.WorldToViewportPoint(transform.position);
+            if (viewPortPos.x < 0.1)
+            {
+                Debug.Log("I am on left border" + gameObject.name);
+                m_movingState = BubbleMovingState.GettingBack;
+                m_isDirectionChosen = false;
+
+            }
+            else if (viewPortPos.x > 0.9)
+            {
+                Debug.Log("I am on right border" + gameObject.name);
+                m_movingState = BubbleMovingState.GettingBack;
+                m_isDirectionChosen = false;
+
+            }
+            else if (viewPortPos.y > 0.9)
+            {
+                Debug.Log("I am on up border" + gameObject.name);
+                m_movingState = BubbleMovingState.GettingBack;
+                m_isDirectionChosen = false;
+
+            }
+            else if (viewPortPos.x < 0.1)
+            {
+                Debug.Log("I am on down border" + gameObject.name);
+                m_movingState = BubbleMovingState.GettingBack;
+                m_isDirectionChosen = false;
+
+            }
+        }
+
+       
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            Debug.Log("Trigger started");
+            m_movingState = BubbleMovingState.GettingBack;
         }
 
         private void SetText()
         {
             m_text.text = m_content.GetPackageTextContent();
         }
-
 
         private void SetSizeState()
         {
@@ -55,7 +142,7 @@ namespace Assets.Scripts
             switch(m_bubbleSizeState)
             {
                 case BubbleSize.Small:
-                    transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                    transform.localScale = new Vector3(0.5f, 0.5f,0.5f);
                     
                     break;
                 case BubbleSize.Medium:
@@ -100,5 +187,10 @@ namespace Assets.Scripts
     enum BubbleSize
     {
         Small,Medium , Big
+    }
+
+    enum BubbleMovingState
+    {
+        GoingOut , GettingBack
     }
 }

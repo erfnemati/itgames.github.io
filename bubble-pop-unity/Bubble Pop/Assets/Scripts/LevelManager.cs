@@ -12,7 +12,7 @@ namespace Assets.Scripts
         [SerializeField] TMP_Text m_requestText;
         [SerializeField] TMP_Text m_proposalText;
 
-        [SerializeField] int m_numOfBubbles = 5;
+        [SerializeField] int m_numOfBubbles = 2;
         [SerializeField] GameObject m_bubblePrefab;
         [SerializeField] Transform[] m_bubbleTransfroms;
 
