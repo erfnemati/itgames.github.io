@@ -1470,7 +1470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fccd39f8a72918841a475a228ef0b609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_popSound: {fileID: 0}
+  m_popSound: {fileID: 8300000, guid: f62a9507699da20478e6b80c92c40fdc, type: 3}
 --- !u!4 &1337347642
 Transform:
   m_ObjectHideFlags: 0

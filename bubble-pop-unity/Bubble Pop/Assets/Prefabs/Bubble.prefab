@@ -288,6 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ffc6160821b8914c80e435ffe236878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_popEffect: {fileID: 237164950481340440, guid: 63125bcd425a75542bacf03db87573e7, type: 3}
   m_distance: 1.5
   m_flowingSpeed: 0.3
   m_text: {fileID: 5207552990435218839}

@@ -8,8 +8,8 @@ namespace Assets.Scripts
 {
     public class Bubble : MonoBehaviour
     {
-        [SerializeField] AudioClip m_popSound;
-
+        [SerializeField] GameObject m_popEffect;
+       
         PackageContent m_content;
         
         BubbleSize m_bubbleSizeState = BubbleSize.Small;
@@ -79,28 +79,24 @@ namespace Assets.Scripts
             Vector3 viewPortPos = Camera.main.WorldToViewportPoint(transform.position);
             if (viewPortPos.x < 0.1)
             {
-                Debug.Log("I am on left border" + gameObject.name);
                 m_movingState = BubbleMovingState.GettingBack;
                 m_isDirectionChosen = false;
 
             }
             else if (viewPortPos.x > 0.9)
             {
-                Debug.Log("I am on right border" + gameObject.name);
                 m_movingState = BubbleMovingState.GettingBack;
                 m_isDirectionChosen = false;
 
             }
             else if (viewPortPos.y > 0.9)
             {
-                Debug.Log("I am on up border" + gameObject.name);
                 m_movingState = BubbleMovingState.GettingBack;
                 m_isDirectionChosen = false;
 
             }
             else if (viewPortPos.y < 0.4)
             {
-                Debug.Log("I am on down border" + gameObject.name);
                 m_movingState = BubbleMovingState.GettingBack;
                 m_isDirectionChosen = false;
 
@@ -161,6 +157,8 @@ namespace Assets.Scripts
         public void Pop()
         {
             LevelManager.m_instance.AddItem(this);
+            GameObject popEffect = Instantiate(m_popEffect, transform.position, Quaternion.identity);
+            Destroy(popEffect, 2f);
             gameObject.SetActive(false);
         }
 
