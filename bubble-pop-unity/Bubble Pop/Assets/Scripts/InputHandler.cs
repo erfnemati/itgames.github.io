@@ -7,10 +7,12 @@ namespace Assets.Scripts
 {
     public class InputHandler : MonoBehaviour
     {
+        AudioSource m_audioSource;
+        [SerializeField] AudioClip m_popSound;
         // Start is called before the first frame update
         void Start()
         {
-
+            m_audioSource = GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -23,6 +25,10 @@ namespace Assets.Scripts
                 if (selectedObject != null && selectedObject.CompareTag("Bubble"))
                 {
                     selectedObject.GetComponent<Bubble>().Pop();
+                    m_audioSource.clip = m_popSound;
+                    m_audioSource.Play();
+                    
+                    
                 }
                 if (selectedObject != null && selectedObject.CompareTag("SendButton"))
                 {

@@ -8,6 +8,8 @@ namespace Assets.Scripts
 {
     public class Bubble : MonoBehaviour
     {
+        [SerializeField] AudioClip m_popSound;
+
         PackageContent m_content;
         
         BubbleSize m_bubbleSizeState = BubbleSize.Small;
@@ -158,7 +160,6 @@ namespace Assets.Scripts
 
         public void Pop()
         {
-            
             LevelManager.m_instance.AddItem(this);
             gameObject.SetActive(false);
         }
