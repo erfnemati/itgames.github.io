@@ -96,7 +96,7 @@ namespace Assets.Scripts
                 m_isDirectionChosen = false;
 
             }
-            else if (viewPortPos.x < 0.1)
+            else if (viewPortPos.y < 0.4)
             {
                 Debug.Log("I am on down border" + gameObject.name);
                 m_movingState = BubbleMovingState.GettingBack;
@@ -108,7 +108,6 @@ namespace Assets.Scripts
        
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            Debug.Log("Trigger started");
             m_movingState = BubbleMovingState.GettingBack;
         }
 
