@@ -37,7 +37,7 @@ namespace Assets.Scripts
                 Destroy(this.gameObject);
             }
             GenerateBubbles(m_numOfBubbles);
-            SetRequest();
+            SetCurrentRequest();
             m_proposal = FindObjectOfType<Proposal>();
         }
 
@@ -62,7 +62,7 @@ namespace Assets.Scripts
                 }
                 m_proposal.Clear();
                 m_chosenBubbles.Clear();
-                SetRequest();
+                SetCurrentRequest();
             }
             else
             {
@@ -126,7 +126,7 @@ namespace Assets.Scripts
             return true;
         }
 
-        private void SetRequest()
+        private void SetCurrentRequest()
         {
             m_currentRequest = RequestManager.m_instance.GetNewRequest();
             SetRequestText();
