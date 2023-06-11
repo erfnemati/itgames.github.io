@@ -41,6 +41,14 @@ namespace Assets.Scripts
                     Debug.Log("DiscardButton pressed");
                     LevelManager.m_instance.DiscardProposal();
                 }
+
+                if (selectedObject != null && selectedObject.CompareTag("Customer"))
+                {
+                    Debug.Log("Customer Selected");
+                    LevelManager.m_instance.SetCurrentCustomer(selectedObject.GetComponent<CustomerManager>());
+                }
+
+                
             }
         }
 

@@ -23,10 +23,12 @@ namespace Assets.Scripts
         private List<Bubble> m_chosenBubbles = new List<Bubble>();
         private List<Transform> vacantTransforms = new List<Transform>();
 
+        [SerializeField] CustomerManager m_customer;
+
 
         Request m_currentRequest;
         Proposal m_proposal;
-        void Start()
+        void Awake()
         {
             if (m_instance == null)
             {
@@ -37,14 +39,28 @@ namespace Assets.Scripts
                 Destroy(this.gameObject);
             }
             GenerateBubbles(m_numOfBubbles);
-            SetCurrentRequest();
-            m_proposal = FindObjectOfType<Proposal>();
+            
+            //SetCurrentRequest();
+            //m_proposal = FindObjectOfType<Proposal>();
         }
+
+        public void Start()
+        {
+            RequestManager.m_instance.RefreshLists();
+        }
+
+
+        public void SetCurrentCustomer(CustomerManager customer)
+        {
+            m_customer = customer;
+        }
+
 
         public void AddItem(Bubble bubble)
         {
             m_chosenBubbles.Add(bubble);
-            m_proposal.AddBubble(bubble);
+            //m_proposal.AddBubble(bubble);
+            m_customer.AddItem(bubble);
         }
 
         public void SendProposal()
@@ -142,6 +158,7 @@ namespace Assets.Scripts
                 CashBubbleInfo(instantiatedOne);
 
             }
+
         }
 
         private void CashBubbleInfo(GameObject instantiatedOne)

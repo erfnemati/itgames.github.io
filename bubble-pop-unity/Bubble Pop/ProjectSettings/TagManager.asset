@@ -7,6 +7,7 @@ TagManager:
   - Bubble
   - SendButton
   - DiscardButton
+  - Customer
   layers:
   - Default
   - TransparentFX
