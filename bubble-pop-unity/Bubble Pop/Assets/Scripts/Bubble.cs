@@ -159,7 +159,7 @@ namespace Assets.Scripts
             LevelManager.m_instance.AddItem(this);
             GameObject popEffect = Instantiate(m_popEffect, transform.position, Quaternion.identity);
             Destroy(popEffect, 2f);
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
 
         public Data GetBubbleData()

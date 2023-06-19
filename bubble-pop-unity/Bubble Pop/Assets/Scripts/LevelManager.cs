@@ -12,7 +12,7 @@ namespace Assets.Scripts
         [SerializeField] TMP_Text m_requestText;
         [SerializeField] TMP_Text m_proposalText;
 
-        [SerializeField] int m_numOfBubbles = 2;
+        [SerializeField] int m_numOfBubbles = 5;
         [SerializeField] GameObject m_bubblePrefab;
         [SerializeField] Transform[] m_bubbleTransfroms;
 
@@ -21,9 +21,12 @@ namespace Assets.Scripts
         private List<Message> m_messageList = new List<Message>();
 
         private List<Bubble> m_chosenBubbles = new List<Bubble>();
-        private List<Transform> vacantTransforms = new List<Transform>();
+        private Queue<Vector3> vacantTransforms = new Queue<Vector3>();
+
+        private int m_numOfActiveBubbles = 0;
 
         [SerializeField] CustomerManager m_customer;
+        [SerializeField] GameObject m_customerGameObject;
 
 
         Request m_currentRequest;
@@ -38,7 +41,7 @@ namespace Assets.Scripts
             {
                 Destroy(this.gameObject);
             }
-            GenerateBubbles(m_numOfBubbles);
+            
             
             //SetCurrentRequest();
             //m_proposal = FindObjectOfType<Proposal>();
@@ -46,7 +49,28 @@ namespace Assets.Scripts
 
         public void Start()
         {
+            AddVacantInitialTransforms();
+            GenerateBubbles(m_numOfBubbles - m_numOfActiveBubbles);
+            InstantiateNewCustomer();
+            
+            
+        }
+
+        public void GetNewCustomer()
+        {
+            GenerateBubbles(m_numOfBubbles - m_numOfActiveBubbles);
+            InstantiateNewCustomer();
+        }
+
+        private void InstantiateNewCustomer()
+        {
             RequestManager.m_instance.RefreshLists();
+            if (m_customer != null)
+            {
+                Destroy(m_customer.gameObject);
+            }
+            GameObject customer = Instantiate(m_customerGameObject);
+            SetCurrentCustomer(customer.GetComponent<CustomerManager>());
         }
 
 
@@ -55,12 +79,31 @@ namespace Assets.Scripts
             m_customer = customer;
         }
 
+        private void AddVacantTransform(Bubble bubble)
+        {
+            Vector3 bubblePosition = bubble.transform.position;
+            Vector3 temp = new Vector3(bubblePosition.x,bubblePosition.y,bubblePosition.z);
+            vacantTransforms.Enqueue(temp);
+        }
+
+        private void AddVacantInitialTransforms()
+        {
+            foreach (Transform temp in m_bubbleTransfroms)
+            {
+                vacantTransforms.Enqueue(temp.position);
+            }
+        }
+
 
         public void AddItem(Bubble bubble)
         {
-            m_chosenBubbles.Add(bubble);
-            //m_proposal.AddBubble(bubble);
+            
+            //m_chosenBubbles.Add(bubble);
+            m_numOfActiveBubbles--;
             m_customer.AddItem(bubble);
+            AddVacantTransform(bubble);
+            RemoveBubbleInfo(bubble);
+            Destroy(bubble.gameObject);
         }
 
         public void SendProposal()
@@ -150,10 +193,13 @@ namespace Assets.Scripts
 
         private void GenerateBubbles(int numberOfBubbles)
         {
-            for(int i = 0; i < numberOfBubbles; i++)
+            m_numOfActiveBubbles += numberOfBubbles;
+            //Debug.Log("Number of to be generated bubbles " + numberOfBubbles);
+            //Debug.Log("Queue count is " + vacantTransforms.Count);
+            for(int i = numberOfBubbles - 1; i >= 0; i--)
             {
-
-                GameObject instantiatedOne = Instantiate(m_bubblePrefab, m_bubbleTransfroms[i].position, Quaternion.identity);
+                Debug.Log("index is " + i);
+                GameObject instantiatedOne = Instantiate(m_bubblePrefab, vacantTransforms.Dequeue(), Quaternion.identity);
 
                 CashBubbleInfo(instantiatedOne);
 

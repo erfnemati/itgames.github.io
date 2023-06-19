@@ -45,7 +45,7 @@ namespace Assets.Scripts
                 if (selectedObject != null && selectedObject.CompareTag("Customer"))
                 {
                     Debug.Log("Customer Selected");
-                    LevelManager.m_instance.SetCurrentCustomer(selectedObject.GetComponent<CustomerManager>());
+                    LevelManager.m_instance.GetNewCustomer();
                 }
 
                 

@@ -23,8 +23,9 @@ public class CustomerSlider : MonoBehaviour
         {
             newValue = 0;
         }
-        m_slider.value = newValue;
-        fillBar.color = m_sliderGradient.Evaluate(m_slider.value/m_slider.maxValue);
+        m_slider.value = newValue * m_maxValue;
+        //Debug.Log("Slider value is " + m_slider.value);
+        fillBar.color = m_sliderGradient.Evaluate(m_slider.value);
     }
 
     private void Update()
@@ -34,6 +35,7 @@ public class CustomerSlider : MonoBehaviour
             SetValue(m_slider.value + 0.2f);
         }
     }
+
 
 
     private void SetMaxValue()

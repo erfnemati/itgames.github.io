@@ -34,7 +34,7 @@ namespace Assets.Scripts
 
         public Request GetNewRequest()
         {
-        
+            Debug.Log("Getting a new customer!");
             Request newRequest = null;
             Data requestData =new Data(0) ;
             CallTime requestCallTime = new CallTime(0);
@@ -85,17 +85,19 @@ namespace Assets.Scripts
                         break;
                 }
             }
-            Debug.Log("New data  request is : " + requestData.GetData());
+            //Debug.Log("New data  request is : " + requestData.GetData());
             return new Request(requestData, requestCallTime, requestMessage);
         }
 
         public void RefreshLists()
         {
-            Debug.Log("Lists have been refreshed");
+            m_dataList.Clear();
+            m_callTimeList.Clear();
+            m_messageList.Clear();
+
             foreach (Data temp in LevelManager.m_instance.GetDataList())
             {
                 m_dataList.Add(temp);
-                Debug.Log("newly added data : " + temp.GetData());
             }
 
             foreach (CallTime temp in LevelManager.m_instance.GetCallTimeList())

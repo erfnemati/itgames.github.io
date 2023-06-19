@@ -127,7 +127,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3.15
+  m_fontSize: 3.05
   m_fontSizeBase: 1
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.07456657, y: 0.101955, z: 0.11595082, w: 0.115187496}
+  m_margin: {x: 0.1129328, y: 0.07690811, z: 0.10060418, w: 0.09014028}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -200,8 +200,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8104126691085515114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.95, y: -1.24, z: 0}
-  m_LocalScale: {x: 0.301125, y: 0.301125, z: 1.2045}
+  m_LocalPosition: {x: -0.8654, y: -1.1977, z: 0}
+  m_LocalScale: {x: 0.35752568, y: 0.3285876, z: 1.2045}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4832475020915313729}

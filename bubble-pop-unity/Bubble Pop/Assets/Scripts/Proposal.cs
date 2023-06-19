@@ -24,23 +24,27 @@ namespace Assets.Scripts
             if (bubble.GetBubbleData() != null)
             {
                 m_data.Add(bubble.GetBubbleData().GetData());
+                
             }
 
             if (bubble.GetBubbleCallTime() != null)
             {
                 m_callTime.Add(bubble.GetBubbleCallTime().GetCallTime());
+                //Debug.Log("proposal call time is " + m_callTime.GetCallTime());
+                
             }
 
             if (bubble.GetBubbleMessage() !=  null)
             {
                 m_messages.Add(bubble.GetBubbleMessage().GetMessageCount());
+                
 
             }
         }
 
         public void Clear()
         {
-            Debug.Log("No need for clear");
+            //Debug.Log("No need for clear");
         }
 
         public Data GetProposalData()
