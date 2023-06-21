@@ -467,6 +467,11 @@ function animateCars(timeBetweenFrames)
 	checkCarGeneration();
 
 	var cars = carQueue.getElements();
+	if(cars == null)
+	{
+		
+		return;
+	}
 	for (var i = 0 ; i < cars.length ; i++) 
 	{
 		cars[i].move(timeBetweenFrames);
