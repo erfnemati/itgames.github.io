@@ -9,6 +9,8 @@ namespace Assets.WorkAtHome.Scripts
     {
         [SerializeField] Transform m_finalPos;
         [SerializeField] float m_cycle;
+
+        [SerializeField] Transform m_customerTransform;
         public void ChangeSequence()
         {
             Debug.Log("Customer arrival sequence has been finished");
@@ -18,7 +20,7 @@ namespace Assets.WorkAtHome.Scripts
         public void PlaySequence()
         {
             Debug.Log("Customer arrival sequence started");
-            transform.DOMoveX(m_finalPos.position.x, m_cycle).OnComplete(()=>ChangeSequence());
+            m_customerTransform.DOMoveX(m_finalPos.position.x, m_cycle).OnComplete(()=>ChangeSequence());
         }
 
         // Start is called before the first frame update

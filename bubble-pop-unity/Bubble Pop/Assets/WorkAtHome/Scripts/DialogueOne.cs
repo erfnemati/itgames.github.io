@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
+using UnityEngine.UI;
 
 namespace Assets.WorkAtHome.Scripts
 {
@@ -13,16 +14,23 @@ namespace Assets.WorkAtHome.Scripts
 
         [SerializeField] float m_finalDialogueBoxScale;
         [SerializeField] float m_dialogueBoxScaleTime;
+        //[SerializeField] Button m_triggerButton;
         
         public void ChangeSequence()
         {
-            Debug.Log("First dialogues has been finished");
+            Debug.Log("Here we go again");
+            
             TutorialManager.m_instance.GoNextSequence();
+            //m_triggerButton.onClick.RemoveAllListeners();
+
+
         }
 
         public void PlaySequence()
         {
+            
             m_dialogueBox.gameObject.SetActive(true);
+            //m_triggerButton.onClick.AddListener(()=>this.ChangeSequence());
             m_dialogueBox.transform.DOScale(m_finalDialogueBoxScale, m_dialogueBoxScaleTime).OnComplete(()=>ShowCustomerDialogue());
             
         }

@@ -36,25 +36,43 @@ namespace Assets.WorkAtHome.Scripts
             m_sequences.Add(FindObjectOfType<DialogueOne>());
             
             m_sequences.Add(FindObjectOfType<DialogueTwo>());
+
+            m_sequences.Add(FindObjectOfType<DialogueThree>());
+
+            m_sequences.Add(FindObjectOfType<TapAnar>());
+
+            m_sequences.Add(FindObjectOfType<BubbleGeneration>());
+
+            Debug.Log("Number of sequences are : " + m_sequences.Count);
+
         }
 
         public void PlaySequence()
         {
+
             m_currentSequence.PlaySequence();
         }
         public void GoNextSequence()
         {
             
-            if (sequenceIndex >= m_sequences.Count)
+
+            if (sequenceIndex >= m_sequences.Count- 1)
             {
                 Debug.Log("Everysequence has been played");
                 return;
             }
 
             sequenceIndex++;
+            Debug.Log("Sequence index is : " + sequenceIndex);
             m_currentSequence = m_sequences[sequenceIndex];
             PlaySequence();
 
+        }
+
+        public void ChangeSequence()
+        {
+            Debug.Log("Hello from tutorial manager");
+            m_currentSequence.ChangeSequence();
         }
 
     }
