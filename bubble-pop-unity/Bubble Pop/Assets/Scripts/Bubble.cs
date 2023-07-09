@@ -11,6 +11,7 @@ namespace Assets.Scripts
         [SerializeField] GameObject m_popEffect;
        
         PackageContent m_content;
+        PackageContent m_initialPackage;
         
         BubbleSize m_bubbleSizeState = BubbleSize.Small;
         [SerializeField] float m_distance = 2f;
@@ -33,6 +34,7 @@ namespace Assets.Scripts
             m_initialPos = transform.position;
             SetSize();
             SetText();
+            SetInitialPackage();
         }
 
         private void Update()
@@ -162,6 +164,11 @@ namespace Assets.Scripts
             //gameObject.SetActive(false);
         }
 
+        public void TutorialPop()
+        {
+            Destroy(this.gameObject);
+        }
+
         public Data GetBubbleData()
         {
             return m_content.GetDataContent();
@@ -175,6 +182,66 @@ namespace Assets.Scripts
         public Message GetBubbleMessage()
         {
             return (m_content.GetMessage());
+        }
+
+        public void ActivateAnarestanPowerUp()
+        {
+            Data newData = null;
+            CallTime newCallTime = null;
+            Message newMessage = null;
+
+            if (m_content.GetDataContent() != null)
+            {
+                newData = new Data((int)2 * GetBubbleData().GetData());
+            }
+
+            if (m_content.GetCallTime() != null)
+            {
+                newCallTime = new CallTime((int)2 * GetBubbleCallTime().GetCallTime());
+            }
+
+            if (m_content.GetMessage() != null)
+            {
+                newMessage = new Message((int)2 * GetBubbleMessage().GetMessageCount());
+            }
+
+            m_content = new PackageContent(newData,newCallTime,newMessage);
+            SetSize();
+            SetText();
+
+        }
+
+        public void DeactivateAnarestanPowerUp()
+        {
+
+            Debug.Log("Deactivating power up");
+            m_content = new PackageContent(m_initialPackage.GetDataContent(), m_initialPackage.GetCallTime(), m_initialPackage.GetMessage());
+            SetSize();
+            SetText();
+        }
+
+        private void SetInitialPackage()
+        {
+            Data data = null;
+            CallTime callTime = null;
+            Message message = null;
+
+            if (m_content.GetDataContent() != null)
+            {
+                data = new Data(m_content.GetDataContent().GetData());
+            }
+
+            if (m_content.GetCallTime() != null)
+            {
+                callTime = new CallTime(m_content.GetCallTime().GetCallTime());
+            }
+
+            if (m_content.GetMessage() != null)
+            {
+                message = new Message(m_content.GetMessage().GetMessageCount());
+            }
+
+            m_initialPackage = new PackageContent(data, callTime, message);
         }
 
         

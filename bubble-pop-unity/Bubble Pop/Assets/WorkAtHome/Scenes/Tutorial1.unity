@@ -731,7 +731,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 288587098}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b31493fe6455f524c9644f7226359170, type: 3}
+  m_Script: {fileID: 11500000, guid: 1277a17bc3340af4c87b87f813300a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_dialogueText: Hello
@@ -794,7 +794,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 372373095}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d5867dc7fc40fb46b529dde337a556c, type: 3}
+  m_Script: {fileID: 11500000, guid: d7b4e63206359384699b065272a57996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_finalPos: {fileID: 1322625938}
@@ -1038,7 +1038,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 842323306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.56, y: 3.41, z: 0}
+  m_LocalPosition: {x: -1.26, y: 3.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1069,7 +1069,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887189226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.23, y: -0.29, z: 0}
+  m_LocalPosition: {x: 1.26, y: 0.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1164,7 +1164,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: c671d3eba8ad5b441af10fbfdc019a2b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1232,7 +1232,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1078890963}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 511a1326db73d614186db5bebd8ad11d, type: 3}
+  m_Script: {fileID: 11500000, guid: 75bd64968e26881499f6639c4ca58465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_dialogueText: Of course I can , just tap this magical item
@@ -1488,9 +1488,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1363145756}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bd95843bdcbc1d4386461eac9b4ffdf, type: 3}
+  m_Script: {fileID: 11500000, guid: 80dc4064ecff8b04fbb9cff13cdf731f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_dialogueBox: {fileID: 0}
   m_numOfBubbles: 5
   m_bubblePrefab: {fileID: 8104126691085515114, guid: b80dc88df9130b045b82664a5841c5c9, type: 3}
   m_bubbleTransfroms:
@@ -1499,6 +1500,7 @@ MonoBehaviour:
   - {fileID: 1825263937}
   - {fileID: 887189227}
   - {fileID: 1435537248}
+  m_generatedBubbles: []
 --- !u!1 &1435537247
 GameObject:
   m_ObjectHideFlags: 0
@@ -1523,7 +1525,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1435537247}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.26, y: -1.82, z: 0}
+  m_LocalPosition: {x: -0.08, y: -0.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1633,7 +1635,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1629692002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db71e25880373104caed279554b9543d, type: 3}
+  m_Script: {fileID: 11500000, guid: d1677006dfcda0441b87d671bca0437f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_dialogueText: I need something to connect to shad platfrom , can you help me?
@@ -1662,7 +1664,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661944867}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.26, y: 3.59, z: 0}
+  m_LocalPosition: {x: 0.9, y: 3.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1710,7 +1712,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1704635102}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b310cc46784dac24cbc5852ba969fe57, type: 3}
+  m_Script: {fileID: 11500000, guid: 96837541811386b46850f0d968e58e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_numOfTaps: 5
@@ -1828,7 +1830,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825263936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.82, y: -0.24, z: 0}
+  m_LocalPosition: {x: -1.46, y: 0.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1871,7 +1873,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2025633291}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 346900faf9148f94cb5aed7c8b574ec2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a424bbaca8d78a48a91a5cedec9219f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &2025633293
@@ -1919,4 +1921,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2057609274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2057609275}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2057609275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057609274}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.20057635, y: 0.01972913, z: -0.43443167}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

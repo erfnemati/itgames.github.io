@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Assets.Scripts;
+using UnityEngine.SceneManagement;
 
 namespace Assets.WorkAtHome.Scripts
 {
@@ -74,6 +76,15 @@ namespace Assets.WorkAtHome.Scripts
             Debug.Log("Hello from tutorial manager");
             m_currentSequence.ChangeSequence();
         }
+
+        public void LoadNextLevel()
+        {
+            int currentLevel = SceneManager.GetActiveScene().buildIndex;
+            int nextLevel = (currentLevel + 1) % SceneManager.sceneCount;
+            SceneManager.LoadScene(nextLevel);
+        }
+
+        
 
     }
 }

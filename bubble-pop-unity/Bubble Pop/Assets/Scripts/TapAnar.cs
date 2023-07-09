@@ -26,7 +26,14 @@ namespace Assets.WorkAtHome.Scripts
         public void ChangeSequence()
         {
             m_dialogueBox.gameObject.SetActive(false);
+            for (int i = 0; i< m_anarPowerUpIcon.transform.childCount; i++)
+            {
+                m_anarPowerUpIcon.transform.GetChild(i).gameObject.SetActive(true);
+            }
+            m_anarPowerUpIcon.GetComponentInChildren<TMP_Text>().text = "Tap ME";
+            
             TutorialManager.m_instance.GoNextSequence();
+            Destroy(this);
         }
 
         public void PlaySequence()
