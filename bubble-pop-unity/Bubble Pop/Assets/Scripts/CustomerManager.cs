@@ -13,6 +13,7 @@ namespace Assets.Scripts
 
         //UI variables here : 
         [SerializeField] TMP_Text m_requestText;
+        [SerializeField] TMP_Text m_requestValue;
         [SerializeField] CustomerSlider m_customerSlider;
         void Start()
         {
@@ -21,9 +22,9 @@ namespace Assets.Scripts
 
         private void SetRequest()
         {
-            Debug.Log("Customer has requestd");
             m_customerRequest = RequestManager.m_instance.GetNewRequest();
             SetRequestText();
+            SetRequestValueUi();
         }
 
         public void AddItem(Bubble bubble)
@@ -31,6 +32,7 @@ namespace Assets.Scripts
             m_currentProposal.AddBubble(bubble);
 
             UpdateCustomerCompletionBar();
+            SetRequestValueUi();
         }
 
         private float CheckProposal()
@@ -104,7 +106,15 @@ namespace Assets.Scripts
 
 
         }
-        //UI code here : 
+
+        public int GetCoins()
+        {
+            float rateOfProposal = CheckProposal();
+            int payedCoins = (int)(rateOfProposal * m_customerRequest.GetRequestValue());
+            Debug.Log("Payed coins are : " + payedCoins);
+            return payedCoins;
+        }
+        
 
   
         private void SetRequestText()
@@ -124,12 +134,17 @@ namespace Assets.Scripts
             {
                 m_requestText.text += m_customerRequest.GetRequestMessage().GetMessageCount() + "SMS";
             }
+
+        }
+
+        private void SetRequestValueUi()
+        {
+            m_requestValue.text =  m_customerRequest.GetRequestValue() + " Coins";
         }
 
         private void UpdateCustomerCompletionBar()
         {
             m_customerSlider.SetValue(CheckProposal());
-
 
         }
 

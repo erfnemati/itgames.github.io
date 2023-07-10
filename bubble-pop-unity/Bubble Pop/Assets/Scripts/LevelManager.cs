@@ -108,27 +108,19 @@ namespace Assets.Scripts
 
         public void SendProposal()
         {
-            if (IsRightProposalSent())
-            {
-                Debug.Log("You are right");
-                foreach(Bubble temp in m_chosenBubbles)
-                {
-                    GameObject newBubble = Instantiate(m_bubblePrefab, temp.transform.position, Quaternion.identity);
-                    CashBubbleInfo(newBubble);
-
-                    RemoveBubbleInfo(temp.GetComponent<Bubble>());
-                    Destroy(temp.gameObject);
-                }
-                m_proposal.Clear();
-                m_chosenBubbles.Clear();
-                SetCurrentRequest();
-            }
-            else
-            {
-                Debug.Log("You are wrong");
-                DiscardProposal();
-            }
+            Debug.Log("Proposal sent");
+            
+            GetNewCustomer();
         }
+
+        public string GetCustomerCoinText()
+        {
+            string coins = m_customer.GetCoins() + "";
+            SendProposal();
+            return coins;
+        }
+
+
 
         public void RemoveBubbleInfo(Bubble bubble)
         {

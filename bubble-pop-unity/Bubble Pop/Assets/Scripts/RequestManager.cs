@@ -34,26 +34,28 @@ namespace Assets.Scripts
 
         public Request GetNewRequest()
         {
+            int requestValue = 0;
             Debug.Log("Getting a new customer!");
             Request newRequest = null;
-            Data requestData =new Data(0) ;
+            Data requestData = new Data(0);
             CallTime requestCallTime = new CallTime(0);
             Message requestMessage = new Message(0);
 
-            
+
 
             bool isPicked = false;
             for (int i = 0; i < m_numberOfTries; i++)
             {
                 System.Random rand = new System.Random();
-                
-                if (rand.Next(0,5) == 0 && isPicked)
+
+                if (rand.Next(0, 5) == 0 && isPicked)
                 {
-                    newRequest = new Request(requestData, requestCallTime, requestMessage);
+                    requestValue = SetRequestValue(requestData, requestCallTime, requestMessage);
+                    newRequest = new Request(requestData, requestCallTime, requestMessage,requestValue);
                     return newRequest;
                 }
 
-                
+
                 int chosenContent = rand.Next(1, 4);
                 switch (chosenContent)
                 {
@@ -85,8 +87,37 @@ namespace Assets.Scripts
                         break;
                 }
             }
-            //Debug.Log("New data  request is : " + requestData.GetData());
-            return new Request(requestData, requestCallTime, requestMessage);
+
+            requestValue = SetRequestValue(requestData, requestCallTime, requestMessage);
+
+            return new Request(requestData, requestCallTime, requestMessage, requestValue);
+        }
+
+        private  int SetRequestValue(Data requestData, CallTime requestCallTime, Message requestMessage)
+        {
+            int requestValue = 0;
+            int multiPlier = 0;
+            if (requestData.GetData() != 0)
+            {
+                requestValue += 50;
+                multiPlier++;
+            }
+
+            if (requestCallTime.GetCallTime() != 0)
+            {
+                requestValue += 50;
+                multiPlier++;
+            }
+
+            if (requestMessage.GetMessageCount() != 0)
+            {
+                requestValue += 50;
+                multiPlier++;
+            }
+
+            requestValue = requestValue + (multiPlier * requestValue);
+            Debug.Log("Request value is : " + requestValue);
+            return requestValue;
         }
 
         public void RefreshLists()

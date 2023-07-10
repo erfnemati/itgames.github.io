@@ -37,16 +37,11 @@ namespace Assets.Scripts
                     LevelManager.m_instance.SendProposal();
                 }
 
-                if (selectedObject != null && selectedObject.CompareTag("DiscardButton"))
-                {
-                    Debug.Log("DiscardButton pressed");
-                    LevelManager.m_instance.DiscardProposal();
-                }
 
                 if (selectedObject != null && selectedObject.CompareTag("Customer"))
                 {
-                    Debug.Log("Customer Selected");
-                    LevelManager.m_instance.GetNewCustomer();
+                    //Debug.Log("Customer Selected");
+                    //LevelManager.m_instance.GetNewCustomer();
                 }
 
                 

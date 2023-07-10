@@ -12,6 +12,7 @@ namespace Assets.Scripts
         Data m_neededData;
         CallTime m_neededCallTime;
         Message m_neededMessage;
+        float m_requestValue;
 
         public Request()
         {
@@ -20,7 +21,7 @@ namespace Assets.Scripts
             m_neededMessage = new Message();
         }
 
-        public Request(Data data =null , CallTime callTime = null , Message message = null)
+        public Request(Data data =null , CallTime callTime = null , Message message = null,float requestValue = 0)
         {
             if (data == null)
             {
@@ -48,6 +49,8 @@ namespace Assets.Scripts
             {
                 m_neededMessage = message;
             }
+
+            m_requestValue = requestValue;
         }
 
         public Data GetRequestData()
@@ -63,6 +66,11 @@ namespace Assets.Scripts
         public Message GetRequestMessage()
         {
             return m_neededMessage;
+        }
+        
+        public float GetRequestValue()
+        {
+            return m_requestValue;
         }
     }
 }
