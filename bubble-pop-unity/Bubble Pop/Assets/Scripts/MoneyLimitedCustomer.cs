@@ -1,24 +1,26 @@
-﻿using UnityEngine;
+using UnityEngine;
 using TMPro;
 
 namespace Assets.Scripts
 {
-    class LevelOneGoal : MonoBehaviour, LevelGoal
+    class MoneyLimitedCustomer : MonoBehaviour, LevelGoal
     {
 
-        public static LevelOneGoal m_instance;
+        public static MoneyLimitedCustomer m_instance;
+
         [SerializeField] float m_moneyGoal;
-        [SerializeField] float m_initialTime;
+        [SerializeField] int m_numOfCustomers;
         [SerializeField] GameObject m_resultMenu;
-        [SerializeField] GameObject m_timer;
         [SerializeField] GameObject m_goal;
         [SerializeField] GameObject m_restartButton;
         [SerializeField] GameObject m_continueButton;
         [SerializeField] GameObject m_QuitButton;
         [SerializeField] TMP_Text m_goalText;
         [SerializeField] TMP_Text m_resultText;
-        [SerializeField] TMP_Text m_timerText;
+        [SerializeField] GameObject m_limitedCustomerUi;
+        [SerializeField] TMP_Text m_limitedCustomerText;
         
+
         private float m_remainingTime = 0.0f;
 
         private void Awake()
@@ -32,36 +34,39 @@ namespace Assets.Scripts
                 Destroy(this.gameObject);
             }
 
-            m_remainingTime = m_initialTime;
             Time.timeScale = 1.0f;
             Debug.Log("From pause to unpause");
         }
 
-        
 
+        private void Start()
+        {
+            UpdateNumberOfCustomers();
+            UpdateMadeMoneyUi();
+        }
         private void Update()
         {
-            if (m_remainingTime <= Mathf.Epsilon)
-            {
-                LevelManager.m_instance.FinishLevel();
-                ShowResultMenu();
-                return;
-            }
-            UpdateRemainingTime();
+            
         }
 
         public void UpdateMadeMoneyUi()
         {
             m_goal.SetActive(true);
-            m_goalText.text = LevelManager.m_instance.GetMadeMoney() + "Coins";
-            
+            m_goalText.text = LevelManager.m_instance.GetMadeMoney() + "/" + $"{m_moneyGoal}" + " Coins";
+
         }
 
-        private void UpdateRemainingTime()
+        public void UpdateNumberOfCustomers()
         {
-            m_remainingTime -= Time.deltaTime;
-            UpdateUiTimer();
+            m_numOfCustomers--;
+            m_limitedCustomerUi.SetActive(true);
+            m_limitedCustomerText.text = m_numOfCustomers + "\nCustomers";
+            if (m_numOfCustomers <= 0)
+            {
+                ShowResultMenu();
+            }
         }
+
         public float GetLevelRate()
         {
             throw new System.NotImplementedException();
@@ -79,12 +84,7 @@ namespace Assets.Scripts
             }
         }
 
-        private void UpdateUiTimer()
-        {
-            
-            m_timerText.text = ((int)m_remainingTime).ToString();
-        }
-
+      
         public void ShowResultMenu()
         {
             Time.timeScale = 0.0f;
@@ -102,7 +102,7 @@ namespace Assets.Scripts
                 m_continueButton.SetActive(false);
             }
             m_QuitButton.SetActive(true);
-            
+
         }
     }
 }

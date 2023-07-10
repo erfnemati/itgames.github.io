@@ -31,6 +31,7 @@ namespace Assets.Scripts
         private float m_madeMoney = 0f;
         private int m_numOfAnsweredCustomers = 0;
         private bool m_isLevelFinished = false;
+        private int m_numOfPopedBubbles = 0;
 
 
 
@@ -99,7 +100,7 @@ namespace Assets.Scripts
 
         public void AddItem(Bubble bubble)
         {
-            
+            m_numOfPopedBubbles++;
             //m_chosenBubbles.Add(bubble);
             m_numOfActiveBubbles--;
             m_customer.AddItem(bubble);
@@ -225,6 +226,11 @@ namespace Assets.Scripts
         public List<Message> GetMessageList()
         {
             return m_messageList;
+        }
+
+        public int GetNumberOfPopedBubbles()
+        {
+            return m_numOfPopedBubbles;
         }
 
         public void LoadNextLevel()
