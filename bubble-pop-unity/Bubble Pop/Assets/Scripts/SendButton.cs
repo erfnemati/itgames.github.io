@@ -12,7 +12,12 @@ namespace Assets.Scripts
 
         public void SendCustomer()
         {
-            string coins = LevelManager.m_instance.GetCustomerCoinText();
+            LevelManager.m_instance.SendProposal();
+        }
+
+        public void SetCoinText()
+        {
+            string coins = LevelManager.m_instance.GetLastCustomerEarnedCoins();
             coinText.text = coins;
         }
 

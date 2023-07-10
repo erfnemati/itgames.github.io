@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts
 {
@@ -9,8 +10,7 @@ namespace Assets.Scripts
     {
         public static LevelManager m_instance;
 
-        [SerializeField] TMP_Text m_requestText;
-        [SerializeField] TMP_Text m_proposalText;
+        TMP_Text m_requestText;
 
         [SerializeField] int m_numOfBubbles = 5;
         [SerializeField] GameObject m_bubblePrefab;
@@ -20,17 +20,22 @@ namespace Assets.Scripts
         private List<CallTime> m_callTimeList = new List<CallTime>();
         private List<Message> m_messageList = new List<Message>();
 
-        private List<Bubble> m_chosenBubbles = new List<Bubble>();
         private Queue<Vector3> vacantTransforms = new Queue<Vector3>();
 
         private int m_numOfActiveBubbles = 0;
 
-        [SerializeField] CustomerManager m_customer;
+        CustomerManager m_customer;
         [SerializeField] GameObject m_customerGameObject;
 
+        private float m_lastCustomerEarnedMoney = 0.0f;
+        private float m_madeMoney = 0f;
+        private int m_numOfAnsweredCustomers = 0;
+        private bool m_isLevelFinished = false;
 
+
+
+        [SerializeField] int m_mainMenuBuildIndex = 0;
         Request m_currentRequest;
-        Proposal m_proposal;
         void Awake()
         {
             if (m_instance == null)
@@ -40,11 +45,7 @@ namespace Assets.Scripts
             else
             {
                 Destroy(this.gameObject);
-            }
-            
-            
-            //SetCurrentRequest();
-            //m_proposal = FindObjectOfType<Proposal>();
+            }  
         }
 
         public void Start()
@@ -71,6 +72,7 @@ namespace Assets.Scripts
             }
             GameObject customer = Instantiate(m_customerGameObject);
             SetCurrentCustomer(customer.GetComponent<CustomerManager>());
+            m_numOfAnsweredCustomers++;
         }
 
 
@@ -109,14 +111,16 @@ namespace Assets.Scripts
         public void SendProposal()
         {
             Debug.Log("Proposal sent");
-            
+            m_lastCustomerEarnedMoney = m_customer.GetCoins();
+            m_madeMoney += m_lastCustomerEarnedMoney;
+            m_numOfAnsweredCustomers++;
+            Debug.Log("Earned coins : " + m_lastCustomerEarnedMoney);
             GetNewCustomer();
         }
 
-        public string GetCustomerCoinText()
+        public string GetLastCustomerEarnedCoins()
         {
-            string coins = m_customer.GetCoins() + "";
-            SendProposal();
+            string coins = m_lastCustomerEarnedMoney + "";
             return coins;
         }
 
@@ -140,54 +144,9 @@ namespace Assets.Scripts
             }
         }
 
-        public void DiscardProposal()
-        {
-            foreach(Bubble temp in m_chosenBubbles)
-            {
-                temp.gameObject.SetActive(true);
-            }
-            m_chosenBubbles.Clear();
-            m_proposal.Clear();
-        }
-
-        private bool IsRightProposalSent()
-        {
-            if (m_currentRequest.GetRequestData() != null)
-            {
-                if (m_currentRequest.GetRequestData().GetData() != m_proposal.GetProposalData().GetData())
-                {
-                    return false;
-                }
-            }
-            if (m_currentRequest.GetRequestCallTime() != null)
-            {
-                if (m_currentRequest.GetRequestCallTime().GetCallTime() != m_proposal.GetProposalCallTime().GetCallTime())
-                {
-                    return false;
-                }
-            }
-            if (m_currentRequest.GetRequestMessage() != null)
-            {
-                if (m_currentRequest.GetRequestMessage().GetMessageCount() != m_proposal.GetProposalMessage().GetMessageCount())
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
-        private void SetCurrentRequest()
-        {
-            m_currentRequest = RequestManager.m_instance.GetNewRequest();
-            SetRequestText();
-        }
-
         private void GenerateBubbles(int numberOfBubbles)
         {
             m_numOfActiveBubbles += numberOfBubbles;
-            //Debug.Log("Number of to be generated bubbles " + numberOfBubbles);
-            //Debug.Log("Queue count is " + vacantTransforms.Count);
             for(int i = numberOfBubbles - 1; i >= 0; i--)
             {
                 Debug.Log("index is " + i);
@@ -238,6 +197,21 @@ namespace Assets.Scripts
             }
         }
 
+        public int GetNumberOfAnsweredCustomers()
+        {
+            return m_numOfAnsweredCustomers;
+        }
+        public float GetMadeMoney()
+        {
+            return m_madeMoney;
+        }
+
+        public void FinishLevel()
+        {
+           
+            //Time.timeScale = 0.0f;
+        }
+
         public List<Data> GetDataList()
         {
             return m_dataList;
@@ -251,6 +225,30 @@ namespace Assets.Scripts
         public List<Message> GetMessageList()
         {
             return m_messageList;
+        }
+
+        public void LoadNextLevel()
+        {
+            int currentLevel = SceneManager.GetActiveScene().buildIndex;
+            int nextLevel = (currentLevel + 1) % SceneManager.sceneCountInBuildSettings;
+            Time.timeScale = 1.0f;
+            SceneManager.LoadScene(nextLevel);
+            
+
+        }
+
+        public void RestartLevel()
+        {
+            int currentLevel = SceneManager.GetActiveScene().buildIndex;
+            Time.timeScale = 1.0f;
+            SceneManager.LoadScene(currentLevel);
+        }
+
+        public void GoMainMenu()
+        {
+            Time.timeScale = 1.0f;
+            SceneManager.LoadScene(m_mainMenuBuildIndex);
+            
         }
     }
 }
