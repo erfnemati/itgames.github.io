@@ -44,23 +44,25 @@ namespace Assets.Scripts
             float requestData = m_customerRequest.GetRequestData().GetData();
             if(requestData >=0)
             {
-                weight++;
-                float diffData = Mathf.Abs(m_currentProposal.GetProposalData().GetData() - requestData);
-                if (m_currentProposal.GetProposalData().GetData() == 0 )
+                if (requestData == 0)
                 {
                     dataPoint = 0;
                 }
-                else if (diffData < Mathf.Epsilon)
-                {
-                    dataPoint = 1;
-                }
-                
                 else
                 {
-                    dataPoint = 1 - diffData / requestData;
-                    if (dataPoint < 0)
+                    weight++;
+                    float diffData = Mathf.Abs(m_currentProposal.GetProposalData().GetData() - requestData);
+                    if (diffData < Mathf.Epsilon)
                     {
-                        dataPoint = 0;
+                        dataPoint = 1;
+                    }
+                    else
+                    {
+                        dataPoint = 1 - diffData / requestData;
+                        if (dataPoint < 0)
+                        {
+                            dataPoint = 0;
+                        }
                     }
                 }
 
@@ -69,22 +71,25 @@ namespace Assets.Scripts
             float requestMessage = m_customerRequest.GetRequestMessage().GetMessageCount();
             if (requestMessage >= 0)
             {
-                weight++;
-                float diffMessage = Mathf.Abs(m_currentProposal.GetProposalMessage().GetMessageCount() - requestMessage);
-                if (m_currentProposal.GetProposalMessage().GetMessageCount() == 0)
+                if (requestMessage == 0)
                 {
                     messagePoint = 0;
                 }
-                else if (diffMessage <= Mathf.Epsilon)
-                {
-                    messagePoint = 1;
-                }
                 else
                 {
-                    messagePoint = 1 - diffMessage / requestMessage;
-                    if (messagePoint <0)
+                    weight++;
+                    float diffMessage = Mathf.Abs(m_currentProposal.GetProposalMessage().GetMessageCount() - requestMessage);
+                    if (diffMessage <= Mathf.Epsilon)
                     {
-                        messagePoint = 0;
+                        messagePoint = 1;
+                    }
+                    else
+                    {
+                        messagePoint = 1 - diffMessage / requestMessage;
+                        if (messagePoint < 0)
+                        {
+                            messagePoint = 0;
+                        }
                     }
                 }
                     
@@ -93,31 +98,36 @@ namespace Assets.Scripts
             float requestCallTime = m_customerRequest.GetRequestCallTime().GetCallTime();
             if (requestCallTime >= 0)
             {
-                weight++;
-                float diffCallTime = Mathf.Abs(m_currentProposal.GetProposalCallTime().GetCallTime() - requestCallTime);
-                if (m_currentProposal.GetProposalCallTime().GetCallTime() == 0)
+                if (requestCallTime == 0)
                 {
                     callTimePoint = 0;
                 }
-                else if (diffCallTime <= Mathf.Epsilon)
-                {
-                    callTimePoint = 1;
-                }
                 else
                 {
-                    callTimePoint = 1 - (diffCallTime / requestCallTime);
-                    if (callTimePoint < 0)
+                    weight++;
+                    float diffCallTime = Mathf.Abs(m_currentProposal.GetProposalCallTime().GetCallTime() - requestCallTime);
+                    if (m_currentProposal.GetProposalCallTime().GetCallTime() == 0)
                     {
                         callTimePoint = 0;
+                    }
+                    else if (diffCallTime <= Mathf.Epsilon)
+                    {
+                        callTimePoint = 1;
+                    }
+                    else
+                    {
+                        callTimePoint = 1 - (diffCallTime / requestCallTime);
+                        if (callTimePoint < 0)
+                        {
+                            callTimePoint = 0;
+                        }
                     }
                 }
 
             }
             float proposalPoint = (callTimePoint + messagePoint + dataPoint) / weight;
+            Debug.Log("Proposal point is : " + proposalPoint);
             return proposalPoint;
-
-
-
         }
 
         public int GetCoins()

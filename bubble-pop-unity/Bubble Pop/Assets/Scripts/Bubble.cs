@@ -141,7 +141,7 @@ namespace Assets.Scripts
             switch(m_bubbleSizeState)
             {
                 case BubbleSize.Small:
-                    transform.localScale = new Vector3(0.6f, 0.6f,0.6f);
+                    transform.localScale = new Vector3(0.4f, 0.4f,0.4f);
                     
                     break;
                 case BubbleSize.Medium:
