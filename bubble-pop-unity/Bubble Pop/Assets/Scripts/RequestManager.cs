@@ -36,7 +36,6 @@ namespace Assets.Scripts
         {
             int requestValue = 0;
             Debug.Log("Getting a new customer!");
-            Request newRequest = null;
             Data requestData = new Data(0);
             CallTime requestCallTime = new CallTime(0);
             Message requestMessage = new Message(0);
@@ -44,15 +43,35 @@ namespace Assets.Scripts
 
 
             bool isPicked = false;
+            System.Random rand = new System.Random();
+            float tempNumber;
+            Data tempData;
+            CallTime tempCallTime;
+            Message tempMessage;
+
             for (int i = 0; i < m_numberOfTries; i++)
             {
-                System.Random rand = new System.Random();
+               
+
+
 
                 if (rand.Next(0, 5) == 0 && isPicked)
                 {
-                    requestValue = SetRequestValue(requestData, requestCallTime, requestMessage);
-                    newRequest = new Request(requestData, requestCallTime, requestMessage,requestValue);
-                    return newRequest;
+                    tempNumber = (rand.Next(7, 13) / 10f) * (requestData.GetData());
+                    tempNumber = (((int)tempNumber / 10) * 10);
+                    tempData = new Data((int)tempNumber);
+
+                    tempNumber = (rand.Next(7, 13) / 10f) * (requestCallTime.GetCallTime());
+                    tempNumber = (((int)tempNumber / 10) * 10);
+                    tempCallTime = new CallTime((int)tempNumber);
+
+                    tempNumber = (rand.Next(7, 13) / 10f) * (requestMessage.GetMessageCount());
+                    tempNumber = (((int)tempNumber / 10) * 10);
+                    tempMessage = new Message((int)tempNumber);
+
+                    requestValue = SetRequestValue(tempData, tempCallTime, tempMessage);
+                    return new Request(tempData, tempCallTime, tempMessage, requestValue);
+
                 }
 
 
@@ -88,9 +107,20 @@ namespace Assets.Scripts
                 }
             }
 
-            requestValue = SetRequestValue(requestData, requestCallTime, requestMessage);
+            tempNumber = (rand.Next(7, 13) / 10f) * (requestData.GetData());
+            tempNumber = (((int)tempNumber / 10) * 10);
+            tempData = new Data((int)tempNumber);
 
-            return new Request(requestData, requestCallTime, requestMessage, requestValue);
+            tempNumber = (rand.Next(7, 13) / 10f) * (requestCallTime.GetCallTime());
+            tempNumber = (((int)tempNumber / 10) * 10);
+            tempCallTime = new CallTime((int)tempNumber);
+
+            tempNumber = (rand.Next(7, 13) / 10f) * (requestMessage.GetMessageCount());
+            tempNumber = (((int)tempNumber / 10) * 10);
+            tempMessage = new Message((int)tempNumber);
+
+            requestValue = SetRequestValue(tempData, tempCallTime, tempMessage);
+            return new Request(tempData, tempCallTime, tempMessage, requestValue);
         }
 
         private  int SetRequestValue(Data requestData, CallTime requestCallTime, Message requestMessage)

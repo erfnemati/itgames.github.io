@@ -80,7 +80,7 @@ namespace Assets.WorkAtHome.Scripts
         public void LoadNextLevel()
         {
             int currentLevel = SceneManager.GetActiveScene().buildIndex;
-            int nextLevel = (currentLevel + 1) % SceneManager.sceneCount;
+            int nextLevel = (currentLevel + 1) % SceneManager.sceneCountInBuildSettings;
             SceneManager.LoadScene(nextLevel);
         }
 

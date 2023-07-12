@@ -97,7 +97,7 @@ namespace Assets.Scripts
                 m_isDirectionChosen = false;
 
             }
-            else if (viewPortPos.y < 0.4)
+            else if (viewPortPos.y < 0.2)
             {
                 m_movingState = BubbleMovingState.GettingBack;
                 m_isDirectionChosen = false;
@@ -141,11 +141,11 @@ namespace Assets.Scripts
             switch(m_bubbleSizeState)
             {
                 case BubbleSize.Small:
-                    transform.localScale = new Vector3(0.5f, 0.5f,0.5f);
+                    transform.localScale = new Vector3(0.6f, 0.6f,0.6f);
                     
                     break;
                 case BubbleSize.Medium:
-                    transform.localScale = new Vector3(2, 2, 1);
+                    transform.localScale = new Vector3(1, 1, 1);
                     
                     break;
                 case BubbleSize.Big:

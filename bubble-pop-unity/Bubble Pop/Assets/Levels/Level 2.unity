@@ -387,7 +387,7 @@ MonoBehaviour:
   - {fileID: 372377275}
   - {fileID: 1692010043}
   - {fileID: 557561601}
-  m_customerGameObject: {fileID: 6975827703512782287, guid: 41ad038f45e51a742b616d1391428d07, type: 3}
+  m_customerGameObject: {fileID: 6975827703512782287, guid: 7f52c57ef2d235d40a05503702354c30, type: 3}
   m_mainMenuBuildIndex: 0
 --- !u!1 &317580799
 GameObject:
@@ -1208,7 +1208,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9df1dac2feedc5d42b8cbd0d2e619d86, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3a949a01a61f3ee4eaafae909292b9ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1579,19 +1579,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1545639453}
-        m_TargetAssemblyTypeName: Assets.Scripts.MoneyLimitedCustomer, Assembly-CSharp
-        m_MethodName: UpdateNumberOfCustomers
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1545639453}
-        m_TargetAssemblyTypeName: Assets.Scripts.MoneyLimitedCustomer, Assembly-CSharp
+        m_TargetAssemblyTypeName: Assets.Scripts.LevelOneGoal, Assembly-CSharp
         m_MethodName: UpdateMadeMoneyUi
         m_Mode: 1
         m_Arguments:
@@ -2820,7 +2808,7 @@ GameObject:
   - component: {fileID: 1426334046}
   - component: {fileID: 1426334045}
   m_Layer: 5
-  m_Name: Limitation
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3207,20 +3195,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1545639451}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d524a40d84f66174ebd98250cc0ac0f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f964b5fe5d5c1f4bbd5e689ec5e95ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_moneyGoal: 500
-  m_numOfCustomers: 10
+  m_initialTime: 30
   m_resultMenu: {fileID: 42788821}
+  m_timer: {fileID: 1426334043}
   m_goal: {fileID: 1055364552}
   m_restartButton: {fileID: 423591667}
   m_continueButton: {fileID: 2128998225}
   m_QuitButton: {fileID: 317580799}
   m_goalText: {fileID: 1314574006}
   m_resultText: {fileID: 1664272399}
-  m_limitedCustomerUi: {fileID: 1426334043}
-  m_limitedCustomerText: {fileID: 1611070270}
+  m_timerText: {fileID: 1611070270}
 --- !u!1 &1598559242
 GameObject:
   m_ObjectHideFlags: 0
@@ -3448,7 +3436,7 @@ GameObject:
   - component: {fileID: 1611070271}
   - component: {fileID: 1611070270}
   m_Layer: 5
-  m_Name: LimitationText
+  m_Name: TimerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
