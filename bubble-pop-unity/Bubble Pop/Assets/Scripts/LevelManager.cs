@@ -111,11 +111,9 @@ namespace Assets.Scripts
 
         public void SendProposal()
         {
-            Debug.Log("Proposal sent");
             m_lastCustomerEarnedMoney = m_customer.GetCoins();
             m_madeMoney += m_lastCustomerEarnedMoney;
             m_numOfAnsweredCustomers++;
-            Debug.Log("Earned coins : " + m_lastCustomerEarnedMoney);
             GetNewCustomer();
         }
 

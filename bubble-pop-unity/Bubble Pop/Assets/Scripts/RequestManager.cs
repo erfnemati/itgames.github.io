@@ -16,6 +16,8 @@ namespace Assets.Scripts
         public static RequestManager m_instance;
 
         private int m_numberOfTries = 3;
+
+        [SerializeField] RequestGenerationModel m_model = RequestGenerationModel.Addition;
         
       
 
@@ -33,6 +35,72 @@ namespace Assets.Scripts
         }
 
         public Request GetNewRequest()
+        {
+            if (m_model == RequestGenerationModel.Addition)
+            {
+                return GetNewExactRequest();
+            }
+            else
+            {
+                return GetNewApproximateRequest();
+            }
+        }
+
+        private Request GetNewExactRequest()
+        {
+            int requestValue = 0;
+            Data requestData = new Data(0);
+            CallTime requestCallTime = new CallTime(0);
+            Message requestMessage = new Message(0);
+
+            System.Random rand = new System.Random();
+            int m_numOfAdditions = rand.Next(1, 5);
+            for (int i = 0; i < m_numOfAdditions;i++)
+            {
+                int typeOfContent = rand.Next(1, 3);
+                if (typeOfContent == 1 && m_dataList.Count == 0)
+                {
+                    typeOfContent = 2;
+                }
+
+                if (typeOfContent == 2 && m_callTimeList.Count == 0)
+                {
+                    typeOfContent = 3;
+                }
+
+                if (typeOfContent == 3 && m_messageList.Count == 0)
+                {
+                    typeOfContent = 1;
+                }
+
+                int index = 0;
+                if (typeOfContent == 1)
+                {
+                    index = rand.Next(0, m_dataList.Count);
+                    requestData.Add(m_dataList[index].GetData());
+                    m_dataList.RemoveAt(index);
+                }
+                else if (typeOfContent == 2)
+                {
+                    index = rand.Next(0, m_callTimeList.Count);
+                    requestCallTime.Add(m_callTimeList[index].GetCallTime());
+                    m_callTimeList.RemoveAt(index);
+                  
+                }
+
+                else if (typeOfContent == 3)
+                {
+                    index = rand.Next(0, m_messageList.Count);
+                    requestMessage.Add(m_messageList[index].GetMessageCount());
+                    m_messageList.RemoveAt(index);
+                }
+
+            }
+            requestValue = SetRequestValue(requestData, requestCallTime, requestMessage);
+            return new Request(requestData, requestCallTime, requestMessage, requestValue);
+        }
+
+        private Request GetNewApproximateRequest()
         {
             int requestValue = 0;
             Debug.Log("Getting a new customer!");
@@ -172,5 +240,10 @@ namespace Assets.Scripts
             }
 
         }
+    }
+
+    public enum RequestGenerationModel
+    {
+        Addition , Approximitation
     }
 }
