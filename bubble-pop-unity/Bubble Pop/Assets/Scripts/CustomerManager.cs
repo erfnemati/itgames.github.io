@@ -51,14 +51,14 @@ namespace Assets.Scripts
                 else
                 {
                     weight++;
-                    float diffData = Mathf.Abs(m_currentProposal.GetProposalData().GetData() - requestData);
-                    if (diffData < Mathf.Epsilon)
+                    float diffData = m_currentProposal.GetProposalData().GetData() - requestData;
+                    if (diffData > 0.0f)
                     {
                         dataPoint = 1;
                     }
                     else
                     {
-                        dataPoint = 1 - diffData / requestData;
+                        dataPoint = 1 - Mathf.Abs(diffData / requestData);
                         if (dataPoint < 0)
                         {
                             dataPoint = 0;
@@ -78,14 +78,14 @@ namespace Assets.Scripts
                 else
                 {
                     weight++;
-                    float diffMessage = Mathf.Abs(m_currentProposal.GetProposalMessage().GetMessageCount() - requestMessage);
-                    if (diffMessage <= Mathf.Epsilon)
+                    float diffMessage = m_currentProposal.GetProposalMessage().GetMessageCount() - requestMessage;
+                    if (diffMessage >= 0.0f)
                     {
                         messagePoint = 1;
                     }
                     else
                     {
-                        messagePoint = 1 - diffMessage / requestMessage;
+                        messagePoint = 1 - Mathf.Abs(diffMessage / requestMessage);
                         if (messagePoint < 0)
                         {
                             messagePoint = 0;
@@ -105,18 +105,18 @@ namespace Assets.Scripts
                 else
                 {
                     weight++;
-                    float diffCallTime = Mathf.Abs(m_currentProposal.GetProposalCallTime().GetCallTime() - requestCallTime);
+                    float diffCallTime = m_currentProposal.GetProposalCallTime().GetCallTime() - requestCallTime;
                     if (m_currentProposal.GetProposalCallTime().GetCallTime() == 0)
                     {
                         callTimePoint = 0;
                     }
-                    else if (diffCallTime <= Mathf.Epsilon)
+                    else if (diffCallTime >= 0.0f)
                     {
                         callTimePoint = 1;
                     }
                     else
                     {
-                        callTimePoint = 1 - (diffCallTime / requestCallTime);
+                        callTimePoint = 1 - (Mathf.Abs(diffCallTime) / requestCallTime);
                         if (callTimePoint < 0)
                         {
                             callTimePoint = 0;
@@ -130,12 +130,31 @@ namespace Assets.Scripts
             return proposalPoint;
         }
 
-        public int GetCoins()
+        public int GetHearts()
         {
             float rateOfProposal = CheckProposal();
-            int payedCoins = (int)(rateOfProposal * m_customerRequest.GetRequestValue());
-            Debug.Log("Payed coins are : " + payedCoins);
-            return payedCoins;
+            float recievedHearts = rateOfProposal * m_customerRequest.GetRequestValue();
+            int roundedHearts = 0;
+            if (recievedHearts - 0.5f <= Mathf.Epsilon)
+            {
+                roundedHearts = 0;
+            }
+
+            else if (recievedHearts - 0.5f > Mathf.Epsilon && recievedHearts - 1.5f < Mathf.Epsilon)
+            {
+                roundedHearts = 1;
+            }
+
+            else if (recievedHearts - 1.5f >= Mathf.Epsilon && recievedHearts - 2.3 < Mathf.Epsilon)
+            {
+                roundedHearts = 2;
+            }
+            else
+            {
+                roundedHearts = 3;
+            }
+            Debug.Log("Final hearts : " + roundedHearts);
+            return roundedHearts;
         }
         
 

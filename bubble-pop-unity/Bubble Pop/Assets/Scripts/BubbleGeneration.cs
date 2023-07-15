@@ -47,12 +47,6 @@ namespace Assets.Scripts
             }
         }
 
-        private void CheckPoping()
-        {
-            
-            
-        }
-
         private void GetInput()
         {
             if (Input.touchCount != 0 && Input.touches[0].phase == TouchPhase.Began)
@@ -88,8 +82,6 @@ namespace Assets.Scripts
                 }
             }
         }
-
-        
 
         public void SwitchPowerUp()
         {

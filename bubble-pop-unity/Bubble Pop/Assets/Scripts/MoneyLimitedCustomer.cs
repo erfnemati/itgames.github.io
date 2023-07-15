@@ -10,6 +10,7 @@ namespace Assets.Scripts
 
         [SerializeField] float m_moneyGoal;
         [SerializeField] int m_numOfCustomers;
+        [SerializeField] GameObject m_grayBackground;
         [SerializeField] GameObject m_resultMenu;
         [SerializeField] GameObject m_goal;
         [SerializeField] GameObject m_restartButton;
@@ -88,6 +89,8 @@ namespace Assets.Scripts
         public void ShowResultMenu()
         {
             Time.timeScale = 0.0f;
+            InputHandler.m_instance.SwitchIsPaused();
+            m_grayBackground.SetActive(true);
             m_resultMenu.SetActive(true);
             if (IsGoalReached())
             {

@@ -10,6 +10,7 @@ namespace Assets.Scripts
         [SerializeField] float m_moneyGoal;
         [SerializeField] float m_initialTime;
         [SerializeField] GameObject m_resultMenu;
+        [SerializeField] GameObject m_grayScreen;
         [SerializeField] GameObject m_timer;
         [SerializeField] GameObject m_goal;
         [SerializeField] GameObject m_restartButton;
@@ -20,6 +21,7 @@ namespace Assets.Scripts
         [SerializeField] TMP_Text m_timerText;
         
         private float m_remainingTime = 0.0f;
+        private bool m_isLevelOver = false;
 
         private void Awake()
         {
@@ -46,9 +48,12 @@ namespace Assets.Scripts
 
         private void Update()
         {
-            if (m_remainingTime <= Mathf.Epsilon)
+            if (m_isLevelOver)
+                return;
+            if (m_remainingTime <= Mathf.Epsilon )
             {
                 LevelManager.m_instance.FinishLevel();
+                m_isLevelOver = true;
                 ShowResultMenu();
                 return;
             }
@@ -94,6 +99,8 @@ namespace Assets.Scripts
         public void ShowResultMenu()
         {
             Time.timeScale = 0.0f;
+            InputHandler.m_instance.SwitchIsPaused();
+            m_grayScreen.SetActive(true);
             m_resultMenu.SetActive(true);
             if (IsGoalReached())
             {

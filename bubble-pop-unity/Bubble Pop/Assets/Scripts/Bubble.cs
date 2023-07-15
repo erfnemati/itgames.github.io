@@ -31,7 +31,7 @@ namespace Assets.Scripts
           
             m_text = GetComponentInChildren<TMP_Text>();
             m_content = new PackageContent();
-            m_initialPos = transform.position;
+            SetInitialPos();
             SetSize();
             SetText();
             SetInitialPackage();
@@ -141,7 +141,7 @@ namespace Assets.Scripts
             switch(m_bubbleSizeState)
             {
                 case BubbleSize.Small:
-                    transform.localScale = new Vector3(0.4f, 0.4f,0.4f);
+                    transform.localScale = new Vector3(0.5f, 0.5f,0.5f);
                     
                     break;
                 case BubbleSize.Medium:
@@ -242,6 +242,11 @@ namespace Assets.Scripts
             }
 
             m_initialPackage = new PackageContent(data, callTime, message);
+        }
+
+        public void SetInitialPos()
+        {
+            m_initialPos = transform.position;
         }
 
         

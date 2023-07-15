@@ -19,6 +19,7 @@ namespace Assets.Scripts
         private List<Data> m_dataList = new List<Data>();
         private List<CallTime> m_callTimeList = new List<CallTime>();
         private List<Message> m_messageList = new List<Message>();
+        private List<Transform> m_generatedBubbles = new List<Transform>();
 
         private Queue<Vector3> vacantTransforms = new Queue<Vector3>();
 
@@ -111,7 +112,7 @@ namespace Assets.Scripts
 
         public void SendProposal()
         {
-            m_lastCustomerEarnedMoney = m_customer.GetCoins();
+            m_lastCustomerEarnedMoney = m_customer.GetHearts();
             m_madeMoney += m_lastCustomerEarnedMoney;
             m_numOfAnsweredCustomers++;
             GetNewCustomer();
@@ -127,6 +128,7 @@ namespace Assets.Scripts
 
         public void RemoveBubbleInfo(Bubble bubble)
         {
+            m_generatedBubbles.Remove(bubble.transform);
             if (bubble.GetBubbleData() != null)
             {
                 m_dataList.Remove(bubble.GetBubbleData());
@@ -150,11 +152,22 @@ namespace Assets.Scripts
             {
                 Debug.Log("index is " + i);
                 GameObject instantiatedOne = Instantiate(m_bubblePrefab, vacantTransforms.Dequeue(), Quaternion.identity);
+                m_generatedBubbles.Add(instantiatedOne.transform);
 
                 CashBubbleInfo(instantiatedOne);
-
             }
+            PlaceBubbles();
 
+        }
+
+        private void PlaceBubbles()
+        {
+            for (int i = 0; i < m_numOfActiveBubbles; i++)
+            {
+                m_generatedBubbles[i].transform.position = m_bubbleTransfroms[i].position;
+                m_generatedBubbles[i].GetComponent<Bubble>().SetInitialPos();
+            }
+            
         }
 
         private void CashBubbleInfo(GameObject instantiatedOne)
@@ -245,6 +258,7 @@ namespace Assets.Scripts
         {
             int currentLevel = SceneManager.GetActiveScene().buildIndex;
             Time.timeScale = 1.0f;
+            Debug.Log("restarting");
             SceneManager.LoadScene(currentLevel);
         }
 

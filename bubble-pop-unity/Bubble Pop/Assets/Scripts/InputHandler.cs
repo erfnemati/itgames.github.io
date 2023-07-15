@@ -9,14 +9,32 @@ namespace Assets.Scripts
     {
         AudioSource m_audioSource;
         [SerializeField] AudioClip m_popSound;
+        private bool m_isPaused = false;
+        public static InputHandler m_instance;
+
+        private void Awake()
+        {
+            if (m_instance == null)
+            {
+                m_instance = this;
+                return;
+            }
+            Destroy(m_instance.gameObject);
+            
+        }
         // Start is called before the first frame update
         void Start()
         {
             m_audioSource = GetComponent<AudioSource>();
+            
         }
 
         private void Update()
         {
+            if (m_isPaused)
+            {
+                return;
+            }
             if (Input.touchCount != 0  && Input.touches[0].phase == TouchPhase.Began)
             {
                 
@@ -46,6 +64,21 @@ namespace Assets.Scripts
 
                 
             }
+        }
+
+        public void SwitchIsPaused()
+        {
+            if (!m_isPaused)
+            {
+                m_isPaused = true;
+                Time.timeScale = 0.0f;
+                Debug.Log("Game is paused");
+                return;
+            }
+            m_isPaused = false;
+            Time.timeScale = 1.0f;
+            Debug.Log("Game is unpaused");
+
         }
 
     }

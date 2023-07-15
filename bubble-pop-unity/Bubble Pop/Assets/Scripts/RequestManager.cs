@@ -103,77 +103,58 @@ namespace Assets.Scripts
         private Request GetNewApproximateRequest()
         {
             int requestValue = 0;
-            Debug.Log("Getting a new customer!");
             Data requestData = new Data(0);
             CallTime requestCallTime = new CallTime(0);
             Message requestMessage = new Message(0);
 
-
-
-            bool isPicked = false;
             System.Random rand = new System.Random();
-            float tempNumber;
-            Data tempData;
-            CallTime tempCallTime;
-            Message tempMessage;
-
-            for (int i = 0; i < m_numberOfTries; i++)
+            int m_numOfAdditions = rand.Next(1, 5);
+            for (int i = 0; i < m_numOfAdditions; i++)
             {
-               
-
-
-
-                if (rand.Next(0, 5) == 0 && isPicked)
+                int typeOfContent = rand.Next(1, 3);
+                if (typeOfContent == 1 && m_dataList.Count == 0)
                 {
-                    tempNumber = (rand.Next(7, 13) / 10f) * (requestData.GetData());
-                    tempNumber = (((int)tempNumber / 10) * 10);
-                    tempData = new Data((int)tempNumber);
+                    typeOfContent = 2;
+                }
 
-                    tempNumber = (rand.Next(7, 13) / 10f) * (requestCallTime.GetCallTime());
-                    tempNumber = (((int)tempNumber / 10) * 10);
-                    tempCallTime = new CallTime((int)tempNumber);
+                if (typeOfContent == 2 && m_callTimeList.Count == 0)
+                {
+                    typeOfContent = 3;
+                }
 
-                    tempNumber = (rand.Next(7, 13) / 10f) * (requestMessage.GetMessageCount());
-                    tempNumber = (((int)tempNumber / 10) * 10);
-                    tempMessage = new Message((int)tempNumber);
+                if (typeOfContent == 3 && m_messageList.Count == 0)
+                {
+                    typeOfContent = 1;
+                }
 
-                    requestValue = SetRequestValue(tempData, tempCallTime, tempMessage);
-                    return new Request(tempData, tempCallTime, tempMessage, requestValue);
+                int index = 0;
+                if (typeOfContent == 1)
+                {
+                    index = rand.Next(0, m_dataList.Count);
+                    requestData.Add(m_dataList[index].GetData());
+                    m_dataList.RemoveAt(index);
+                }
+                else if (typeOfContent == 2)
+                {
+                    index = rand.Next(0, m_callTimeList.Count);
+                    requestCallTime.Add(m_callTimeList[index].GetCallTime());
+                    m_callTimeList.RemoveAt(index);
 
                 }
 
-
-                int chosenContent = rand.Next(1, 4);
-                switch (chosenContent)
+                else if (typeOfContent == 3)
                 {
-                    case 1:
-                        if (m_dataList.Count == 0)
-                            break;
-                        int dataIndex = rand.Next(0, m_dataList.Count);
-                        requestData.Add(m_dataList[dataIndex].GetData());
-                        isPicked = true;
-                        m_dataList.RemoveAt(dataIndex);
-                        break;
-
-                    case 2:
-                        if (m_callTimeList.Count == 0)
-                            break;
-                        int callTimeIndex = rand.Next(0, m_callTimeList.Count);
-                        requestCallTime.Add(m_callTimeList[callTimeIndex].GetCallTime());
-                        isPicked = true;
-                        m_callTimeList.RemoveAt(callTimeIndex);
-                        break;
-
-                    case 3:
-                        if (m_messageList.Count == 0)
-                            break;
-                        int messageIndex = rand.Next(0, m_messageList.Count);
-                        requestMessage.Add(m_messageList[messageIndex].GetMessageCount());
-                        isPicked = true;
-                        m_messageList.RemoveAt(messageIndex);
-                        break;
+                    index = rand.Next(0, m_messageList.Count);
+                    requestMessage.Add(m_messageList[index].GetMessageCount());
+                    m_messageList.RemoveAt(index);
                 }
+
             }
+
+            float tempNumber = 0.0f;
+            Data tempData = null;
+            CallTime tempCallTime = null;
+            Message tempMessage = null;
 
             tempNumber = (rand.Next(7, 13) / 10f) * (requestData.GetData());
             tempNumber = (((int)tempNumber / 10) * 10);
@@ -193,7 +174,8 @@ namespace Assets.Scripts
 
         private  int SetRequestValue(Data requestData, CallTime requestCallTime, Message requestMessage)
         {
-            int requestValue = 0;
+            return 3;
+            /*int requestValue = 0;
             int multiPlier = 0;
             if (requestData.GetData() != 0)
             {
@@ -215,7 +197,7 @@ namespace Assets.Scripts
 
             requestValue = requestValue + (multiPlier * requestValue);
             Debug.Log("Request value is : " + requestValue);
-            return requestValue;
+            return requestValue;*/
         }
 
         public void RefreshLists()
