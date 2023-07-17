@@ -14,6 +14,7 @@ namespace Assets.Scripts
 
         private void Awake()
         {
+            Application.targetFrameRate = 60;
             if (m_instance == null)
             {
                 m_instance = this;

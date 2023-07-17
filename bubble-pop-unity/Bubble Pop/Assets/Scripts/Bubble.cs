@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
@@ -22,9 +22,12 @@ namespace Assets.Scripts
         private BubbleMovingState m_movingState = BubbleMovingState.GoingOut;
         [SerializeField] float m_flowingSpeed = 0.5f;
 
-
+        [SerializeField] Sprite m_dataIcon;
+        [SerializeField] Sprite m_callTimeIcon;
+        [SerializeField] Sprite m_messageIcon;
 
         [SerializeField] TMP_Text m_text;
+        [SerializeField] Image m_bubbleIcon;
         // Start is called before the first frame update
         void Awake()
         {
@@ -33,7 +36,7 @@ namespace Assets.Scripts
             m_content = new PackageContent();
             SetInitialPos();
             SetSize();
-            SetText();
+            SetBubbleUi();
             SetInitialPackage();
         }
 
@@ -97,7 +100,7 @@ namespace Assets.Scripts
                 m_isDirectionChosen = false;
 
             }
-            else if (viewPortPos.y < 0.3)
+            else if (viewPortPos.y < 0.4)
             {
                 m_movingState = BubbleMovingState.GettingBack;
                 m_isDirectionChosen = false;
@@ -111,9 +114,26 @@ namespace Assets.Scripts
             m_movingState = BubbleMovingState.GettingBack;
         }
 
-        private void SetText()
+        private void SetBubbleUi()
         {
             m_text.text = m_content.GetPackageTextContent();
+            if(m_content.GetDataContent() != null)
+            {
+                m_bubbleIcon.sprite = m_dataIcon;
+                return;
+            }
+
+            if (m_content.GetCallTimeContetn() != null)
+            {
+                m_bubbleIcon.sprite = m_callTimeIcon;
+                return;
+            }
+
+            if (m_content.GetMessageContent() != null )
+            {
+                m_bubbleIcon.sprite = m_messageIcon;
+                return;
+            }
         }
 
         private void SetSizeState()
@@ -176,12 +196,12 @@ namespace Assets.Scripts
 
         public CallTime GetBubbleCallTime()
         {
-            return (m_content.GetCallTime());
+            return (m_content.GetCallTimeContetn());
         }
 
         public Message GetBubbleMessage()
         {
-            return (m_content.GetMessage());
+            return (m_content.GetMessageContent());
         }
 
         public void ActivateAnarestanPowerUp()
@@ -195,19 +215,19 @@ namespace Assets.Scripts
                 newData = new Data((int)2 * GetBubbleData().GetData());
             }
 
-            if (m_content.GetCallTime() != null)
+            if (m_content.GetCallTimeContetn() != null)
             {
                 newCallTime = new CallTime((int)2 * GetBubbleCallTime().GetCallTime());
             }
 
-            if (m_content.GetMessage() != null)
+            if (m_content.GetMessageContent() != null)
             {
                 newMessage = new Message((int)2 * GetBubbleMessage().GetMessageCount());
             }
 
             m_content = new PackageContent(newData,newCallTime,newMessage);
             SetSize();
-            SetText();
+            SetBubbleUi();
 
         }
 
@@ -215,9 +235,9 @@ namespace Assets.Scripts
         {
 
             Debug.Log("Deactivating power up");
-            m_content = new PackageContent(m_initialPackage.GetDataContent(), m_initialPackage.GetCallTime(), m_initialPackage.GetMessage());
+            m_content = new PackageContent(m_initialPackage.GetDataContent(), m_initialPackage.GetCallTimeContetn(), m_initialPackage.GetMessageContent());
             SetSize();
-            SetText();
+            SetBubbleUi();
         }
 
         private void SetInitialPackage()
@@ -231,14 +251,14 @@ namespace Assets.Scripts
                 data = new Data(m_content.GetDataContent().GetData());
             }
 
-            if (m_content.GetCallTime() != null)
+            if (m_content.GetCallTimeContetn() != null)
             {
-                callTime = new CallTime(m_content.GetCallTime().GetCallTime());
+                callTime = new CallTime(m_content.GetCallTimeContetn().GetCallTime());
             }
 
-            if (m_content.GetMessage() != null)
+            if (m_content.GetMessageContent() != null)
             {
-                message = new Message(m_content.GetMessage().GetMessageCount());
+                message = new Message(m_content.GetMessageContent().GetMessageCount());
             }
 
             m_initialPackage = new PackageContent(data, callTime, message);

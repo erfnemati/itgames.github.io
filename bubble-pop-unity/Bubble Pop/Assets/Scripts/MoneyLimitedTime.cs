@@ -52,7 +52,6 @@ namespace Assets.Scripts
                 return;
             if (m_remainingTime <= Mathf.Epsilon )
             {
-                LevelManager.m_instance.FinishLevel();
                 m_isLevelOver = true;
                 ShowResultMenu();
                 return;
@@ -64,7 +63,7 @@ namespace Assets.Scripts
         {
             m_goal.SetActive(true);
             //m_goalText.text = LevelManager.m_instance.GetMadeMoney() + "Coins";
-            m_goalText.text = LevelManager.m_instance.GetMadeMoney() + "/" + $"{m_moneyGoal}" + " Coins";
+            m_goalText.text = LevelManager.m_instance.GetRecievedHearts() + "/" + $"{m_moneyGoal}" + " Coins";
 
         }
 
@@ -80,7 +79,7 @@ namespace Assets.Scripts
 
         public bool IsGoalReached()
         {
-            if (LevelManager.m_instance.GetMadeMoney() >= m_moneyGoal)
+            if (LevelManager.m_instance.GetRecievedHearts() >= m_moneyGoal)
             {
                 return true;
             }
@@ -116,6 +115,11 @@ namespace Assets.Scripts
             }
             m_QuitButton.SetActive(true);
             
+        }
+
+        public void UpdateRecievedHearts(int numberfHearts)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

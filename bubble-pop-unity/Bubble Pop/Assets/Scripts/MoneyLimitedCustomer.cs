@@ -1,15 +1,22 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
     class MoneyLimitedCustomer : MonoBehaviour, LevelGoal
     {
 
-        public static MoneyLimitedCustomer m_instance;
+        public static MoneyLimitedCustomer m_instance = null;
 
-        [SerializeField] float m_moneyGoal;
+        [SerializeField] int m_numOfHearts;
+        [SerializeField] int m_oneStarHearts;
+        [SerializeField] int m_twoStarHearts;
+        [SerializeField] int m_threeStarHearts;
         [SerializeField] int m_numOfCustomers;
+        [SerializeField] Image m_firstStar;
+        [SerializeField] Image m_secStar;
+        [SerializeField] Image m_thirdStar;
         [SerializeField] GameObject m_grayBackground;
         [SerializeField] GameObject m_resultMenu;
         [SerializeField] GameObject m_goal;
@@ -20,40 +27,33 @@ namespace Assets.Scripts
         [SerializeField] TMP_Text m_resultText;
         [SerializeField] GameObject m_limitedCustomerUi;
         [SerializeField] TMP_Text m_limitedCustomerText;
-        
-
-        private float m_remainingTime = 0.0f;
 
         private void Awake()
         {
-            if (m_instance == null)
-            {
-                m_instance = this;
-            }
-            else
+            Time.timeScale = 1.0f;
+        }
+        private void Start()
+        {
+            
+            Debug.Log("Start");
+            if (m_instance != null && m_instance != this)
             {
                 Destroy(this.gameObject);
             }
 
-            Time.timeScale = 1.0f;
-            Debug.Log("From pause to unpause");
-        }
+            else
+            {
+                m_instance = this;
+            }
 
-
-        private void Start()
-        {
-            UpdateNumberOfCustomers();
-            UpdateMadeMoneyUi();
-        }
-        private void Update()
-        {
             
+            UpdateNumberOfCustomers();
+            UpdateGoalUi();
         }
-
-        public void UpdateMadeMoneyUi()
+        public void UpdateGoalUi()
         {
             m_goal.SetActive(true);
-            m_goalText.text = LevelManager.m_instance.GetMadeMoney() + "/" + $"{m_moneyGoal}" + " Coins";
+            m_goalText.text = LevelManager.m_instance.GetRecievedHearts() + "/" + $"{m_oneStarHearts}" ;
 
         }
 
@@ -61,7 +61,7 @@ namespace Assets.Scripts
         {
             m_numOfCustomers--;
             m_limitedCustomerUi.SetActive(true);
-            m_limitedCustomerText.text = m_numOfCustomers + "\nCustomers";
+            m_limitedCustomerText.text = m_numOfCustomers + "";
             if (m_numOfCustomers <= 0)
             {
                 ShowResultMenu();
@@ -75,7 +75,7 @@ namespace Assets.Scripts
 
         public bool IsGoalReached()
         {
-            if (LevelManager.m_instance.GetMadeMoney() >= m_moneyGoal)
+            if (LevelManager.m_instance.GetRecievedHearts() >= m_numOfHearts)
             {
                 return true;
             }
@@ -92,20 +92,51 @@ namespace Assets.Scripts
             InputHandler.m_instance.SwitchIsPaused();
             m_grayBackground.SetActive(true);
             m_resultMenu.SetActive(true);
-            if (IsGoalReached())
-            {
-                m_resultMenu.GetComponentInChildren<TMP_Text>().text = "Passed";
-                m_continueButton.SetActive(true);
-                m_restartButton.SetActive(false);
-            }
-            else
+            
+            if (m_numOfHearts < m_oneStarHearts)
             {
                 m_resultMenu.GetComponentInChildren<TMP_Text>().text = "Failed";
                 m_restartButton.SetActive(true);
                 m_continueButton.SetActive(false);
+                m_QuitButton.SetActive(true);
+                return;
             }
+
+            
+            else if (m_numOfHearts >= m_oneStarHearts && m_numOfHearts < m_twoStarHearts)
+            {
+                Debug.Log("One star");
+                m_firstStar.gameObject.SetActive(true);
+            }
+
+            else if (m_numOfHearts >= m_twoStarHearts && m_numOfHearts <m_threeStarHearts)
+            {
+                Debug.Log("Two star");
+                m_firstStar.gameObject.SetActive(true);
+                m_secStar.gameObject.SetActive(true);
+                
+            }
+
+            else if (m_numOfHearts >= m_threeStarHearts)
+            {
+                Debug.Log("Three star");
+                m_firstStar.gameObject.SetActive(true);
+                m_secStar.gameObject.SetActive(true);
+                m_thirdStar.gameObject.SetActive(true);
+            }
+
+            m_resultMenu.GetComponentInChildren<TMP_Text>().text = "Passed";
+            m_restartButton.SetActive(false);
+            m_continueButton.SetActive(true);
             m_QuitButton.SetActive(true);
 
+
+        }
+
+        public void UpdateRecievedHearts(int numberOfhearts)
+        {
+            m_numOfHearts = numberOfhearts;
+            Debug.Log("Number of hearts is updated : " + m_numOfHearts);
         }
     }
 }

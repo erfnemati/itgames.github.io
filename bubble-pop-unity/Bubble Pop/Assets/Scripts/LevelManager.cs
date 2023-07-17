@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
     public class LevelManager : MonoBehaviour
     {
         public static LevelManager m_instance;
-
-        TMP_Text m_requestText;
 
         [SerializeField] int m_numOfBubbles = 5;
         [SerializeField] GameObject m_bubblePrefab;
@@ -28,8 +27,8 @@ namespace Assets.Scripts
         CustomerManager m_customer;
         [SerializeField] GameObject m_customerGameObject;
 
-        private float m_lastCustomerEarnedMoney = 0.0f;
-        private float m_madeMoney = 0f;
+        private float m_lastCustomerEarnedHearts = 0.0f;
+        private float m_madeHearts = 0f;
         private int m_numOfAnsweredCustomers = 0;
         private bool m_isLevelFinished = false;
         private int m_numOfPopedBubbles = 0;
@@ -37,17 +36,19 @@ namespace Assets.Scripts
 
 
         [SerializeField] int m_mainMenuBuildIndex = 0;
-        Request m_currentRequest;
+
+
+        [SerializeField] Button m_sendButton;
         void Awake()
         {
-            if (m_instance == null)
+            if(m_instance != null && m_instance != this)
             {
-                m_instance = this;
+                Destroy(this.gameObject);
             }
             else
             {
-                Destroy(this.gameObject);
-            }  
+                m_instance = this;
+            }
         }
 
         public void Start()
@@ -55,8 +56,6 @@ namespace Assets.Scripts
             AddVacantInitialTransforms();
             GenerateBubbles(m_numOfBubbles - m_numOfActiveBubbles);
             InstantiateNewCustomer();
-            
-            
         }
 
         public void GetNewCustomer()
@@ -102,7 +101,6 @@ namespace Assets.Scripts
         public void AddItem(Bubble bubble)
         {
             m_numOfPopedBubbles++;
-            //m_chosenBubbles.Add(bubble);
             m_numOfActiveBubbles--;
             m_customer.AddItem(bubble);
             AddVacantTransform(bubble);
@@ -112,16 +110,22 @@ namespace Assets.Scripts
 
         public void SendProposal()
         {
-            m_lastCustomerEarnedMoney = m_customer.GetHearts();
-            m_madeMoney += m_lastCustomerEarnedMoney;
+            if (m_customer == null)
+            {
+                return;
+            }
+            m_lastCustomerEarnedHearts = m_customer.GetHearts();
+            m_madeHearts += m_lastCustomerEarnedHearts;
+            MoneyLimitedCustomer.m_instance.UpdateRecievedHearts((int)m_madeHearts);
             m_numOfAnsweredCustomers++;
             GetNewCustomer();
         }
 
-        public string GetLastCustomerEarnedCoins()
+        public int GetLastCustomerHearts()
         {
-            string coins = m_lastCustomerEarnedMoney + "";
-            return coins;
+            int hearts = (int)m_lastCustomerEarnedHearts;
+            return hearts;
+           
         }
 
 
@@ -150,7 +154,6 @@ namespace Assets.Scripts
             m_numOfActiveBubbles += numberOfBubbles;
             for(int i = numberOfBubbles - 1; i >= 0; i--)
             {
-                Debug.Log("index is " + i);
                 GameObject instantiatedOne = Instantiate(m_bubblePrefab, vacantTransforms.Dequeue(), Quaternion.identity);
                 m_generatedBubbles.Add(instantiatedOne.transform);
 
@@ -190,38 +193,13 @@ namespace Assets.Scripts
             }
         }
 
-        private void SetRequestText()
-        {
-            m_requestText.text = "I need \n";
-            if (m_currentRequest.GetRequestData().GetData() != 0)
-            {
-                m_requestText.text += m_currentRequest.GetRequestData().GetData() + "GB\n";
-            }
-
-            if (m_currentRequest.GetRequestCallTime().GetCallTime() != 0)
-            {
-                m_requestText.text += m_currentRequest.GetRequestCallTime().GetCallTime() + "Mins\n";
-            }
-
-            if (m_currentRequest.GetRequestMessage().GetMessageCount() != 0)
-            {
-                m_requestText.text += m_currentRequest.GetRequestMessage().GetMessageCount() + "SMS";
-            }
-        }
-
         public int GetNumberOfAnsweredCustomers()
         {
             return m_numOfAnsweredCustomers;
         }
-        public float GetMadeMoney()
+        public float GetRecievedHearts()
         {
-            return m_madeMoney;
-        }
-
-        public void FinishLevel()
-        {
-           
-            //Time.timeScale = 0.0f;
+            return m_madeHearts;
         }
 
         public List<Data> GetDataList()

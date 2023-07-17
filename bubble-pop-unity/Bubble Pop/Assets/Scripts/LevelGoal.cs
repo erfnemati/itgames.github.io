@@ -10,5 +10,7 @@ namespace Assets.Scripts
     {
         abstract public bool IsGoalReached();
         abstract public float GetLevelRate();
+
+        abstract public void UpdateRecievedHearts(int numberfHearts);
     }
 }
