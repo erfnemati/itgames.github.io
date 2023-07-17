@@ -2451,11 +2451,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173656351}
   m_CullTransparentMesh: 1
---- !u!1 &1174856428 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 96151439753079736, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
-  m_PrefabInstance: {fileID: 1943921654}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1223794651
 GameObject:
   m_ObjectHideFlags: 0
@@ -3525,7 +3520,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1545639452}
-  - component: {fileID: 1545639454}
   - component: {fileID: 1545639455}
   m_Layer: 0
   m_Name: LevelGoal
@@ -3549,36 +3543,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1545639454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545639451}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f964b5fe5d5c1f4bbd5e689ec5e95ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_numOfHearts: 0
-  m_oneStarHearts: 5
-  m_twoStarHearts: 10
-  m_threeStarHearts: 15
-  m_initialTime: 45
-  m_firstStar: {fileID: 247463785}
-  m_secStar: {fileID: 326306219}
-  m_thirdStar: {fileID: 1613319675}
-  m_grayBackground: {fileID: 932566771}
-  m_resultMenu: {fileID: 919243372}
-  m_goal: {fileID: 1174856428}
-  m_restartButton: {fileID: 1106773202}
-  m_continueButton: {fileID: 1264590780}
-  m_QuitButton: {fileID: 412700664}
-  m_goalText: {fileID: 1244932345}
-  m_resultText: {fileID: 488095440}
-  m_limitedCustomerUi: {fileID: 2105487366}
-  m_limitedCustomerText: {fileID: 95461271}
 --- !u!114 &1545639455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3591,7 +3555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41afbf04a7dccb64c9cbe319448fab7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_numOfHearts: 0
+  m_numOfHearts: 5
   m_numOfBubbles: 15
   m_oneStarHearts: 5
   m_twoStarHearts: 10
