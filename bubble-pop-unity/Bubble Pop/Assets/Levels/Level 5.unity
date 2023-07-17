@@ -1407,7 +1407,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0f7a7c03e9e690245b8385282c22eea3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 920b19600e8415a4a803f6fc66f4f422, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3526,7 +3526,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1545639452}
   - component: {fileID: 1545639454}
-  - component: {fileID: 1545639455}
   m_Layer: 0
   m_Name: LevelGoal
   m_TagString: Untagged
@@ -3556,7 +3555,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545639451}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f964b5fe5d5c1f4bbd5e689ec5e95ec, type: 3}
   m_Name: 
@@ -3577,36 +3576,6 @@ MonoBehaviour:
   m_QuitButton: {fileID: 412700664}
   m_goalText: {fileID: 1244932345}
   m_resultText: {fileID: 488095440}
-  m_limitedCustomerUi: {fileID: 2105487366}
-  m_limitedCustomerText: {fileID: 95461271}
---- !u!114 &1545639455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545639451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41afbf04a7dccb64c9cbe319448fab7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_numOfHearts: 0
-  m_numOfBubbles: 15
-  m_oneStarHearts: 5
-  m_twoStarHearts: 10
-  m_threeStarHearts: 15
-  m_resultMenu: {fileID: 919243372}
-  m_goal: {fileID: 1545639451}
-  m_restartButton: {fileID: 1106773202}
-  m_continueButton: {fileID: 1264590780}
-  m_QuitButton: {fileID: 412700664}
-  m_goalText: {fileID: 1244932345}
-  m_resultText: {fileID: 488095440}
-  m_grayBackground: {fileID: 932566771}
-  m_firstStar: {fileID: 247463785}
-  m_secStar: {fileID: 326306219}
-  m_thirdStar: {fileID: 1613319675}
   m_limitedCustomerUi: {fileID: 2105487366}
   m_limitedCustomerText: {fileID: 95461271}
 --- !u!1 &1598559242
@@ -4674,7 +4643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 96151439684687721, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 96151439684687721, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -4686,7 +4655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 96151439684687721, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 96151439684687721, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Mode
@@ -4699,11 +4668,11 @@ PrefabInstance:
     - target: {fileID: 96151439684687721, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 1545639455}
+      objectReference: {fileID: 1545639454}
     - target: {fileID: 96151439684687721, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1545639455}
+      objectReference: {fileID: 1764866884}
     - target: {fileID: 96151439684687721, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
@@ -4734,7 +4703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 96151439684687721, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
-      value: UpdateRecievedHearts
+      value: SetButtonState
       objectReference: {fileID: 0}
     - target: {fileID: 96151439684687721, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
@@ -4746,11 +4715,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 96151439684687721, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: Assets.Scripts.MoneyLimitedBubble, Assembly-CSharp
+      value: Assets.Scripts.MoneyLimitedTime, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 96151439684687721, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
-      value: Assets.Scripts.MoneyLimitedBubble, Assembly-CSharp
+      value: Assets.Scripts.SendButton, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 96151439684687721, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_TargetAssemblyTypeName
