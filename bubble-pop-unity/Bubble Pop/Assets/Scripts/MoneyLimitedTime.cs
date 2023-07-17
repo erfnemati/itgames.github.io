@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
@@ -7,19 +8,26 @@ namespace Assets.Scripts
     {
 
         public static MoneyLimitedTime m_instance;
-        [SerializeField] float m_moneyGoal;
+
+        [SerializeField] int m_numOfHearts;
+        [SerializeField] int m_oneStarHearts;
+        [SerializeField] int m_twoStarHearts;
+        [SerializeField] int m_threeStarHearts;
         [SerializeField] float m_initialTime;
+        [SerializeField] Image m_firstStar;
+        [SerializeField] Image m_secStar;
+        [SerializeField] Image m_thirdStar;
+        [SerializeField] GameObject m_grayBackground;
         [SerializeField] GameObject m_resultMenu;
-        [SerializeField] GameObject m_grayScreen;
-        [SerializeField] GameObject m_timer;
         [SerializeField] GameObject m_goal;
         [SerializeField] GameObject m_restartButton;
         [SerializeField] GameObject m_continueButton;
         [SerializeField] GameObject m_QuitButton;
         [SerializeField] TMP_Text m_goalText;
         [SerializeField] TMP_Text m_resultText;
-        [SerializeField] TMP_Text m_timerText;
-        
+        [SerializeField] GameObject m_limitedCustomerUi;
+        [SerializeField] TMP_Text m_limitedCustomerText;
+
         private float m_remainingTime = 0.0f;
         private bool m_isLevelOver = false;
 
@@ -41,7 +49,7 @@ namespace Assets.Scripts
 
         private void Start()
         {
-            UpdateMadeMoneyUi();
+            UpdateRecievedHearts();
         }
 
 
@@ -59,11 +67,10 @@ namespace Assets.Scripts
             UpdateRemainingTime();
         }
 
-        public void UpdateMadeMoneyUi()
+        public void UpdateRecievedHearts()
         {
             m_goal.SetActive(true);
-            //m_goalText.text = LevelManager.m_instance.GetMadeMoney() + "Coins";
-            m_goalText.text = LevelManager.m_instance.GetRecievedHearts() + "/" + $"{m_moneyGoal}" + " Coins";
+            m_goalText.text = LevelManager.m_instance.GetRecievedHearts() + "/" + $"{m_oneStarHearts}";
 
         }
 
@@ -79,7 +86,7 @@ namespace Assets.Scripts
 
         public bool IsGoalReached()
         {
-            if (LevelManager.m_instance.GetRecievedHearts() >= m_moneyGoal)
+            if (LevelManager.m_instance.GetRecievedHearts() >= m_oneStarHearts)
             {
                 return true;
             }
@@ -92,34 +99,60 @@ namespace Assets.Scripts
         private void UpdateUiTimer()
         {
             
-            m_timerText.text = ((int)m_remainingTime).ToString() + "\nSeconds";
+            m_limitedCustomerText.text = ((int)m_remainingTime).ToString();
         }
 
         public void ShowResultMenu()
         {
             Time.timeScale = 0.0f;
             InputHandler.m_instance.SwitchIsPaused();
-            m_grayScreen.SetActive(true);
+            m_grayBackground.SetActive(true);
             m_resultMenu.SetActive(true);
-            if (IsGoalReached())
-            {
-                m_resultMenu.GetComponentInChildren<TMP_Text>().text = "Passed";
-                m_continueButton.SetActive(true);
-                m_restartButton.SetActive(false);
-            }
-            else
+
+            if (m_numOfHearts < m_oneStarHearts)
             {
                 m_resultMenu.GetComponentInChildren<TMP_Text>().text = "Failed";
                 m_restartButton.SetActive(true);
                 m_continueButton.SetActive(false);
+                m_QuitButton.SetActive(true);
+                return;
             }
+
+
+            else if (m_numOfHearts >= m_oneStarHearts && m_numOfHearts < m_twoStarHearts)
+            {
+                Debug.Log("One star");
+                m_firstStar.gameObject.SetActive(true);
+            }
+
+            else if (m_numOfHearts >= m_twoStarHearts && m_numOfHearts < m_threeStarHearts)
+            {
+                Debug.Log("Two star");
+                m_firstStar.gameObject.SetActive(true);
+                m_secStar.gameObject.SetActive(true);
+
+            }
+
+            else if (m_numOfHearts >= m_threeStarHearts)
+            {
+                Debug.Log("Three star");
+                m_firstStar.gameObject.SetActive(true);
+                m_secStar.gameObject.SetActive(true);
+                m_thirdStar.gameObject.SetActive(true);
+            }
+
+            m_resultMenu.GetComponentInChildren<TMP_Text>().text = "Passed";
+            m_restartButton.SetActive(false);
+            m_continueButton.SetActive(true);
             m_QuitButton.SetActive(true);
-            
+
+
+
         }
 
         public void UpdateRecievedHearts(int numberfHearts)
         {
-            throw new System.NotImplementedException();
+            m_numOfHearts = numberfHearts;
         }
     }
 }

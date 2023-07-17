@@ -401,6 +401,7 @@ MonoBehaviour:
   - {fileID: 1523219363}
   - {fileID: 332182133}
   m_customerGameObject: {fileID: 6975827703512782287, guid: 7f52c57ef2d235d40a05503702354c30, type: 3}
+  m_currentLevelGoal: {fileID: 1545639451}
   m_mainMenuBuildIndex: 0
   m_sendButton: {fileID: 1764866885}
 --- !u!114 &247463785 stripped
@@ -1852,7 +1853,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1545639453}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Assets.Scripts.MoneyLimitedCustomer, Assembly-CSharp
         m_MethodName: UpdateNumberOfCustomers
         m_Mode: 1
@@ -1864,7 +1865,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1545639453}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Assets.Scripts.MoneyLimitedCustomer, Assembly-CSharp
         m_MethodName: UpdateMadeMoneyUi
         m_Mode: 1
@@ -3524,7 +3525,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1545639452}
-  - component: {fileID: 1545639453}
+  - component: {fileID: 1545639454}
   m_Layer: 0
   m_Name: LevelGoal
   m_TagString: Untagged
@@ -3547,7 +3548,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1545639453
+--- !u!114 &1545639454
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3556,14 +3557,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1545639451}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d524a40d84f66174ebd98250cc0ac0f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f964b5fe5d5c1f4bbd5e689ec5e95ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_numOfHearts: 0
   m_oneStarHearts: 5
   m_twoStarHearts: 10
   m_threeStarHearts: 15
-  m_numOfCustomers: 5
+  m_initialTime: 45
   m_firstStar: {fileID: 247463785}
   m_secStar: {fileID: 326306219}
   m_thirdStar: {fileID: 1613319675}
@@ -4667,11 +4668,11 @@ PrefabInstance:
     - target: {fileID: 96151439684687721, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 1545639453}
+      objectReference: {fileID: 0}
     - target: {fileID: 96151439684687721, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1545639453}
+      objectReference: {fileID: 0}
     - target: {fileID: 96151439684687721, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 

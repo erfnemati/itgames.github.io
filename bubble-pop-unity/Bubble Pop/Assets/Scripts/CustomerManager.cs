@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -11,9 +10,6 @@ namespace Assets.Scripts
     {
         Request m_customerRequest;
         Proposal m_currentProposal = new Proposal();
-
-        //UI variables here :
-        //
 
         [SerializeField] Sprite m_dataIcon;
         [SerializeField] Sprite m_callTimeIcon;
@@ -71,15 +67,18 @@ namespace Assets.Scripts
             int weight = 0;
 
             GetProposalDataPoint(ref dataPoint, ref weight);
+            Debug.Log("Data point is : " + dataPoint);
             GetProposalMessagePoint(ref messagePoint, ref weight);
+            Debug.Log("Message point is : " + messagePoint);
             GetProposalCallTimePoint(ref callTimePoint, ref weight);
+            Debug.Log("Call time point is : " + callTimePoint);
 
             float proposalPoint = (callTimePoint + messagePoint + dataPoint) / weight;
             if(proposalPoint <= Mathf.Epsilon)
             {
                 proposalPoint = 0;
             }
-            
+
             Debug.Log("Proposal point is : " + proposalPoint);
             return proposalPoint;
         }
@@ -101,7 +100,7 @@ namespace Assets.Scripts
                     callTimePoint = 1 - (Mathf.Abs(diffCallTime) / requestCallTime);
                     if (callTimePoint - 0.33f <= Mathf.Epsilon)
                     {
-                        callTimePoint = -0.33f;
+                        callTimePoint = 0f;
                     }
                 }
             }
@@ -123,7 +122,7 @@ namespace Assets.Scripts
                     messagePoint = 1 - Mathf.Abs(diffMessage / requestMessage);
                     if (messagePoint - 0.33f <= Mathf.Epsilon)
                     {
-                        messagePoint = -0.33f;
+                        messagePoint = 0f;
                     }
                 }
             }
@@ -147,7 +146,7 @@ namespace Assets.Scripts
                     dataPoint = 1 - Mathf.Abs(diffData / requestData);
                     if (dataPoint - 0.33f <= Mathf.Epsilon)
                     {
-                        dataPoint = 0.33f;
+                        dataPoint = 0f;
                     }
                 }
             }
@@ -180,7 +179,6 @@ namespace Assets.Scripts
             {
                 roundedHearts = 3;
             }
-            Debug.Log("Final hearts : " + roundedHearts);
             return roundedHearts;
         }
         

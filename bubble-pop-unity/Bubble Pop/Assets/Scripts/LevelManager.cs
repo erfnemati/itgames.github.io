@@ -33,6 +33,8 @@ namespace Assets.Scripts
         private bool m_isLevelFinished = false;
         private int m_numOfPopedBubbles = 0;
 
+        [SerializeField] GameObject m_currentLevelGoal;
+
 
 
         [SerializeField] int m_mainMenuBuildIndex = 0;
@@ -116,7 +118,7 @@ namespace Assets.Scripts
             }
             m_lastCustomerEarnedHearts = m_customer.GetHearts();
             m_madeHearts += m_lastCustomerEarnedHearts;
-            MoneyLimitedCustomer.m_instance.UpdateRecievedHearts((int)m_madeHearts);
+            m_currentLevelGoal.GetComponent<LevelGoal>().UpdateRecievedHearts((int)m_madeHearts);
             m_numOfAnsweredCustomers++;
             GetNewCustomer();
         }
