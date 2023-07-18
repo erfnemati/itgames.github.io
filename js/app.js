@@ -16,23 +16,23 @@ particlesJS('particles-js',
   {
     "particles": {
       "number": {
-        "value": 18,
+        "value": 50,
         "density": {
           "enable": true,
-          "value_area": 500
+          "value_area": 1000
         }
       },
       "color": {
-        "value": "#4469d0"
+        "value": "#acacac"
       },
       "shape": {
-        "type": "polygon",
+        "type": "circle",
         "stroke": {
           "width": 0,
-          "color": "#000"
+          "color": "#ffffff"
         },
         "polygon": {
-          "nb_sides": 6
+          "nb_sides": 5
         },
         "image": {
           "src": "img/github.svg",
@@ -41,7 +41,7 @@ particlesJS('particles-js',
         }
       },
       "opacity": {
-        "value": 1,
+        "value": 0,
         "random": true,
         "anim": {
           "enable": false,
@@ -51,27 +51,27 @@ particlesJS('particles-js',
         }
       },
       "size": {
-        "value": 100,
-        "random": true,
+        "value": 3,
+        "random": false,
         "anim": {
-          "enable": true,
-          "speed": 2,
-          "size_min": 40,
-          "sync": false
+          "enable": false,
+          "speed": 10,
+          "size_min": 0.1,
+          "sync": true
         }
       },
       "line_linked": {
         "enable": true,
-        "distance": 500,
+        "distance": 95,
         "color": "#ffffff",
-        "opacity": 0.2,
+        "opacity": 0.3,
         "width": 1
       },
       "move": {
         "enable": true,
-        "speed": 0.8,
+        "speed": 6,
         "direction": "none",
-        "random": true,
+        "random": false,
         "straight": false,
         "out_mode": "out",
         "bounce": false,
@@ -86,11 +86,11 @@ particlesJS('particles-js',
       "detect_on": "canvas",
       "events": {
         "onhover": {
-          "enable": false,
-          "mode": "grab"
+          "enable": true,
+          "mode": "repulse"
         },
         "onclick": {
-          "enable": false,
+          "enable": true,
           "mode": "push"
         },
         "resize": true

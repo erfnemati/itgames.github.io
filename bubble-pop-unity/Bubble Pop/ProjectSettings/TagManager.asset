@@ -8,6 +8,9 @@ TagManager:
   - SendButton
   - DiscardButton
   - Customer
+  - AnarPowerUp
+  - AnarPowerUpIcon
+  - Menu
   layers:
   - Default
   - TransparentFX
