@@ -6,12 +6,10 @@ using TMPro;
 public class AnarGenerator : MonoBehaviour
 {
     [SerializeField] GameObject m_anar;
-    [SerializeField] string m_text1;
-    [SerializeField] string m_text2;
-    [SerializeField] string m_text3;
-
-    private GameObject m_lastGeneratadAnar;
-    private GameObject m_currentGeneratedAnar;
+    [SerializeField] GameObject m_obstacle;
+    
+    private GameObject m_lastGeneratedObject;
+    
 
     [SerializeField] float m_minDistance;
     [SerializeField] float m_maxDistance;
@@ -24,22 +22,41 @@ public class AnarGenerator : MonoBehaviour
     }
     private void Update()
     {
-        if (m_lastGeneratadAnar.transform.position.y <= m_distanceFromLastAnar)
+        if (m_lastGeneratedObject.transform.position.y <= m_distanceFromLastAnar)
         {
             GenerateAnar();
         }
     }
     private void GenerateAnar()
     {
-        float xPosInViewPort = Random.Range(0.2f, 0.8f);
+        float xPosInViewPort = Random.Range(0.2f, 0.7f);
         float xPosInWorldPoint = Camera.main.ViewportToWorldPoint(new Vector3(xPosInViewPort, 0, 0)).x;
         Vector3 toBeGeneratedPos = new Vector3(xPosInWorldPoint, m_TopOfScreen.transform.position.y, 0);
 
-        m_lastGeneratadAnar = Instantiate(m_anar, toBeGeneratedPos, Quaternion.identity);
-        float toBeGeneratedPoint = Random.Range(0.3f, 0.7f);
+        int obsOrAnar = Random.Range(1, 6);
+        if (obsOrAnar >3)
+        {
+            xPosInViewPort = Random.Range(0.4f, 0.6f);
+            xPosInWorldPoint = Camera.main.ViewportToWorldPoint(new Vector3(xPosInViewPort, 0, 0)).x;
+            toBeGeneratedPos = new Vector3(xPosInWorldPoint, m_TopOfScreen.transform.position.y, 0);
+            m_lastGeneratedObject = Instantiate(m_obstacle, toBeGeneratedPos, Quaternion.identity);
+        }
+        else
+        {
+            m_lastGeneratedObject = Instantiate(m_anar, toBeGeneratedPos, Quaternion.identity);
+        }
+        
+
+        float toBeGeneratedPoint = Random.Range(0.5f, 0.7f);
         m_distanceFromLastAnar = Camera.main.ViewportToWorldPoint(new Vector3(0f, toBeGeneratedPoint, 0)).y;
-        Debug.Log("Distance is : " + m_distanceFromLastAnar);
     }
+
+    private void GenerateObstacle()
+    {
+
+    }
+
+    
 
 
 }

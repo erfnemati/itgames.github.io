@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Anar : MonoBehaviour
 {
     const string CANVAS_TAG = "ScreenBorder";
 
     [SerializeField] float m_speed;
+    [SerializeField] TMP_Text m_anarText;
+    [SerializeField] List<string> m_slogans = new List<string>();
     private Vector2 m_direction = new Vector2(0, -1);
 
+    private void Start()
+    {
+        m_speed = Random.Range(1f, 3f);
+        SetAnarText();
+    }
 
     private void Update()
     {
@@ -24,9 +32,14 @@ public class Anar : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(CANVAS_TAG))
         {
-            Debug.Log("Exiting");
             Destroy(this.gameObject);
 
         }
+    }
+
+    private void SetAnarText()
+    {
+        int randomSloganIndex = Random.Range(0, m_slogans.Count);
+        m_anarText.text =  m_slogans[randomSloganIndex];
     }
 }

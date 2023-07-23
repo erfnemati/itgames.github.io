@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
     const string ANAR_OBJECT_NAME = "AnarObject";
     const string VERTICAL_SCREEN_BORDER = "ScreenBorder";
+    const string OBSTACLE_OBJECT_TAG = "Obstacle";
 
 
 
@@ -16,6 +18,10 @@ public class PlayerController : MonoBehaviour
 
 
     private Vector3 m_enteringPos;
+
+    [SerializeField] SpriteRenderer m_playerSpriteRenderer;
+    [SerializeField] Sprite m_gointRightFace;
+    [SerializeField] Sprite m_goingLeftFace;
 
     [SerializeField] float m_speed;
 
@@ -32,6 +38,12 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag(ANAR_OBJECT_NAME))
         {
             collision.gameObject.SetActive(false);
+            LevelManager.m_instance.IncreaseAchievedAnar();
+        }
+
+        if (collision.gameObject.CompareTag(OBSTACLE_OBJECT_TAG))
+        {
+            LevelManager.m_instance.RestartLevel();
         }
     }
 
@@ -72,7 +84,7 @@ public class PlayerController : MonoBehaviour
 
     public void GoingRight()
     {
-        
+        m_playerSpriteRenderer.sprite = m_gointRightFace;
         m_goingLeft = false;
         m_goingRight = true;
         m_staying = false;
@@ -80,7 +92,7 @@ public class PlayerController : MonoBehaviour
 
     public void GoingLeft()
     {
-        
+        m_playerSpriteRenderer.sprite = m_goingLeftFace;
         m_goingLeft = true;
         m_goingRight = false;
         m_staying = false;
@@ -92,5 +104,11 @@ public class PlayerController : MonoBehaviour
         m_goingLeft = false;
         m_goingRight = false;
         m_staying = true;
+    }
+
+    public void GoToSpace()
+    {
+        //this.transform.DOMove(m_)
+        LevelManager.m_instance.RestartLevel();
     }
 }

@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.0063, y: -0.0108}
+  m_SizeDelta: {x: 0.0845, y: 0.0862}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4568979920142432443
 CanvasRenderer:
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.2
+  m_fontSize: 0.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -164,7 +164,7 @@ Transform:
   m_GameObject: {fileID: 8204113268180763691}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.54, y: 4.15, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 430767725755035843}
@@ -212,7 +212,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6922d4f0b94cfc04eb6917d424178744, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7176d344957677240885e9b016e93c7e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -238,7 +238,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3.81
+  m_Radius: 1.58
 --- !u!50 &8204113268180763690
 Rigidbody2D:
   serializedVersion: 4
@@ -273,6 +273,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 1
+  m_anarText: {fileID: 5544198987852557715}
+  m_slogans:
+  - Shad Platfrom
+  - Safe Internet
+  - Cartoons
+  - Animation
+  - Competition
+  - Online Games
 --- !u!1 &8788906166569363780
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,8 +318,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.056, y: 0.112}
-  m_SizeDelta: {x: 0.543, y: 0.546}
+  m_AnchoredPosition: {x: -0.048, y: 0.07}
+  m_SizeDelta: {x: 0.24, y: 0.197}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6929457431687128281
 Canvas:
