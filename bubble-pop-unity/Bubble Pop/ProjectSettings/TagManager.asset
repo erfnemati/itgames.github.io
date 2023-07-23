@@ -11,6 +11,8 @@ TagManager:
   - AnarPowerUp
   - AnarPowerUpIcon
   - Menu
+  - AnarObject
+  - ScreenBorder
   layers:
   - Default
   - TransparentFX
