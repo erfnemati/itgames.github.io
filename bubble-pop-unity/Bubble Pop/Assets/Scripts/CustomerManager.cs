@@ -36,12 +36,14 @@ namespace Assets.Scripts
         [SerializeField] TMP_Text m_requestValue;
         [SerializeField] GameObject m_heartObject;
         [SerializeField] GameObject m_burninMoneyObject;
+        [SerializeField] GameObject m_sendButton;
 
         private float m_lastValue = 0.0f;
         private float m_currentValue = 0.0f;
 
         void Start()
         {
+            
             Invoke(nameof(SetRequest), 0.2f);
         }
 
@@ -85,6 +87,11 @@ namespace Assets.Scripts
         {
             yield return new WaitForSeconds(delay);
             Destroy(uiObject);
+            if (1 - m_currentValue <= Mathf.Epsilon)
+            {
+                SendButton.m_instance.ShakeButton();
+            }
+
         }
 
         private float CheckProposal()
