@@ -1250,6 +1250,8 @@ MonoBehaviour:
   m_thirdDialogueBoxImage: {fileID: 8787432793644644672}
   m_customerSlider: {fileID: 6975827703691784667}
   m_requestValue: {fileID: 0}
+  m_heartObject: {fileID: 3508220291052234930, guid: 8b018edb2c9d477488b1d041e407dee5, type: 3}
+  m_burninMoneyObject: {fileID: 2189288845221461100, guid: 7b2a6e14ecf647c4c8ff84dcae313392, type: 3}
 --- !u!50 &6975827703512782282
 Rigidbody2D:
   serializedVersion: 4

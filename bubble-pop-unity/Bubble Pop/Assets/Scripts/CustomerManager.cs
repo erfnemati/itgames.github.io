@@ -2,6 +2,8 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using DG.Tweening;
+using System.Collections;
 
 
 namespace Assets.Scripts
@@ -32,7 +34,11 @@ namespace Assets.Scripts
 
         [SerializeField] CustomerSlider m_customerSlider;
         [SerializeField] TMP_Text m_requestValue;
-       
+        [SerializeField] GameObject m_heartObject;
+        [SerializeField] GameObject m_burninMoneyObject;
+
+        private float m_lastValue = 0.0f;
+        private float m_currentValue = 0.0f;
 
         void Start()
         {
@@ -49,9 +55,36 @@ namespace Assets.Scripts
         public void AddItem(Bubble bubble)
         {
             m_currentProposal.AddBubble(bubble);
+            Vector3 position = bubble.transform.position;
+            
+            
 
-            UpdateCustomerCompletionBar();
-            SetRequestValueUi();
+            m_lastValue = m_currentValue;
+            m_currentValue = CheckProposal();
+
+            if (m_currentValue - m_lastValue >= Mathf.Epsilon)
+            {
+                GameObject heart = Instantiate(m_heartObject, position, Quaternion.identity);
+                heart.transform.DOMove(position + new Vector3(0, 0.5f, 0), 0.5f);
+                heart.transform.DOMove(m_customerSlider.transform.position, 0.5f).OnComplete(() => UpdateCustomerCompletionBar(m_currentValue));
+                StartCoroutine(DestroyUiGameObject(heart.gameObject, 0.5f));
+                
+            }
+            else
+            {
+                GameObject burningMoney = Instantiate(m_burninMoneyObject, position, Quaternion.identity);
+                burningMoney.transform.DOMove(position + new Vector3(0, 0.5f, 0), 0.5f);
+                burningMoney.transform.DOMove(m_customerSlider.transform.position, 0.5f).OnComplete(() => UpdateCustomerCompletionBar(m_currentValue));
+                StartCoroutine(DestroyUiGameObject(burningMoney.gameObject, 0.5f));
+
+            }
+
+        }
+
+        IEnumerator DestroyUiGameObject(GameObject uiObject,float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            Destroy(uiObject);
         }
 
         private float CheckProposal()
@@ -98,7 +131,7 @@ namespace Assets.Scripts
                 else
                 {
                     callTimePoint = 1 - (Mathf.Abs(diffCallTime) / requestCallTime);
-                    if (callTimePoint - 0.33f <= Mathf.Epsilon)
+                    if (callTimePoint  <= Mathf.Epsilon)
                     {
                         callTimePoint = 0f;
                     }
@@ -120,7 +153,7 @@ namespace Assets.Scripts
                 else
                 {
                     messagePoint = 1 - Mathf.Abs(diffMessage / requestMessage);
-                    if (messagePoint - 0.33f <= Mathf.Epsilon)
+                    if (messagePoint  <= Mathf.Epsilon)
                     {
                         messagePoint = 0f;
                     }
@@ -144,7 +177,7 @@ namespace Assets.Scripts
                 {
 
                     dataPoint = 1 - Mathf.Abs(diffData / requestData);
-                    if (dataPoint - 0.33f <= Mathf.Epsilon)
+                    if (dataPoint  <= Mathf.Epsilon)
                     {
                         dataPoint = 0f;
                     }
@@ -247,13 +280,12 @@ namespace Assets.Scripts
             //m_requestValue.text =  m_customerRequest.GetRequestValue() + " Coins";
         }
 
-        private void UpdateCustomerCompletionBar()
+        private void UpdateCustomerCompletionBar(float newSliderValue)
         {
-            m_customerSlider.SetValue(CheckProposal());
-
+            
+           m_customerSlider.SetValue(newSliderValue);
+            Debug.Log("I am updating");
+         
         }
-
-
-
     }
 }
