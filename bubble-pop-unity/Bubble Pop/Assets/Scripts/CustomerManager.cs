@@ -36,7 +36,15 @@ namespace Assets.Scripts
         [SerializeField] TMP_Text m_requestValue;
         [SerializeField] GameObject m_heartObject;
         [SerializeField] GameObject m_burninMoneyObject;
-        [SerializeField] GameObject m_sendButton;
+
+        [SerializeField] Sprite m_zeroHeart;
+        [SerializeField] Sprite m_oneThirdHeart;
+        [SerializeField] Sprite m_twoThirdHeart;
+        [SerializeField] Sprite m_completeHeart;
+
+        [SerializeField] Image m_firstPanelSpriteRenderer;
+        [SerializeField] Image m_secPanelSpriteRenderer;
+        [SerializeField] Image m_thirdPanelSpriteRendere;
 
         private float m_lastValue = 0.0f;
         private float m_currentValue = 0.0f;
@@ -87,7 +95,7 @@ namespace Assets.Scripts
         {
             yield return new WaitForSeconds(delay);
             Destroy(uiObject);
-            if (1 - m_currentValue <= Mathf.Epsilon)
+            if (0.9f - m_currentValue <= Mathf.Epsilon)
             {
                 SendButton.m_instance.ShakeButton();
             }
@@ -290,8 +298,72 @@ namespace Assets.Scripts
         private void UpdateCustomerCompletionBar(float newSliderValue)
         {
             
-           m_customerSlider.SetValue(newSliderValue);
-            Debug.Log("I am updating");
+           //m_customerSlider.SetValue(newSliderValue);
+           if (m_currentValue - 0.3f <= Mathf.Epsilon)
+            {
+                m_secPanelSpriteRenderer.sprite = m_zeroHeart;
+                m_thirdPanelSpriteRendere.sprite = m_zeroHeart;
+
+                if (m_currentValue <= Mathf.Epsilon)
+                {
+                    m_firstPanelSpriteRenderer.sprite = m_zeroHeart;
+                }
+                else if (m_currentValue -0.1f <= Mathf.Epsilon)
+                {
+                    m_firstPanelSpriteRenderer.sprite = m_oneThirdHeart;
+                }
+
+                else if (m_currentValue - 0.1f > Mathf.Epsilon &&  m_currentValue - 0.2f <= Mathf.Epsilon)
+                {
+                    m_firstPanelSpriteRenderer.sprite = m_twoThirdHeart;
+                }
+                else
+                {
+                    m_firstPanelSpriteRenderer.sprite = m_completeHeart;
+                }
+            }
+
+           else if (m_currentValue - 0.3f > Mathf.Epsilon && m_currentValue -0.6f <= Mathf.Epsilon)
+            {
+                m_firstPanelSpriteRenderer.sprite = m_completeHeart;
+                m_thirdPanelSpriteRendere.sprite = m_zeroHeart;
+
+                if (m_currentValue - 0.4f <= Mathf.Epsilon)
+                {
+                    m_secPanelSpriteRenderer.sprite = m_oneThirdHeart;
+                }
+
+                else if (m_currentValue - 0.4f > Mathf.Epsilon && m_currentValue - 0.5f <= Mathf.Epsilon)
+                {
+                    m_secPanelSpriteRenderer.sprite = m_twoThirdHeart;
+                }
+                else
+                {
+                    m_secPanelSpriteRenderer.sprite = m_completeHeart;
+                }
+
+            }
+
+           else if (m_currentValue - 0.6f > Mathf.Epsilon && m_currentValue - 1f <= Mathf.Epsilon)
+            {
+                m_firstPanelSpriteRenderer.sprite = m_completeHeart;
+                m_secPanelSpriteRenderer.sprite = m_completeHeart;
+                
+                if (m_currentValue - 0.7f <= Mathf.Epsilon)
+                {
+                    m_thirdPanelSpriteRendere.sprite = m_oneThirdHeart;
+                }
+
+                else if (m_currentValue - 0.7f > Mathf.Epsilon && m_currentValue - 0.8f <= Mathf.Epsilon)
+                {
+                    m_thirdPanelSpriteRendere.sprite = m_twoThirdHeart;
+                }
+                else
+                {
+                    m_thirdPanelSpriteRendere.sprite = m_completeHeart;
+                }
+            }
+        
          
         }
     }

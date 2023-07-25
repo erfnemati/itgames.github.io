@@ -1916,6 +1916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinText: {fileID: 1717652869}
+  m_sendButton: {fileID: 0}
   m_oneHeartPacakge: {fileID: 0}
   m_secHeartPackage: {fileID: 0}
   m_thirdHeartPackage: {fileID: 0}
@@ -4749,6 +4750,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 96151439684687724, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
+      propertyPath: m_sendButton
+      value: 
+      objectReference: {fileID: 1764866883}
     - target: {fileID: 96151439684687724, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_oneHeartPacakge
       value: 
