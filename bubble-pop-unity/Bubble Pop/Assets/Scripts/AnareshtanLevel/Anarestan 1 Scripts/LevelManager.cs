@@ -27,6 +27,8 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        UpdateGoalUi();
     }
 
     private void UpdateGoalUi()
