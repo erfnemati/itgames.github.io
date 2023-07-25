@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag(OBSTACLE_OBJECT_TAG))
         {
-            LevelManager.m_instance.RestartLevel();
+            LevelManager.m_instance.FailLevel();
         }
     }
 
@@ -104,11 +104,5 @@ public class PlayerController : MonoBehaviour
         m_goingLeft = false;
         m_goingRight = false;
         m_staying = true;
-    }
-
-    public void GoToSpace()
-    {
-        //this.transform.DOMove(m_)
-        LevelManager.m_instance.RestartLevel();
     }
 }

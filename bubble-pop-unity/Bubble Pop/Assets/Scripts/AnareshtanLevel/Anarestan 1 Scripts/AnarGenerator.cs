@@ -36,7 +36,7 @@ public class AnarGenerator : MonoBehaviour
         int obsOrAnar = Random.Range(1, 6);
         if (obsOrAnar >3)
         {
-            xPosInViewPort = Random.Range(0.4f, 0.6f);
+            xPosInViewPort = Random.Range(0.3f, 0.7f);
             xPosInWorldPoint = Camera.main.ViewportToWorldPoint(new Vector3(xPosInViewPort, 0, 0)).x;
             toBeGeneratedPos = new Vector3(xPosInWorldPoint, m_TopOfScreen.transform.position.y, 0);
             m_lastGeneratedObject = Instantiate(m_obstacle, toBeGeneratedPos, Quaternion.identity);
@@ -51,10 +51,6 @@ public class AnarGenerator : MonoBehaviour
         m_distanceFromLastAnar = Camera.main.ViewportToWorldPoint(new Vector3(0f, toBeGeneratedPoint, 0)).y;
     }
 
-    private void GenerateObstacle()
-    {
-
-    }
 
     
 
