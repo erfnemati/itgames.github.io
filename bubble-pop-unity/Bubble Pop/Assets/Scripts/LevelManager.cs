@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 namespace Assets.Scripts
 {
@@ -14,6 +15,8 @@ namespace Assets.Scripts
         [SerializeField] int m_numOfBubbles = 5;
         [SerializeField] GameObject m_bubblePrefab;
         [SerializeField] Transform[] m_bubbleTransfroms;
+        //[SerializeField] Transform m_initialCustomerPos;
+        //[SerializeField] Transform m_targetCustomerPos;
 
         private List<Data> m_dataList = new List<Data>();
         private List<CallTime> m_callTimeList = new List<CallTime>();
@@ -74,6 +77,7 @@ namespace Assets.Scripts
                 Destroy(m_customer.gameObject);
             }
             GameObject customer = Instantiate(m_customerGameObject);
+            //customer.transform.DOMove(m_targetCustomerPos.position, 5f);
             SetCurrentCustomer(customer.GetComponent<CustomerManager>());
             m_numOfAnsweredCustomers++;
         }

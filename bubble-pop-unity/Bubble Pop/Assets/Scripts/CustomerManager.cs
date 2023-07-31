@@ -45,6 +45,7 @@ namespace Assets.Scripts
         [SerializeField] Image m_firstPanelSpriteRenderer;
         [SerializeField] Image m_secPanelSpriteRenderer;
         [SerializeField] Image m_thirdPanelSpriteRendere;
+        [SerializeField] CustomerUiManager m_customerUiManager;
 
         private float m_lastValue = 0.0f;
         private float m_currentValue = 0.0f;
@@ -86,6 +87,7 @@ namespace Assets.Scripts
                 GameObject burningMoney = Instantiate(m_burninMoneyObject, position, Quaternion.identity);
                 burningMoney.transform.DOMove(position + new Vector3(0, 0.5f, 0), 0.5f);
                 burningMoney.transform.DOMove(m_customerSlider.transform.position, 0.5f).OnComplete(() => UpdateCustomerCompletionBar(m_currentValue));
+                m_customerUiManager.SetSadAnimation();
                 StartCoroutine(DestroyUiGameObject(burningMoney.gameObject, 0.5f));
 
             }
@@ -100,6 +102,7 @@ namespace Assets.Scripts
             {
                 SendButton.m_instance.ShakeButton();
                 SendButton.m_instance.ChangeColor();
+                m_customerUiManager.SetHappyAnimation();
             }
             else
             {
