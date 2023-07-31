@@ -1920,6 +1920,8 @@ MonoBehaviour:
   m_oneHeartPacakge: {fileID: 0}
   m_secHeartPackage: {fileID: 0}
   m_thirdHeartPackage: {fileID: 0}
+  m_greenSendSprite: {fileID: 0}
+  m_purpleSendSprite: {fileID: 0}
 --- !u!1 &919243372 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 96151439959955877, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
@@ -4760,6 +4762,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1764866883}
     - target: {fileID: 96151439684687724, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
+      propertyPath: m_greenSendSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 72a00569c70b48b4db0ed337c286dc32, type: 3}
+    - target: {fileID: 96151439684687724, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_oneHeartPacakge
       value: 
       objectReference: {fileID: 1359359611}
@@ -4767,6 +4773,10 @@ PrefabInstance:
       propertyPath: m_secHeartPackage
       value: 
       objectReference: {fileID: 1997780449}
+    - target: {fileID: 96151439684687724, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
+      propertyPath: m_purpleSendSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3814d1ccd3f33374a9cbf68c3e3a8ce0, type: 3}
     - target: {fileID: 96151439684687724, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_thirdHeartPackage
       value: 

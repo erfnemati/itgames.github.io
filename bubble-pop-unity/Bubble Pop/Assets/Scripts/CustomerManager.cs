@@ -57,6 +57,7 @@ namespace Assets.Scripts
 
         private void SetRequest()
         {
+            SendButton.m_instance.ResetButton();
             m_customerRequest = RequestManager.m_instance.GetNewRequest();
             SetRequestText();
             SetRequestValueUi();
@@ -98,6 +99,11 @@ namespace Assets.Scripts
             if (0.9f - m_currentValue <= Mathf.Epsilon)
             {
                 SendButton.m_instance.ShakeButton();
+                SendButton.m_instance.ChangeColor();
+            }
+            else
+            {
+                SendButton.m_instance.ResetButton();
             }
 
         }
@@ -366,5 +372,6 @@ namespace Assets.Scripts
         
          
         }
+
     }
 }

@@ -17,6 +17,8 @@ namespace Assets.Scripts
         [SerializeField] GameObject m_oneHeartPacakge;
         [SerializeField] GameObject m_secHeartPackage;
         [SerializeField] GameObject m_thirdHeartPackage;
+        [SerializeField] Sprite m_greenSendSprite;
+        [SerializeField] Sprite m_purpleSendSprite;
 
         private void Start()
         {
@@ -69,6 +71,16 @@ namespace Assets.Scripts
         {
             
             m_sendButton.DOShakeAnchorPos(0.5f,50f);
+        }
+
+        public void ChangeColor()
+        {
+            m_sendButton.GetComponent<Image>().sprite = m_greenSendSprite;
+        }
+
+        public void ResetButton()
+        {
+            m_sendButton.GetComponent<Image>().sprite = m_purpleSendSprite;
         }
 
     }
