@@ -16,6 +16,11 @@ public class CustomerUiManager : MonoBehaviour
 
     const string IS_HAPPY = "isHappy";
     const string IS_SAD = "isSad";
+    const string BACK_TO_NO_MOTION = "backToNoMotion";
+    const string IS_IDLE = "isIdle";
+
+    private bool isSad = false;
+    private bool isHappy = false;
 
 
     private void Start()
@@ -40,15 +45,26 @@ public class CustomerUiManager : MonoBehaviour
     public void SetHappyAnimation()
     {
         m_customerAnimator.SetTrigger(IS_HAPPY);
+
+
     }
 
     public void SetSadAnimation()
     {
         m_customerAnimator.SetTrigger(IS_SAD);
+
     }
 
-    public void SetIdleAnimation()
+    public void GoToNoMotion()
     {
+        m_customerAnimator.SetTrigger(BACK_TO_NO_MOTION);
+      
+    }
+
+    public void GoIdle()
+    {
+        
+
 
     }
 }

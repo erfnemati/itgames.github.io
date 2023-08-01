@@ -4,12 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
+
 public class StartScreen : MonoBehaviour
 {
-    [SerializeField] float m_delay;
-    private void Start()
+    
+    private void Update()
     {
-        Invoke(nameof(LoadStartMenu), m_delay);
+        if (Input.touchCount != 0)
+        {
+            LoadStartMenu();
+        }
     }
     private void  LoadStartMenu()
     {

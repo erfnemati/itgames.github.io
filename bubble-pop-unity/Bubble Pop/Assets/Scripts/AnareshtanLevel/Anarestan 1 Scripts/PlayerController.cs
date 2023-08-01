@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private bool m_goingRight = false;
     private bool m_goingLeft = false;
     private bool m_staying = false;
+    private bool isGameOver = false;
 
 
 
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag(OBSTACLE_OBJECT_TAG))
         {
+            isGameOver = true;
             LevelManager.m_instance.FailLevel();
         }
     }
@@ -58,6 +60,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (isGameOver)
+        {
+            return;
+        }
         MovePlayer();
     }
 

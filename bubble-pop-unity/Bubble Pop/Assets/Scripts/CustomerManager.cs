@@ -68,6 +68,8 @@ namespace Assets.Scripts
         {
             m_currentProposal.AddBubble(bubble);
             Vector3 position = bubble.transform.position;
+            m_customerUiManager.GoIdle();
+            
             
             
 
@@ -79,6 +81,7 @@ namespace Assets.Scripts
                 GameObject heart = Instantiate(m_heartObject, position, Quaternion.identity);
                 heart.transform.DOMove(position + new Vector3(0, 0.5f, 0), 0.5f);
                 heart.transform.DOMove(m_customerSlider.transform.position, 0.5f).OnComplete(() => UpdateCustomerCompletionBar(m_currentValue));
+                m_customerUiManager.SetHappyAnimation();
                 StartCoroutine(DestroyUiGameObject(heart.gameObject, 0.5f));
                 
             }
