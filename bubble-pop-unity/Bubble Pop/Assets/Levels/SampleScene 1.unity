@@ -167,8 +167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6ba07735218c8e4d83528aafe1b6bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_requestText: {fileID: 0}
-  m_proposalText: {fileID: 0}
   m_numOfBubbles: 5
   m_bubblePrefab: {fileID: 8104126691085515114, guid: b80dc88df9130b045b82664a5841c5c9, type: 3}
   m_bubbleTransfroms:
@@ -177,8 +175,10 @@ MonoBehaviour:
   - {fileID: 372377275}
   - {fileID: 1692010043}
   - {fileID: 557561601}
-  m_customer: {fileID: 0}
   m_customerGameObject: {fileID: 6975827703512782287, guid: 41ad038f45e51a742b616d1391428d07, type: 3}
+  m_currentLevelGoal: {fileID: 0}
+  m_mainMenuBuildIndex: 0
+  m_sendButton: {fileID: 0}
 --- !u!1 &372377274
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,6 +795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e9282e133f51b49bee1bee59253067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_model: 0
 --- !u!1 &1692010042
 GameObject:
   m_ObjectHideFlags: 0

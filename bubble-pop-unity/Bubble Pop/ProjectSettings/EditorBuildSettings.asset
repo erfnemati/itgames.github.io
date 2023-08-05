@@ -18,13 +18,13 @@ EditorBuildSettings:
     path: Assets/Levels/Anarestan 1.unity
     guid: 02b88197a8551fe42a97473ebc169ef6
   - enabled: 0
-    path: Assets/Levels/Level 4.unity
+    path: Assets/Levels/Level 3.unity
     guid: fed0e9ed839d31d47876f85e93bcc63a
   - enabled: 0
     path: Assets/Levels/Level 2.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
-    path: Assets/Levels/Level 3.unity
+    path: Assets/Levels/Level 6.unity
     guid: 48b4d8de882c0a34c8f48da1daa34381
   - enabled: 0
     path: Assets/WorkAtHome/Scenes/Tutorial1.unity
