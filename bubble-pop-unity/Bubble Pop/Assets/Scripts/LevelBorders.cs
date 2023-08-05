@@ -37,7 +37,7 @@ public class LevelBorders : MonoBehaviour
         m_topLeftCorner = new Vector2(-m_screenWidth / 2, m_screenHeight / 2);
         m_topRightCorner = new Vector2(m_screenWidth / 2, m_screenHeight / 2);
         m_bottomLeftCorner = new Vector2(-m_screenWidth / 2, -m_screenHeight / 2);
-        m_bottomRightCorner = new Vector2(m_screenWidth/2, m_screenHeight / 2);
+        m_bottomRightCorner = new Vector2(m_screenWidth/2, -m_screenHeight / 2);
 
     }
 
