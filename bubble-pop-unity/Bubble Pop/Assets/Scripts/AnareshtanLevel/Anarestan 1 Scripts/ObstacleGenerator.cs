@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class AnarGenerator : MonoBehaviour
+public class ObstacleGenerator : MonoBehaviour
 {
     [SerializeField] GameObject m_anar;
     [SerializeField] GameObject m_obstacle;

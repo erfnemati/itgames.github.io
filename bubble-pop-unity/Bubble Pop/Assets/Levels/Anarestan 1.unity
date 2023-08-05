@@ -2669,7 +2669,7 @@ GameObject:
   - component: {fileID: 1181905387}
   - component: {fileID: 1181905388}
   m_Layer: 0
-  m_Name: AnarGenerator
+  m_Name: Generator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2702,8 +2702,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17625aae9f2edb948b526f2d415f147c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_anar: {fileID: 8204113268180763691, guid: 09dfa0b3da16716479f3b1a0d69aca35, type: 3}
-  m_obstacle: {fileID: 7616472903219934773, guid: 29c96ecd3ac2a4b45a6ed68dc4f0fc91, type: 3}
+  m_anar: {fileID: 8204113268180763691, guid: 9e084413ddcdb2649b419999578866be, type: 3}
+  m_obstacle: {fileID: 7616472903219934773, guid: 22ef1f878f68d59498916cab355b2ca4, type: 3}
   m_minDistance: 2
   m_maxDistance: 10
   m_TopOfScreen: {fileID: 1340453618}
