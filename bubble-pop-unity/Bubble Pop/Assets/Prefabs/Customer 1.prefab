@@ -1466,18 +1466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba22c10c07a7b940b4119e7e121e455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_dataIcon: {fileID: 21300000, guid: d119751d41fea7e48874fa108f77d35e, type: 3}
-  m_callTimeIcon: {fileID: 21300000, guid: db836c97963120642ab031c3f500a6c7, type: 3}
-  m_messageIcon: {fileID: 21300000, guid: 67b42e1534cb3da4993fd26cc16cd893, type: 3}
-  m_firstDialogueBox: {fileID: 4889282119765145388}
-  m_firstDialogueBoxText: {fileID: 2389787590575789029}
-  m_firstDialogueBoxImage: {fileID: 5424661800888258078}
-  m_secDialogueBox: {fileID: 8773381237825454516}
-  m_secDialogueBoxText: {fileID: 8321350468192104834}
-  m_secDialogueBoxImage: {fileID: 398198461822769239}
-  m_thirdDialogueBox: {fileID: 1008327984308120172}
-  m_thirdDialogueBoxText: {fileID: 8835334150010693520}
-  m_thirdDialogueBoxImage: {fileID: 8787432793644644672}
   m_customerSlider: {fileID: 6975827703691784667}
   m_requestValue: {fileID: 0}
   m_heartObject: {fileID: 3508220291052234930, guid: 8b018edb2c9d477488b1d041e407dee5, type: 3}
@@ -1526,6 +1514,28 @@ MonoBehaviour:
   m_adultCustomer: {fileID: 21300000, guid: f0cb810a97e12744290038a9805f8709, type: 3}
   m_childCustomer: {fileID: 21300000, guid: 1affd87ecc1516044b01f3b70549fd9c, type: 3}
   m_customerAnimator: {fileID: 968807709167490205}
+  m_firstDialogueBox: {fileID: 4889282119765145388}
+  m_firstDialogueBoxText: {fileID: 2389787590575789029}
+  m_firstDialogueBoxImage: {fileID: 5424661800888258078}
+  m_secDialogueBox: {fileID: 8773381237825454516}
+  m_secDialogueBoxText: {fileID: 8321350468192104834}
+  m_secDialogueBoxImage: {fileID: 398198461822769239}
+  m_thirdDialogueBox: {fileID: 1008327984308120172}
+  m_thirdDialogueBoxText: {fileID: 8835334150010693520}
+  m_thirdDialogueBoxImage: {fileID: 8787432793644644672}
+  m_dataIcon: {fileID: 21300000, guid: d119751d41fea7e48874fa108f77d35e, type: 3}
+  m_callTimeIcon: {fileID: 21300000, guid: db836c97963120642ab031c3f500a6c7, type: 3}
+  m_messageIcon: {fileID: 21300000, guid: 67b42e1534cb3da4993fd26cc16cd893, type: 3}
+  m_requestValue: {fileID: 0}
+  m_heartObject: {fileID: 3508220291052234930, guid: 8b018edb2c9d477488b1d041e407dee5, type: 3}
+  m_burninMoneyObject: {fileID: 2189288845221461100, guid: 7b2a6e14ecf647c4c8ff84dcae313392, type: 3}
+  m_zeroHeart: {fileID: 21300000, guid: 636906c379538ba48ba64b6363b0dbfe, type: 3}
+  m_oneThirdHeart: {fileID: 21300000, guid: d6ef0cb5e8828864188b6621d2d8f99a, type: 3}
+  m_twoThirdHeart: {fileID: 21300000, guid: 3c12f46fbb7a5ae4185d8ca91b1aff70, type: 3}
+  m_completeHeart: {fileID: 21300000, guid: 9ff58500358170746b22fbbeb25695d4, type: 3}
+  m_firstPanelSpriteRenderer: {fileID: 1355250468361661195}
+  m_secPanelSpriteRenderer: {fileID: 3232822943802593595}
+  m_thirdPanelSpriteRendere: {fileID: 1571079064427097301}
 --- !u!95 &968807709167490205
 Animator:
   serializedVersion: 5

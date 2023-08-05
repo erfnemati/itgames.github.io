@@ -1,10 +1,5 @@
 
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
-using DG.Tweening;
-using System.Collections;
-
 
 namespace Assets.Scripts
 {
@@ -13,38 +8,6 @@ namespace Assets.Scripts
         Request m_customerRequest;
         Proposal m_currentProposal = new Proposal();
 
-        [SerializeField] Sprite m_dataIcon;
-        [SerializeField] Sprite m_callTimeIcon;
-        [SerializeField] Sprite m_messageIcon;
-
-        [SerializeField] GameObject m_firstDialogueBox;
-        [SerializeField] TMP_Text m_firstDialogueBoxText;
-        [SerializeField] Image m_firstDialogueBoxImage;
-        
-        
-
-        [SerializeField] GameObject m_secDialogueBox;
-        [SerializeField] TMP_Text m_secDialogueBoxText;
-        [SerializeField] Image m_secDialogueBoxImage;
-        
-
-        [SerializeField] GameObject m_thirdDialogueBox;
-        [SerializeField] TMP_Text m_thirdDialogueBoxText;
-        [SerializeField] Image m_thirdDialogueBoxImage;
-
-        [SerializeField] CustomerSlider m_customerSlider;
-        [SerializeField] TMP_Text m_requestValue;
-        [SerializeField] GameObject m_heartObject;
-        [SerializeField] GameObject m_burninMoneyObject;
-
-        [SerializeField] Sprite m_zeroHeart;
-        [SerializeField] Sprite m_oneThirdHeart;
-        [SerializeField] Sprite m_twoThirdHeart;
-        [SerializeField] Sprite m_completeHeart;
-
-        [SerializeField] Image m_firstPanelSpriteRenderer;
-        [SerializeField] Image m_secPanelSpriteRenderer;
-        [SerializeField] Image m_thirdPanelSpriteRendere;
         [SerializeField] CustomerUiManager m_customerUiManager;
 
         private float m_lastValue = 0.0f;
@@ -52,7 +15,10 @@ namespace Assets.Scripts
 
         void Start()
         {
-            
+            if (m_customerUiManager == null)
+            {
+                m_customerUiManager = GetComponent<CustomerUiManager>();
+            }
             Invoke(nameof(SetRequest), 0.2f);
         }
 
@@ -60,60 +26,22 @@ namespace Assets.Scripts
         {
             SendButton.m_instance.ResetButton();
             m_customerRequest = RequestManager.m_instance.GetNewRequest();
-            SetRequestText();
-            SetRequestValueUi();
+            m_customerUiManager.SetRequestText(m_customerRequest);
         }
 
         public void AddItem(Bubble bubble)
         {
             m_currentProposal.AddBubble(bubble);
             Vector3 position = bubble.transform.position;
-            m_customerUiManager.GoIdle();
-            
-            
-            
 
             m_lastValue = m_currentValue;
             m_currentValue = CheckProposal();
-
-            if (m_currentValue - m_lastValue >= Mathf.Epsilon)
-            {
-                GameObject heart = Instantiate(m_heartObject, position, Quaternion.identity);
-                heart.transform.DOMove(position + new Vector3(0, 0.5f, 0), 0.5f);
-                heart.transform.DOMove(m_customerSlider.transform.position, 0.5f).OnComplete(() => UpdateCustomerCompletionBar(m_currentValue));
-                m_customerUiManager.SetHappyAnimation();
-                StartCoroutine(DestroyUiGameObject(heart.gameObject, 0.5f));
-                
-            }
-            else
-            {
-                GameObject burningMoney = Instantiate(m_burninMoneyObject, position, Quaternion.identity);
-                burningMoney.transform.DOMove(position + new Vector3(0, 0.5f, 0), 0.5f);
-                burningMoney.transform.DOMove(m_customerSlider.transform.position, 0.5f).OnComplete(() => UpdateCustomerCompletionBar(m_currentValue));
-                m_customerUiManager.SetSadAnimation();
-                StartCoroutine(DestroyUiGameObject(burningMoney.gameObject, 0.5f));
-
-            }
+            m_customerUiManager.InstantiatePopedIcon(position,m_currentValue,m_lastValue);
 
         }
 
-        IEnumerator DestroyUiGameObject(GameObject uiObject,float delay)
-        {
-            yield return new WaitForSeconds(delay);
-            Destroy(uiObject);
-            if (0.9f - m_currentValue <= Mathf.Epsilon)
-            {
-                SendButton.m_instance.ShakeButton();
-                SendButton.m_instance.ChangeColor();
-                m_customerUiManager.SetHappyAnimation();
-            }
-            else
-            {
-                SendButton.m_instance.ResetButton();
-            }
-
-        }
-
+        //This function check how good is the player proposal
+        //Ranges between 0 to 1
         private float CheckProposal()
         {
             if (m_customerRequest == null)
@@ -127,19 +55,17 @@ namespace Assets.Scripts
             int weight = 0;
 
             GetProposalDataPoint(ref dataPoint, ref weight);
-            Debug.Log("Data point is : " + dataPoint);
+       
             GetProposalMessagePoint(ref messagePoint, ref weight);
-            Debug.Log("Message point is : " + messagePoint);
+           
             GetProposalCallTimePoint(ref callTimePoint, ref weight);
-            Debug.Log("Call time point is : " + callTimePoint);
+           
 
             float proposalPoint = (callTimePoint + messagePoint + dataPoint) / weight;
             if(proposalPoint <= Mathf.Epsilon)
             {
                 proposalPoint = 0;
             }
-
-            Debug.Log("Proposal point is : " + proposalPoint);
             return proposalPoint;
         }
 
@@ -241,143 +167,5 @@ namespace Assets.Scripts
             }
             return roundedHearts;
         }
-        
-
-  
-        private void SetRequestText()
-        {
-            int numberOfContentTypes = 1;
-            if (m_customerRequest.GetRequestData().GetData() != 0)
-            {
-                
-                m_firstDialogueBox.SetActive(true);
-                m_firstDialogueBoxText.text = m_customerRequest.GetRequestData().GetData() + "\nGIG";
-                m_firstDialogueBoxImage.sprite = m_dataIcon;
-                numberOfContentTypes++;
-            }
-
-            if (m_customerRequest.GetRequestCallTime().GetCallTime() != 0)
-            {
-                
-                if(numberOfContentTypes == 1)
-                {
-                    m_firstDialogueBox.SetActive(true);
-                    m_firstDialogueBoxText.text = m_customerRequest.GetRequestCallTime().GetCallTime() + "\nMins";
-                    m_firstDialogueBoxImage.sprite = m_callTimeIcon;
-                }
-                else if (numberOfContentTypes == 2)
-                {
-                    m_secDialogueBox.SetActive(true);
-                    m_secDialogueBoxText.text = m_customerRequest.GetRequestCallTime().GetCallTime() + "\nMins";
-                    m_secDialogueBoxImage.sprite = m_callTimeIcon;
-                }
-                numberOfContentTypes++;
-            }
-
-            if (m_customerRequest.GetRequestMessage().GetMessageCount() != 0)
-            {
-                if (numberOfContentTypes == 1)
-                {
-                    m_firstDialogueBox.SetActive(true);
-                    m_firstDialogueBoxText.text = m_customerRequest.GetRequestMessage().GetMessageCount() + "\nMessage";
-                    m_firstDialogueBoxImage.sprite = m_messageIcon;
-                }
-                else if (numberOfContentTypes == 2)
-                {
-                    m_secDialogueBox.SetActive(true);
-                    m_secDialogueBoxText.text = m_customerRequest.GetRequestMessage().GetMessageCount() + "\nMessage";
-                    m_secDialogueBoxImage.sprite = m_messageIcon;
-                }
-
-                else if (numberOfContentTypes == 3)
-                {
-                    m_thirdDialogueBox.SetActive(true);
-                    m_thirdDialogueBoxText.text = m_customerRequest.GetRequestMessage().GetMessageCount() + "\nMessage";
-                    m_thirdDialogueBoxImage.sprite = m_messageIcon;
-
-                }
-            }
-
-
-        }
-
-        private void SetRequestValueUi()
-        {
-            
-            //m_requestValue.text =  m_customerRequest.GetRequestValue() + " Coins";
-        }
-
-        private void UpdateCustomerCompletionBar(float newSliderValue)
-        {
-            
-           //m_customerSlider.SetValue(newSliderValue);
-           if (m_currentValue - 0.3f <= Mathf.Epsilon)
-            {
-                m_secPanelSpriteRenderer.sprite = m_zeroHeart;
-                m_thirdPanelSpriteRendere.sprite = m_zeroHeart;
-
-                if (m_currentValue <= Mathf.Epsilon)
-                {
-                    m_firstPanelSpriteRenderer.sprite = m_zeroHeart;
-                }
-                else if (m_currentValue -0.1f <= Mathf.Epsilon)
-                {
-                    m_firstPanelSpriteRenderer.sprite = m_oneThirdHeart;
-                }
-
-                else if (m_currentValue - 0.1f > Mathf.Epsilon &&  m_currentValue - 0.2f <= Mathf.Epsilon)
-                {
-                    m_firstPanelSpriteRenderer.sprite = m_twoThirdHeart;
-                }
-                else
-                {
-                    m_firstPanelSpriteRenderer.sprite = m_completeHeart;
-                }
-            }
-
-           else if (m_currentValue - 0.3f > Mathf.Epsilon && m_currentValue -0.6f <= Mathf.Epsilon)
-            {
-                m_firstPanelSpriteRenderer.sprite = m_completeHeart;
-                m_thirdPanelSpriteRendere.sprite = m_zeroHeart;
-
-                if (m_currentValue - 0.4f <= Mathf.Epsilon)
-                {
-                    m_secPanelSpriteRenderer.sprite = m_oneThirdHeart;
-                }
-
-                else if (m_currentValue - 0.4f > Mathf.Epsilon && m_currentValue - 0.5f <= Mathf.Epsilon)
-                {
-                    m_secPanelSpriteRenderer.sprite = m_twoThirdHeart;
-                }
-                else
-                {
-                    m_secPanelSpriteRenderer.sprite = m_completeHeart;
-                }
-
-            }
-
-           else if (m_currentValue - 0.6f > Mathf.Epsilon && m_currentValue - 1f <= Mathf.Epsilon)
-            {
-                m_firstPanelSpriteRenderer.sprite = m_completeHeart;
-                m_secPanelSpriteRenderer.sprite = m_completeHeart;
-                
-                if (m_currentValue - 0.7f <= Mathf.Epsilon)
-                {
-                    m_thirdPanelSpriteRendere.sprite = m_oneThirdHeart;
-                }
-
-                else if (m_currentValue - 0.7f > Mathf.Epsilon && m_currentValue - 0.8f <= Mathf.Epsilon)
-                {
-                    m_thirdPanelSpriteRendere.sprite = m_twoThirdHeart;
-                }
-                else
-                {
-                    m_thirdPanelSpriteRendere.sprite = m_completeHeart;
-                }
-            }
-        
-         
-        }
-
     }
 }

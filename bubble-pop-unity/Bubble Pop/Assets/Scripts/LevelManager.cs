@@ -77,7 +77,6 @@ namespace Assets.Scripts
                 Destroy(m_customer.gameObject);
             }
             GameObject customer = Instantiate(m_customerGameObject);
-            //customer.transform.DOMove(m_targetCustomerPos.position, 5f);
             SetCurrentCustomer(customer.GetComponent<CustomerManager>());
             m_numOfAnsweredCustomers++;
         }
