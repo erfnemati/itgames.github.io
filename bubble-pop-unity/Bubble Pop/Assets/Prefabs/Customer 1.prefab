@@ -1393,7 +1393,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6975827703512782287}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.27, y: -4.81, z: 0}
+  m_LocalPosition: {x: -1.8, y: -4.81, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1466,17 +1466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba22c10c07a7b940b4119e7e121e455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_customerSlider: {fileID: 6975827703691784667}
-  m_requestValue: {fileID: 0}
-  m_heartObject: {fileID: 3508220291052234930, guid: 8b018edb2c9d477488b1d041e407dee5, type: 3}
-  m_burninMoneyObject: {fileID: 2189288845221461100, guid: 7b2a6e14ecf647c4c8ff84dcae313392, type: 3}
-  m_zeroHeart: {fileID: 21300000, guid: 636906c379538ba48ba64b6363b0dbfe, type: 3}
-  m_oneThirdHeart: {fileID: 21300000, guid: d6ef0cb5e8828864188b6621d2d8f99a, type: 3}
-  m_twoThirdHeart: {fileID: 21300000, guid: 3c12f46fbb7a5ae4185d8ca91b1aff70, type: 3}
-  m_completeHeart: {fileID: 21300000, guid: 9ff58500358170746b22fbbeb25695d4, type: 3}
-  m_firstPanelSpriteRenderer: {fileID: 1355250468361661195}
-  m_secPanelSpriteRenderer: {fileID: 3232822943802593595}
-  m_thirdPanelSpriteRendere: {fileID: 1571079064427097301}
   m_customerUiManager: {fileID: 8671515075800988378}
 --- !u!50 &6975827703512782282
 Rigidbody2D:
