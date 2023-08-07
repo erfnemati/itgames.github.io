@@ -136,7 +136,7 @@ namespace Assets.Scripts
         public void UpdateRecievedHearts(int numberOfhearts)
         {
             m_numOfHearts = numberOfhearts;
-            Debug.Log("Number of hearts is updated : " + m_numOfHearts);
+            UpdateGoalUi();
         }
     }
 }

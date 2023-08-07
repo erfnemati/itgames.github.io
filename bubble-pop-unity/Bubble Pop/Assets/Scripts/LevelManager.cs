@@ -245,6 +245,12 @@ namespace Assets.Scripts
             SceneManager.LoadScene(currentLevel);
         }
 
+        public void ResumeLevel()
+        {
+            Time.timeScale = 1.0f;
+            InputHandler.m_instance.SwitchIsPaused();
+        }
+
         public void GoMainMenu()
         {
             Time.timeScale = 1.0f;

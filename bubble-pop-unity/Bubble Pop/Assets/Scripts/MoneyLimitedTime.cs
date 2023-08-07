@@ -153,6 +153,7 @@ namespace Assets.Scripts
         public void UpdateRecievedHearts(int numberfHearts)
         {
             m_numOfHearts = numberfHearts;
+            UpdateRecievedHearts();
         }
     }
 }
