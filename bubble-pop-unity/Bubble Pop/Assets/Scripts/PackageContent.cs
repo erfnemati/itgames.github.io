@@ -66,7 +66,7 @@ namespace Assets.Scripts
             }
             else
             {
-                dataText = m_data.GetData() + "\nGB";
+                dataText = m_data.GetData() + "\nG";
             }
             
             if (m_callTime == null)
@@ -75,7 +75,7 @@ namespace Assets.Scripts
             }
             else
             {
-                callTimeText = m_callTime.GetCallTime() + "\nMins";
+                callTimeText = m_callTime.GetCallTime() + "\nMin";
             }
             
             if (m_messages == null)

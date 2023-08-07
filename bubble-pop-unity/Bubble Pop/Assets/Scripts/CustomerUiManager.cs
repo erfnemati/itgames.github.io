@@ -54,6 +54,10 @@ public class CustomerUiManager : MonoBehaviour
     [SerializeField]float m_popedItemCycle;
     [SerializeField] GameObject m_heartBar;
 
+    //[SerializeField] RectTransform m_firstRectTransform;
+    //[SerializeField] RectTransform m_secRectTransform;
+    //[SerializeField] RectTransform m_thirdRectTransform;
+
     private void Start()
     {
         m_spriteRenderer = GetComponent<SpriteRenderer>();
@@ -87,7 +91,7 @@ public class CustomerUiManager : MonoBehaviour
         {
 
             m_firstDialogueBox.SetActive(true);
-            m_firstDialogueBoxText.text = customerRequest.GetRequestData().GetData() + "\nGIG";
+            m_firstDialogueBoxText.text = customerRequest.GetRequestData().GetData() + "\nG";
             m_firstDialogueBoxImage.sprite = m_dataIcon;
             numberOfContentTypes++;
         }
@@ -98,13 +102,15 @@ public class CustomerUiManager : MonoBehaviour
             if (numberOfContentTypes == 1)
             {
                 m_firstDialogueBox.SetActive(true);
-                m_firstDialogueBoxText.text = customerRequest.GetRequestCallTime().GetCallTime() + "\nMins";
+                m_firstDialogueBoxText.text = customerRequest.GetRequestCallTime().GetCallTime() + "\nMin";
+                m_firstDialogueBoxImage.GetComponent<RectTransform>().sizeDelta = new Vector2(0.6f, 0.6f);
                 m_firstDialogueBoxImage.sprite = m_callTimeIcon;
             }
             else if (numberOfContentTypes == 2)
             {
                 m_secDialogueBox.SetActive(true);
-                m_secDialogueBoxText.text = customerRequest.GetRequestCallTime().GetCallTime() + "\nMins";
+                m_secDialogueBoxText.text = customerRequest.GetRequestCallTime().GetCallTime() + "\nMin";
+                m_secDialogueBoxImage.GetComponent<RectTransform>().sizeDelta = new Vector2(0.6f, 0.6f);
                 m_secDialogueBoxImage.sprite = m_callTimeIcon;
             }
             numberOfContentTypes++;
@@ -115,20 +121,23 @@ public class CustomerUiManager : MonoBehaviour
             if (numberOfContentTypes == 1)
             {
                 m_firstDialogueBox.SetActive(true);
-                m_firstDialogueBoxText.text = customerRequest.GetRequestMessage().GetMessageCount() + "\nMessage";
+                m_firstDialogueBoxText.text = customerRequest.GetRequestMessage().GetMessageCount() + "\nSMS";
+                m_firstDialogueBoxImage.GetComponent<RectTransform>().sizeDelta = new Vector2(0.8f, 0.6f);
                 m_firstDialogueBoxImage.sprite = m_messageIcon;
             }
             else if (numberOfContentTypes == 2)
             {
                 m_secDialogueBox.SetActive(true);
-                m_secDialogueBoxText.text = customerRequest.GetRequestMessage().GetMessageCount() + "\nMessage";
+                m_secDialogueBoxText.text = customerRequest.GetRequestMessage().GetMessageCount() + "\nSMS";
+                m_secDialogueBoxImage.GetComponent<RectTransform>().sizeDelta = new Vector2(0.8f, 0.6f);
                 m_secDialogueBoxImage.sprite = m_messageIcon;
             }
 
             else if (numberOfContentTypes == 3)
             {
                 m_thirdDialogueBox.SetActive(true);
-                m_thirdDialogueBoxText.text = customerRequest.GetRequestMessage().GetMessageCount() + "\nMessage";
+                m_thirdDialogueBoxText.text = customerRequest.GetRequestMessage().GetMessageCount() + "\nSMS";
+                m_thirdDialogueBoxImage.GetComponent<RectTransform>().sizeDelta = new Vector2(0.8f, 0.6f);
                 m_thirdDialogueBoxImage.sprite = m_messageIcon;
 
             }
