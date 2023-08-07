@@ -51,6 +51,9 @@ public class CustomerUiManager : MonoBehaviour
     [SerializeField] Image m_secPanelSpriteRenderer;
     [SerializeField] Image m_thirdPanelSpriteRendere;
 
+    [SerializeField]float m_popedItemCycle;
+    [SerializeField] GameObject m_heartBar;
+
     private void Start()
     {
         m_spriteRenderer = GetComponent<SpriteRenderer>();
@@ -210,18 +213,18 @@ public class CustomerUiManager : MonoBehaviour
         if (currentProposalValue - lastProposalValue >= Mathf.Epsilon)
         {
             GameObject heart = Instantiate(m_heartObject, position, Quaternion.identity);
-            heart.transform.DOMove(position + new Vector3(0, 0.5f, 0), 0.5f);
-            heart.transform.DOMove(transform.position, 0.5f).OnComplete(() =>UpdateCustomerHearts(currentProposalValue));
+            heart.transform.DOMove(position + new Vector3(0, 0.5f, 0), m_popedItemCycle);
+            heart.transform.DOMove(m_heartBar.transform.position, m_popedItemCycle).OnComplete(() =>UpdateCustomerHearts(currentProposalValue));
             SetHappyAnimation();
-            StartCoroutine(DestroyPopedIcon(heart.gameObject, 0.5f,currentProposalValue));
+            StartCoroutine(DestroyPopedIcon(heart.gameObject, m_popedItemCycle,currentProposalValue));
 
         }
         else
         {
             GameObject burningMoney = Instantiate(m_burninMoneyObject, position, Quaternion.identity);
-            burningMoney.transform.DOMove(position + new Vector3(0, 0.5f, 0), 0.5f);
-            burningMoney.transform.DOMove(transform.position, 0.5f).OnComplete(() => UpdateCustomerHearts(currentProposalValue));
-            StartCoroutine(DestroyPopedIcon(burningMoney.gameObject, 0.5f,currentProposalValue));
+            burningMoney.transform.DOMove(position + new Vector3(0, 0.5f, 0), m_popedItemCycle);
+            burningMoney.transform.DOMove(m_heartBar.transform.position, m_popedItemCycle).OnComplete(() => UpdateCustomerHearts(currentProposalValue));
+            StartCoroutine(DestroyPopedIcon(burningMoney.gameObject, m_popedItemCycle,currentProposalValue));
 
         }
     }

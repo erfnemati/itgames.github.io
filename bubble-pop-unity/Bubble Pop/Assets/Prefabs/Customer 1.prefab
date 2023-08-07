@@ -1525,6 +1525,8 @@ MonoBehaviour:
   m_firstPanelSpriteRenderer: {fileID: 1355250468361661195}
   m_secPanelSpriteRenderer: {fileID: 3232822943802593595}
   m_thirdPanelSpriteRendere: {fileID: 1571079064427097301}
+  m_popedItemCycle: 0.5
+  m_heartBar: {fileID: 6975827703725284259}
 --- !u!95 &968807709167490205
 Animator:
   serializedVersion: 5
