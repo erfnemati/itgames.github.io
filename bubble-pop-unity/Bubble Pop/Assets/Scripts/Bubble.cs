@@ -28,6 +28,7 @@ namespace Assets.Scripts
 
         [SerializeField] TMP_Text m_text;
         [SerializeField] Image m_bubbleIcon;
+        [SerializeField] RectTransform m_rectTransform;
         // Start is called before the first frame update
         void Awake()
         {
@@ -131,6 +132,8 @@ namespace Assets.Scripts
 
             if (m_content.GetMessageContent() != null )
             {
+
+                m_rectTransform.sizeDelta = new Vector2(0.08f, 0.06f);
                 m_bubbleIcon.sprite = m_messageIcon;
                 return;
             }
