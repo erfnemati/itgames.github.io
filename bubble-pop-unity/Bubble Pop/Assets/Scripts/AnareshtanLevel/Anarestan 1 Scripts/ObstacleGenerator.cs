@@ -5,8 +5,9 @@ using TMPro;
 
 public class ObstacleGenerator : MonoBehaviour
 {
-    [SerializeField] GameObject m_anar;
+   // [SerializeField] GameObject m_anar;
     [SerializeField] GameObject m_obstacle;
+    [SerializeField] GameObject[] anarlist = new GameObject[6];
 
     private GameObject m_lastGeneratedObject;
 
@@ -48,7 +49,7 @@ public class ObstacleGenerator : MonoBehaviour
         }
         else if (counter < 51)
         {
-            m_lastGeneratedObject = Instantiate(m_anar, toBeGeneratedPos, Quaternion.identity);
+            m_lastGeneratedObject = Instantiate(anarlist[obsOrAnar], toBeGeneratedPos, Quaternion.identity);
             counter++;
             dropanar.Play();
         }

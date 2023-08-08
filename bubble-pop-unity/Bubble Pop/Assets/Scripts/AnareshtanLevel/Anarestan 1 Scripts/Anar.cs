@@ -8,7 +8,7 @@ public class Anar : MonoBehaviour
     const string CANVAS_TAG = "ScreenBorder";
 
     [SerializeField] float m_speed;
-    [SerializeField] TMP_Text m_anarText;
+    //[SerializeField] TMP_Text m_anarText;
     [SerializeField] List<string> m_slogans = new List<string>();
     private Vector2 m_direction = new Vector2(0, -1);
 
@@ -40,6 +40,6 @@ public class Anar : MonoBehaviour
     private void SetAnarText()
     {
         int randomSloganIndex = Random.Range(0, m_slogans.Count);
-        m_anarText.text =  m_slogans[randomSloganIndex];
+       // m_anarText.text =  m_slogans[randomSloganIndex];
     }
 }
