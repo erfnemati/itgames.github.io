@@ -27,9 +27,6 @@ EditorBuildSettings:
     path: Assets/Levels/Level 6.unity
     guid: 48b4d8de882c0a34c8f48da1daa34381
   - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
     path: Assets/Levels/Tutorial 2 (Roaming).unity
     guid: 94849536fb97a9b4b99acda2b80dc170
   - enabled: 0

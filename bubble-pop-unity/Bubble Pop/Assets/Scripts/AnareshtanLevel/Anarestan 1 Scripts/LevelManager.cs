@@ -14,11 +14,15 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject m_continueButton;
     [SerializeField] GameObject m_restartButton;
     [SerializeField] GameObject m_middleStar;
+    [SerializeField] GameObject abiltxt;
     public static LevelManager m_instance;
-    private int m_numOfAchievedAnars;
+    public AudioSource catchscore, win;
 
+    private int m_numOfAchievedAnars;
+    public int m_obstgen;
     public void Start()
     {
+
         if (m_instance == null)
         {
             m_instance = this;
@@ -38,16 +42,19 @@ public class LevelManager : MonoBehaviour
 
     public void IncreaseAchievedAnar()
     {
+        catchscore.Play();
         m_numOfAchievedAnars++;
         UpdateGoalUi();
         if (isLevelFinished())
         {
             PassLevel();
         }
-        
-        
-    }
 
+
+
+
+    }
+    //------------------------------------------------------------
     public bool isLevelFinished()
     {
         if (m_numOfAchievedAnars >= m_numOfGoalAnars)
@@ -56,16 +63,33 @@ public class LevelManager : MonoBehaviour
         }
         return false;
     }
+    public void endanars()
+    {
+        Time.timeScale = 0f;
+        m_grayScreen.SetActive(true);
+        m_resultMenu.SetActive(true);
+        abiltxt.SetActive(true);
+        m_continueButton.SetActive(true);
+        m_restartButton.SetActive(false);
+        TMP_Text resultText = m_resultMenu.GetComponentInChildren<TMP_Text>();
+        if (resultText != null)
+        {
+            resultText.text = "Game Over";
+        }
+    }
 
-    
     public void PassLevel()
     {
+        win.Play();
         Time.timeScale = 0f;
         m_grayScreen.SetActive(true);
         m_resultMenu.SetActive(true);
         m_continueButton.SetActive(true);
         m_restartButton.SetActive(false);
         m_middleStar.SetActive(true);
+        abiltxt.SetActive(true);
+
+
     }
 
     public void RestartLevel()
@@ -96,14 +120,16 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 0f;
         m_grayScreen.SetActive(true);
         m_resultMenu.SetActive(true);
-        m_continueButton.SetActive(false);
-        m_restartButton.SetActive(true);
+        m_continueButton.SetActive(true);
+        abiltxt.SetActive(false);
+        //---
+        m_restartButton.SetActive(false);
         TMP_Text resultText = m_resultMenu.GetComponentInChildren<TMP_Text>();
         if (resultText != null)
         {
             resultText.text = "Failed";
         }
-        
+
     }
 
     public void LoadNextLevel()

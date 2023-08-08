@@ -7,15 +7,17 @@ public class ObstacleGenerator : MonoBehaviour
 {
     [SerializeField] GameObject m_anar;
     [SerializeField] GameObject m_obstacle;
-    
+
     private GameObject m_lastGeneratedObject;
-    
+
+    public int counter = 0;
 
     [SerializeField] float m_minDistance;
     [SerializeField] float m_maxDistance;
     [SerializeField] Transform m_TopOfScreen;
     private float m_distanceFromLastAnar;
-
+    public static LevelManager islevfin;
+    public AudioSource dropobc, dropanar;
     private void Start()
     {
         GenerateAnar();
@@ -34,25 +36,35 @@ public class ObstacleGenerator : MonoBehaviour
         Vector3 toBeGeneratedPos = new Vector3(xPosInWorldPoint, m_TopOfScreen.transform.position.y, 0);
 
         int obsOrAnar = Random.Range(1, 6);
-        if (obsOrAnar >3)
+        if (obsOrAnar > 3)
         {
             xPosInViewPort = Random.Range(0.3f, 0.7f);
             xPosInWorldPoint = Camera.main.ViewportToWorldPoint(new Vector3(xPosInViewPort, 0, 0)).x;
             toBeGeneratedPos = new Vector3(xPosInWorldPoint, m_TopOfScreen.transform.position.y, 0);
             m_lastGeneratedObject = Instantiate(m_obstacle, toBeGeneratedPos, Quaternion.identity);
+            dropobc.Play();
+
+
         }
-        else
+        else if (counter < 51)
         {
             m_lastGeneratedObject = Instantiate(m_anar, toBeGeneratedPos, Quaternion.identity);
+            counter++;
+            dropanar.Play();
         }
-        
+        if (counter > 50)
+        {
+            LevelManager.m_instance.endanars();
+            Debug.Log("check!");
+        }
 
         float toBeGeneratedPoint = Random.Range(0.5f, 0.7f);
         m_distanceFromLastAnar = Camera.main.ViewportToWorldPoint(new Vector3(0f, toBeGeneratedPoint, 0)).y;
+
     }
 
 
-    
+
 
 
 }

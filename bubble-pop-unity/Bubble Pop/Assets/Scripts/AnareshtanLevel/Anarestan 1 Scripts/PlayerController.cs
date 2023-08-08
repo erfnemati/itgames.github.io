@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     const string VERTICAL_SCREEN_BORDER = "ScreenBorder";
     const string OBSTACLE_OBJECT_TAG = "Obstacle";
 
-
+    public AudioSource walk, lose;
 
     private bool m_goingRight = false;
     private bool m_goingLeft = false;
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         {
             m_enteringPos = this.gameObject.transform.position;
             this.gameObject.transform.position = m_enteringPos;
-           
+
         }
 
         if (collision.gameObject.CompareTag(ANAR_OBJECT_NAME))
@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
         {
             isGameOver = true;
             LevelManager.m_instance.FailLevel();
+            lose.Play();
         }
     }
 
@@ -70,13 +71,16 @@ public class PlayerController : MonoBehaviour
     private void MovePlayer()
     {
         Vector3 direction = new Vector3(0, 0, 0);
-        if(m_goingRight)
+        if (m_goingRight)
         {
             direction = new Vector3(1, 0, 0);
+            walk.Play();
         }
         else if (m_goingLeft)
         {
             direction = new Vector3(-1, 0, 0);
+            walk.Play();
+
         }
         else if (m_staying)
         {
@@ -86,7 +90,7 @@ public class PlayerController : MonoBehaviour
         transform.position = transform.position + (direction * m_speed * Time.deltaTime);
     }
 
-    
+
 
     public void GoingRight()
     {
@@ -94,7 +98,6 @@ public class PlayerController : MonoBehaviour
         m_goingLeft = false;
         m_goingRight = true;
         m_staying = false;
-        Debug.Log("Hello git and github");
     }
 
     public void GoingLeft()
@@ -107,9 +110,10 @@ public class PlayerController : MonoBehaviour
 
     public void Staying()
     {
-        
+
         m_goingLeft = false;
         m_goingRight = false;
         m_staying = true;
     }
 }
+
