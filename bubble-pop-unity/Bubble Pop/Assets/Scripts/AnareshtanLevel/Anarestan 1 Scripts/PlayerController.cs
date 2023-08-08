@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour
         m_goingLeft = false;
         m_goingRight = true;
         m_staying = false;
+        Debug.Log("Hello git and github");
     }
 
     public void GoingLeft()
