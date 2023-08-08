@@ -74,7 +74,7 @@ public class LevelManager : MonoBehaviour
         TMP_Text resultText = m_resultMenu.GetComponentInChildren<TMP_Text>();
         if (resultText != null)
         {
-            resultText.text = "Game Over";
+          //  resultText.text = "Game Over";
         }
     }
 
@@ -120,10 +120,10 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 0f;
         m_grayScreen.SetActive(true);
         m_resultMenu.SetActive(true);
-        m_continueButton.SetActive(true);
+        m_continueButton.SetActive(false);
         abiltxt.SetActive(false);
         //---
-        m_restartButton.SetActive(false);
+        m_restartButton.SetActive(true);
         TMP_Text resultText = m_resultMenu.GetComponentInChildren<TMP_Text>();
         if (resultText != null)
         {
