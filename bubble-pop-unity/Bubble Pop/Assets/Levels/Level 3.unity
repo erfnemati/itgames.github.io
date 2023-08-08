@@ -4207,15 +4207,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 96151439684687720, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 200
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 96151439684687720, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 120
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 96151439684687720, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -160
+      value: -170
       objectReference: {fileID: 0}
     - target: {fileID: 96151439684687720, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_AnchoredPosition.y
