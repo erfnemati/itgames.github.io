@@ -15,7 +15,6 @@ public class Anar : MonoBehaviour
     private void Start()
     {
         m_speed = Random.Range(1f, 3f);
-        SetAnarText();
     }
 
     private void Update()
@@ -35,11 +34,5 @@ public class Anar : MonoBehaviour
             Destroy(this.gameObject);
 
         }
-    }
-
-    private void SetAnarText()
-    {
-        int randomSloganIndex = Random.Range(0, m_slogans.Count);
-       // m_anarText.text =  m_slogans[randomSloganIndex];
     }
 }

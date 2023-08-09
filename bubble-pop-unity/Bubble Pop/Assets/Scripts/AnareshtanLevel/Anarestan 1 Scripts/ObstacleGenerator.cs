@@ -8,23 +8,36 @@ public class ObstacleGenerator : MonoBehaviour
    // [SerializeField] GameObject m_anar;
     [SerializeField] GameObject m_obstacle;
     [SerializeField] GameObject[] anarlist = new GameObject[6];
+    private int m_typeOfAnar = 0;
 
     private GameObject m_lastGeneratedObject;
 
-    public int counter = 0;
-
+    public int m_numOfGeneratedAnar = 0;
+    [SerializeField] int m_maxNumOfGeneratedAnar;
     [SerializeField] float m_minDistance;
     [SerializeField] float m_maxDistance;
     [SerializeField] Transform m_TopOfScreen;
     private float m_distanceFromLastAnar;
-    public static LevelManager islevfin;
+
+    public bool m_isLevelFin;
     public AudioSource dropobc, dropanar;
+
     private void Start()
     {
         GenerateAnar();
     }
     private void Update()
     {
+        if (m_isLevelFin)
+        {
+            return;
+        }
+        if (  m_numOfGeneratedAnar > m_maxNumOfGeneratedAnar && FindAnyObjectByType<Anar>() == null )
+        {
+            LevelManager.m_instance.EndAnarGeneration();
+            m_isLevelFin = true;
+            return;
+        }
         if (m_lastGeneratedObject.transform.position.y <= m_distanceFromLastAnar)
         {
             GenerateAnar();
@@ -32,6 +45,11 @@ public class ObstacleGenerator : MonoBehaviour
     }
     private void GenerateAnar()
     {
+
+        if (m_numOfGeneratedAnar > m_maxNumOfGeneratedAnar )
+        {
+            return;
+        }
         float xPosInViewPort = Random.Range(0.2f, 0.7f);
         float xPosInWorldPoint = Camera.main.ViewportToWorldPoint(new Vector3(xPosInViewPort, 0, 0)).x;
         Vector3 toBeGeneratedPos = new Vector3(xPosInWorldPoint, m_TopOfScreen.transform.position.y, 0);
@@ -47,18 +65,14 @@ public class ObstacleGenerator : MonoBehaviour
 
 
         }
-        else if (counter < 51)
+        else  
         {
-            m_lastGeneratedObject = Instantiate(anarlist[obsOrAnar], toBeGeneratedPos, Quaternion.identity);
-            counter++;
+            m_lastGeneratedObject = Instantiate(anarlist[m_typeOfAnar], toBeGeneratedPos, Quaternion.identity);
+            m_typeOfAnar = (m_typeOfAnar + 1) % anarlist.Length;
+            m_numOfGeneratedAnar++;
             dropanar.Play();
         }
-        if (counter > 50)
-        {
-            LevelManager.m_instance.endanars();
-            Debug.Log("check!");
-        }
-
+       
         float toBeGeneratedPoint = Random.Range(0.5f, 0.7f);
         m_distanceFromLastAnar = Camera.main.ViewportToWorldPoint(new Vector3(0f, toBeGeneratedPoint, 0)).y;
 

@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] SpriteRenderer m_playerSpriteRenderer;
     [SerializeField] Sprite m_gointRightFace;
     [SerializeField] Sprite m_goingLeftFace;
+    [SerializeField] GameObject m_goRightGuideLine;
+    [SerializeField] GameObject m_goLeftGuideLine;
 
     [SerializeField] float m_speed;
 
@@ -94,6 +96,7 @@ public class PlayerController : MonoBehaviour
 
     public void GoingRight()
     {
+        m_goRightGuideLine.gameObject.SetActive(false);
         m_playerSpriteRenderer.sprite = m_gointRightFace;
         m_goingLeft = false;
         m_goingRight = true;
@@ -102,6 +105,7 @@ public class PlayerController : MonoBehaviour
 
     public void GoingLeft()
     {
+        m_goLeftGuideLine.gameObject.SetActive(false);
         m_playerSpriteRenderer.sprite = m_goingLeftFace;
         m_goingLeft = true;
         m_goingRight = false;
