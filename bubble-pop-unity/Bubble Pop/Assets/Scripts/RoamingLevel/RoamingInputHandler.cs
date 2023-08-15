@@ -29,17 +29,14 @@ public class RoamingInputHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_isDestroyed)
-        {
-            return;
-        }
         Vector3 touchedWorldPos = new Vector3(0, 0, 0);
+        Collider2D touchedCollider = null;
         if (Input.touchCount != 0)
         {
             Vector2 touchedScreenPos = Input.touches[0].position;
             touchedWorldPos = Camera.main.ScreenToWorldPoint(touchedScreenPos);
 
-            Collider2D touchedCollider = Physics2D.OverlapPoint(touchedWorldPos);
+            touchedCollider = Physics2D.OverlapPoint(touchedWorldPos);
             if (touchedCollider != null && touchedCollider.CompareTag(FUEL_BUBBLE_TAG))
             {
                 m_isDragging = true;
@@ -61,6 +58,52 @@ public class RoamingInputHandler : MonoBehaviour
         if (m_isDragging)
         {
             m_touchedObject.transform.position = new Vector3 (touchedWorldPos.x,touchedWorldPos.y,0);
+
+            BoxCollider2D dropCollider = m_touchedObject.GetComponent<BoxCollider2D>();
+
+            float halfOfDropWidth = dropCollider.size.x * (m_touchedObject.transform.localScale.x) / 2;
+            float halfOfDropHeight = dropCollider.size.y * (m_touchedObject.transform.localScale.y) / 2;
+
+            Vector3 newWorldPos = new Vector3(0, 0, 0);
+
+            //For left edge : 
+            Vector3 tempPos = m_touchedObject.transform.position - new Vector3(halfOfDropWidth,0f,0f);
+            Vector3 viewportPos = Camera.main.WorldToViewportPoint(tempPos);
+
+            if (viewportPos.x <= Mathf.Epsilon)
+            {
+                newWorldPos = Camera.main.ViewportToWorldPoint(new Vector3(0.01f,viewportPos.y,viewportPos.z));
+                m_touchedObject.transform.position = newWorldPos + new Vector3(halfOfDropWidth, 0, 0);
+            }
+            
+            //For right edge : 
+            tempPos = m_touchedObject.transform.position + new Vector3(halfOfDropWidth, 0f, 0f);
+            viewportPos = Camera.main.WorldToViewportPoint(tempPos);
+
+            if (viewportPos.x - 1f >= Mathf.Epsilon)
+            {
+                newWorldPos = Camera.main.ViewportToWorldPoint(new Vector3(0.99f, viewportPos.y, viewportPos.z));
+                m_touchedObject.transform.position = newWorldPos - new Vector3(halfOfDropWidth, 0, 0);
+            }
+
+            //For top edge : 
+            tempPos = m_touchedObject.transform.position + new Vector3(0, halfOfDropHeight, 0);
+            viewportPos = Camera.main.WorldToViewportPoint(tempPos);
+            if(viewportPos.y - 1f >= Mathf.Epsilon)
+            {
+                newWorldPos = Camera.main.ViewportToWorldPoint(new Vector3(viewportPos.x,0.99f,viewportPos.z));
+                m_touchedObject.transform.position = newWorldPos - new Vector3(0, halfOfDropHeight, 0);
+            }
+            //For bottom edge : 
+            tempPos = m_touchedObject.transform.position - new Vector3(0, halfOfDropHeight, 0);
+            viewportPos = Camera.main.WorldToViewportPoint(tempPos);
+            if (viewportPos.y <= Mathf.Epsilon)
+            {
+                newWorldPos = Camera.main.ViewportToWorldPoint(new Vector3(viewportPos.x, 0.01f, viewportPos.z));
+                m_touchedObject.transform.position = newWorldPos + new Vector3(0, halfOfDropHeight, 0);
+
+            }
+            
         }
     }
 
