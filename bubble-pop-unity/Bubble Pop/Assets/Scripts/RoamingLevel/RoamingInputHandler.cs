@@ -11,7 +11,8 @@ public class RoamingInputHandler : MonoBehaviour
     private bool m_isDragging = false;
     private bool m_isInnerHandlerDragging = false;
     private GameObject m_touchedObject;
-    private bool m_isDestroyed = false;
+    private bool m_isGamePaused = false;
+   
 
     [SerializeField] HandlerController m_handlerController;
 
@@ -33,6 +34,10 @@ public class RoamingInputHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (m_isGamePaused)
+        {
+            return;
+        }
         Vector3 touchedWorldPos = new Vector3(0, 0, 0);
         Collider2D touchedCollider = null;
         if (Input.touchCount != 0)
@@ -139,5 +144,10 @@ public class RoamingInputHandler : MonoBehaviour
     public void SetIsDragging(bool isDragging)
     {
         m_isDragging = isDragging;
+    }
+
+    public void SetIsGamePuased(bool isGamePaused)
+    {
+        m_isGamePaused = isGamePaused;
     }
 }

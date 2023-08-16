@@ -28,7 +28,7 @@ public class HandlerController : MonoBehaviour
     public void ActivateInnerHandler()
     {
         m_innerHandler.SetActive(true);
-        m_innerHandler.transform.DOScaleX(2f, 1f);
+        m_innerHandler.transform.DOScaleX(1f, 1f);
 
     }
 
