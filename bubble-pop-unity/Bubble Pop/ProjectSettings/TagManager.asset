@@ -16,6 +16,8 @@ TagManager:
   - Obstacle
   - FuelBubble
   - Buck
+  - InnerHandler
+  - ShuttleStarter
   layers:
   - Default
   - TransparentFX

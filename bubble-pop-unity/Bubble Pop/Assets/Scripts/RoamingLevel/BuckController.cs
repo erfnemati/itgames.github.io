@@ -9,6 +9,7 @@ public class BuckController : MonoBehaviour
     [SerializeField] int m_numOfNeededFuelBubbles;
 
     [SerializeField] BuckUiController buckUiController;
+    [SerializeField] HandlerController m_handler;
 
     private void Start()
     {
@@ -32,7 +33,7 @@ public class BuckController : MonoBehaviour
         m_numOfAchievedBubbles++;
         if (m_numOfAchievedBubbles == m_numOfNeededFuelBubbles)
         {
-            ShuttleController._instance.StartShuttle();
+            m_handler.ActivateInnerHandler();
         }
     }
 

@@ -14,6 +14,8 @@ public class ShuttleController : MonoBehaviour
     [SerializeField] float m_translationCycleTime;
     [SerializeField] float m_finalScale;
 
+    [SerializeField] GameObject Pipe;
+
     private void Start()
     {
         if (_instance != null && _instance != this)
@@ -29,6 +31,7 @@ public class ShuttleController : MonoBehaviour
     public void StartShuttle()
     {
         GetComponent<SpriteRenderer>().sprite = m_startedShuttleSprite;
+        Pipe.gameObject.SetActive(false);
         transform.DOMove(m_targetTransform.position, m_translationCycleTime);
         transform.DOScale(m_finalScale, m_translationCycleTime);
     }
