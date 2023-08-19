@@ -33,6 +33,11 @@ public class ShuttleController : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = m_startedShuttleSprite;
         Pipe.gameObject.SetActive(false);
         transform.DOMove(m_targetTransform.position, m_translationCycleTime);
-        transform.DOScale(m_finalScale, m_translationCycleTime);
+        transform.DOScale(m_finalScale, m_translationCycleTime).OnComplete(()=>ShowResultMenu());
+    }
+
+    private void ShowResultMenu()
+    {
+        OverlayUiController._instance.ShowResultMenu();
     }
 }

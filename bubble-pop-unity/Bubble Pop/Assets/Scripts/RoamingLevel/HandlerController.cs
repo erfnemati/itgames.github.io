@@ -6,18 +6,19 @@ using DG.Tweening;
 public class HandlerController : MonoBehaviour
 {
     [SerializeField] GameObject m_innerHandler;
+    [SerializeField] float m_maxDegree;
+    [SerializeField] float m_minDegree;
     public void RotateTowards(Vector3 targetPos)
     {
-        Debug.Log("Rotation is : " + transform.eulerAngles.z);
         transform.up = targetPos - transform.position;
-        if (transform.eulerAngles.z >= 330f)
+        if (transform.eulerAngles.z >= m_maxDegree)
         {
             
             transform.localEulerAngles = new Vector3(0, 0, 329f);
             
         }
 
-        if(transform.eulerAngles.z <= 270f && transform.eulerAngles.z >= Mathf.Epsilon)
+        if(transform.eulerAngles.z <= m_minDegree && transform.eulerAngles.z >= Mathf.Epsilon)
         {
             
             transform.localEulerAngles = new Vector3(0, 0, 275f);

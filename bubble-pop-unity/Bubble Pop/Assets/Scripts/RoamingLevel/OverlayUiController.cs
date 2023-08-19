@@ -49,7 +49,16 @@ public class OverlayUiController : MonoBehaviour
 
     public void ShowResultMenu()
     {
+        m_grayScreen.gameObject.SetActive(true);
+        m_resultMenu.gameObject.SetActive(true);
+    }
 
+    public void LoadNextLevel()
+    {
+        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextLevelIndex = (currentLevelIndex + 1) % SceneManager.sceneCount;
+
+        SceneManager.LoadScene(nextLevelIndex);
     }
 
     

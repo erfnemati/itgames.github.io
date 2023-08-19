@@ -1157,14 +1157,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 422432654}
-  m_LocalRotation: {x: -0, y: -0, z: -0.2436151, w: 0.969872}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.034899563, w: 0.9993909}
+  m_LocalPosition: {x: 0.04394284, y: 0.7026985, z: 0}
   m_LocalScale: {x: 0, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1829209753}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 300}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 316}
 --- !u!61 &422432656
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1178,7 +1178,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.009105071, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1189,7 +1189,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 1.43}
+  m_Size: {x: 0.20557663, y: 1.43}
   m_EdgeRadius: 0
 --- !u!212 &422432657
 SpriteRenderer:
@@ -2671,7 +2671,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &819301269
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3055,7 +3055,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.77, y: 0.08}
+  m_Offset: {x: 3.77, y: 1.41}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3066,7 +3066,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.7, y: 0.32}
+  m_Size: {x: 3.7, y: 1.43}
   m_EdgeRadius: 0
 --- !u!50 &852374821
 Rigidbody2D:
@@ -3548,8 +3548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87724b6719a951b4f9504532196b312d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_grayScreen: {fileID: 0}
-  m_resultMenu: {fileID: 0}
+  m_grayScreen: {fileID: 1535705977}
+  m_resultMenu: {fileID: 1451200844}
 --- !u!1 &1355742091
 GameObject:
   m_ObjectHideFlags: 0
@@ -4958,9 +4958,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1298719625}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1298719630}
+        m_TargetAssemblyTypeName: OverlayUiController, Assembly-CSharp
+        m_MethodName: LoadNextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5646,6 +5646,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_innerHandler: {fileID: 422432654}
+  m_maxDegree: 325
+  m_minDegree: 265
 --- !u!4 &1829209753
 Transform:
   m_ObjectHideFlags: 0
@@ -5653,15 +5655,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829209751}
-  m_LocalRotation: {x: 0, y: -0, z: 0.27395913, w: -0.9617413}
-  m_LocalPosition: {x: -1.67, y: -4.26, z: 0}
+  m_LocalRotation: {x: 0, y: -0, z: 0.34202027, w: -0.9396926}
+  m_LocalPosition: {x: -1.652, y: -3.824, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 422432655}
   m_Father: {fileID: 0}
   m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 328.2}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 320}
 --- !u!1 &1861748028
 GameObject:
   m_ObjectHideFlags: 0
