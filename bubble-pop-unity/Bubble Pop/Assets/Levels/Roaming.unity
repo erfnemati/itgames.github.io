@@ -2074,7 +2074,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uFEAD\uFEED\uFEE3\uFBFF\uFEE8\uFB93"
+  m_text: "\uFE8D\uFEAF \uFEA7\uFEEE\uFEAD\uFEB7\uFBFF\uFEAA \uFE97\uFE8E \uFEE7\uFB59\uFE98\uFEEE\uFEE5"
   m_isRightToLeft: 1
   m_fontAsset: {fileID: 11400000, guid: e1e48b4a81153f347bb3d9485122a3a8, type: 2}
   m_sharedMaterial: {fileID: -4491573295339467307, guid: e1e48b4a81153f347bb3d9485122a3a8, type: 2}
@@ -2101,7 +2101,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2.85
+  m_fontSize: 1.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2145,7 +2145,7 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
   preserveNumbers: 0
   farsi: 1
-  originalText: "\u0631\u0648\u0645\u06CC\u0646\u06AF"
+  originalText: "\u0627\u0632 \u062E\u0648\u0631\u0634\u06CC\u062F \u062A\u0627 \u0646\u067E\u062A\u0648\u0646"
   fixTags: 1
   forceFix: 0
 --- !u!222 &719011306
@@ -2214,7 +2214,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uFEAD\uFEED\uFEE3\uFBFF\uFEE8\uFB93"
+  m_text: "\uFEA3\uFE98\uFBFD \uFE81\uFED3\uFEAE\uFBFE\uFED8\uFE8E"
   m_isRightToLeft: 1
   m_fontAsset: {fileID: 11400000, guid: e1e48b4a81153f347bb3d9485122a3a8, type: 2}
   m_sharedMaterial: {fileID: -4491573295339467307, guid: e1e48b4a81153f347bb3d9485122a3a8, type: 2}
@@ -2241,7 +2241,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2.85
+  m_fontSize: 2.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2285,7 +2285,7 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
   preserveNumbers: 0
   farsi: 1
-  originalText: "\u0631\u0648\u0645\u06CC\u0646\u06AF"
+  originalText: "\u062D\u062A\u06CC \u0622\u0641\u0631\u06CC\u0642\u0627"
   fixTags: 1
   forceFix: 0
 --- !u!222 &748874631
@@ -2354,7 +2354,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uFEAD\uFEED\uFEE3\uFBFF\uFEE8\uFB93"
+  m_text: "\uFE8D\uFEE3\uFE8E\uFEAD\uFE8D\uFE95"
   m_isRightToLeft: 1
   m_fontAsset: {fileID: 11400000, guid: e1e48b4a81153f347bb3d9485122a3a8, type: 2}
   m_sharedMaterial: {fileID: -4491573295339467307, guid: e1e48b4a81153f347bb3d9485122a3a8, type: 2}
@@ -2381,7 +2381,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2.85
+  m_fontSize: 3.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2425,7 +2425,7 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
   preserveNumbers: 0
   farsi: 1
-  originalText: "\u0631\u0648\u0645\u06CC\u0646\u06AF"
+  originalText: "\u0627\u0645\u0627\u0631\u0627\u062A"
   fixTags: 1
   forceFix: 0
 --- !u!222 &763606134
@@ -3351,7 +3351,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uFEAD\uFEED\uFEE3\uFBFF\uFEE8\uFB93"
+  m_text: "\uFEE3\uFB91\uFE8E\uFEDF\uFEE4\uFEEA \uFE91\uFBFF\uFEE6 \uFEB3\uFBFF\uFE8E\uFEAD\uFEE9
+    \uFE8D\uFBFC"
   m_isRightToLeft: 1
   m_fontAsset: {fileID: 11400000, guid: e1e48b4a81153f347bb3d9485122a3a8, type: 2}
   m_sharedMaterial: {fileID: -4491573295339467307, guid: e1e48b4a81153f347bb3d9485122a3a8, type: 2}
@@ -3378,7 +3379,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2.85
+  m_fontSize: 1.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3422,7 +3423,8 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
   preserveNumbers: 0
   farsi: 1
-  originalText: "\u0631\u0648\u0645\u06CC\u0646\u06AF"
+  originalText: "\u0645\u06A9\u0627\u0644\u0645\u0647 \u0628\u06CC\u0646 \u0633\u06CC\u0627\u0631\u0647
+    \u0627\u06CC"
   fixTags: 1
   forceFix: 0
 --- !u!222 &1283284810
@@ -3608,7 +3610,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uFEAD\uFEED\uFEE3\uFBFF\uFEE8\uFB93"
+  m_text: "\uFE81\uFEE3\uFEAE\uFBFE\uFB91\uFE8E"
   m_isRightToLeft: 1
   m_fontAsset: {fileID: 11400000, guid: e1e48b4a81153f347bb3d9485122a3a8, type: 2}
   m_sharedMaterial: {fileID: -4491573295339467307, guid: e1e48b4a81153f347bb3d9485122a3a8, type: 2}
@@ -3635,7 +3637,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2.85
+  m_fontSize: 3.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3679,7 +3681,7 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
   preserveNumbers: 0
   farsi: 1
-  originalText: "\u0631\u0648\u0645\u06CC\u0646\u06AF"
+  originalText: "\u0622\u0645\u0631\u06CC\u06A9\u0627"
   fixTags: 1
   forceFix: 0
 --- !u!222 &1355742094
