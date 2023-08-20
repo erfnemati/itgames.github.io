@@ -49,6 +49,7 @@ public class OverlayUiController : MonoBehaviour
 
     public void ShowResultMenu()
     {
+        Debug.Log("Hello");
         m_grayScreen.gameObject.SetActive(true);
         m_resultMenu.gameObject.SetActive(true);
     }

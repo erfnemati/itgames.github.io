@@ -16,6 +16,7 @@ public class ShuttleControllerSecIteration : MonoBehaviour
     private int m_numOfAchievedFuelBubbles;
 
     [SerializeField] ShuttleUiControllerSecIteration m_shuttleUiScript;
+    [SerializeField] RoamingGameManager m_gameManagerScript;
 
     
 
@@ -24,7 +25,7 @@ public class ShuttleControllerSecIteration : MonoBehaviour
         m_shuttleUiScript.DeactivateUiComponent();
         GetComponent<SpriteRenderer>().sprite = m_startedShuttleSprite;
         transform.DOMove(m_targetTransform.position, m_translationCycleTime);
-        transform.DOScale(m_finalScale, m_translationCycleTime).OnComplete(() => ShowResultMenu()).OnComplete(()=>Destroy(this.gameObject));
+        transform.DOScale(m_finalScale, m_translationCycleTime).OnComplete(() => ShowResultMenu());
     }
 
     private void ShowResultMenu()
@@ -40,11 +41,9 @@ public class ShuttleControllerSecIteration : MonoBehaviour
             Destroy(other.gameObject);
             AchieveFuelBubble();
             m_shuttleUiScript.UpdateSlider(m_numOfAchievedFuelBubbles);
+            m_gameManagerScript.LoadNextState();
         }
-        else
-        {
-            Debug.Log("I am here");
-        }
+      
     }
 
     private void AchieveFuelBubble()
