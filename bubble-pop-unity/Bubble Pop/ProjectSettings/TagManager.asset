@@ -18,6 +18,7 @@ TagManager:
   - Buck
   - InnerHandler
   - ShuttleStarter
+  - Shuttle
   layers:
   - Default
   - TransparentFX
