@@ -5,8 +5,8 @@ using UnityEngine;
 public class WaterBubbleStateOne : MonoBehaviour
 {
     [SerializeField] GameObject m_waterBubble;
-    [SerializeField] Transform m_instantiateTransform;
-    [SerializeField] List<GameObject> m_instantiatedObjects = new List<GameObject>();
+    [SerializeField] List<Transform> m_instantiateTransforms = new List<Transform>();
+    private List<GameObject> m_instantiatedObjects = new List<GameObject>();
 
 
     private void OnEnable()
@@ -16,9 +16,12 @@ public class WaterBubbleStateOne : MonoBehaviour
     }
     private void InstantiateBubble()
     {
-       
-        GameObject temp = Instantiate(m_waterBubble, m_instantiateTransform.position, Quaternion.identity);
-        m_instantiatedObjects.Add(temp);
+       foreach(Transform tempTransform in m_instantiateTransforms)
+        {
+            GameObject temp = Instantiate(m_waterBubble, tempTransform.position, Quaternion.identity);
+            m_instantiatedObjects.Add(temp);
+        }
+        
     }
 
     private void OnDisable()

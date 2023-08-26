@@ -18,6 +18,11 @@ public class RoamingInputHandler : MonoBehaviour
 
     public static RoamingInputHandler _instance;
 
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
+
 
     private void Start()
     {

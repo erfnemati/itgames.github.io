@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class ShuttleControllerSecIteration : MonoBehaviour
 {
-    [SerializeField] Sprite m_startedShuttleSprite;
+    
+    
     [SerializeField] Transform m_targetTransform;
     [SerializeField] float m_translateSpeed;
     [SerializeField] float m_translationCycleTime;
     [SerializeField] float m_finalScale;
+    
 
     [SerializeField] int m_numOfNeededFuelBubbles;
     private int m_numOfAchievedFuelBubbles;
@@ -18,15 +20,41 @@ public class ShuttleControllerSecIteration : MonoBehaviour
     [SerializeField] ShuttleUiControllerSecIteration m_shuttleUiScript;
     [SerializeField] RoamingGameManager m_gameManagerScript;
 
-    
+    private const int NUMBER_OF_WAYPOINTS = 5;
+    [SerializeField] Transform[] m_waypointTransforms = new Transform[NUMBER_OF_WAYPOINTS];
+    private Vector3[] m_waypoints = new Vector3[NUMBER_OF_WAYPOINTS];
+
+    private void Start()
+    {
+        m_shuttleUiScript.SetSliderMaxValue(m_numOfNeededFuelBubbles);
+        GetPosFromTransform();
+    }
+
+    private void GetPosFromTransform()
+    {
+        for(int i = 0; i < NUMBER_OF_WAYPOINTS; i++)
+        {
+            m_waypoints[i] = m_waypointTransforms[i].position;
+        }
+    }
 
     public void StartShuttle()
     {
+        Debug.Log("Going Up");
         m_shuttleUiScript.DeactivateUiComponent();
-        GetComponent<SpriteRenderer>().sprite = m_startedShuttleSprite;
-        transform.DOMove(m_targetTransform.position, m_translationCycleTime);
+        m_shuttleUiScript.GoToShuttle();
+
+        Invoke(nameof(MoveShuttle), 1f);
+    }
+
+    private void MoveShuttle()
+    {
+        transform.DOPath(m_waypoints, m_translationCycleTime, PathType.CatmullRom, PathMode.TopDown2D, 5, Color.red);
+        transform.DORotate(new Vector3(0, 0, 50), m_translationCycleTime * 2);
         transform.DOScale(m_finalScale, m_translationCycleTime).OnComplete(() => ShowResultMenu());
     }
+
+    
 
     private void ShowResultMenu()
     {
@@ -56,7 +84,7 @@ public class ShuttleControllerSecIteration : MonoBehaviour
     {
         if  (m_numOfAchievedFuelBubbles >= m_numOfNeededFuelBubbles)
         {
-            StartShuttle();
+            m_gameManagerScript.EndLevel();
         }
     }
 }

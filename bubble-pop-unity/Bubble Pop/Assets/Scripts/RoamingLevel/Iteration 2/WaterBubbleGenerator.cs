@@ -15,15 +15,22 @@ public class WaterBubbleGenerator : MonoBehaviour
         m_currentWaterBubbleStateIndex = (m_currentWaterBubbleStateIndex + 1) % m_waterBubbleStates.Count;
     }
 
-    public void PlayNextWaterBubbleState()
+    public void RemoveLastWaterBubbleState()
     {
-        Debug.Log("Going next state");
         if (m_currentWaterBubble != null)
         {
             m_currentWaterBubble.gameObject.SetActive(false);
         }
-
+    }
+    public void PlayNextWaterBubbleState()
+    {
         SetNextWaterBubbleState();
+        m_currentWaterBubble.gameObject.SetActive(true);
+    }
+
+    public void RestartWaterBubbleState()
+    {
+        RemoveLastWaterBubbleState();
         m_currentWaterBubble.gameObject.SetActive(true);
     }
 }
