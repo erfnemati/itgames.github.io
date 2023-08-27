@@ -15,7 +15,7 @@ namespace Assets.Scripts
 
         public static RequestManager m_instance;
 
-        private int m_numberOfTries = 3;
+        [SerializeField] int m_numberOfTries = 3;
 
         [SerializeField] RequestGenerationModel m_model = RequestGenerationModel.Addition;
         
@@ -54,7 +54,7 @@ namespace Assets.Scripts
             Message requestMessage = new Message(0);
 
             System.Random rand = new System.Random();
-            int m_numOfAdditions = rand.Next(1, 5);
+            int m_numOfAdditions = rand.Next(1, m_numberOfTries);
             for (int i = 0; i < m_numOfAdditions;i++)
             {
                 int typeOfContent = rand.Next(1, 3);

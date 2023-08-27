@@ -43,7 +43,6 @@ namespace Assets.Scripts
                 Collider2D selectedObject = Physics2D.OverlapPoint(new Vector2(worldTouchPos.x,worldTouchPos.y));
                 if (selectedObject != null && selectedObject.CompareTag("Bubble"))
                 {
-                    Debug.Log("Bubble is poped");
                     selectedObject.GetComponent<Bubble>().Pop();
                     m_audioSource.clip = m_popSound;
                     m_audioSource.Play();
@@ -52,7 +51,6 @@ namespace Assets.Scripts
                 }
                 if (selectedObject != null && selectedObject.CompareTag("SendButton"))
                 {
-                    Debug.Log("SendButton pressed");
                     LevelManager.m_instance.SendProposal();
                 }
 
