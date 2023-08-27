@@ -101,7 +101,7 @@ namespace Assets.Scripts
                 m_isDirectionChosen = false;
 
             }
-            else if (viewPortPos.y < 0.4)
+            else if (viewPortPos.y < 0.3)
             {
                 m_movingState = BubbleMovingState.GettingBack;
                 m_isDirectionChosen = false;
