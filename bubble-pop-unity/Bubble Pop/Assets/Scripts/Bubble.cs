@@ -13,15 +13,6 @@ namespace Assets.Scripts
         PackageContent m_content;
         PackageContent m_initialPackage;
         
-        BubbleSize m_bubbleSizeState = BubbleSize.Small;
-        [SerializeField] float m_distance = 2f;
-
-        private bool m_isDirectionChosen = false;
-        private Vector2 m_flowingDirection = Vector2.zero;
-        private Vector3 m_initialPos;
-        private BubbleMovingState m_movingState = BubbleMovingState.GoingOut;
-        [SerializeField] float m_flowingSpeed = 0.5f;
-
         [SerializeField] Sprite m_dataIcon;
         [SerializeField] Sprite m_callTimeIcon;
         [SerializeField] Sprite m_messageIcon;
@@ -29,90 +20,18 @@ namespace Assets.Scripts
         [SerializeField] TMP_Text m_text;
         [SerializeField] Image m_bubbleIcon;
         [SerializeField] RectTransform m_rectTransform;
+
+        [SerializeField] float m_finalScale;
         // Start is called before the first frame update
         void Awake()
         {
           
             m_text = GetComponentInChildren<TMP_Text>();
             m_content = new PackageContent();
-            SetInitialPos();
+            //SetInitialPos();
             SetSize();
             SetBubbleUi();
             SetInitialPackage();
-        }
-
-        private void Update()
-        {
-            if (m_movingState == BubbleMovingState.GoingOut)
-            {
-                if (m_isDirectionChosen)
-                {
-                    Vector3 movement = new Vector3(m_flowingDirection.x, m_flowingDirection.y, 0) * Time.deltaTime * m_flowingSpeed;
-                    transform.position =
-                    transform.position + movement;
-                    
-                    if (Vector3.Distance(transform.position , m_initialPos)>= m_distance)
-                    {
-                        m_movingState = BubbleMovingState.GettingBack;
-                        m_isDirectionChosen = false;
-                       
-                    }
-                }
-                else
-                {
-                    float horizontal = Random.Range(-1f, 1f);
-                    float vertical = Random.Range(-1f, 1f);
-
-                    m_flowingDirection = new Vector2(horizontal, vertical);
-                    m_isDirectionChosen = true;
-                }
-            }
-            else if (m_movingState == BubbleMovingState.GettingBack)
-            {
-                m_flowingDirection = m_initialPos - transform.position;
-                Vector3 movement = new Vector3(m_flowingDirection.x, m_flowingDirection.y, 0) * Time.deltaTime * m_flowingSpeed;
-                transform.position =
-                transform.position + movement;
-
-                if (Vector3.Distance(transform.position,m_initialPos) <= 0.5)
-                {
-                    m_movingState = BubbleMovingState.GoingOut;
-                 
-                }
-
-            }
-
-            Vector3 viewPortPos = Camera.main.WorldToViewportPoint(transform.position);
-            if (viewPortPos.x < 0.1)
-            {
-                m_movingState = BubbleMovingState.GettingBack;
-                m_isDirectionChosen = false;
-
-            }
-            else if (viewPortPos.x > 0.9)
-            {
-                m_movingState = BubbleMovingState.GettingBack;
-                m_isDirectionChosen = false;
-
-            }
-            else if (viewPortPos.y > 0.9)
-            {
-                m_movingState = BubbleMovingState.GettingBack;
-                m_isDirectionChosen = false;
-
-            }
-            else if (viewPortPos.y < 0.3)
-            {
-                m_movingState = BubbleMovingState.GettingBack;
-                m_isDirectionChosen = false;
-
-            }
-        }
-
-       
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            m_movingState = BubbleMovingState.GettingBack;
         }
 
         private void SetBubbleUi()
@@ -139,44 +58,9 @@ namespace Assets.Scripts
             }
         }
 
-        private void SetSizeState()
-        {
-            int numOfContentTypes = m_content.GetNumOfContents();
-
-            if (numOfContentTypes <= 1)
-            {
-                m_bubbleSizeState = BubbleSize.Small;
-            }
-
-            else if (numOfContentTypes == 2)
-            {
-                m_bubbleSizeState = BubbleSize.Medium;
-            }
-            else 
-            {
-                m_bubbleSizeState = BubbleSize.Big;
-            }
-        }
-
         private void SetSize()
         {
-            SetSizeState();
-            switch(m_bubbleSizeState)
-            {
-                case BubbleSize.Small:
-                    transform.localScale = new Vector3(0.5f, 0.5f,0.5f);
-                    
-                    break;
-                case BubbleSize.Medium:
-                    transform.localScale = new Vector3(1, 1, 1);
-                    
-                    break;
-                case BubbleSize.Big:
-                
-                    transform.localScale = new Vector3(3, 3, 1);
-                    break;
-            }
-            
+            this.transform.localScale = new Vector3(m_finalScale, m_finalScale, m_finalScale);
         }
 
         public void Pop()
@@ -266,24 +150,10 @@ namespace Assets.Scripts
 
             m_initialPackage = new PackageContent(data, callTime, message);
         }
-
-        public void SetInitialPos()
-        {
-            m_initialPos = transform.position;
-        }
-
-        
-
-
     }
 
     enum BubbleSize
     {
         Small,Medium , Big
-    }
-
-    enum BubbleMovingState
-    {
-        GoingOut , GettingBack
     }
 }
