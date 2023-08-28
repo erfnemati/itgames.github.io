@@ -10,8 +10,16 @@ public class RoamingAstronut : MonoBehaviour
     [SerializeField] RoamingGameManager m_roamingGameManager;
     public void GoToShuttle()
     {
-        transform.DOMove(m_finalTransfrom.position, m_translationCycleTime).OnComplete(()=>BoardShuttle());
+        transform.DOMove(m_finalTransfrom.position, m_translationCycleTime).OnComplete(()=>StartShuttle());
     }
+
+    private void StartShuttle()
+    {
+        Destroy(this.gameObject);
+        ThirdRoamingGameManager._instance.StartShuttleFirstTime();
+    }
+
+    
 
     public void BoardShuttle()
     {

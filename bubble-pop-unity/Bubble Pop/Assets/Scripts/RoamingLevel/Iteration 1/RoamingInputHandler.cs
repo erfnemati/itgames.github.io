@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class RoamingInputHandler : MonoBehaviour
 {
-    public const string FUEL_BUBBLE_TAG = "FuelBubble";
+    public const string SHUTTLE_PART_TAG = "ShuttlePart";
     public const string INNER_HANDLER = "InnerHandler";
 
     private bool m_isDragging = false;
@@ -51,8 +51,12 @@ public class RoamingInputHandler : MonoBehaviour
             touchedWorldPos = Camera.main.ScreenToWorldPoint(touchedScreenPos);
 
             touchedCollider = Physics2D.OverlapPoint(touchedWorldPos);
-            if (touchedCollider != null && touchedCollider.CompareTag(FUEL_BUBBLE_TAG))
+            if (touchedCollider != null && (touchedCollider.CompareTag(SHUTTLE_PART_TAG) || touchedCollider.CompareTag("RoamingBubble")))
             {
+                if(touchedCollider.GetComponent<RoamingBubble>() != null)
+                {
+                    touchedCollider.GetComponent<RoamingBubble>().KillCurrentTween();
+                }
                 m_isDragging = true;
                 m_isInnerHandlerDragging = false;
                 m_touchedObject = touchedCollider.gameObject;
@@ -96,10 +100,10 @@ public class RoamingInputHandler : MonoBehaviour
     {
         m_touchedObject.transform.position = new Vector3(touchedWorldPos.x, touchedWorldPos.y, 0);
 
-        BoxCollider2D dropCollider = m_touchedObject.GetComponent<BoxCollider2D>();
+        CircleCollider2D shuttlePartCollider = m_touchedObject.GetComponent<CircleCollider2D>();
 
-        float halfOfDropWidth = dropCollider.size.x * (m_touchedObject.transform.localScale.x) / 2;
-        float halfOfDropHeight = dropCollider.size.y * (m_touchedObject.transform.localScale.y) / 2;
+        float halfOfDropWidth = shuttlePartCollider.radius * (m_touchedObject.transform.localScale.x);
+        float halfOfDropHeight = shuttlePartCollider.radius * (m_touchedObject.transform.localScale.y);
 
         Vector3 newWorldPos = new Vector3(0, 0, 0);
 

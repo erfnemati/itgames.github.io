@@ -19,6 +19,8 @@ TagManager:
   - InnerHandler
   - ShuttleStarter
   - Shuttle
+  - ShuttlePart
+  - RoamingBubble
   layers:
   - Default
   - TransparentFX

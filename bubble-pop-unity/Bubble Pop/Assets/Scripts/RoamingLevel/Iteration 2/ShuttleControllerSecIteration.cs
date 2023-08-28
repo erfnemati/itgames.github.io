@@ -71,8 +71,9 @@ public class ShuttleControllerSecIteration : MonoBehaviour
             m_shuttleUiScript.UpdateSlider(m_numOfAchievedFuelBubbles);
             m_gameManagerScript.LoadNextState();
         }
-      
     }
+
+    
 
     private void AchieveFuelBubble()
     {
