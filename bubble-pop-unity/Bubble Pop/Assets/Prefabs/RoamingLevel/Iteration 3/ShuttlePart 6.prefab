@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3833329753055200515}
   - component: {fileID: 8418329615655205159}
   - component: {fileID: 8945068736748529912}
+  - component: {fileID: 428315709681987281}
   m_Layer: 0
   m_Name: ShuttlePart 6
   m_TagString: ShuttlePart
@@ -123,3 +124,17 @@ CircleCollider2D:
   m_Offset: {x: 0.034657717, y: -0.020794868}
   serializedVersion: 2
   m_Radius: 1.5834111
+--- !u!114 &428315709681987281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5820272550149876326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ede7df2f82ab9cf42872291f0765effe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_movingDistance: 0.25
+  m_cycleTime: 1

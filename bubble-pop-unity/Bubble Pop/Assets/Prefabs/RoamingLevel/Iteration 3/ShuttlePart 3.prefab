@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3649164901959134203}
   - component: {fileID: 4194989466558107160}
   - component: {fileID: 6586091878382432719}
+  - component: {fileID: -8910219973228304191}
   m_Layer: 0
   m_Name: ShuttlePart 3
   m_TagString: ShuttlePart
@@ -123,3 +124,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-8910219973228304191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730112814013046644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ede7df2f82ab9cf42872291f0765effe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_movingDistance: 0.25
+  m_cycleTime: 1

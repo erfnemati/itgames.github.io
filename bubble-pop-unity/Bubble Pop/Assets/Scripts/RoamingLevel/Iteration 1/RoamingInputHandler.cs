@@ -57,6 +57,11 @@ public class RoamingInputHandler : MonoBehaviour
                 {
                     touchedCollider.GetComponent<RoamingBubble>().KillCurrentTween();
                 }
+
+                if (touchedCollider.GetComponent<AnimateBubble>() != null)
+                {
+                    touchedCollider.GetComponent<AnimateBubble>().StopBubble();
+                }
                 m_isDragging = true;
                 m_isInnerHandlerDragging = false;
                 m_touchedObject = touchedCollider.gameObject;
@@ -87,13 +92,6 @@ public class RoamingInputHandler : MonoBehaviour
         {
             MoveFuelBubble(touchedWorldPos);
         }
-
-        else if (m_isInnerHandlerDragging)
-        {
-            Vector3 tempRotation = new Vector3(touchedWorldPos.x, touchedWorldPos.y, 0);
-            RotateHandler(tempRotation);
-        }
-
     }
 
     private void MoveFuelBubble(Vector3 touchedWorldPos)
