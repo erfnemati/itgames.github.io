@@ -60,10 +60,15 @@ public class ShuttleControllerThirdEdition : MonoBehaviour
         {
             Destroy(other.gameObject);
             m_spriteRenderer.sprite = m_finalRoamingSprite;
-            m_shuttleSlider.DOValue(m_shuttleSlider.maxValue, 0.5f);
+            m_shuttleSlider.DOValue(m_shuttleSlider.maxValue, 0.5f).OnComplete(()=>Invoke(nameof(RemoveShuttleSlider),0.5f));
             RoamingInputHandler._instance.SetIsDragging(false);
             Invoke(nameof(StartWithRoaming),1f);
         }
+    }
+
+    private void RemoveShuttleSlider()
+    {
+        m_shuttleSlider.gameObject.SetActive(false);
     }
 
     private void GetShuttlePart()

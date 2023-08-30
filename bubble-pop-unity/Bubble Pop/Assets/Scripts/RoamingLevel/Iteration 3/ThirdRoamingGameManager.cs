@@ -88,13 +88,15 @@ public class ThirdRoamingGameManager : MonoBehaviour
         m_lastEnemyState.SetActive(true);
     }
 
-    private void ComeAstronut()
+    private async void ComeAstronut()
     {
-        m_roamingAstronut.GoToShuttle();
+        await m_roamingAstronut.GoToShuttle();
+        StartShuttleFirstTime();
     }
 
     public  void StartShuttleFirstTime()
     {
+        Destroy(m_roamingAstronut.gameObject);
         m_shuttle.StartWithoutRoaming();
     }
 
