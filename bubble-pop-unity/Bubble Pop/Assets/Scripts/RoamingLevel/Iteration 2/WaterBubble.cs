@@ -13,5 +13,13 @@ public class WaterBubble : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }
+
+        else if (collision.gameObject.CompareTag("ShuttlePart"))
+        {
+            RoamingInputHandler._instance.SetIsDragging(false);
+            FindAnyObjectByType<ThirdRoamingGameManager>().RestartState();
+            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 }

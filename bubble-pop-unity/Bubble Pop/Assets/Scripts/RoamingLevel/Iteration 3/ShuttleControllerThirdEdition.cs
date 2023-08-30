@@ -105,6 +105,7 @@ public class ShuttleControllerThirdEdition : MonoBehaviour
         transform.DOPath(m_waypoints, m_translationCycleTime, PathType.CatmullRom, PathMode.TopDown2D, 5, Color.red);
         transform.DORotate(new Vector3(0, 0, 50), m_translationCycleTime * 2);
         transform.DOScale(m_finalScale, m_translationCycleTime).OnComplete(()=>ThirdRoamingGameManager._instance.ShowResultMenu());
+        Destroy(m_shuttleSlider, 1f);
     }
 
     public void UpdateUi(int numOfShuttleParts)

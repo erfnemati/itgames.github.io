@@ -15,7 +15,12 @@ public class ThirdRoamingGameManager : MonoBehaviour
 
     [SerializeField] GameObject m_roamingBubble;
     [SerializeField] Transform m_roamingBubbleTransform;
-    
+
+    [SerializeField] List<GameObject> m_enemyStates = new List<GameObject>();
+    private int m_enemyStateIndex = 0;
+    private GameObject m_lastEnemyState = null;
+
+    private bool m_isLevelEnded = false;
 
     
 
@@ -39,20 +44,48 @@ public class ThirdRoamingGameManager : MonoBehaviour
     {
         if (m_numOfAchievedShuttleParts >= m_numOfNeededParts)
         {
+            Debug.Log("Level is ended");
+            m_isLevelEnded = true;
+            DeactivateLastState();
             ComeAstronut();
         }
     }
 
     public void GoNextState()
     {
-        m_shuttlePartGenerator.GenerateShuttlePart();
-        m_numOfAchievedShuttleParts++;
         CheckIsLevelEnded();
+        if (m_isLevelEnded)
+        {
+            return;
+        }
+        m_shuttlePartGenerator.GenerateShuttlePart();
+        DeactivateLastState();
+        m_enemyStates[m_enemyStateIndex].SetActive(true);
+        m_lastEnemyState = m_enemyStates[m_enemyStateIndex];
+        m_enemyStateIndex = (m_enemyStateIndex + 1) % m_enemyStates.Count;
+        m_numOfAchievedShuttleParts++;
+        
+
+    }
+
+    private void DeactivateLastState()
+    {
+        if(m_lastEnemyState != null)
+        {
+            m_lastEnemyState.SetActive(false);
+        }
     }
 
     public void RestartState()
     {
+        if (m_isLevelEnded)
+        {
+            return;
+        }
+        Debug.Log("Restarting");
+        DeactivateLastState();
         m_shuttlePartGenerator.ReGenerateShuttlePart();
+        m_lastEnemyState.SetActive(true);
     }
 
     private void ComeAstronut()

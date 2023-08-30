@@ -9,7 +9,7 @@ public class ShuttlePartGenerator : MonoBehaviour
 
     
     
-    private int m_shuttlePartIndex = 0;
+    private int m_shuttlePartIndex = -1;
     
     public void ReGenerateShuttlePart()
     {
@@ -23,8 +23,9 @@ public class ShuttlePartGenerator : MonoBehaviour
     {
         if (m_shuttlePartIndex < m_shuttleParts.Count)
         {
-            Instantiate(m_shuttleParts[m_shuttlePartIndex], m_generationTransfrom.position, Quaternion.identity);
             m_shuttlePartIndex++;
+            Instantiate(m_shuttleParts[m_shuttlePartIndex], m_generationTransfrom.position, Quaternion.identity);
+            
         }
 
     }
