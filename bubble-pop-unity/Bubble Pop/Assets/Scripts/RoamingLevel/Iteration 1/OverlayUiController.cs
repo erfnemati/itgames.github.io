@@ -37,6 +37,7 @@ public class OverlayUiController : MonoBehaviour
     public void RestartGame()
     {
         int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene(currentLevelIndex);
     }
 

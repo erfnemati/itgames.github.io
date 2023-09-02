@@ -22,6 +22,20 @@ public class ThirdRoamingGameManager : MonoBehaviour
 
     private bool m_isLevelEnded = false;
 
+
+    //These parameters are for tutorial :
+    private bool m_isPlayingForFirstTime = true;
+    [SerializeField] GameObject m_tutorialhand;
+    [SerializeField] GameObject m_basisShuttlePart;
+    [SerializeField] GameObject m_DialogueBox;
+
+
+    //These parameters are for need one more thing part : 
+    [SerializeField] GameObject m_globalVolumeProfile;
+    [SerializeField] GameObject m_astronutHeadObject;
+    [SerializeField] float m_finalScale;
+    [SerializeField] Transform m_finalTransfrom;
+
     
 
 
@@ -38,7 +52,44 @@ public class ThirdRoamingGameManager : MonoBehaviour
     }
     private void Start()
     {
-        GoNextState();
+        if (m_isPlayingForFirstTime)
+        {
+            PlayTutorial();
+        }
+        else
+        {
+            GoNextState();
+        }
+        
+    }
+
+
+    private async void PlayTutorial()
+    {
+        await m_roamingAstronut.ArriveForFirstTime();
+    }
+
+    public void GenerateFirstShuttlePart()
+    {
+        m_basisShuttlePart.SetActive(true);
+        m_basisShuttlePart.transform.DOScale(0.2f, 0.5f);
+        ShowDragTutorial();
+    }
+
+    private void ShowDragTutorial()
+    {
+        m_DialogueBox.gameObject.SetActive(true);
+        m_DialogueBox.GetComponent<RectTransform>().DOScale(1, 1f);
+        m_tutorialhand.gameObject.SetActive(true);
+        float finalYPos = m_tutorialhand.transform.position.y - 4f;
+        m_tutorialhand.transform.DOMoveY(finalYPos, 1.5f).SetLoops(-1, LoopType.Restart);
+    }
+
+    public void EndTutorial()
+    {
+        m_tutorialhand.gameObject.SetActive(false);
+        m_DialogueBox.gameObject.SetActive(false);
+        m_roamingAstronut.GetToInitialPlace();
     }
     public void CheckIsLevelEnded()
     {
@@ -64,8 +115,6 @@ public class ThirdRoamingGameManager : MonoBehaviour
         m_lastEnemyState = m_enemyStates[m_enemyStateIndex];
         m_enemyStateIndex = (m_enemyStateIndex + 1) % m_enemyStates.Count;
         m_numOfAchievedShuttleParts++;
-        
-
     }
 
     private void DeactivateLastState()
@@ -91,7 +140,8 @@ public class ThirdRoamingGameManager : MonoBehaviour
     private async void ComeAstronut()
     {
         await m_roamingAstronut.GoToShuttle();
-        StartShuttleFirstTime();
+        m_shuttle.TurnOnShuttle();
+        Invoke(nameof(StartShuttleFirstTime),1f);
     }
 
     public  void StartShuttleFirstTime()
@@ -111,6 +161,23 @@ public class ThirdRoamingGameManager : MonoBehaviour
         
     }
 
+    public void ShowUnhappyAstronut()
+    {
+        var sequence = DOTween.Sequence();
+        m_globalVolumeProfile.SetActive(true);
+        m_astronutHeadObject.SetActive(true);
+        sequence.Append(m_astronutHeadObject.transform.DOScale(m_finalScale, 1f));
+        sequence.AppendInterval(2f).OnComplete(()=>HideUnhappyAstronutFace());
+    }
+
+    public async void HideUnhappyAstronutFace()
+    {
+        m_astronutHeadObject.transform.DOScale(0, 1f);
+        await m_astronutHeadObject.transform.DOMove(m_finalTransfrom.position, 1f).AsyncWaitForCompletion();
+        m_globalVolumeProfile.gameObject.SetActive(false);
+        m_astronutHeadObject.SetActive(false);
+        GenerateRoamingBubble();
+    }
     public void ShowResultMenu()
     {
         OverlayUiController._instance.ShowResultMenu();

@@ -44,6 +44,6 @@ public class MoveWaterBubble : MonoBehaviour
 
     private void AnimateGeneration()
     {
-        transform.DOScale(1f, 0.5f);
+        transform.DOScale(0.3f, 0.5f);
     }
 }

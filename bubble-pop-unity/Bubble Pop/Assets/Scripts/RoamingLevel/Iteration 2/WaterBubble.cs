@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class WaterBubble : MonoBehaviour
 {
+
+    private void Start()
+    {
+        transform.DOScale(0.3f, 0.5f);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("FuelBubble"))

@@ -33,6 +33,12 @@ public class ShuttleControllerThirdEdition : MonoBehaviour
     [SerializeField] Slider m_shuttleSlider;
     [SerializeField] Image m_fillSlider;
     [SerializeField] Gradient m_gradientColor;
+    [SerializeField] Sprite m_shuttleWithFireSprite;
+    [SerializeField] GameObject m_engineFire;
+    [SerializeField] Sprite m_turnedOnEngine;
+
+    //For tutorial : 
+    private bool m_isTutorialOver = false;
 
 
 
@@ -54,6 +60,11 @@ public class ShuttleControllerThirdEdition : MonoBehaviour
             Destroy(other.gameObject);
             GetShuttlePart();
             ThirdRoamingGameManager._instance.GoNextState();
+            if (m_isTutorialOver == false)
+            {
+                m_isTutorialOver = true;
+                ThirdRoamingGameManager._instance.EndTutorial();
+            }
         }
 
         if (other.gameObject.CompareTag("RoamingBubble"))
@@ -89,6 +100,7 @@ public class ShuttleControllerThirdEdition : MonoBehaviour
 
     private void RiseWithoutRoaming()
     {
+        m_spriteRenderer.sprite = m_shuttleWithFireSprite;
         transform.DOMove(m_finalWithoutRoamingPos.position, 1f).OnComplete(()=>Invoke(nameof(FallWithoutRoaming),0.75f));
     }
 
@@ -96,17 +108,17 @@ public class ShuttleControllerThirdEdition : MonoBehaviour
     {
         m_spriteRenderer.sprite = m_sadSprite;
         m_shuttleSlider.DOValue(0, 1f);
-        transform.DOMove(m_initialPos, 0.5f).OnComplete(()=>GenerateRoamingBubble());
+        transform.DOMove(m_initialPos, 0.5f).OnComplete(()=>ShowUnhappyAstronut());
     }
 
-    private void GenerateRoamingBubble()
+    public void ShowUnhappyAstronut()
     {
-        ThirdRoamingGameManager._instance.GenerateRoamingBubble();
+        ThirdRoamingGameManager._instance.ShowUnhappyAstronut();
     }
 
     public void StartWithRoaming()
     {
-        
+        m_engineFire.SetActive(true);
         transform.DOPath(m_waypoints, m_translationCycleTime, PathType.CatmullRom, PathMode.TopDown2D, 5, Color.red);
         transform.DORotate(new Vector3(0, 0, 50), m_translationCycleTime * 2);
         transform.DOScale(m_finalScale, m_translationCycleTime).OnComplete(()=>ThirdRoamingGameManager._instance.ShowResultMenu());
@@ -118,6 +130,11 @@ public class ShuttleControllerThirdEdition : MonoBehaviour
         m_shuttleSlider.DOValue(m_shuttlePartIndex, 0.5f);
         m_fillSlider.color = m_gradientColor.Evaluate((float)m_shuttleSlider.value/m_shuttleSlider.maxValue);
         
+    }
+
+    public void TurnOnShuttle()
+    {
+        m_spriteRenderer.sprite = m_turnedOnEngine;
     }
 
     private void InitialiseUi()
