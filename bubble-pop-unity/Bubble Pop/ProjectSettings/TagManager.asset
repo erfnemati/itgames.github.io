@@ -21,6 +21,7 @@ TagManager:
   - Shuttle
   - ShuttlePart
   - RoamingBubble
+  - LevelBoundry
   layers:
   - Default
   - TransparentFX

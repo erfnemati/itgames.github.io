@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 1119610}
   m_Layer: 5
   m_Name: BackgroundCanvas
-  m_TagString: Untagged
+  m_TagString: LevelBoundry
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -409,6 +409,7 @@ GameObject:
   - component: {fileID: 2045792405}
   - component: {fileID: 2045792408}
   - component: {fileID: 2045792407}
+  - component: {fileID: 2045792409}
   m_Layer: 0
   m_Name: Astronut
   m_TagString: Untagged
@@ -530,6 +531,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2045792409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045792404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c575e36ad1db4ed47a7a457ea0e285bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_speed: 5
 --- !u!1 &2101492738
 GameObject:
   m_ObjectHideFlags: 0
