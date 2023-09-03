@@ -14,10 +14,25 @@ public class AddedValueBubble : MonoBehaviour
     {
         //Need to change its sprite too : 
         m_currentRigidBody.bodyType = RigidbodyType2D.Dynamic;
+        
     }
 
     public float GetBubbleValue()
     {
         return 10;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("LevelBoundry"))
+        {
+           
+            Destroy(this.gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        AddedValueBubbleGenerator._instance.ReduceNumberOfActiveValueBubbles();
     }
 }

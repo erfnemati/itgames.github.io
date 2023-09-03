@@ -37,12 +37,12 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
 
     private void WinGame()
     {
-        Debug.Log("You have won");
+        //Debug.Log("You have won");
     }
 
     private void LoseGame()
     {
-        Debug.Log("You have lost");
+        //Debug.Log("You have lost");
     }
 
     public void PauseGame()
