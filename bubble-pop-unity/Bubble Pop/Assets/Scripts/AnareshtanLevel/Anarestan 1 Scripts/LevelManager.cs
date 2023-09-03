@@ -84,8 +84,8 @@ public class LevelManager : MonoBehaviour
     public void RestartLevel()
     {
         Time.timeScale = 1.0f;
-        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentLevelIndex);
+        int currentLevelIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(currentLevelIndex);
     }
 
     public void PauseGame()
@@ -101,7 +101,7 @@ public class LevelManager : MonoBehaviour
     public void QuitGame()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
     public void FailLevel()
