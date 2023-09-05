@@ -59,6 +59,7 @@ public class AddedValueBubbleGenerator : MonoBehaviour
             tempGameObject = Instantiate(m_addedValueGameObject, m_addedValueSpots[finalIndex].position, Quaternion.identity);
             m_numOfActiveBubbles++;
         }
+        Debug.Log("Number of active generated bubbles are : " + m_numOfActiveBubbles);
     }
 
     public void ReduceNumberOfActiveValueBubbles()
@@ -73,6 +74,7 @@ public class AddedValueBubbleGenerator : MonoBehaviour
     {
         if(m_numOfActiveBubbles <= 0)
         {
+            Debug.Log("Number of active bubbles are : " + m_numOfActiveBubbles);
             FillSavedIndices();
             GenerateValueBubbles();
         }

@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class AstronutValueController : MonoBehaviour
 {
-    private float m_remainingValue = 90f;
-    private float m_minThreshold = -5;
+    private float m_remainingValue = 5f;
+    private float m_minThreshold = 0;
     [SerializeField] float m_drainValue; //Per second
+    [SerializeField] Light2D m_astronutSpotLight;
 
     private AstronutUiController m_astronutUiController;
 
@@ -30,6 +32,7 @@ public class AstronutValueController : MonoBehaviour
     private void DrainValue()
     {
         m_remainingValue -= m_drainValue * Time.deltaTime;
+        m_astronutSpotLight.pointLightOuterRadius = m_remainingValue;
         NotifyChangedValue();
     }
 

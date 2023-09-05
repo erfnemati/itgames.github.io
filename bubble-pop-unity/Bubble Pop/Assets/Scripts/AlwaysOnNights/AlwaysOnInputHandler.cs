@@ -5,6 +5,7 @@ using UnityEngine;
 public class AlwaysOnInputHandler : MonoBehaviour
 {
     private bool m_isGamePuased = false;
+    private bool m_isLevelOver = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +15,7 @@ public class AlwaysOnInputHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(m_isGamePuased)
+        if(m_isGamePuased || m_isLevelOver )
         {
             return;
         }
@@ -34,6 +35,11 @@ public class AlwaysOnInputHandler : MonoBehaviour
                 {
                     touchedCollider.GetComponent<AddedValueBubble>().Pop();
                 }
+
+                else if (touchedCollider.CompareTag("MoonBubble"))
+                {
+                    touchedCollider.GetComponent<MoonBubble>().PopMoon();
+                }
             }
         }
     }
@@ -41,6 +47,11 @@ public class AlwaysOnInputHandler : MonoBehaviour
     public void SetGamePauseState(bool isGamePaused)
     {
         m_isGamePuased = isGamePaused;
+    }
+
+    public void FinishGame()
+    {
+        m_isLevelOver = true;
     }
 
     

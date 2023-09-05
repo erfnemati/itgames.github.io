@@ -15,6 +15,13 @@ public class AstronutCollisionController : MonoBehaviour
         if(collision.CompareTag("AddedValueBubble"))
         {
             m_astronutValueController.AddValue(collision.GetComponent<AddedValueBubble>().GetBubbleValue());
+            AddedValueBubbleGenerator._instance.ReduceNumberOfActiveValueBubbles();
+            Destroy(collision.gameObject);
+        }
+
+        else if (collision.CompareTag("MoonBubble"))
+        {
+            AlwaysOnNigthsGameManager._instance.WinGame();
             Destroy(collision.gameObject);
         }
     }

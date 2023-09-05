@@ -22,16 +22,28 @@ namespace Assets.Scripts
         [SerializeField] RectTransform m_rectTransform;
 
         [SerializeField] float m_finalScale;
+
+        private Vector3 m_initialPos;
         // Start is called before the first frame update
         void Awake()
         {
           
             m_text = GetComponentInChildren<TMP_Text>();
             m_content = new PackageContent();
-            //SetInitialPos();
+            SetInitialPos();
             SetSize();
             SetBubbleUi();
             SetInitialPackage();
+        }
+
+        private void SetInitialPos()
+        {
+            m_initialPos = transform.position;
+        }
+
+        public Vector3 GetInitialPos()
+        {
+            return m_initialPos;
         }
 
         private void SetBubbleUi()

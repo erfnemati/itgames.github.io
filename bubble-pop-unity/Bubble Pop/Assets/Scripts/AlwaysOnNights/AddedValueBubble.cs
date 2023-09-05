@@ -5,6 +5,7 @@ using UnityEngine;
 public class AddedValueBubble : MonoBehaviour
 {
     private Rigidbody2D m_currentRigidBody;
+    private int m_currentBubbleValue = 2;
     private void Start()
     {
         m_currentRigidBody =GetComponent<Rigidbody2D>();
@@ -17,22 +18,22 @@ public class AddedValueBubble : MonoBehaviour
         
     }
 
-    public float GetBubbleValue()
+    public int GetBubbleValue()
     {
-        return 10;
+        return m_currentBubbleValue;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("LevelBoundry"))
         {
-           
+            AddedValueBubbleGenerator._instance.ReduceNumberOfActiveValueBubbles();
             Destroy(this.gameObject);
+            
         }
     }
-
-    private void OnDestroy()
+    public void SetCurrentBubbleValue(int value)
     {
-        AddedValueBubbleGenerator._instance.ReduceNumberOfActiveValueBubbles();
+        m_currentBubbleValue = value;
     }
 }

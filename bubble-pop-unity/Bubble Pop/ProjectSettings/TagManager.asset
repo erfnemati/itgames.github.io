@@ -23,6 +23,7 @@ TagManager:
   - RoamingBubble
   - LevelBoundry
   - AddedValueBubble
+  - MoonBubble
   layers:
   - Default
   - TransparentFX

@@ -89,7 +89,7 @@ namespace Assets.Scripts
 
         private void AddVacantTransform(Bubble bubble)
         {
-            Vector3 bubblePosition = bubble.transform.position;
+            Vector3 bubblePosition = bubble.GetInitialPos();
             Vector3 temp = new Vector3(bubblePosition.x,bubblePosition.y,bubblePosition.z);
             vacantTransforms.Enqueue(temp);
         }
@@ -108,6 +108,16 @@ namespace Assets.Scripts
             m_numOfPopedBubbles++;
             m_numOfActiveBubbles--;
             m_customer.AddItem(bubble);
+            AddVacantTransform(bubble);
+            RemoveBubbleInfo(bubble);
+            Destroy(bubble.gameObject);
+        }
+
+        public void RemoveBubbleOnly(Bubble bubble)
+        {
+            m_numOfPopedBubbles++;
+            m_numOfActiveBubbles--;
+
             AddVacantTransform(bubble);
             RemoveBubbleInfo(bubble);
             Destroy(bubble.gameObject);
@@ -164,7 +174,7 @@ namespace Assets.Scripts
 
                 CashBubbleInfo(instantiatedOne);
             }
-            //PlaceBubbles();
+            PlaceBubbles();
 
         }
 
@@ -173,7 +183,7 @@ namespace Assets.Scripts
             for (int i = 0; i < m_numOfActiveBubbles; i++)
             {
                 m_generatedBubbles[i].transform.position = m_bubbleTransfroms[i].position;
-                m_generatedBubbles[i].GetComponent<MoveBubble>().SetInitialPos();
+                //m_generatedBubbles[i].GetComponent<MoveBubble>().SetInitialPos();
             }
             
         }

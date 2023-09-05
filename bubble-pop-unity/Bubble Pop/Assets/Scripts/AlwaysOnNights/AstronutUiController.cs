@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class AstronutUiController : MonoBehaviour
 {
-    [SerializeField] float m_maxValue = 100f;
+    [SerializeField] float m_maxValue;
     [SerializeField] Slider m_astronutSlider;
 
 
