@@ -32,7 +32,7 @@ public class ObstacleGenerator : MonoBehaviour
         {
             return;
         }
-        if (  m_numOfGeneratedAnar > m_maxNumOfGeneratedAnar && FindAnyObjectByType<Anar>() == null )
+        if (  m_numOfGeneratedAnar > m_maxNumOfGeneratedAnar && FindObjectOfType<Anar>() == null )
         {
             LevelManager.m_instance.EndAnarGeneration();
             m_isLevelFin = true;

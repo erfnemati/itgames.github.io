@@ -15,7 +15,7 @@ public class WaterBubble : MonoBehaviour
         if (collision.gameObject.CompareTag("FuelBubble"))
         {
             RoamingInputHandler._instance.SetIsDragging(false);
-            FindAnyObjectByType<RoamingGameManager>().ReloadState();
+            GameObject.FindObjectOfType<RoamingGameManager>().ReloadState();
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }
@@ -23,7 +23,7 @@ public class WaterBubble : MonoBehaviour
         else if (collision.gameObject.CompareTag("ShuttlePart"))
         {
             RoamingInputHandler._instance.SetIsDragging(false);
-            FindAnyObjectByType<ThirdRoamingGameManager>().RestartState();
+            FindObjectOfType<ThirdRoamingGameManager>().RestartState();
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }

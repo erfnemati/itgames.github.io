@@ -8,6 +8,8 @@ public class AstronutAutoMovement : MonoBehaviour
 
     private Vector3 m_direction = Vector3.right;
     [SerializeField] float m_speed;
+
+    [SerializeField] AstronutUiController m_UiController;
     
     
     private void Update()
@@ -21,10 +23,27 @@ public class AstronutAutoMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("LevelBoundry"))
         {
-            m_direction = -m_direction;
+            ChangeDirection();
         }
+
         
     }
+
+    private void ChangeDirection()
+    {
+        m_direction = -m_direction;
+
+        if (m_direction.x < 0)
+        {
+            m_UiController.GoingLeft();
+        }
+        else
+        {
+            m_UiController.GoingRight();
+        }
+    }
+
+    
 
 
 }
