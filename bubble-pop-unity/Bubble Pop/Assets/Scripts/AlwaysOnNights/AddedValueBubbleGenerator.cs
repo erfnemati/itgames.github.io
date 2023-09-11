@@ -49,7 +49,7 @@ public class AddedValueBubbleGenerator : MonoBehaviour
     private void GenerateValueBubbles()
     {
         GameObject tempGameObject = null;
-        int numberOfToBegeneratedBubbles = Random.Range(2, 5);
+        int numberOfToBegeneratedBubbles = Random.Range(1, 4);
 
         for(int i = 0; i < numberOfToBegeneratedBubbles;i++)
         {

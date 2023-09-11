@@ -5,7 +5,7 @@ using UnityEngine;
 public class AddedValueBubble : MonoBehaviour
 {
     private Rigidbody2D m_currentRigidBody;
-    private int m_currentBubbleValue = 2;
+    private int m_currentBubbleValue = 1;
     private void Start()
     {
         m_currentRigidBody =GetComponent<Rigidbody2D>();

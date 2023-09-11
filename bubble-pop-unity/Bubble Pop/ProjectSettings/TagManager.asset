@@ -24,6 +24,7 @@ TagManager:
   - LevelBoundry
   - AddedValueBubble
   - MoonBubble
+  - Astronut
   layers:
   - Default
   - TransparentFX

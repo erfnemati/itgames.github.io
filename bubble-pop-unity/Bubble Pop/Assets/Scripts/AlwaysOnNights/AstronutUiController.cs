@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class AstronutUiController : MonoBehaviour
 {
-    [SerializeField] float m_maxValue;
-    [SerializeField] Slider m_astronutSlider;
     [SerializeField] Sprite m_goingRight;
     [SerializeField] Sprite m_goingLeft;
 
@@ -15,18 +13,7 @@ public class AstronutUiController : MonoBehaviour
 
     private void Start()
     {
-        InitialiseSlider();
         m_spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    private void InitialiseSlider()
-    {
-        m_astronutSlider.maxValue = m_maxValue;
-    }
-
-    public void UpdateSlider(float value)
-    {
-        m_astronutSlider.value = value;
     }
 
     public void GoingRight()

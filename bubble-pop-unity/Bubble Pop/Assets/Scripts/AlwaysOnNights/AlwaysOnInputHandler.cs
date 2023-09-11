@@ -39,6 +39,7 @@ public class AlwaysOnInputHandler : MonoBehaviour
                 else if (touchedCollider.CompareTag("MoonBubble"))
                 {
                     touchedCollider.GetComponent<MoonBubble>().PopMoon();
+                    //Debug.Log("Moon Poped");
                 }
             }
         }

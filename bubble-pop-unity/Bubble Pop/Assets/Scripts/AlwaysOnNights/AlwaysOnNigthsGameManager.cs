@@ -1,20 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using DG.Tweening;
 
 public class AlwaysOnNigthsGameManager : MonoBehaviour
 {
+    public static AlwaysOnNigthsGameManager _instance;
+
     //Parameters for running game logic : 
     [SerializeField] AlwaysOnInputHandler m_inputHandler;
-    public static AlwaysOnNigthsGameManager _instance;
-    [SerializeField] float m_moonGeneratonThreshold = 10.0f;
-    [SerializeField] float m_losingValue;
-    private float m_losingThreshold = 1f;
+    [SerializeField] float m_passedTime = 0f;
+    [SerializeField] float m_secNeedToWin = 30f;
+    [SerializeField] Light2D m_spotLight;
 
     //Parameters for generating moon : 
     [SerializeField] List<Transform> m_moonSpots = new List<Transform>();
     [SerializeField] GameObject m_moonObject;
     private bool m_isMoonGenerated = false;
+
+    //Parameters for Ui part of game manager : 
+    [SerializeField] AlwaysOnNightGameManagerUi m_uiManager;
 
     private void Start()
     {
@@ -26,20 +32,37 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
         {
             _instance = this;
         }
+
+        m_uiManager.InitialiseSlider(m_secNeedToWin);
+    }
+
+    private void Update()
+    {
+        if (m_isMoonGenerated)
+            return;
+
+        UpdatePassedTime();
+        m_uiManager.UpdateSlider(m_passedTime);
+
+    }
+
+    private void UpdatePassedTime()
+    {
+        m_passedTime += Time.deltaTime;
+        
+
+        if (m_passedTime - m_secNeedToWin > Mathf.Epsilon)
+        {
+            GenerateMoonBubble();
+        }
     }
 
     public void CheckValue(float addedValue)
     {
-        if (addedValue >= m_moonGeneratonThreshold)
+        Debug.Log(addedValue);
+        if (addedValue < Mathf.Epsilon)
         {
-            if (m_isMoonGenerated == false)
-            {
-                m_isMoonGenerated = true;
-                GenerateMoonBubble();
-            }
-        }
-        else if (addedValue < m_losingThreshold)
-        {
+            Debug.Log("Losing here");
             LoseGame();
         }
     }
@@ -48,7 +71,17 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
     {
         int randomIndex = Random.Range(0, m_moonSpots.Count);
         GameObject tempObject = Instantiate(m_moonObject, m_moonSpots[randomIndex].position, Quaternion.identity);
-        Debug.Log("Moon generated");
+        m_isMoonGenerated = true;
+        RemoveStars();
+    }
+
+    private void RemoveStars()
+    {
+        AddedValueBubble[] stars = FindObjectsOfType<AddedValueBubble>();
+        foreach(AddedValueBubble bubble in stars)
+        {
+            Destroy(bubble.gameObject);
+        }
     }
 
     private void LoseGame()
@@ -62,6 +95,16 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
     public void WinGame()
     {
         m_inputHandler.FinishGame();
+        FindObjectOfType<AstronutValueController>().EndLevel();
+        //m_spotLight.pointLightOuterRadius = 15;
+
+        DOTween.Init();
+        DOTween.To(() => { return m_spotLight.pointLightOuterRadius; }, x => m_spotLight.pointLightOuterRadius = x, 15, 2)
+            .OnComplete(()=>EndGame());
+    }
+
+    private void EndGame()
+    {
         Time.timeScale = 0.0f;
     }
 
@@ -75,8 +118,8 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
         m_inputHandler.SetGamePauseState(false);
     }
 
-    public void SetIsMoonGenerated(bool isMoonGenerated)
-    {
-        m_isMoonGenerated = isMoonGenerated;
-    }
+    //public void SetIsMoonGenerated(bool isMoonGenerated)
+    //{
+    //    m_isMoonGenerated = isMoonGenerated;
+    //}
 }

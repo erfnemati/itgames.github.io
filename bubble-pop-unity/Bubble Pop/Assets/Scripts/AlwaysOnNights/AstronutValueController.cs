@@ -7,8 +7,10 @@ public class AstronutValueController : MonoBehaviour
 {
     private float m_remainingValue = 5f;
     private float m_minThreshold = 0;
+    private bool m_isLevelOver = false;
     [SerializeField] float m_drainValue; //Per second
     [SerializeField] Light2D m_astronutSpotLight;
+    [SerializeField] float m_maxValue;
 
     private AstronutUiController m_astronutUiController;
 
@@ -16,16 +18,23 @@ public class AstronutValueController : MonoBehaviour
     private void Start()
     {
         m_astronutUiController = GetComponent<AstronutUiController>();
+        m_remainingValue = m_astronutSpotLight.pointLightOuterRadius;
     }
 
     private void Update()
     {
+        if (m_isLevelOver)
+            return;
+
         DrainValue();
-        UpdateAstronutUi();
     }
     public void AddValue(float addedValueFloat)
     {
         m_remainingValue += addedValueFloat;
+        if (m_remainingValue > m_maxValue)
+        {
+            m_remainingValue = m_maxValue;
+        }
         NotifyChangedValue();
     }
 
@@ -41,10 +50,9 @@ public class AstronutValueController : MonoBehaviour
         AlwaysOnNigthsGameManager._instance.CheckValue(m_remainingValue);
     }
 
-
-    private void UpdateAstronutUi()
+    public void EndLevel()
     {
-        m_astronutUiController.UpdateSlider(m_remainingValue);
+        m_isLevelOver = true;
     }
 
 }
