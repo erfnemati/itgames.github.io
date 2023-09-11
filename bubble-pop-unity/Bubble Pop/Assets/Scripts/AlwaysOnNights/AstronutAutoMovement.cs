@@ -6,7 +6,7 @@ public class AstronutAutoMovement : MonoBehaviour
 {
     //Movement parameters : 
 
-    private Vector3 m_direction = Vector3.right;
+    private Vector3 m_direction = Vector3.left;
     [SerializeField] float m_speed;
 
     [SerializeField] AstronutUiController m_UiController;

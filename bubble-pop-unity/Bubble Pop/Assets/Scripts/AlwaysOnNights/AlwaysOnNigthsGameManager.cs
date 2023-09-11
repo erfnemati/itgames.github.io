@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using DG.Tweening;
+using Assets.Scripts;
 
 public class AlwaysOnNigthsGameManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
 
     //Parameters for Ui part of game manager : 
     [SerializeField] AlwaysOnNightGameManagerUi m_uiManager;
+    [SerializeField] AlwaysOnNightsSceneManager m_sceneManager;
 
     private void Start()
     {
@@ -59,7 +61,7 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
 
     public void CheckValue(float addedValue)
     {
-        Debug.Log(addedValue);
+        
         if (addedValue < Mathf.Epsilon)
         {
             Debug.Log("Losing here");
@@ -86,10 +88,10 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
 
     private void LoseGame()
     {
-        Debug.Log("You have lost");
         m_inputHandler.FinishGame();
+        m_sceneManager.ShowLosingScreen();
+        FindObjectOfType<AstronutValueController>().EndLevel();
         Time.timeScale = 0.0f;
-        
     }
 
     public void WinGame()
@@ -105,6 +107,7 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
 
     private void EndGame()
     {
+        m_sceneManager.ShowWinningScreen();
         Time.timeScale = 0.0f;
     }
 
