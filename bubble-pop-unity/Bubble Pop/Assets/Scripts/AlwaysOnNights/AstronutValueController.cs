@@ -8,9 +8,12 @@ public class AstronutValueController : MonoBehaviour
     private float m_remainingValue = 5f;
     private float m_minThreshold = 0;
     private bool m_isLevelOver = false;
+    private bool m_isTutorialOver = false;
     [SerializeField] float m_drainValue; //Per second
+    [SerializeField] float m_maxDrainValue;
     [SerializeField] Light2D m_astronutSpotLight;
     [SerializeField] float m_maxValue;
+    [SerializeField] float m_drainValueChange = 0.3f;
 
     private AstronutUiController m_astronutUiController;
 
@@ -23,6 +26,8 @@ public class AstronutValueController : MonoBehaviour
 
     private void Update()
     {
+        if (m_isTutorialOver == false)
+            return;
         if (m_isLevelOver)
             return;
 
@@ -54,5 +59,21 @@ public class AstronutValueController : MonoBehaviour
     {
         m_isLevelOver = true;
     }
+
+    public void EndTutorial()
+    {
+        m_isTutorialOver = true;
+    }
+
+    public void IncreaseDrainRate()
+    {
+        m_drainValue += m_drainValueChange;
+        if (m_drainValue >= m_maxDrainValue)
+        {
+            m_drainValue = m_maxDrainValue;
+        }
+    }
+
+    
 
 }

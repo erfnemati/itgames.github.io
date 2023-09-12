@@ -11,7 +11,15 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
 
     //Parameters for running game logic : 
     [SerializeField] AlwaysOnInputHandler m_inputHandler;
-    [SerializeField] float m_passedTime = 0f;
+    [SerializeField] AstronutAutoMovement m_autoMovement;
+    [SerializeField] AstronutValueController m_valueController;
+    [SerializeField] GameObject m_valueBubbleGenerator;
+    [SerializeField] GameObject m_tutorialStar;
+    [SerializeField] Transform m_tutorialStartTransform;
+    [SerializeField] GameObject m_tutorialHandPrefab;
+    [SerializeField] GameObject m_tutorialHand;
+    [SerializeField] Transform m_tutorialHandTransform;
+    [SerializeField] float m_remainingTime = 30f;
     [SerializeField] float m_secNeedToWin = 30f;
     [SerializeField] Light2D m_spotLight;
 
@@ -24,6 +32,10 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
     [SerializeField] AlwaysOnNightGameManagerUi m_uiManager;
     [SerializeField] AlwaysOnNightsSceneManager m_sceneManager;
 
+    //Parameters for tutorial : 
+    private bool m_isTutorialOver = false;
+    [SerializeField] GameObject m_tutorialBox;
+
     private void Start()
     {
         if (_instance != null && _instance != this)
@@ -35,25 +47,29 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
             _instance = this;
         }
 
-        m_uiManager.InitialiseSlider(m_secNeedToWin);
+        
+        m_uiManager.InitialiseSlider(m_remainingTime);
+        PlayTutorial();
     }
 
     private void Update()
     {
+        if (m_isTutorialOver == false)
+            return;
         if (m_isMoonGenerated)
             return;
 
-        UpdatePassedTime();
-        m_uiManager.UpdateSlider(m_passedTime);
+        UpdateRemainingTime();
+        m_uiManager.UpdateSlider(m_remainingTime);
 
     }
 
-    private void UpdatePassedTime()
+    private void UpdateRemainingTime()
     {
-        m_passedTime += Time.deltaTime;
+        m_remainingTime -= Time.deltaTime;
         
 
-        if (m_passedTime - m_secNeedToWin > Mathf.Epsilon)
+        if (m_remainingTime <= Mathf.Epsilon)
         {
             GenerateMoonBubble();
         }
@@ -86,6 +102,42 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
         }
     }
 
+    private async void PlayTutorial()
+    {
+        await m_autoMovement.ComeAstronut();
+        
+    }
+
+    public void PopGuidelines()
+    {
+        PopTutorialDialogues();
+        InstantiateTutorialStar();
+        InstantiateTutorialHand();
+    }
+
+    private void InstantiateTutorialStar()
+    {
+        GameObject temp = Instantiate(m_tutorialStar, m_tutorialStartTransform.position, Quaternion.identity);
+        temp.transform.localScale = Vector3.zero;
+        temp.transform.DOScale(0.2f, 1f);
+    }
+
+    private void InstantiateTutorialHand()
+    {
+        m_tutorialHand = Instantiate(m_tutorialHandPrefab, m_tutorialHandTransform.position, Quaternion.identity);
+        m_tutorialHand.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
+        m_tutorialHand.transform.DOScale(0.4f, 1f).SetLoops(-1, LoopType.Yoyo); ;
+    }
+
+    private void PopTutorialDialogues()
+    {
+        m_tutorialBox.SetActive(true);
+        m_tutorialBox.transform.localScale = Vector3.zero;
+        m_tutorialBox.transform.DOScale(1, 1f);
+    }
+
+    
+
     private void LoseGame()
     {
         m_inputHandler.FinishGame();
@@ -101,7 +153,7 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
         //m_spotLight.pointLightOuterRadius = 15;
 
         DOTween.Init();
-        DOTween.To(() => { return m_spotLight.pointLightOuterRadius; }, x => m_spotLight.pointLightOuterRadius = x, 15, 2)
+        DOTween.To(() => { return m_spotLight.pointLightOuterRadius; }, x => m_spotLight.pointLightOuterRadius = x, 14, 1)
             .OnComplete(()=>EndGame());
     }
 
@@ -119,6 +171,17 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
     public void ResumeGame()
     {
         m_inputHandler.SetGamePauseState(false);
+    }
+
+    public void EndTutorial()
+    {
+        m_autoMovement.EndTutorial();
+        m_valueController.EndTutorial();
+        m_isTutorialOver = true;
+        m_valueBubbleGenerator.SetActive(true);
+
+        m_tutorialBox.gameObject.SetActive(false);
+        m_tutorialHand.gameObject.SetActive(false);
     }
 
     //public void SetIsMoonGenerated(bool isMoonGenerated)

@@ -41,6 +41,11 @@ public class AlwaysOnInputHandler : MonoBehaviour
                     touchedCollider.GetComponent<MoonBubble>().PopMoon();
                     //Debug.Log("Moon Poped");
                 }
+
+                else if (touchedCollider.CompareTag("TutorialAddedValueBubble"))
+                {
+                    touchedCollider.GetComponent<TutorialBubble>().PopTutorialBubble();
+                }
             }
         }
     }

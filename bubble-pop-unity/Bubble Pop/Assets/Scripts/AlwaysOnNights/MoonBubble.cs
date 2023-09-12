@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class MoonBubble : MonoBehaviour
 {
@@ -8,9 +9,13 @@ public class MoonBubble : MonoBehaviour
     private AstronutAutoMovement m_astronutMovementController;
 
     [SerializeField] float m_followingSpeed;
+    [SerializeField] float m_finalScale;
 
+    
     private void Start()
     {
+        transform.localScale = Vector3.zero;
+        transform.DOScale(m_finalScale, 0.5f);
         m_astronutMovementController = FindObjectOfType<AstronutAutoMovement>();
     }
 
@@ -38,4 +43,6 @@ public class MoonBubble : MonoBehaviour
     {
         m_isFollowing = true;
     }
+
+
 }
