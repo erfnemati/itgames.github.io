@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MoveBubble : MonoBehaviour
 {
-
-   
     private bool m_isDirectionChosen = false;
     private Vector2 m_flowingDirection = Vector2.zero;
     private Vector3 m_initialPos;
@@ -13,11 +11,6 @@ public class MoveBubble : MonoBehaviour
     [SerializeField] float m_flowingSpeed = 0.5f;
     [SerializeField] float m_distance = 2f;
 
-
-    private void Start()
-    {
-        SetInitialPos();
-    }
     void Update()
     {
         MoveAround();

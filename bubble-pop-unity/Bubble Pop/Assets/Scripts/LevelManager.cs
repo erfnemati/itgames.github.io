@@ -183,7 +183,7 @@ namespace Assets.Scripts
             for (int i = 0; i < m_numOfActiveBubbles; i++)
             {
                 m_generatedBubbles[i].transform.position = m_bubbleTransfroms[i].position;
-                //m_generatedBubbles[i].GetComponent<MoveBubble>().SetInitialPos();
+                m_generatedBubbles[i].GetComponent<MoveBubble>().SetInitialPos();
             }
             
         }

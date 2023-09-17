@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_numOfBubbles: 13
-  m_bubblePrefab: {fileID: 8104126691085515114, guid: b80dc88df9130b045b82664a5841c5c9, type: 3}
+  m_bubblePrefab: {fileID: 7865911587512748917, guid: fd8e88bb4473c504facb861ab5a9599d, type: 3}
   m_bubbleTransfroms:
   - {fileID: 1324075441}
   - {fileID: 840231750}
