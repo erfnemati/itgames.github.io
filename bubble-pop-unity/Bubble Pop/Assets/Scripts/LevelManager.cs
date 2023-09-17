@@ -71,6 +71,7 @@ namespace Assets.Scripts
 
         private void InstantiateNewCustomer()
         {
+            Debug.Log("Instantiating new customer");
             RequestManager.m_instance.RefreshLists();
             if (m_customer != null)
             {
@@ -183,7 +184,16 @@ namespace Assets.Scripts
             for (int i = 0; i < m_numOfActiveBubbles; i++)
             {
                 m_generatedBubbles[i].transform.position = m_bubbleTransfroms[i].position;
-                m_generatedBubbles[i].GetComponent<MoveBubble>().SetInitialPos();
+
+                if (m_generatedBubbles[i].GetComponent<MoveBubble>() != null)
+                {
+                    m_generatedBubbles[i].GetComponent<MoveBubble>().SetInitialPos();
+                }
+                else if(m_generatedBubbles[i].GetComponent<TimingBubble>() != null)
+                {
+                    m_generatedBubbles[i].GetComponent<TimingBubble>().SetInitialScale();
+                }
+               
             }
             
         }

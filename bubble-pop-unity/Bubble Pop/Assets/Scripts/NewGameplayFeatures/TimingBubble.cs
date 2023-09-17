@@ -7,33 +7,42 @@ namespace Assets.Scripts
 {
     public class TimingBubble : MonoBehaviour
     {
-        [SerializeField] float m_floatingSpeed;
-        private Vector3 m_floatingDirection;
+        [SerializeField] float m_finalScale;
+        [SerializeField] float m_scaleSpeed;
+        
+        private Vector3 m_initialScale;
 
-        private void Start()
+        private void Awake()
         {
-            m_floatingDirection = new Vector3(Random.Range(-1, 1), Random.Range(0, 1f), 0);
-            Debug.Log("New direction");
+            m_initialScale = new Vector3(transform.localScale.x,transform.localScale.y,transform.localScale.z);
         }
 
         private void Update()
         {
-            MoveBubble();
+            MakeBubbleSmaller();
         }
 
-        private void OnTriggerExit2D(Collider2D collision)
+        private void MakeBubbleSmaller()
         {
-            if (collision.CompareTag("LevelBoundry"))
+            transform.localScale += m_scaleSpeed * new Vector3(-1, -1, -1) * Time.deltaTime;
+            CheckDestroyTime();
+            
+        }
+
+        private void CheckDestroyTime()
+        {
+            if (transform.localScale.x <= 0.01f)
             {
-                Debug.Log("Bye");
                 LevelManager.m_instance.RemoveBubbleOnly(GetComponent<Bubble>());
+                Destroy(this.gameObject);
+
             }
         }
-
-        private void MoveBubble()
+        
+        public void SetInitialScale()
         {
-            Vector3 thisFrameMovement = m_floatingDirection * m_floatingSpeed * Time.deltaTime;
-            transform.position += thisFrameMovement;
+            Debug.Log("Initial scale is : " + m_initialScale);
+            transform.localScale = m_initialScale;
         }
     }
 }
