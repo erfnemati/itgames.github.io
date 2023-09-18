@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public class TimingBubble : MonoBehaviour
+    public class ScalableBubble : MonoBehaviour
     {
         [SerializeField] float m_finalScale;
         [SerializeField] float m_scaleSpeed;

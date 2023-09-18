@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using RTLTMPro;
 
 namespace Assets.Scripts
 {
@@ -23,10 +24,10 @@ namespace Assets.Scripts
         [SerializeField] GameObject m_restartButton;
         [SerializeField] GameObject m_continueButton;
         [SerializeField] GameObject m_QuitButton;
-        [SerializeField] TMP_Text m_goalText;
+        [SerializeField] RTLTextMeshPro m_goalText;
         [SerializeField] TMP_Text m_resultText;
         [SerializeField] GameObject m_limitedCustomerUi;
-        [SerializeField] TMP_Text m_limitedCustomerText;
+        [SerializeField] RTLTextMeshPro m_limitedCustomerText;
 
         private void Awake()
         {
@@ -35,7 +36,7 @@ namespace Assets.Scripts
         private void Start()
         {
             
-            Debug.Log("Start");
+            
             if (m_instance != null && m_instance != this)
             {
                 Destroy(this.gameObject);
@@ -53,7 +54,8 @@ namespace Assets.Scripts
         public void UpdateGoalUi()
         {
             m_goal.SetActive(true);
-            m_goalText.text = LevelManager.m_instance.GetRecievedHearts() + "/" + $"{m_oneStarHearts}" ;
+            //m_goalText.text = LevelManager.m_instance.GetRecievedHearts() + "/" + $"{m_oneStarHearts}" ;
+            m_goalText.text = $"{m_oneStarHearts}" + " / " + LevelManager.m_instance.GetRecievedHearts();
 
         }
 

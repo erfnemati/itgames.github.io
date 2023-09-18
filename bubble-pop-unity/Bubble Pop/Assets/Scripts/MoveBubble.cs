@@ -11,6 +11,10 @@ public class MoveBubble : MonoBehaviour
     [SerializeField] float m_flowingSpeed = 0.5f;
     [SerializeField] float m_distance = 2f;
 
+    private void Awake()
+    {
+        SetInitialPos();
+    }
     void Update()
     {
         MoveAround();
@@ -85,14 +89,19 @@ public class MoveBubble : MonoBehaviour
         }
     }
 
-    public void SetInitialPos()
+    private void SetInitialPos()
     {
-        m_initialPos = transform.position;
+        m_initialPos = new Vector3(transform.position.x,transform.position.y,transform.position.z);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         m_movingState = BubbleMovingState.GettingBack;
+    }
+
+    public void GoBackToInitialPos()
+    {
+        transform.position = m_initialPos;
     }
 
     enum BubbleMovingState
