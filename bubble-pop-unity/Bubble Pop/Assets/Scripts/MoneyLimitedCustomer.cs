@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using RTLTMPro;
@@ -25,7 +25,7 @@ namespace Assets.Scripts
         [SerializeField] GameObject m_continueButton;
         [SerializeField] GameObject m_QuitButton;
         [SerializeField] RTLTextMeshPro m_goalText;
-        [SerializeField] TMP_Text m_resultText;
+        [SerializeField] RTLTextMeshPro m_resultText;
         [SerializeField] GameObject m_limitedCustomerUi;
         [SerializeField] RTLTextMeshPro m_limitedCustomerText;
 
@@ -97,7 +97,8 @@ namespace Assets.Scripts
             
             if (m_numOfHearts < m_oneStarHearts)
             {
-                m_resultMenu.GetComponentInChildren<TMP_Text>().text = "Failed";
+                m_resultText.gameObject.SetActive(true);
+                m_resultMenu.GetComponentInChildren<RTLTextMeshPro>().text = "شروع مجدد";
                 m_restartButton.SetActive(true);
                 m_continueButton.SetActive(false);
                 m_QuitButton.SetActive(true);
@@ -127,7 +128,7 @@ namespace Assets.Scripts
                 m_thirdStar.gameObject.SetActive(true);
             }
 
-            m_resultMenu.GetComponentInChildren<TMP_Text>().text = "Passed";
+            m_resultMenu.GetComponentInChildren<RTLTextMeshPro>().text = "Passed";
             m_restartButton.SetActive(false);
             m_continueButton.SetActive(true);
             m_QuitButton.SetActive(true);
