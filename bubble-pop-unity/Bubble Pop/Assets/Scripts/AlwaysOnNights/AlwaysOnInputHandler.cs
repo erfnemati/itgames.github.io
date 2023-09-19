@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AlwaysOnInputHandler : MonoBehaviour
 {
+    public AudioSource bublepopsound;
     private bool m_isGamePuased = false;
     private bool m_isLevelOver = false;
     // Start is called before the first frame update
@@ -34,11 +35,14 @@ public class AlwaysOnInputHandler : MonoBehaviour
                 if (touchedCollider.CompareTag("AddedValueBubble"))
                 {
                     touchedCollider.GetComponent<AddedValueBubble>().Pop();
+                    bublepopsound.Play();
                 }
 
                 else if (touchedCollider.CompareTag("MoonBubble"))
                 {
                     touchedCollider.GetComponent<MoonBubble>().PopMoon();
+                    bublepopsound.Play();
+
                     //Debug.Log("Moon Poped");
                 }
 

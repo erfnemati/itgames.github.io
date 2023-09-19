@@ -41,6 +41,9 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
 
     public float delay = 3.0f;
 
+    [SerializeField] AudioSource win;
+    //[SerializeField] AudioSource startcall;
+   // [SerializeField] AudioSource soundtrack;
     private void Start()
     {
         if (_instance != null && _instance != this)
@@ -89,6 +92,8 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
 
     private void UpdateRemainingTime()
     {
+       // soundtrack.Play();
+       // startcall.Stop();
         m_remainingTime -= Time.deltaTime;
         
 
@@ -152,6 +157,7 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
 
     public void PopGuidelines()
     {
+       // startcall.Play();
         PopTutorialDialogues();
         InstantiateTutorialStar();
         InstantiateTutorialHand();
@@ -196,6 +202,7 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
 
         //----ch00b1n----
         vfx.SetActive(true);
+        win.Play();
         //----ch00b1n----
 
         DOTween.Init();
