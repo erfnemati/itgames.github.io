@@ -31,7 +31,7 @@ public class ThirdRoamingGameManager : MonoBehaviour
 
 
     //These parameters are for need one more thing part : 
-    [SerializeField] GameObject m_globalVolumeProfile;
+    [SerializeField] GameObject m_blurredBackground;
     [SerializeField] GameObject m_astronutHeadObject;
     [SerializeField] float m_finalScale;
     [SerializeField] Transform m_finalTransfrom;
@@ -164,17 +164,17 @@ public class ThirdRoamingGameManager : MonoBehaviour
     public void ShowUnhappyAstronut()
     {
         var sequence = DOTween.Sequence();
-        m_globalVolumeProfile.SetActive(true);
+        m_blurredBackground.SetActive(true);
         m_astronutHeadObject.SetActive(true);
-        sequence.Append(m_astronutHeadObject.transform.DOScale(m_finalScale, 1f));
+        sequence.Append(m_astronutHeadObject.GetComponent<RectTransform>().DOScale(m_finalScale, 1f));
         sequence.AppendInterval(2f).OnComplete(()=>HideUnhappyAstronutFace());
     }
 
     public async void HideUnhappyAstronutFace()
     {
-        m_astronutHeadObject.transform.DOScale(0, 1f);
-        await m_astronutHeadObject.transform.DOMove(m_finalTransfrom.position, 1f).AsyncWaitForCompletion();
-        m_globalVolumeProfile.gameObject.SetActive(false);
+        m_astronutHeadObject.GetComponent<RectTransform>().DOScale(0, 1f);
+        await m_astronutHeadObject.GetComponent<RectTransform>().DOMove(m_finalTransfrom.position, 1f).AsyncWaitForCompletion();
+        m_blurredBackground.gameObject.SetActive(false);
         m_astronutHeadObject.SetActive(false);
         GenerateRoamingBubble();
     }
