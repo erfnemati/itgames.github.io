@@ -68,6 +68,24 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
         m_uiManager.UpdateSlider(m_remainingTime);
 
     }
+    //timer ch00b1n
+
+    public void Foo()
+    {
+        StartCoroutine(TemporarilyDeactivate(0));
+    }
+
+    private IEnumerator TemporarilyDeactivate(float duration)
+    {
+        showdialogbeforemoonpopup.SetActive(true);
+        yield return new WaitForSeconds(duration);
+        Debug.Log("endtimer");
+        Time.timeScale = 0.0f;
+
+       // showdialogbeforemoonpopup.SetActive(false);
+      //  Time.timeScale = 1.0f;
+    }
+    //timer ch00b1n
 
     private void UpdateRemainingTime()
     {
@@ -78,17 +96,25 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
         {
             //-------ch00b1n-------
             //float delaytimer = 5.0f;
-           
+
             //ui show dialoug poping moon
-            showdialogbeforemoonpopup.SetActive(true);
-
+            //showdialogbeforemoonpopup.SetActive(true);
+            Foo();
             //timer
-           // delaytimer -= Time.deltaTime;
-            showdialogbeforemoonpopup.SetActive(false);
+            // delaytimer -= Time.deltaTime;
+            // showdialogbeforemoonpopup.SetActive(false);
             //-------ch00b1n-------
-
+            //Debug.Log("stop");
             GenerateMoonBubble();
+
         }
+    }
+
+    public void resumgame()
+    {
+        Time.timeScale = 1.0f;
+        showdialogbeforemoonpopup.SetActive(false);
+
     }
 
     public void CheckValue(float addedValue)
