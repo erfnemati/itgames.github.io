@@ -10,7 +10,7 @@ public class MoonBubble : MonoBehaviour
 
     [SerializeField] float m_followingSpeed;
     [SerializeField] float m_finalScale;
-
+    [SerializeField] GameObject vfx;
     
     private void Start()
     {
@@ -36,7 +36,9 @@ public class MoonBubble : MonoBehaviour
         {
             m_isFollowing = false;
             AlwaysOnNigthsGameManager._instance.WinGame();
+
             Destroy(this.gameObject);
+
         }
     }
     public void PopMoon()

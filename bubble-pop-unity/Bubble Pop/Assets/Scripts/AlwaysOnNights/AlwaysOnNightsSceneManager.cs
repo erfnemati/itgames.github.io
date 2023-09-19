@@ -13,6 +13,7 @@ namespace Assets.Scripts
         [SerializeField] GameObject m_resultMenu;
         [SerializeField] GameObject m_losingScreen;
         [SerializeField] GameObject m_winningScreen;
+        [SerializeField] GameObject vfx;
         public void PauseGame()
         {
             Time.timeScale = 0.0f;
@@ -48,6 +49,7 @@ namespace Assets.Scripts
             m_grayScreen.gameObject.SetActive(true);
             m_resultMenu.gameObject.SetActive(true);
             m_winningScreen.gameObject.SetActive(true);
+
         }
 
         public void ShowLosingScreen()

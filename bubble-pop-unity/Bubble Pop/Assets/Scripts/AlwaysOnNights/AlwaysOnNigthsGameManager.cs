@@ -31,10 +31,15 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
     //Parameters for Ui part of game manager : 
     [SerializeField] AlwaysOnNightGameManagerUi m_uiManager;
     [SerializeField] AlwaysOnNightsSceneManager m_sceneManager;
+    [SerializeField] GameObject showdialogbeforemoonpopup;
+
+    [SerializeField] GameObject vfx;
 
     //Parameters for tutorial : 
     private bool m_isTutorialOver = false;
     [SerializeField] GameObject m_tutorialBox;
+
+    public float delay = 3.0f;
 
     private void Start()
     {
@@ -71,6 +76,17 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
 
         if (m_remainingTime <= Mathf.Epsilon)
         {
+            //-------ch00b1n-------
+            //float delaytimer = 5.0f;
+           
+            //ui show dialoug poping moon
+            showdialogbeforemoonpopup.SetActive(true);
+
+            //timer
+           // delaytimer -= Time.deltaTime;
+            showdialogbeforemoonpopup.SetActive(false);
+            //-------ch00b1n-------
+
             GenerateMoonBubble();
         }
     }
@@ -152,6 +168,10 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
         FindObjectOfType<AstronutValueController>().EndLevel();
         //m_spotLight.pointLightOuterRadius = 15;
 
+        //----ch00b1n----
+        vfx.SetActive(true);
+        //----ch00b1n----
+
         DOTween.Init();
         DOTween.To(() => { return m_spotLight.pointLightOuterRadius; }, x => m_spotLight.pointLightOuterRadius = x, 14, 1)
             .OnComplete(()=>EndGame());
@@ -159,8 +179,10 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
 
     private void EndGame()
     {
+        //; ;bn
         m_sceneManager.ShowWinningScreen();
         Time.timeScale = 0.0f;
+
     }
 
     public void PauseGame()
@@ -183,7 +205,7 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
         m_tutorialBox.gameObject.SetActive(false);
         m_tutorialHand.gameObject.SetActive(false);
     }
-
+    
     //public void SetIsMoonGenerated(bool isMoonGenerated)
     //{
     //    m_isMoonGenerated = isMoonGenerated;
