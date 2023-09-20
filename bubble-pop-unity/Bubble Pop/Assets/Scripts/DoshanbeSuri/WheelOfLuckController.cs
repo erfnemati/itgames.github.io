@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WheelOfLuckController : MonoBehaviour
 {
@@ -8,6 +9,12 @@ public class WheelOfLuckController : MonoBehaviour
     [SerializeField] int m_targetGiftIndex;
     [SerializeField] float m_rotationSpeed;
     [SerializeField] List<Gift> m_giftList = new List<Gift>();
+    [SerializeField] List<Button> m_wheelOfLuckButtons = new List<Button>();
+
+    //Parameters for speed caculations : 
+    [SerializeField] float m_initialSpeed;
+    private float m_acceleration;
+    private float m_timeStamp;
 
     private float m_angleForEachGift;
 
@@ -34,19 +41,59 @@ public class WheelOfLuckController : MonoBehaviour
     private void Start()
     {
         m_angleOffset = (CIRCLE / m_numOfGifts) / 2;
-        m_angleForEachGift = CIRCLE / m_numOfGifts;
+        m_angleForEachGift = CIRCLE / m_numOfGifts;  
     }
 
     public void Spin()
     {
+        m_timeStamp += Time.deltaTime;
+        SetRotationSpeed(m_timeStamp);
         float thisFrameRotation = m_rotationSpeed * Time.deltaTime;
         m_passedRotation += thisFrameRotation;
         transform.Rotate(thisFrameRotation * m_rotationVector);
-        if (m_passedRotation - m_amountOfRotation >= Mathf.Epsilon)
+        Debug.Log("Passed rotation is : " + m_passedRotation);
+        if (m_passedRotation - m_amountOfRotation >= -2f)
         {
+            Debug.Log("Time to stop");
             m_isSpinning = false;
             m_passedRotation = 0.0f;
-            GetGift();
+            if(IsGiftTaken())
+            {
+                Invoke(nameof(FinishGame), 2f);
+            }
+            else
+            {
+                Invoke(nameof(Reset), 3f);
+            }
+        }
+    }
+
+    private void InitialiseSpeedFormula()
+    {
+        m_acceleration = (-Mathf.Pow(m_initialSpeed, 2)) / (2 * m_amountOfRotation);
+    }
+
+    private void SetRotationSpeed(float time)
+    {
+        m_rotationSpeed = m_acceleration * time + m_initialSpeed;
+        if (m_rotationSpeed < 0)
+        {
+            m_rotationSpeed = 0;
+        }
+        
+    }
+
+    private void Reset()
+    {
+        transform.eulerAngles = new Vector3(0, 0, 0);
+        ActivateButtons();
+    }
+
+    private void ActivateButtons()
+    {
+        foreach (Button temp in m_wheelOfLuckButtons)
+        {
+            temp.interactable = true;
         }
     }
 
@@ -87,59 +134,38 @@ public class WheelOfLuckController : MonoBehaviour
 
 
         m_amountOfRotation = (int)angleBackOffset + (int)(numOfCircles * CIRCLE);
-        Debug.Log(m_amountOfRotation);
+        InitialiseSpeedFormula();
+        m_timeStamp = 0.0f;
         m_isSpinning = true;
+        
     }
 
-    public void SpinLevelOne()
+    public void DeactivateButtons()
     {
-        int numOfCircles = Random.Range(1, 4);
-        float angleBackOffset = (m_targetGiftIndex * m_angleForEachGift) - 180f;
-        if (angleBackOffset < Mathf.Epsilon)
+        foreach(Button temp in m_wheelOfLuckButtons)
         {
-            angleBackOffset += 360f;
+            temp.interactable = false;
         }
-
-        if (angleBackOffset % m_angleForEachGift == 0)
-        {
-            angleBackOffset += m_angleOffset;
-        }
-
-
-        m_amountOfRotation = (int)angleBackOffset + (int)(numOfCircles * CIRCLE);
-        Debug.Log(m_amountOfRotation);
-        m_isSpinning = true;
     }
 
-    private void StartSpin()
-    {
-        m_passedRotation = 0.0f;
-        m_amountOfRotation =  Random.Range(500, 1000);
-        int tempRemainder = (m_amountOfRotation % 360) % m_numOfGifts;
-        if (tempRemainder == 0)
-        {
-            m_amountOfRotation += (int)m_angleOffset;
-        }
-
-        Debug.Log(m_amountOfRotation);
-        m_isSpinning = true;
-
-    }
-
-    private void GetGift()
+    private bool IsGiftTaken()
     {
         float remainderOfCircle = m_amountOfRotation % CIRCLE;
         int giftIndex = (int)remainderOfCircle / (int)m_angleForEachGift;
-        Debug.Log("Index of gift list is : " + giftIndex);
+        
         if(giftIndex == m_targetGiftIndex)
         {
-            Debug.Log(m_giftList[giftIndex].GetGift());
-            
+            return true;
         }
         else
         {
-            Debug.Log("Try again");
+            return false;
         }
+    }
+
+    private void FinishGame()
+    {
+        DoshanbeSuriGameManager._instance.FinishGame();
     }
 
     public void SetIsGamePaused(bool pauseState)
