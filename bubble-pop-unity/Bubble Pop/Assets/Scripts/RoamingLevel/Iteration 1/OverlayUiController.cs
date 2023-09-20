@@ -57,8 +57,8 @@ public class OverlayUiController : MonoBehaviour
     public void LoadNextLevel()
     {
         int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextLevelIndex = (currentLevelIndex + 1) % SceneManager.sceneCount;
-
+        int nextLevelIndex = (currentLevelIndex + 1) % SceneManager.sceneCountInBuildSettings;
+       
         SceneManager.LoadScene(nextLevelIndex);
     }
 
