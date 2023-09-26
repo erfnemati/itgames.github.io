@@ -70,7 +70,7 @@ namespace Assets.Scripts
         public void UpdateRecievedHearts()
         {
             m_goal.SetActive(true);
-            m_goalText.text = LevelManager.m_instance.GetRecievedHearts() + "/" + $"{m_oneStarHearts}";
+            m_goalText.text = $"{m_oneStarHearts}" + " / " + LevelManager.m_instance.GetRecievedHearts();
 
         }
 

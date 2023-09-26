@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using RTLTMPro;
 
 namespace Assets.Scripts
 {
@@ -17,7 +18,7 @@ namespace Assets.Scripts
         [SerializeField] Sprite m_callTimeIcon;
         [SerializeField] Sprite m_messageIcon;
 
-        [SerializeField] TMP_Text m_text;
+        [SerializeField] RTLTextMeshPro m_text;
         [SerializeField] Image m_bubbleIcon;
         [SerializeField] RectTransform m_rectTransform;
 
@@ -28,7 +29,7 @@ namespace Assets.Scripts
         void Awake()
         {
           
-            m_text = GetComponentInChildren<TMP_Text>();
+            //m_text = GetComponentInChildren<TMP_Text>();
             m_content = new PackageContent();
             SetInitialPos();
             SetSize();

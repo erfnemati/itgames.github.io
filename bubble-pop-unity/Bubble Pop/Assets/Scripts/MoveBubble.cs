@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MoveBubble : MonoBehaviour
 {
-
-   
     private bool m_isDirectionChosen = false;
     private Vector2 m_flowingDirection = Vector2.zero;
     private Vector3 m_initialPos;
@@ -13,8 +11,7 @@ public class MoveBubble : MonoBehaviour
     [SerializeField] float m_flowingSpeed = 0.5f;
     [SerializeField] float m_distance = 2f;
 
-
-    private void Start()
+    private void Awake()
     {
         SetInitialPos();
     }
@@ -92,14 +89,19 @@ public class MoveBubble : MonoBehaviour
         }
     }
 
-    public void SetInitialPos()
+    private void SetInitialPos()
     {
-        m_initialPos = transform.position;
+        m_initialPos = new Vector3(transform.position.x,transform.position.y,transform.position.z);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         m_movingState = BubbleMovingState.GettingBack;
+    }
+
+    public void GoBackToInitialPos()
+    {
+        transform.position = m_initialPos;
     }
 
     enum BubbleMovingState

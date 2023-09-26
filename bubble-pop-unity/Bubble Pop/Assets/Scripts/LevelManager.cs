@@ -71,6 +71,7 @@ namespace Assets.Scripts
 
         private void InstantiateNewCustomer()
         {
+            
             RequestManager.m_instance.RefreshLists();
             if (m_customer != null)
             {
@@ -167,9 +168,11 @@ namespace Assets.Scripts
         private void GenerateBubbles(int numberOfBubbles)
         {
             m_numOfActiveBubbles += numberOfBubbles;
+        
             for(int i = numberOfBubbles - 1; i >= 0; i--)
             {
                 GameObject instantiatedOne = Instantiate(m_bubblePrefab, vacantTransforms.Dequeue(), Quaternion.identity);
+                
                 m_generatedBubbles.Add(instantiatedOne.transform);
 
                 CashBubbleInfo(instantiatedOne);
@@ -182,8 +185,17 @@ namespace Assets.Scripts
         {
             for (int i = 0; i < m_numOfActiveBubbles; i++)
             {
-                m_generatedBubbles[i].transform.position = m_bubbleTransfroms[i].position;
-                //m_generatedBubbles[i].GetComponent<MoveBubble>().SetInitialPos();
+                //m_generatedBubbles[i].transform.position = m_bubbleTransfroms[i].position;
+
+                if (m_generatedBubbles[i].GetComponent<MoveBubble>() != null)
+                {
+                    m_generatedBubbles[i].GetComponent<MoveBubble>().GoBackToInitialPos();
+                }
+                else if(m_generatedBubbles[i].GetComponent<ScalableBubble>() != null)
+                {
+                    m_generatedBubbles[i].GetComponent<ScalableBubble>().SetInitialScale();
+                }
+               
             }
             
         }
@@ -251,7 +263,7 @@ namespace Assets.Scripts
         {
             int currentLevel = SceneManager.GetActiveScene().buildIndex;
             Time.timeScale = 1.0f;
-            Debug.Log("restarting");
+            
             SceneManager.LoadScene(currentLevel);
         }
 

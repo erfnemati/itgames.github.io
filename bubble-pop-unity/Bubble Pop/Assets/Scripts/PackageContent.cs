@@ -66,7 +66,7 @@ namespace Assets.Scripts
             }
             else
             {
-                dataText = m_data.GetData() + "\nG";
+                dataText = m_data.GetData() + " گیگ";
             }
             
             if (m_callTime == null)
@@ -75,7 +75,7 @@ namespace Assets.Scripts
             }
             else
             {
-                callTimeText = m_callTime.GetCallTime() + "\nMin";
+                callTimeText = m_callTime.GetCallTime() + " دقیقه";
             }
             
             if (m_messages == null)
@@ -84,7 +84,7 @@ namespace Assets.Scripts
             }
             else
             {
-                messagesCount = m_messages.GetMessageCount() + "\nSMS";
+                messagesCount = m_messages.GetMessageCount() + " پیامک";
             }
            
             packageContent = dataText + callTimeText + messagesCount;

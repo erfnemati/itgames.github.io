@@ -1,10 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scripts;
 using TMPro;
 using DG.Tweening;
+using RTLTMPro;
 
 //This script is for picture of customer.
 public class CustomerUiManager : MonoBehaviour
@@ -22,15 +23,15 @@ public class CustomerUiManager : MonoBehaviour
 
     //Ui parameters : 
     [SerializeField] GameObject m_firstDialogueBox;
-    [SerializeField] TMP_Text m_firstDialogueBoxText;
+    [SerializeField] RTLTextMeshPro m_firstDialogueBoxText;
     [SerializeField] Image m_firstDialogueBoxImage;
 
     [SerializeField] GameObject m_secDialogueBox;
-    [SerializeField] TMP_Text m_secDialogueBoxText;
+    [SerializeField] RTLTextMeshPro m_secDialogueBoxText;
     [SerializeField] Image m_secDialogueBoxImage;
 
     [SerializeField] GameObject m_thirdDialogueBox;
-    [SerializeField] TMP_Text m_thirdDialogueBoxText;
+    [SerializeField] RTLTextMeshPro m_thirdDialogueBoxText;
     [SerializeField] Image m_thirdDialogueBoxImage;
 
     [SerializeField] Sprite m_dataIcon;
@@ -91,7 +92,7 @@ public class CustomerUiManager : MonoBehaviour
         {
 
             m_firstDialogueBox.SetActive(true);
-            m_firstDialogueBoxText.text = customerRequest.GetRequestData().GetData() + "\nG";
+            m_firstDialogueBoxText.text = customerRequest.GetRequestData().GetData() + " گیگ";
             m_firstDialogueBoxImage.sprite = m_dataIcon;
             numberOfContentTypes++;
         }
@@ -102,14 +103,14 @@ public class CustomerUiManager : MonoBehaviour
             if (numberOfContentTypes == 1)
             {
                 m_firstDialogueBox.SetActive(true);
-                m_firstDialogueBoxText.text = customerRequest.GetRequestCallTime().GetCallTime() + "\nMin";
+                m_firstDialogueBoxText.text = customerRequest.GetRequestCallTime().GetCallTime() + " دقیقه";
                 m_firstDialogueBoxImage.GetComponent<RectTransform>().sizeDelta = new Vector2(0.6f, 0.6f);
                 m_firstDialogueBoxImage.sprite = m_callTimeIcon;
             }
             else if (numberOfContentTypes == 2)
             {
                 m_secDialogueBox.SetActive(true);
-                m_secDialogueBoxText.text = customerRequest.GetRequestCallTime().GetCallTime() + "\nMin";
+                m_secDialogueBoxText.text = customerRequest.GetRequestCallTime().GetCallTime() + " دقیقه";
                 m_secDialogueBoxImage.GetComponent<RectTransform>().sizeDelta = new Vector2(0.6f, 0.6f);
                 m_secDialogueBoxImage.sprite = m_callTimeIcon;
             }
@@ -121,14 +122,14 @@ public class CustomerUiManager : MonoBehaviour
             if (numberOfContentTypes == 1)
             {
                 m_firstDialogueBox.SetActive(true);
-                m_firstDialogueBoxText.text = customerRequest.GetRequestMessage().GetMessageCount() + "\nSMS";
+                m_firstDialogueBoxText.text = customerRequest.GetRequestMessage().GetMessageCount() + " پیامک";
                 m_firstDialogueBoxImage.GetComponent<RectTransform>().sizeDelta = new Vector2(0.8f, 0.6f);
                 m_firstDialogueBoxImage.sprite = m_messageIcon;
             }
             else if (numberOfContentTypes == 2)
             {
                 m_secDialogueBox.SetActive(true);
-                m_secDialogueBoxText.text = customerRequest.GetRequestMessage().GetMessageCount() + "\nSMS";
+                m_secDialogueBoxText.text = customerRequest.GetRequestMessage().GetMessageCount() + " پیامک";
                 m_secDialogueBoxImage.GetComponent<RectTransform>().sizeDelta = new Vector2(0.8f, 0.6f);
                 m_secDialogueBoxImage.sprite = m_messageIcon;
             }
@@ -136,7 +137,7 @@ public class CustomerUiManager : MonoBehaviour
             else if (numberOfContentTypes == 3)
             {
                 m_thirdDialogueBox.SetActive(true);
-                m_thirdDialogueBoxText.text = customerRequest.GetRequestMessage().GetMessageCount() + "\nSMS";
+                m_thirdDialogueBoxText.text = customerRequest.GetRequestMessage().GetMessageCount() + " پیامک";
                 m_thirdDialogueBoxImage.GetComponent<RectTransform>().sizeDelta = new Vector2(0.8f, 0.6f);
                 m_thirdDialogueBoxImage.sprite = m_messageIcon;
 
