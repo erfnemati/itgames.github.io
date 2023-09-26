@@ -41,10 +41,10 @@ public class MenuController : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        Time.timeScale = 1.0f;
-        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextLevelIndex = (currentLevelIndex + 1) % SceneManager.sceneCountInBuildSettings;
-        SceneManager.LoadScene(nextLevelIndex);
+       // Time.timeScale = 1.0f;
+       // int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+      //  int nextLevelIndex = (currentLevelIndex + 1) % SceneManager.sceneCountInBuildSettings;
+       // SceneManager.LoadScene(nextLevelIndex);
     }
 
 }

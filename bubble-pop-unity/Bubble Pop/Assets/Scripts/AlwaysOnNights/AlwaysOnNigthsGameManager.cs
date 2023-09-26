@@ -32,6 +32,7 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
     [SerializeField] AlwaysOnNightGameManagerUi m_uiManager;
     [SerializeField] AlwaysOnNightsSceneManager m_sceneManager;
     [SerializeField] GameObject showdialogbeforemoonpopup;
+    [SerializeField] GameObject endchatpop;
 
     [SerializeField] GameObject vfx;
 
@@ -42,7 +43,7 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
     public float delay = 3.0f;
 
     [SerializeField] AudioSource win;
-    //[SerializeField] AudioSource startcall;
+    [SerializeField] AudioSource startcall;
    // [SerializeField] AudioSource soundtrack;
     private void Start()
     {
@@ -157,7 +158,7 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
 
     public void PopGuidelines()
     {
-       // startcall.Play();
+        startcall.Play();
         PopTutorialDialogues();
         InstantiateTutorialStar();
         InstantiateTutorialHand();
@@ -196,6 +197,9 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
 
     public void WinGame()
     {
+        endchatpop.SetActive(true);
+      //  Time.timeScale = 0.0f;
+
         m_inputHandler.FinishGame();
         FindObjectOfType<AstronutValueController>().EndLevel();
         //m_spotLight.pointLightOuterRadius = 15;
@@ -204,15 +208,22 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
         vfx.SetActive(true);
         win.Play();
         //----ch00b1n----
-
         DOTween.Init();
         DOTween.To(() => { return m_spotLight.pointLightOuterRadius; }, x => m_spotLight.pointLightOuterRadius = x, 14, 1)
-            .OnComplete(()=>EndGame());
-    }
+            .OnComplete(() => EndGame());
 
+    }
+   
+    public void resforendchatpop()
+    {
+      //  Time.timeScale = 1.0f;
+       // endchatpop.SetActive(false);
+    }
     private void EndGame()
     {
         //; ;bn
+      
+
         m_sceneManager.ShowWinningScreen();
         Time.timeScale = 0.0f;
 
