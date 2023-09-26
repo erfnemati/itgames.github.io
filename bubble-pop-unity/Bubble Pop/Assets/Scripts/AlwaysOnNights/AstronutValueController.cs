@@ -17,6 +17,7 @@ public class AstronutValueController : MonoBehaviour
 
     private AstronutUiController m_astronutUiController;
 
+    public AudioSource addstar;
 
     private void Start()
     {
@@ -67,6 +68,7 @@ public class AstronutValueController : MonoBehaviour
 
     public void IncreaseDrainRate()
     {
+        addstar.Play();
         m_drainValue += m_drainValueChange;
         if (m_drainValue >= m_maxDrainValue)
         {

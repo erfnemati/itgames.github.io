@@ -48,6 +48,7 @@ namespace Assets.Scripts
             m_grayScreen.gameObject.SetActive(true);
             m_resultMenu.gameObject.SetActive(true);
             m_winningScreen.gameObject.SetActive(true);
+
         }
 
         public void ShowLosingScreen()
