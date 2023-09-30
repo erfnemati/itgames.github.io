@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject m_restartPanel;
     [SerializeField] GameObject m_middleStar;
     [SerializeField] GameObject RewardPanel;
+    [SerializeField] GameObject anarwinvfx;
     public static LevelManager m_instance;
     public AudioSource catchscore, win;
 
@@ -71,6 +72,7 @@ public class LevelManager : MonoBehaviour
 
     public void PassLevel()
     {
+        anarwinvfx.SetActive(true);
         win.Play();
         Time.timeScale = 0f;
         m_grayScreen.SetActive(true);

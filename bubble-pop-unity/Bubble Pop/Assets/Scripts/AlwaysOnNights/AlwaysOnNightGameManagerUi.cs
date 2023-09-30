@@ -9,15 +9,23 @@ public class AlwaysOnNightGameManagerUi : MonoBehaviour
 {
     //[SerializeField] Slider m_passedTimeSlider;
     [SerializeField] RTLTextMeshPro m_remainingTime;
-
-
+   // [SerializeField] Image timebar;
+   // float maxtimeleft;
+    private void Start()
+    {
+    //    timebar = GetComponent<Image>();
+       
+    }
+   
     public void InitialiseSlider(float maxValue)
     {
+      //  maxtimeleft = maxValue;
         m_remainingTime.text = (int)maxValue + "";
     }
 
     public void UpdateSlider(float value)
     {
-        m_remainingTime.text = (int)value + "";
+      //  timebar.fillAmount = value / maxtimeleft;
+       // m_remainingTime.text = (int)value + "";
     }
 }
