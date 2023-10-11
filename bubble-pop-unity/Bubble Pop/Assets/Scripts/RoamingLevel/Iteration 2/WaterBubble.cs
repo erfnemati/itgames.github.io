@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public class WaterBubble : MonoBehaviour
 {
+    [SerializeField] AudioClip m_collideWithBubbleSound;
+
 
     private void Start()
     {
@@ -23,6 +25,7 @@ public class WaterBubble : MonoBehaviour
         else if (collision.gameObject.CompareTag("ShuttlePart"))
         {
             RoamingInputHandler._instance.SetIsDragging(false);
+            RoamingSoundEffectManager._instance.PlaySound(m_collideWithBubbleSound);
             FindObjectOfType<ThirdRoamingGameManager>().RestartState();
             Destroy(collision.gameObject);
             Destroy(this.gameObject);

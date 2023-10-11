@@ -26,6 +26,11 @@ TagManager:
   - MoonBubble
   - Astronut
   - TutorialAddedValueBubble
+  - Lever
+  - LevelOneButton
+  - LevelTwoButton
+  - LevelThreeButton
+  - LevelFourButton
   layers:
   - Default
   - TransparentFX

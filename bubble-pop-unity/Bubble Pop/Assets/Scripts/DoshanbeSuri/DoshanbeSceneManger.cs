@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts;
+using UnityEngine.SceneManagement;
 
 public class DoshanbeSceneManger : MonoBehaviour,TheSceneManager
 {
@@ -21,5 +22,11 @@ public class DoshanbeSceneManger : MonoBehaviour,TheSceneManager
     {
         Time.timeScale = 1.0f;
         m_wheelOfLuck.SetIsGamePaused(false);
+    }
+
+    public void LoadNextLevel()
+    {
+        int nextLevel = (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings;
+        SceneManager.LoadScene(nextLevel);
     }
 }

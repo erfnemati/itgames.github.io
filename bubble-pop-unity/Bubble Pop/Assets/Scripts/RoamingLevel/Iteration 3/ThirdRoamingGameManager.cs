@@ -36,6 +36,9 @@ public class ThirdRoamingGameManager : MonoBehaviour
     [SerializeField] float m_finalScale;
     [SerializeField] Transform m_finalTransfrom;
 
+    [SerializeField] GameObject m_winningVfx;
+    [SerializeField] AudioSource m_backgroundMusic;
+
     
 
 
@@ -178,10 +181,19 @@ public class ThirdRoamingGameManager : MonoBehaviour
         m_astronutHeadObject.SetActive(false);
         GenerateRoamingBubble();
     }
+
+    public void ActivateWiningVfx()
+    {
+        m_winningVfx.gameObject.SetActive(true);
+        Invoke(nameof(ShowResultMenu), 1.5f);
+    }
     public void ShowResultMenu()
     {
         OverlayUiController._instance.ShowResultMenu();
+        m_backgroundMusic.DOFade(0f, 1f);
     }
+
+    
 
 
 

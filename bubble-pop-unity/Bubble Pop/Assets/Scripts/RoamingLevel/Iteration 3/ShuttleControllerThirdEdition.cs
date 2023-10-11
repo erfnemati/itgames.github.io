@@ -19,6 +19,9 @@ public class ShuttleControllerThirdEdition : MonoBehaviour
     [SerializeField] float m_finalScale;
 
     [SerializeField] GameObject m_shuttleBasis;
+    [SerializeField] AudioSource m_shuttleAudioSource;
+    [SerializeField] AudioClip m_gotShuttlePartSound;
+    [SerializeField] AudioClip m_gotRoamingBubbleSound;
 
     //Without roaming : 
     private Vector3 m_initialPos;
@@ -56,6 +59,8 @@ public class ShuttleControllerThirdEdition : MonoBehaviour
     {
         if (other.gameObject.CompareTag("ShuttlePart"))
         {
+            m_shuttleAudioSource.clip = m_gotShuttlePartSound;
+            m_shuttleAudioSource.Play();
             RoamingInputHandler._instance.SetIsDragging(false);
             Destroy(other.gameObject);
             GetShuttlePart();
@@ -69,6 +74,8 @@ public class ShuttleControllerThirdEdition : MonoBehaviour
 
         if (other.gameObject.CompareTag("RoamingBubble"))
         {
+            m_shuttleAudioSource.clip = m_gotRoamingBubbleSound;
+            m_shuttleAudioSource.Play();
             Destroy(other.gameObject);
             m_spriteRenderer.sprite = m_finalRoamingSprite;
             m_shuttleSlider.DOValue(m_shuttleSlider.maxValue, 0.5f).OnComplete(()=>Invoke(nameof(RemoveShuttleSlider),0.5f));
@@ -121,7 +128,7 @@ public class ShuttleControllerThirdEdition : MonoBehaviour
         m_engineFire.SetActive(true);
         transform.DOPath(m_waypoints, m_translationCycleTime, PathType.CatmullRom, PathMode.TopDown2D, 5, Color.red);
         transform.DORotate(new Vector3(0, 0, 50), m_translationCycleTime * 2);
-        transform.DOScale(m_finalScale, m_translationCycleTime).OnComplete(()=>ThirdRoamingGameManager._instance.ShowResultMenu());
+        transform.DOScale(m_finalScale, m_translationCycleTime).OnComplete(()=>ThirdRoamingGameManager._instance.ActivateWiningVfx());
         Destroy(m_shuttleSlider, 1f);
     }
 

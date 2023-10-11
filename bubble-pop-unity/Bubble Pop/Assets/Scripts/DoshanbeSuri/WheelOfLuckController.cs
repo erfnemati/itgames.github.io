@@ -8,6 +8,7 @@ public class WheelOfLuckController : MonoBehaviour
     [SerializeField] int m_numOfGifts;
     [SerializeField] int m_targetGiftIndex;
     [SerializeField] float m_rotationSpeed;
+    [SerializeField] LeverHandleController m_leverController;
     [SerializeField] List<Gift> m_giftList = new List<Gift>();
     [SerializeField] List<Button> m_wheelOfLuckButtons = new List<Button>();
 
@@ -26,6 +27,10 @@ public class WheelOfLuckController : MonoBehaviour
     private float m_passedRotation = 0.0f;
     private float m_angleOffset;
     private Vector3 m_rotationVector = Vector3.forward;
+    private int m_targetIndex;
+    private int m_numOfTries = 0;
+
+    [SerializeField] AudioSource m_wheelOfLuckAudioSource;
 
     private void Update()
     {
@@ -40,6 +45,8 @@ public class WheelOfLuckController : MonoBehaviour
 
     private void Start()
     {
+        m_targetIndex = Random.Range(1, 5);
+        Debug.Log("Target index is : " + m_targetIndex);
         m_angleOffset = (CIRCLE / m_numOfGifts) / 2;
         m_angleForEachGift = CIRCLE / m_numOfGifts;  
     }
@@ -51,10 +58,10 @@ public class WheelOfLuckController : MonoBehaviour
         float thisFrameRotation = m_rotationSpeed * Time.deltaTime;
         m_passedRotation += thisFrameRotation;
         transform.Rotate(thisFrameRotation * m_rotationVector);
-        Debug.Log("Passed rotation is : " + m_passedRotation);
+        
         if (m_passedRotation - m_amountOfRotation >= -2f)
         {
-            Debug.Log("Time to stop");
+            
             m_isSpinning = false;
             m_passedRotation = 0.0f;
             if(IsGiftTaken())
@@ -85,7 +92,8 @@ public class WheelOfLuckController : MonoBehaviour
 
     private void Reset()
     {
-        transform.eulerAngles = new Vector3(0, 0, 0);
+        m_leverController.ResetLever();
+        transform.eulerAngles = new Vector3(0, 0, 12.5f);
         ActivateButtons();
     }
 
@@ -96,13 +104,23 @@ public class WheelOfLuckController : MonoBehaviour
             temp.interactable = true;
         }
     }
+    private void PlaySpinSound()
+    {
+        m_wheelOfLuckAudioSource.Play();
+    }
 
     public void Spin(int level =1)
     {
+
         int numOfCircles = Random.Range(1, 4);
         float delta = 0.0f;
+
+        if (level == m_targetIndex)
+        {
+            delta = 0;
+        }
         
-        if (level == 1)
+        else if (level == 1)
         {
             delta = -180;
 
@@ -113,18 +131,24 @@ public class WheelOfLuckController : MonoBehaviour
         }
         else if (level == 3)
         {
-            delta = 0;
+            delta = 180;
         }
         else
         {
             delta = 90;
         }
 
+        if (m_numOfTries >= 2)
+        {
+            delta = 0;
+        }
+        m_numOfTries++;
+
         float angleBackOffset = (m_targetGiftIndex * m_angleForEachGift) + delta;
 
         if (angleBackOffset < Mathf.Epsilon)
         {
-            angleBackOffset += 360f;
+            angleBackOffset += m_angleOffset + 360f;
         }
 
         if (angleBackOffset % m_angleForEachGift == 0)
@@ -137,6 +161,7 @@ public class WheelOfLuckController : MonoBehaviour
         InitialiseSpeedFormula();
         m_timeStamp = 0.0f;
         m_isSpinning = true;
+        PlaySpinSound();
         
     }
 
