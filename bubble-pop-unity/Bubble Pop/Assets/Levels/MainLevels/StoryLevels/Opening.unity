@@ -548,7 +548,9 @@ MonoBehaviour:
   roban1: {fileID: 661412885}
   roban2: {fileID: 1524234649}
   openingvfx: {fileID: 468966695}
+  blockedpanel: {fileID: 1820254412}
   overlay: {fileID: 1567742135}
+  dialb: {fileID: 1540645003}
   openingdone: {fileID: 136112731}
 --- !u!82 &136112731
 AudioSource:
@@ -1524,6 +1526,10 @@ PrefabInstance:
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8275133205702775519, guid: f0c0d7722b05dba4d8af67d0abb166a6, type: 3}
+      propertyPath: useUnscaledTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0c0d7722b05dba4d8af67d0abb166a6, type: 3}
 --- !u!1 &1820254412
@@ -1543,7 +1549,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1820254413
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1577,7 +1583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18867922, g: 0.14311141, b: 0.14311141, a: 0.5882353}
+  m_Color: {r: 0.18867922, g: 0.14311141, b: 0.14311141, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
