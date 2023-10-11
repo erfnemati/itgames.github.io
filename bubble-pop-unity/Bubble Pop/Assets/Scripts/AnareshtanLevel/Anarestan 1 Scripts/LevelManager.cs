@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject m_restartPanel;
     [SerializeField] GameObject m_middleStar;
     [SerializeField] GameObject RewardPanel;
+    [SerializeField] GameObject anarwinvfx;
     public static LevelManager m_instance;
     public AudioSource catchscore, win;
 
@@ -37,7 +38,7 @@ public class LevelManager : MonoBehaviour
 
     private void UpdateGoalUi()
     {
-        goalText.text = m_numOfAchievedAnars + "/" + m_numOfGoalAnars;
+        goalText.text = m_numOfGoalAnars + "/" + m_numOfAchievedAnars;
     }
 
     public void IncreaseAchievedAnar()
@@ -61,7 +62,7 @@ public class LevelManager : MonoBehaviour
     }
     public void EndAnarGeneration()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 0.0f;
         m_grayScreen.SetActive(true);
         m_resultMenu.SetActive(true);
         RewardPanel.SetActive(false);
@@ -71,8 +72,9 @@ public class LevelManager : MonoBehaviour
 
     public void PassLevel()
     {
+        Time.timeScale = 0.0f;
+        anarwinvfx.SetActive(true);
         win.Play();
-        Time.timeScale = 0f;
         m_grayScreen.SetActive(true);
         m_resultMenu.SetActive(true);
         m_continueButton.SetActive(true);
@@ -106,7 +108,7 @@ public class LevelManager : MonoBehaviour
 
     public void FailLevel()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 0.0f;
         m_grayScreen.SetActive(true);
         m_resultMenu.SetActive(true);
         m_continueButton.SetActive(false);

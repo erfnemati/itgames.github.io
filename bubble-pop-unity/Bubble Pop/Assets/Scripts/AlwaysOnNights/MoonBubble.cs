@@ -10,21 +10,30 @@ public class MoonBubble : MonoBehaviour
 
     [SerializeField] float m_followingSpeed;
     [SerializeField] float m_finalScale;
+    [SerializeField] float m_freq=5f;
+    [SerializeField] float magn=0.4f;
     [SerializeField] GameObject vfx;
-    
+
+    Vector3 pos, localscale;
     private void Start()
     {
+        pos = transform.position;
+        localscale = transform.localScale;
         transform.localScale = Vector3.zero;
         transform.DOScale(m_finalScale, 0.5f);
         m_astronutMovementController = FindObjectOfType<AstronutAutoMovement>();
     }
-
     private void Update()
     {
+        if (!m_isFollowing)
+            transform.position = pos + transform.up * Mathf.Sin(Time.time * m_freq) * magn;
+
         if (m_isFollowing)
         {
             FollowAstronut();
         }
+       // localscale *= -1;
+       // transform.localScale = localscale;
     }
 
     private void FollowAstronut()

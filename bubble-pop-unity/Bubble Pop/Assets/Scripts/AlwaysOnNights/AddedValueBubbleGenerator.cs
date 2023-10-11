@@ -50,7 +50,7 @@ public class AddedValueBubbleGenerator : MonoBehaviour
     {
         GameObject tempGameObject = null;
         int numberOfToBegeneratedBubbles = Random.Range(1, 4);
-
+        
         for(int i = 0; i < numberOfToBegeneratedBubbles;i++)
         {
             int randomKey = m_savedIndecies.Keys.ElementAt( Random.Range(0, m_savedIndecies.Keys.Count));
