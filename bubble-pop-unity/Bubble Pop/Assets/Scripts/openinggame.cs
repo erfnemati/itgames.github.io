@@ -42,7 +42,7 @@ public class openinggame : MonoBehaviour
         roban2.SetActive(false);
         openingvfx.SetActive(true);
        // dialougept2.SetActive(true);
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Anarestan");
 
     }
     public void nextlevel()
