@@ -36,7 +36,7 @@ public class AddedValueBubble : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("LevelBoundry"))
+        if(collision.gameObject.CompareTag("LevelBoundry1"))
         {
             AddedValueBubbleGenerator._instance.ReduceNumberOfActiveValueBubbles();
             Destroy(this.gameObject);

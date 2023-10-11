@@ -37,6 +37,7 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
     [SerializeField] GameObject showdialogbeforemoonpopup;
     [SerializeField] GameObject overlay;
     [SerializeField] GameObject endchatpop;
+    [SerializeField] GameObject poperhead;
 
     [SerializeField] GameObject vfx;
 
@@ -50,7 +51,10 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
     [SerializeField] AudioSource win;
     [SerializeField] AudioSource startcall;
     [SerializeField] AudioSource soundthem;
-   // [SerializeField] AudioSource soundtrack;
+    // [SerializeField] AudioSource soundtrack;
+
+    public bool setfalse;
+
     private void Start()
     {
         maxtimeav = m_remainingTime;
@@ -77,7 +81,7 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
 
         UpdateRemainingTime();
         m_uiManager.UpdateSlider(m_remainingTime);
-
+        
     }
     //timer ch00b1n
 
@@ -88,11 +92,14 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
 
     private IEnumerator TemporarilyDeactivate(float duration)
     {
-        overlay.SetActive(true);
-        showdialogbeforemoonpopup.SetActive(true);
+      
+        //Time.timeScale = 1.0f;
         yield return new WaitForSeconds(duration);
+        //overlay.SetActive(false);
+       // showdialogbeforemoonpopup.SetActive(false);
+
         Debug.Log("endtimer");
-        Time.timeScale = 0.0f;
+     //   Time.timeScale = 1.0f;
 
        // showdialogbeforemoonpopup.SetActive(false);
       //  Time.timeScale = 1.0f;
@@ -104,7 +111,7 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
        // soundtrack.Play();
        // startcall.Stop();
         m_remainingTime -= Time.deltaTime;
-        timebar.fillAmount = m_remainingTime / maxtimeav;
+        timebar.fillAmount = 1 - (m_remainingTime / maxtimeav);
         
         if (m_remainingTime <= Mathf.Epsilon)
         {
@@ -113,7 +120,33 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
 
             //ui show dialoug poping moon
             //showdialogbeforemoonpopup.SetActive(true);
-            Foo();
+            // Foo();
+         //   overlay.SetActive(true);
+            showdialogbeforemoonpopup.SetActive(true);
+            timebar.enabled = false;
+            Time.timeScale = 0.0f;
+
+            // 
+            //if ()
+            {
+                //Time.timeScale = 1.0f;
+                //overlay.SetActive(false);
+                //showdialogbeforemoonpopup.SetActive(false);
+            }
+            //else
+            //{
+               
+            //}
+
+
+            //Foo();
+            //else
+            //{
+            //    overlay.SetActive(false);
+            //    showdialogbeforemoonpopup.SetActive(false);
+            //    Time.timeScale = 1.0f;
+
+            //}
             //timer
             // delaytimer -= Time.deltaTime;
             // showdialogbeforemoonpopup.SetActive(false);
@@ -199,6 +232,7 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
 
     private void LoseGame()
     {
+        soundthem.Stop();
         m_inputHandler.FinishGame();
         m_sceneManager.ShowLosingScreen();
         FindObjectOfType<AstronutValueController>().EndLevel();
@@ -242,11 +276,13 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
 
     public void PauseGame()
     {
+        soundthem.Stop();
         m_inputHandler.SetGamePauseState(true);
     }
 
     public void ResumeGame()
     {
+        soundthem.Play();
         m_inputHandler.SetGamePauseState(false);
     }
 

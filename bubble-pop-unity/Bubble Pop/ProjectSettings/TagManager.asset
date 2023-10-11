@@ -26,6 +26,7 @@ TagManager:
   - MoonBubble
   - Astronut
   - TutorialAddedValueBubble
+  - LevelBoundry1
   layers:
   - Default
   - TransparentFX
