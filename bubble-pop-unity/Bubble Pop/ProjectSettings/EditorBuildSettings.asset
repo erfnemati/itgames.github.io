@@ -36,9 +36,9 @@ EditorBuildSettings:
     path: Assets/Levels/MainLevels/GameplayLevels/Level 6.unity
     guid: fed0e9ed839d31d47876f85e93bcc63a
   - enabled: 1
-    path: Assets/Levels/MainLevels/StoryLevels/Anarestan.unity
-    guid: 02b88197a8551fe42a97473ebc169ef6
-  - enabled: 1
     path: Assets/Levels/MainLevels/StoryLevels/AlwaysOnNights.unity
     guid: 72994fde7fc343d4597d4143b3534b6b
+  - enabled: 1
+    path: Assets/Levels/MainLevels/StoryLevels/Anarestan.unity
+    guid: 02b88197a8551fe42a97473ebc169ef6
   m_configObjects: {}
