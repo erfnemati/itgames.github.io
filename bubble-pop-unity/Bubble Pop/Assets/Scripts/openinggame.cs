@@ -8,12 +8,16 @@ public class openinggame : MonoBehaviour
     [SerializeField] GameObject roban1;
     [SerializeField] GameObject roban2;
     [SerializeField] GameObject openingvfx;
-    // [SerializeField] GameObject dialougept1;
+    [SerializeField] GameObject btn;
     //[SerializeField] GameObject dialougept2;
     [SerializeField] GameObject blockedpanel;
     [SerializeField] GameObject overlay;
     [SerializeField] GameObject dialb;
+    [SerializeField] GameObject syaremanlogo;
+    [SerializeField] AudioSource popbtnsound;
+    [SerializeField] AudioSource levelsound;
     [SerializeField] AudioSource openingdone;
+    [SerializeField] AudioSource showlogo;
     
     // Start is called before the first frame update
     void Start()
@@ -41,16 +45,32 @@ public class openinggame : MonoBehaviour
     }
     public void open()
     {
+        popbtnsound.Play();
         openingdone.Play();
+        btn.SetActive(false);
         roban1.SetActive(false);
         roban2.SetActive(false);
         openingvfx.SetActive(true);
-       // dialougept2.SetActive(true);
-        SceneManager.LoadScene("Anarestan");
+        levelsound.Stop();
+        // dialougept2.SetActive(true);
+        Foo();
+        
+    }
 
-    }
-    public void nextlevel()
+    public void Foo()
     {
-        //SceneManager.LoadScene("");
+        StartCoroutine(TemporarilyDeactivate(6.0f));
     }
+
+    private IEnumerator TemporarilyDeactivate(float duration)
+    {
+        yield return new WaitForSeconds(3.0f);
+        showlogo.Play();
+        syaremanlogo.SetActive(true);
+        yield return new WaitForSeconds(duration);
+        SceneManager.LoadScene("Anarestan");
+        Debug.Log("endtimer");
+        
+    }
+
 }
