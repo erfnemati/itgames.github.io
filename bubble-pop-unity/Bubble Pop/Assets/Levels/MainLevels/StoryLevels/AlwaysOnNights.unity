@@ -4978,7 +4978,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &904592416
 Transform:
   m_ObjectHideFlags: 0
@@ -5505,7 +5505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1095978073
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7684,11 +7684,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uFE91\uFE8E \uFEAF\uFEA9\uFEE5 \uFEAD\uFEED\uFBFC \uFEB3\uFE98\uFE8E\uFEAD\uFEE9
-    \u060C \uFEE3\uFBFD \uFE97\uFEEE\uFEE7\uFBFD \uFE97\uFE8E \uFE97\uFEE4\uFEEE\uFEE1
-    \uFEB7\uFEAA\uFEE5 \uFE97\uFE8E\uFBFE\uFEE4\uFEAE\u060C\uFEB7\uFE8E\uFEAD\uFB8A
-    \uFE91\uFEEA \uFED3\uFEC0\uFE8E \uFEE7\uFEEE\uFEAD\uFEA9 \uFE91\uFEAE\uFEB3\uFEEE\uFEE7\uFBFD
-    !"
+  m_text: "\uFE91\uFE8E \uFEAF\uFEA9\uFEE5 \uFEAD\uFEED\uFBFC \uFEB3\uFE98\uFE8E\uFEAD\uFEE9\uFEEB\uFE8E\u060C\uFEE3\uFBFD\uFE97\uFEEE\uFEE7\uFBFD
+    \uFE91\uFEEA \uFED3\uFEC0\uFE8E\uFEE7\uFEEE\uFEAD\uFEA9 \uFEB7\uFE8E\uFEAD\uFB8A
+    \uFEE3\uFB91\uFE8E\uFEDF\uFEE4\uFEEA \uFE91\uFEAE\uFEB3\uFEEE\uFEE7\uFBFD!"
   m_isRightToLeft: 1
   m_fontAsset: {fileID: 11400000, guid: eaab61c28130fbd4eac7f10c03fdb40a, type: 2}
   m_sharedMaterial: {fileID: -8891830286191719161, guid: eaab61c28130fbd4eac7f10c03fdb40a, type: 2}
@@ -7759,11 +7757,9 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
   preserveNumbers: 0
   farsi: 1
-  originalText: "\u0628\u0627 \u0632\u062F\u0646 \u0631\u0648\u06CC \u0633\u062A\u0627\u0631\u0647
-    \u060C \u0645\u06CC \u062A\u0648\u0646\u06CC \u062A\u0627 \u062A\u0645\u0648\u0645
-    \u0634\u062F\u0646 \u062A\u0627\u06CC\u0645\u0631\u060C\u0634\u0627\u0631\u0698\u200C
-    \u0628\u0647 \u0641\u0636\u0627 \u0646\u0648\u0631\u062F \u0628\u0631\u0633\u0648\u0646\u06CC
-    !"
+  originalText: "\u0628\u0627 \u0632\u062F\u0646 \u0631\u0648\u06CC \u0633\u062A\u0627\u0631\u0647\u200C\u0647\u0627\u060C\u0645\u06CC\u200C\u062A\u0648\u0646\u06CC
+    \u0628\u0647 \u0641\u0636\u0627\u0646\u0648\u0631\u062F \u0634\u0627\u0631\u0698
+    \u0645\u06A9\u0627\u0644\u0645\u0647 \u0628\u0631\u0633\u0648\u0646\u06CC!"
   fixTags: 1
   forceFix: 0
 --- !u!222 &1653110927

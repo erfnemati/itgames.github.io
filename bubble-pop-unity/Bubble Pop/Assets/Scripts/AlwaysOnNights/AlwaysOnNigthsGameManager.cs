@@ -287,7 +287,7 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
         win.Play();
         //----ch00b1n----
 
-        Invoke(nameof(EndGame), 1f);
+        Invoke(nameof(EndGame), 2f);
         
     }
    
