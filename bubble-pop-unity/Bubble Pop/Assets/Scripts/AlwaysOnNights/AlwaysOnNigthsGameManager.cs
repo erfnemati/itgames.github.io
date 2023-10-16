@@ -239,13 +239,46 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
         Time.timeScale = 0.0f;
     }
 
-    public void WinGame()
+    //public void WinGame()
+    //{
+    //    endchatpop.SetActive(true);
+    //  //  Time.timeScale = 0.0f;
+
+    //    m_inputHandler.FinishGame();
+    //    FindObjectOfType<AstronutValueController>().EndLevel();
+    //    //m_spotLight.pointLightOuterRadius = 15;
+
+    //    //----ch00b1n----
+    //    soundthem.Stop();
+    //    vfx.SetActive(true);
+    //    win.Play();
+    //    //----ch00b1n----
+    //    DOTween.Init();
+    //    DOTween.To(() => { return m_spotLight.pointLightOuterRadius; }, x => m_spotLight.pointLightOuterRadius = x, 14, 1)
+    //        .OnComplete(() => EndGame());
+
+    //}
+
+    public void ActivateMoonBubble()
+    {
+        FindObjectOfType<AstronutValueController>().EndLevel();
+        m_inputHandler.FinishGame();
+        DOTween.Init();
+        DOTween.To(() => { return m_spotLight.pointLightOuterRadius; }, x => m_spotLight.pointLightOuterRadius = x, 14, 1);
+    }
+
+    public void ActivateLastWords()
     {
         endchatpop.SetActive(true);
-      //  Time.timeScale = 0.0f;
+        Invoke(nameof(AcitvateWinningScreen), 1.5f);
+    }
 
-        m_inputHandler.FinishGame();
-        FindObjectOfType<AstronutValueController>().EndLevel();
+   
+
+    public void AcitvateWinningScreen()
+    {
+        
+        
         //m_spotLight.pointLightOuterRadius = 15;
 
         //----ch00b1n----
@@ -253,10 +286,9 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
         vfx.SetActive(true);
         win.Play();
         //----ch00b1n----
-        DOTween.Init();
-        DOTween.To(() => { return m_spotLight.pointLightOuterRadius; }, x => m_spotLight.pointLightOuterRadius = x, 14, 1)
-            .OnComplete(() => EndGame());
 
+        Invoke(nameof(EndGame), 1f);
+        
     }
    
     public void resforendchatpop()
@@ -267,10 +299,10 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
     private void EndGame()
     {
         //; ;bn
-      
-
-        m_sceneManager.ShowWinningScreen();
+        endchatpop.SetActive(false);
         Time.timeScale = 0.0f;
+        m_sceneManager.ShowWinningScreen();
+        
 
     }
 

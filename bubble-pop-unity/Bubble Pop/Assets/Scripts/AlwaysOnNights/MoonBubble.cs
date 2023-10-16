@@ -44,7 +44,7 @@ public class MoonBubble : MonoBehaviour
         if (Vector3.Distance(this.gameObject.transform.position, m_astronutMovementController.transform.position) < Mathf.Epsilon)
         {
             m_isFollowing = false;
-            AlwaysOnNigthsGameManager._instance.WinGame();
+            //AlwaysOnNigthsGameManager._instance.WinGame();
 
             Destroy(this.gameObject);
 

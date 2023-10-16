@@ -27,8 +27,11 @@ public class AstronutCollisionController : MonoBehaviour
 
         else if (collision.CompareTag("MoonBubble"))
         {
-            AlwaysOnNigthsGameManager._instance.WinGame();
             Destroy(collision.gameObject);
+            AlwaysOnNigthsGameManager._instance.ActivateMoonBubble();
+            TakeBackAstronutToMid();
+            AlwaysOnNigthsGameManager._instance.ActivateLastWords();
+            
         }
 
         else if (collision.CompareTag("TutorialAddedValueBubble"))
@@ -36,5 +39,10 @@ public class AstronutCollisionController : MonoBehaviour
             Destroy(collision.gameObject);
             AlwaysOnNigthsGameManager._instance.EndTutorial();
         }
+    }
+
+    private  void TakeBackAstronutToMid()
+    {
+         m_astronutAutoMovement.TakeBackToMid();
     }
 }

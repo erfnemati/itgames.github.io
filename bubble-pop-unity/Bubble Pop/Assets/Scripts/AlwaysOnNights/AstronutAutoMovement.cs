@@ -18,6 +18,7 @@ public class AstronutAutoMovement : MonoBehaviour
     //Tutorial parameters : 
     [SerializeField] Transform m_targetTransform;
     private bool m_isTutorialOver = false;
+    private bool m_isLevelOver = false;
 
     public async Task ComeAstronut()
     {
@@ -25,9 +26,15 @@ public class AstronutAutoMovement : MonoBehaviour
         await m_UiController.PopAstronutDialogue();
     }
 
+    public  void  TakeBackToMid()
+    {
+        TurnOffMovement();
+         transform.DOMove(m_targetTransform.position, 2f).WaitForCompletion();
+    }
+
     private void Update()
     {
-        if(m_isTutorialOver)
+        if(m_isTutorialOver && m_isLevelOver == false )
         {
             MoveAstronut();
         }
@@ -65,6 +72,11 @@ public class AstronutAutoMovement : MonoBehaviour
     public void EndTutorial()
     {
         m_isTutorialOver = true;
+    }
+
+    private void TurnOffMovement()
+    {
+        m_isLevelOver = true;
     }
 
     public void IncreaseSpeed()
