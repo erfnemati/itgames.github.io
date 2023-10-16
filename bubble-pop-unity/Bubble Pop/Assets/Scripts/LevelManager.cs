@@ -15,6 +15,7 @@ namespace Assets.Scripts
         [SerializeField] int m_numOfBubbles = 5;
         [SerializeField] GameObject m_bubblePrefab;
         [SerializeField] Transform[] m_bubbleTransfroms;
+        [SerializeField] GameObject closinggate;
         //[SerializeField] Transform m_initialCustomerPos;
         //[SerializeField] Transform m_targetCustomerPos;
 
@@ -251,14 +252,27 @@ namespace Assets.Scripts
 
         public void LoadNextLevel()
         {
-            int currentLevel = SceneManager.GetActiveScene().buildIndex;
-            int nextLevel = (currentLevel + 1) % SceneManager.sceneCountInBuildSettings;
+            closinggate.SetActive(true);
             Time.timeScale = 1.0f;
-            SceneManager.LoadScene(nextLevel);
+            Foo();
+           // SceneManager.LoadScene(nextLevel);
             
 
         }
+        public void Foo()
+        {
+            StartCoroutine(TemporarilyDeactivate(5.0f));
+        }
 
+        private IEnumerator TemporarilyDeactivate(float duration)
+        {
+           
+            yield return new WaitForSeconds(duration);
+            int currentLevel = SceneManager.GetActiveScene().buildIndex;
+            int nextLevel = (currentLevel + 1) % SceneManager.sceneCountInBuildSettings;
+            SceneManager.LoadScene(nextLevel);
+
+        }
         public void RestartLevel()
         {
             int currentLevel = SceneManager.GetActiveScene().buildIndex;
