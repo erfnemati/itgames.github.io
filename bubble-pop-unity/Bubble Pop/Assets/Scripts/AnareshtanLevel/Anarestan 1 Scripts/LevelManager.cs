@@ -23,6 +23,7 @@ public class LevelManager : MonoBehaviour
     public int m_obstgen;
     public void Start()
     {
+        Time.timeScale = 1.0f;
 
         if (m_instance == null)
         {
@@ -34,6 +35,11 @@ public class LevelManager : MonoBehaviour
         }
 
         UpdateGoalUi();
+    }
+
+    private void Update()
+    {
+        
     }
 
     private void UpdateGoalUi()

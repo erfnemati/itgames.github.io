@@ -14,7 +14,8 @@ public class animcontrol : MonoBehaviour
     void Update()
     {
         if (thinklayer.active || sleeplayer.active || midlayer.active)
-            Time.timeScale = 0.0f;
+        { }
+            //Time.timeScale = 0.0f;
     //    else
        //     Time.timeScale = 1.0f;
     }
