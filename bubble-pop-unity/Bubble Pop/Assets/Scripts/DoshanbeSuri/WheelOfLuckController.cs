@@ -28,7 +28,7 @@ public class WheelOfLuckController : MonoBehaviour
     private float m_angleOffset;
     private Vector3 m_rotationVector = Vector3.forward;
     private int m_targetIndex;
-    private int m_numOfTries = 0;
+    private int m_numOfTries = 2;
 
     [SerializeField] AudioSource m_wheelOfLuckAudioSource;
 
@@ -45,7 +45,7 @@ public class WheelOfLuckController : MonoBehaviour
 
     private void Start()
     {
-        m_targetIndex = Random.Range(1, 5);
+        m_targetIndex = Random.Range(2, 5);
         Debug.Log("Target index is : " + m_targetIndex);
         m_angleOffset = (CIRCLE / m_numOfGifts) / 2;
         m_angleForEachGift = CIRCLE / m_numOfGifts;  
