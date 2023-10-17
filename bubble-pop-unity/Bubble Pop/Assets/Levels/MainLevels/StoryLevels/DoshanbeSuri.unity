@@ -395,7 +395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &51345309
 Rigidbody2D:
   serializedVersion: 4
@@ -414,7 +414,7 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 5
 --- !u!58 &51345310
@@ -432,7 +432,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.06, y: 0}
   serializedVersion: 2
-  m_Radius: 0.27
+  m_Radius: 0.52
 --- !u!212 &51345311
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -543,7 +543,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &73044265
 Transform:
   m_ObjectHideFlags: 0
@@ -3011,7 +3011,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.1546764, y: 0.15}
+  m_Size: {x: 4.1546764, y: 0.55}
   m_EdgeRadius: 0
 --- !u!1 &401309035
 GameObject:
@@ -5360,7 +5360,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.1546764, y: 0.15}
+  m_Size: {x: 4.1546764, y: 0.55}
   m_EdgeRadius: 0
 --- !u!1001 &1041531878
 PrefabInstance:
@@ -6372,7 +6372,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.1546764, y: 0.15}
+  m_Size: {x: 4.1546764, y: 0.55}
   m_EdgeRadius: 0
 --- !u!1 &1374582710
 GameObject:
@@ -8737,7 +8737,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.1546764, y: 0.15}
+  m_Size: {x: 4.1546764, y: 0.55}
   m_EdgeRadius: 0
 --- !u!1 &1941966550
 GameObject:

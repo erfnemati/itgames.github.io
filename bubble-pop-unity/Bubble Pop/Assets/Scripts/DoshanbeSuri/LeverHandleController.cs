@@ -144,13 +144,13 @@ public class LeverHandleController : MonoBehaviour
     {
         if (m_isDragging)
         {
-            Debug.Log("Dragging");
+            Debug.Log("Stay And Dragging");
             return;
         }
 
         if (m_isLeverActive == false || m_numOfTries <= 0)
         {
-
+            Debug.Log("Staying without any impact");
             return;
         }
 
