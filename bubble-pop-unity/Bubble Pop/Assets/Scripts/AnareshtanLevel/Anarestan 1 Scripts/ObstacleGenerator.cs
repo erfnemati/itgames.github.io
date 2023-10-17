@@ -55,7 +55,7 @@ public class ObstacleGenerator : MonoBehaviour
         Vector3 toBeGeneratedPos = new Vector3(xPosInWorldPoint, m_TopOfScreen.transform.position.y, 0);
 
         int obsOrAnar = Random.Range(1, 6);
-        if (obsOrAnar > 3)
+        if (obsOrAnar > 2)
         {
             xPosInViewPort = Random.Range(0.3f, 0.7f);
             xPosInWorldPoint = Camera.main.ViewportToWorldPoint(new Vector3(xPosInViewPort, 0, 0)).x;

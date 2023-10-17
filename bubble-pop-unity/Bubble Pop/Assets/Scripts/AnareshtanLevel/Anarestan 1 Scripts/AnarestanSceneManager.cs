@@ -55,6 +55,7 @@ public class AnarestanSceneManager : MonoBehaviour
         m_player.gameObject.SetActive(true);
         m_ItemGenerator.gameObject.SetActive(true);
         m_dreamVfx.gameObject.SetActive(false);
+        m_sleepingVfx.gameObject.SetActive(false);
     }
 
     public void StartSleeping()
@@ -63,6 +64,7 @@ public class AnarestanSceneManager : MonoBehaviour
         ActivateSleepingVfx();
         Invoke(nameof(ActivateDreamVfx), 2f);
         Invoke(nameof(StartDream), 6f);
+
     }
 
    

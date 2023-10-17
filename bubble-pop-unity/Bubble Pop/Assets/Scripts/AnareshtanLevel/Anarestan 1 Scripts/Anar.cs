@@ -14,7 +14,7 @@ public class Anar : MonoBehaviour
 
     private void Start()
     {
-        m_speed = Random.Range(1f, 3f);
+        m_speed = Random.Range(1f, 2f);
     }
 
     private void Update()
