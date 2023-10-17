@@ -29,7 +29,7 @@ public class MenuController : MonoBehaviour
 
     public void PauseGame()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         m_currentSceneManager.PauseGame();
     }
 
