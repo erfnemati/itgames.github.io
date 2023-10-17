@@ -21,6 +21,9 @@ public class LevelManager : MonoBehaviour
 
     private int m_numOfAchievedAnars;
     public int m_obstgen;
+
+    [SerializeField] GameObject m_leftPanel;
+    [SerializeField] GameObject m_rightPanel;
     public void Start()
     {
         Time.timeScale = 1.0f;
@@ -62,6 +65,7 @@ public class LevelManager : MonoBehaviour
     {
         if (m_numOfAchievedAnars >= m_numOfGoalAnars)
         {
+            FinishLevel();
             return true;
         }
         return false;
@@ -78,15 +82,39 @@ public class LevelManager : MonoBehaviour
 
     public void PassLevel()
     {
-        Time.timeScale = 0.0f;
+        
+        EndLevel();
         anarwinvfx.SetActive(true);
         win.Play();
+        Invoke(nameof(ShowWinningScreen), 2f);
+        
+    }
+
+    private void ShowWinningScreen()
+    {
         m_grayScreen.SetActive(true);
         m_resultMenu.SetActive(true);
         m_continueButton.SetActive(true);
         m_restartPanel.SetActive(false);
         m_middleStar.SetActive(true);
         RewardPanel.SetActive(true);
+        Time.timeScale = 0.0f;
+    }
+
+    private void EndLevel()
+    {
+        FindObjectOfType<ObstacleGenerator>().gameObject.SetActive(false);
+        Anar[] anarList = FindObjectsOfType<Anar>();
+        Obstacle[] obstacleList = FindObjectsOfType<Obstacle>();
+        foreach(Anar temp in anarList)
+        {
+            temp.gameObject.SetActive(false);
+        }
+
+        foreach(Obstacle tempObstacle in obstacleList)
+        {
+            tempObstacle.gameObject.SetActive(false);
+        }
     }
 
     public void RestartLevel()
@@ -129,5 +157,12 @@ public class LevelManager : MonoBehaviour
         int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
         int nextLevelIndex = (currentLevelIndex + 1) % SceneManager.sceneCountInBuildSettings;
         SceneManager.LoadScene(nextLevelIndex);
+    }
+
+    private void FinishLevel()
+    {
+        m_leftPanel.gameObject.SetActive(false);
+        m_rightPanel.gameObject.SetActive(false);
+        m_player.SetIsGameOver(true);
     }
 }

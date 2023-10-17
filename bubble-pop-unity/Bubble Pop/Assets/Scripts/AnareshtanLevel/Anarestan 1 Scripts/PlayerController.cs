@@ -119,5 +119,10 @@ public class PlayerController : MonoBehaviour
         m_goingRight = false;
         m_staying = true;
     }
+
+    public void SetIsGameOver(bool gameState)
+    {
+        isGameOver = gameState;
+    }
 }
 

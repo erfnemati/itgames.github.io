@@ -10,7 +10,7 @@ public class Obstacle : MonoBehaviour
 
     private void Start()
     {
-        m_speed = Random.Range(2f, 6f);
+        m_speed = Random.Range(4f, 7f);
     }
 
     private void Update()

@@ -9140,19 +9140,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1105568269}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 695974873}
-        m_TargetAssemblyTypeName: animcontrol, Assembly-CSharp
-        m_MethodName: startlevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1105568269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22239,6 +22227,8 @@ MonoBehaviour:
   catchscore: {fileID: 2138682360}
   win: {fileID: 1818152405}
   m_obstgen: 0
+  m_leftPanel: {fileID: 1188485486}
+  m_rightPanel: {fileID: 292825759}
 --- !u!4 &2138682359
 Transform:
   m_ObjectHideFlags: 0
