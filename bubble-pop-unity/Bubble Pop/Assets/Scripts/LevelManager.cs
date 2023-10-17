@@ -30,6 +30,8 @@ namespace Assets.Scripts
 
         CustomerManager m_customer;
         [SerializeField] GameObject m_customerGameObject;
+       // [SerializeField] GameObject[] charcters;
+        [SerializeField] GameObject ch1,ch2,ch3,ch4;
 
         private float m_lastCustomerEarnedHearts = 0.0f;
         private float m_madeHearts = 0f;
