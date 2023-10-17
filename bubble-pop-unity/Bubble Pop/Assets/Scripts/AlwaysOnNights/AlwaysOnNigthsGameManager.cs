@@ -110,6 +110,10 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
     {
        // soundtrack.Play();
        // startcall.Stop();
+       if(timebar.isActiveAndEnabled == false)
+        {
+            timebar.gameObject.SetActive(true);
+        }
         m_remainingTime -= Time.deltaTime;
         timebar.fillAmount = 1 - (m_remainingTime / maxtimeav);
         
