@@ -18,7 +18,7 @@ namespace Assets.Scripts
         [SerializeField] GameObject closinggate;
         //[SerializeField] Transform m_initialCustomerPos;
         //[SerializeField] Transform m_targetCustomerPos;
-
+        public int ranvalue;
         private List<Data> m_dataList = new List<Data>();
         private List<CallTime> m_callTimeList = new List<CallTime>();
         private List<Message> m_messageList = new List<Message>();
@@ -29,7 +29,8 @@ namespace Assets.Scripts
         private int m_numOfActiveBubbles = 0;
 
         CustomerManager m_customer;
-        [SerializeField] GameObject m_customerGameObject;
+        //[SerializeField] GameObject m_customerGameObject;
+        [SerializeField] GameObject[] m_customerGameObject;
        // [SerializeField] GameObject[] charcters;
         [SerializeField] GameObject ch1,ch2,ch3,ch4;
 
@@ -74,13 +75,14 @@ namespace Assets.Scripts
 
         private void InstantiateNewCustomer()
         {
-            
             RequestManager.m_instance.RefreshLists();
             if (m_customer != null)
             {
                 Destroy(m_customer.gameObject);
             }
-            GameObject customer = Instantiate(m_customerGameObject);
+            ranvalue = Random.Range(0, 4);
+
+            GameObject customer = Instantiate(m_customerGameObject[ranvalue]);
             SetCurrentCustomer(customer.GetComponent<CustomerManager>());
             m_numOfAnsweredCustomers++;
         }
