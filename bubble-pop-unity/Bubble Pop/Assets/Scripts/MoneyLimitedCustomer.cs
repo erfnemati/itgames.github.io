@@ -30,7 +30,12 @@ namespace Assets.Scripts
         [SerializeField] RTLTextMeshPro m_resultText;
         //  [SerializeField] GameObject m_limitedCustomerUi;
         //  [SerializeField] RTLTextMeshPro m_limitedCustomerText;
+        [SerializeField] Slider staarbar;
+
         public bool fstar=false, secstar=false, thirdstar=false;
+
+       
+
         private void Awake()
         {
             Time.timeScale = 1.0f;
@@ -48,28 +53,39 @@ namespace Assets.Scripts
             {
                 m_instance = this;
             }
-
+            staarbar.maxValue = m_threeStarHearts;
             
             UpdateNumberOfCustomers();
             UpdateGoalUi();
         }
+
+        public void Update()
+        {
+
+        }
+
         public void UpdateGoalUi()
         {
-            if (m_numOfHearts >= 8 && m_numOfHearts < 12)
+            staarbar.value = m_numOfHearts;
+        //    m_oneStarHearts;
+        //[SerializeField] int m_twoStarHearts;
+        //[SerializeField] int m_threeStarHearts;
+
+            if (m_numOfHearts >= m_oneStarHearts && m_numOfHearts < m_twoStarHearts)
             {
                 starbar.GetComponent<Image>().sprite = sbi2.sprite;
                 fstar = true;
                 secstar = false;
                 thirdstar = false;
             }
-            else if (m_numOfHearts >= 12 && m_numOfHearts < 16)
+            else if (m_numOfHearts >= m_twoStarHearts && m_numOfHearts < m_threeStarHearts)
             {
                 starbar.GetComponent<Image>().sprite = sbi3.sprite;
                 fstar = false;
                 secstar = true;
                 thirdstar = false;
             }
-            else if (m_numOfHearts >= 16)
+            else if (m_numOfHearts >= m_threeStarHearts)
             {
                 starbar.GetComponent<Image>().sprite = sbi4.sprite;
                 fstar = false;
@@ -172,7 +188,7 @@ namespace Assets.Scripts
 
 
         }
-
+       
         public void UpdateRecievedHearts(int numberOfhearts)
         {
             m_numOfHearts = numberOfhearts;
