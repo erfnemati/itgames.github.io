@@ -4214,10 +4214,10 @@ MonoBehaviour:
   sbi3: {fileID: 1281282503}
   sbi4: {fileID: 1113490240}
   m_numOfHearts: 0
-  m_oneStarHearts: 8
-  m_twoStarHearts: 12
-  m_threeStarHearts: 16
-  m_numOfCustomers: 7
+  m_oneStarHearts: 5
+  m_twoStarHearts: 10
+  m_threeStarHearts: 12
+  m_numOfCustomers: 5
   m_firstStar: {fileID: 63027622}
   m_secStar: {fileID: 1388905906}
   m_thirdStar: {fileID: 2020643188}

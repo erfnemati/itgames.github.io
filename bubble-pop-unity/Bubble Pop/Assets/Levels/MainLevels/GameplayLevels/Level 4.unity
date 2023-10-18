@@ -3760,10 +3760,10 @@ MonoBehaviour:
   sbi3: {fileID: 102150480}
   sbi4: {fileID: 866102741}
   m_numOfHearts: 0
-  m_oneStarHearts: 8
-  m_twoStarHearts: 12
-  m_threeStarHearts: 16
-  m_numOfCustomers: 7
+  m_oneStarHearts: 18
+  m_twoStarHearts: 23
+  m_threeStarHearts: 26
+  m_numOfCustomers: 10
   m_firstStar: {fileID: 1943921659}
   m_secStar: {fileID: 1943921658}
   m_thirdStar: {fileID: 1943921657}
