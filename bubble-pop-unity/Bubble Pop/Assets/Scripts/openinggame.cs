@@ -68,7 +68,7 @@ public class openinggame : MonoBehaviour
         showlogo.Play();
         syaremanlogo.SetActive(true);
         yield return new WaitForSeconds(duration);
-        SceneManager.LoadScene("Anarestan");
+        SceneManager.LoadScene("preAnarestan");
         Debug.Log("endtimer");
         
     }
