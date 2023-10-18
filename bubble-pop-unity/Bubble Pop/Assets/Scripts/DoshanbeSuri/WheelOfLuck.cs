@@ -17,6 +17,6 @@ public class WheelOfLuck : MonoBehaviour
         float m_initialScale = transform.localScale.x;
         transform.localScale = Vector3.zero;
         Debug.Log("Scale is : " + m_initialScale);
-        transform.DOScale(new Vector3(0.8f,0.8f,0.8f), 1f);
+        transform.DOScale(new Vector3(1,1,1), 1f);
     }
 }

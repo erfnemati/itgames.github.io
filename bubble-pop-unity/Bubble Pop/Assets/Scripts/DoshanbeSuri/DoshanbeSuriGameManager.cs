@@ -47,7 +47,7 @@ public class DoshanbeSuriGameManager : MonoBehaviour
     {
         PrepareScreenForWheelOfLuck();
         ActivateWheelOfLuck();
-        //ActivateNumOfTriesLamps();
+        ActivateNumOfTriesLamps();
         Invoke(nameof(ActivateTutorialManager), 1f);
     }
     private void PrepareScreenForWheelOfLuck()
