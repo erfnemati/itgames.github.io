@@ -17,9 +17,9 @@ namespace Assets.Scripts
         [SerializeField] int m_twoStarHearts;
         [SerializeField] int m_threeStarHearts;
         [SerializeField] int m_numOfCustomers;
-        [SerializeField] Image m_firstStar;
-        [SerializeField] Image m_secStar;
-        [SerializeField] Image m_thirdStar;
+        [SerializeField] GameObject m_firstStar;
+        [SerializeField] GameObject m_secStar;
+        [SerializeField] GameObject m_thirdStar;
         [SerializeField] GameObject m_grayBackground;
         [SerializeField] GameObject m_resultMenu;
        // [SerializeField] GameObject m_goal;
@@ -28,9 +28,9 @@ namespace Assets.Scripts
         [SerializeField] GameObject m_QuitButton;
        // [SerializeField] RTLTextMeshPro m_goalText;
         [SerializeField] RTLTextMeshPro m_resultText;
-      //  [SerializeField] GameObject m_limitedCustomerUi;
-      //  [SerializeField] RTLTextMeshPro m_limitedCustomerText;
-
+        //  [SerializeField] GameObject m_limitedCustomerUi;
+        //  [SerializeField] RTLTextMeshPro m_limitedCustomerText;
+        public bool fstar=false, secstar=false, thirdstar=false;
         private void Awake()
         {
             Time.timeScale = 1.0f;
@@ -56,11 +56,26 @@ namespace Assets.Scripts
         public void UpdateGoalUi()
         {
             if (m_numOfHearts >= 8 && m_numOfHearts < 12)
+            {
                 starbar.GetComponent<Image>().sprite = sbi2.sprite;
+                fstar = true;
+                secstar = false;
+                thirdstar = false;
+            }
             else if (m_numOfHearts >= 12 && m_numOfHearts < 16)
+            {
                 starbar.GetComponent<Image>().sprite = sbi3.sprite;
+                fstar = false;
+                secstar = true;
+                thirdstar = false;
+            }
             else if (m_numOfHearts >= 16)
+            {
                 starbar.GetComponent<Image>().sprite = sbi4.sprite;
+                fstar = false;
+                secstar = false;
+                thirdstar = true;
+            }
            // m_goal.SetActive(true);
             //m_goalText.text = LevelManager.m_instance.GetRecievedHearts() + "/" + $"{m_oneStarHearts}" ;
            // m_goalText.text = $"{m_oneStarHearts}" + " / " + LevelManager.m_instance.GetRecievedHearts();
@@ -119,6 +134,7 @@ namespace Assets.Scripts
             {
                 Debug.Log("One star");
                 starbar.GetComponent<Image>().sprite = sbi2.sprite;
+                m_firstStar.SetActive(true);
 
                 // starbar.sprite = sbi2.sprite;
                 //  m_firstStar.gameObject.SetActive(true);
@@ -128,7 +144,8 @@ namespace Assets.Scripts
             {
                 Debug.Log("Two star");
                 starbar.GetComponent<Image>().sprite = sbi3.sprite;
-
+                m_firstStar.SetActive(true);
+                m_secStar.SetActive(true);
                 //  starbar.sprite = sbi3.sprite;
                 //m_firstStar.gameObject.SetActive(true);
                 //m_secStar.gameObject.SetActive(true);
@@ -139,7 +156,9 @@ namespace Assets.Scripts
             {
                 Debug.Log("Three star");
                 starbar.GetComponent<Image>().sprite = sbi4.sprite;
-
+                m_firstStar.SetActive(true);
+                m_secStar.SetActive(true);
+                m_thirdStar.SetActive(true);
                 //starbar.sprite = sbi4.sprite;
                 //m_firstStar.gameObject.SetActive(true);
                 //m_secStar.gameObject.SetActive(true);
