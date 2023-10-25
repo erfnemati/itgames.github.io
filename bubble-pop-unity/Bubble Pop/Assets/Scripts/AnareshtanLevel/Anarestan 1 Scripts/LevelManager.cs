@@ -40,9 +40,24 @@ public class LevelManager : MonoBehaviour
         UpdateGoalUi();
     }
 
-    private void Update()
+    public int GetDifficultyLevel()
     {
-        
+        if (m_numOfAchievedAnars < 1)
+        {
+            Debug.Log("Easy");
+            return 1;
+        }
+
+        else if (m_numOfAchievedAnars >= 1 && m_numOfAchievedAnars <= 3)
+        {
+            Debug.Log("Medium");
+            return 2;
+        }
+        else
+        {
+            Debug.Log("Hard");
+            return 3;
+        }
     }
 
     private void UpdateGoalUi()
