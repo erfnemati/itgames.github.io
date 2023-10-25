@@ -21,7 +21,7 @@ public class AnarestanSceneManager : MonoBehaviour
     void Start()
     {
         m_currentScene = m_sleepingScene;
-        Invoke(nameof(ActivateThinkingScene),3f);
+        ActivateThinkingScene();
     }
 
     private void ActivateThinkingScene()
