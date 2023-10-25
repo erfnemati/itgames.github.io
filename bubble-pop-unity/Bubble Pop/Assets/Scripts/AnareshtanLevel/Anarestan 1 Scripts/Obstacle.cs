@@ -10,7 +10,19 @@ public class Obstacle : MonoBehaviour
 
     private void Start()
     {
-        m_speed = Random.Range(4f, 7f);
+        int currentDifficulty = LevelManager.m_instance.GetDifficultyLevel();
+        if (currentDifficulty == 1)
+        {
+            m_speed = Random.Range(1f, 2f);
+        }
+        else if  (currentDifficulty == 2)
+        {
+            m_speed = Random.Range(3f, 5f);
+        }
+        else
+        {
+            m_speed = Random.Range(4f, 6f);
+        }
     }
 
     private void Update()
