@@ -8,6 +8,7 @@ public class DoshanbeSuriGameManager : MonoBehaviour
     public static DoshanbeSuriGameManager _instance;
     [SerializeField] GameObject m_grayScreen;
     [SerializeField] GameObject m_resultMenu;
+    [SerializeField] GameObject m_pauseMenu;
 
     [SerializeField] GameObject m_blurredScreen;
     [SerializeField] GameObject m_wheelOfLuck;
@@ -39,6 +40,7 @@ public class DoshanbeSuriGameManager : MonoBehaviour
 
     private void ShowResultMenu()
     {
+        m_pauseMenu.gameObject.SetActive(false);
         m_grayScreen.gameObject.SetActive(true);
         m_resultMenu.gameObject.SetActive(true);
     }
