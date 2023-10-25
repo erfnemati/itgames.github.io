@@ -41,7 +41,9 @@ public class MenuController : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        SceneManager.LoadScene("Anarestan");
+        int currentLevel = SceneManager.GetActiveScene().buildIndex;
+        int nextLevel = (currentLevel + 1) % SceneManager.sceneCountInBuildSettings;
+        SceneManager.LoadScene(nextLevel);
        // Time.timeScale = 1.0f;
        // int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
       //  int nextLevelIndex = (currentLevelIndex + 1) % SceneManager.sceneCountInBuildSettings;
