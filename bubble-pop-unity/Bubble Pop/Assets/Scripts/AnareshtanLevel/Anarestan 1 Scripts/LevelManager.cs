@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] TMP_Text goalText;
+    [SerializeField] Slider m_goalSlider;
     [SerializeField] int m_numOfGoalAnars;
     [SerializeField] PlayerController m_player;
     [SerializeField] GameObject m_grayScreen;
@@ -62,7 +63,8 @@ public class LevelManager : MonoBehaviour
 
     private void UpdateGoalUi()
     {
-        goalText.text = m_numOfGoalAnars + "/" + m_numOfAchievedAnars;
+        m_goalSlider.maxValue = m_numOfGoalAnars;
+        m_goalSlider.value =  m_numOfAchievedAnars;
     }
 
     public void IncreaseAchievedAnar()
