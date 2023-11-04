@@ -42,6 +42,7 @@ public class Anar : MonoBehaviour
         if (levelDif == 1)
         {
             m_speed = Random.Range(1f, 2f);
+            
         }
         else if(levelDif == 2)
         {
@@ -51,5 +52,7 @@ public class Anar : MonoBehaviour
         {
             m_speed = Random.Range(4f, 6f);  
         }
+
+        Debug.Log("My speed is : " + m_speed);
     }
 }
