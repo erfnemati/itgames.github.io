@@ -8,21 +8,23 @@ public class LevelSelectManager : MonoBehaviour
     private Dictionary<int, LevelInfo> m_levelList = new Dictionary<int, LevelInfo>();
     [SerializeField] int m_maxLevelIndex;
     [SerializeField] int m_minLevelIndex;
+    [SerializeField] int m_currentLevel;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         if (_levelSelectManagerInstance != null && _levelSelectManagerInstance != this)
         {
-            _levelSelectManagerInstance = this;
+            Destroy(this.gameObject);
         }
         else
         {
-            Destroy(this.gameObject);
+            _levelSelectManagerInstance = this;
         }
 
         DontDestroyOnLoad(this.gameObject);
+        ResetLevelList();
     }
+   
 
     public void UpdateLevelInfo(int levelIndex,LevelInfo lvlInfo)
     {
@@ -59,5 +61,15 @@ public class LevelSelectManager : MonoBehaviour
     public void ResetLevelList()
     {
         m_levelList.Clear();
+        for(int i = m_minLevelIndex; i <= m_maxLevelIndex; i++)
+        {
+            LevelInfo tempLevelInfo = new LevelInfo();
+            m_levelList.Add(i, tempLevelInfo);
+        }
+    }
+
+    public int GetCurrentLevel()
+    {
+        return m_currentLevel;
     }
 }

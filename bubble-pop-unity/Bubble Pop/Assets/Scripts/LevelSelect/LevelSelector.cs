@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelSelector : MonoBehaviour
 {
@@ -12,20 +13,29 @@ public class LevelSelector : MonoBehaviour
     [SerializeField] SpriteRenderer m_thirdStar;
 
     [SerializeField] Sprite m_turnedOnStar;
-    [SerializeField] SpriteRenderer m_lockedLevelState;
+    [SerializeField] Button m_lockedLevelState;
     [SerializeField] Sprite m_turnedOnLevel;
     [SerializeField] Sprite m_turnedOffLevel;
+    [SerializeField] SpriteRenderer m_thisLevelSpriteRenderer;
     
     private void GetLevelInfo()
     {
+        Debug.Log("index is : " + m_thisLevelIndex);
         int numOfStars = LevelSelectManager._levelSelectManagerInstance.
             GetLevelInfo(m_thisLevelIndex).GetNumOfStars();
+        Debug.Log("Number of stars : " + numOfStars);
 
         bool isLevelSolved = LevelSelectManager._levelSelectManagerInstance.
             GetLevelInfo(m_thisLevelIndex).GetLockedState();
+        Debug.Log("isLevelSolved : " + isLevelSolved);
 
         SetIsLevelLocked(isLevelSolved);
         SetLevelStarsUi(numOfStars);
+    }
+
+    private void Start()
+    {
+        GetLevelInfo();
     }
 
     public void LoadLevel()
@@ -54,13 +64,19 @@ public class LevelSelector : MonoBehaviour
 
     private void SetIsLevelLocked(bool solveState)
     {
-        if (solveState == true)
+        int currentLevel = LevelSelectManager._levelSelectManagerInstance.GetCurrentLevel();
+        if(m_thisLevelIndex == currentLevel)
         {
-            m_lockedLevelState.sprite = m_turnedOnLevel;
+            m_lockedLevelState.interactable = true;
+        }
+        else if (solveState == true )
+        {
+            m_lockedLevelState.interactable = true;
+            m_thisLevelSpriteRenderer.sprite = m_turnedOffLevel;
         }
         else
         {
-            m_lockedLevelState.sprite = m_turnedOffLevel;
+            m_lockedLevelState.interactable = false;
         }
     }
 
