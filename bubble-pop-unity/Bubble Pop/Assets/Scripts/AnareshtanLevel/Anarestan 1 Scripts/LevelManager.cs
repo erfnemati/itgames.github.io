@@ -63,8 +63,15 @@ public class LevelManager : MonoBehaviour
 
     private void UpdateGoalUi()
     {
+       
         m_goalSlider.maxValue = m_numOfGoalAnars;
         m_goalSlider.value =  m_numOfAchievedAnars;
+    }
+
+    public void ActivateAnarPanel()
+    {
+        Debug.Log("Hello anar panel");
+        m_goalSlider.gameObject.SetActive(true);
     }
 
     public void IncreaseAchievedAnar()

@@ -24,6 +24,7 @@ public class ObstacleGenerator : MonoBehaviour
 
     private void Start()
     {
+        LevelManager.m_instance.ActivateAnarPanel();
         GenerateAnar();
     }
     private void Update()
