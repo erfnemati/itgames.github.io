@@ -250,7 +250,7 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: E:/Work/Hamrah Aval/Web Project/itgames/keyStore/user.keystore
+  AndroidKeystoreName: C:/Users/ASUS/Desktop/shab haye roshan/itgames/keyStore/user.keystore
   AndroidKeyaliasName: bubble pop mci
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
