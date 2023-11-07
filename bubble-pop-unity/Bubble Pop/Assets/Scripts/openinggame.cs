@@ -86,7 +86,9 @@ public class openinggame : MonoBehaviour
         showlogo.Play();
         syaremanlogo.SetActive(true);
         yield return new WaitForSeconds(duration);
-        SceneManager.LoadScene("preAnarestan");
+        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextLevelIndex = (currentLevelIndex + 1) % SceneManager.sceneCountInBuildSettings;
+        SceneManager.LoadScene(nextLevelIndex);
         Debug.Log("endtimer");
         
     }
