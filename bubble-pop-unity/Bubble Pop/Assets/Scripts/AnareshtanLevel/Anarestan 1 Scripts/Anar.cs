@@ -9,12 +9,12 @@ public class Anar : MonoBehaviour
 
     [SerializeField] float m_speed;
     //[SerializeField] TMP_Text m_anarText;
-    [SerializeField] List<string> m_slogans = new List<string>();
+   
     private Vector2 m_direction = new Vector2(0, -1);
 
     private void Start()
     {
-        m_speed = Random.Range(1f, 2f);
+        SetSpeed();
     }
 
     private void Update()
@@ -33,6 +33,23 @@ public class Anar : MonoBehaviour
         {
             Destroy(this.gameObject);
 
+        }
+    }
+
+    private void SetSpeed()
+    {
+        int levelDif =  LevelManager.m_instance.GetDifficultyLevel();
+        if (levelDif == 1)
+        {
+            m_speed = Random.Range(1f, 2f);
+        }
+        else if(levelDif == 2)
+        {
+            m_speed = Random.Range(2f, 4f);
+        }
+        else
+        {
+            m_speed = Random.Range(4f, 6f);  
         }
     }
 }
