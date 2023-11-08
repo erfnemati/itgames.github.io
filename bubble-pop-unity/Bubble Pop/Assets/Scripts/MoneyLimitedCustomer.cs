@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine.UI;
 using RTLTMPro;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts
 {
@@ -33,6 +34,7 @@ namespace Assets.Scripts
         [SerializeField] Slider staarbar;
         scoreandtimerlevel1 stl1;
         public bool fstar=false, secstar=false, thirdstar=false;
+        [SerializeField] GameObject m_levelSelectorManager;
 
        
 
@@ -189,6 +191,7 @@ namespace Assets.Scripts
                 //m_thirdStar.gameObject.SetActive(true);
             }
 
+            UpdateLevelSelectManager();
             m_resultMenu.GetComponentInChildren<RTLTextMeshPro>().text = "Passed";
             m_restartButton.SetActive(false);
             m_continueButton.SetActive(true);
@@ -196,7 +199,61 @@ namespace Assets.Scripts
 
 
         }
-       
+
+        private void UpdateLevelSelectManager()
+        {
+            int numOfStars = GetStars();
+            bool isLevelPassed = false;
+            int thisLevelIndex = SceneManager.GetActiveScene().buildIndex;
+            if (numOfStars >= 1)
+            {
+                isLevelPassed = true;
+            }
+            LevelInfo tempLevelInfo = new LevelInfo(numOfStars, isLevelPassed);
+
+            if (LevelSelectManager._levelSelectManagerInstance != null)
+            {
+                LevelSelectManager._levelSelectManagerInstance.UpdateLevelInfo(thisLevelIndex, tempLevelInfo);
+            }
+            else
+            {
+                Instantiate(m_levelSelectorManager);
+                LevelSelectManager._levelSelectManagerInstance.UpdateLevelInfo(thisLevelIndex, tempLevelInfo);
+
+            }
+            LevelSelectManager._levelSelectManagerInstance.UpdateCurrentLevel
+            ((SceneManager.GetActiveScene().buildIndex + 1));
+        }
+
+        public int GetStars()
+        {
+
+            if (m_numOfHearts < m_oneStarHearts)
+            {
+                return 0;
+            }
+
+
+            else if (m_numOfHearts >= m_oneStarHearts && m_numOfHearts < m_twoStarHearts)
+            {
+                return 1;
+            }
+
+            else if (m_numOfHearts >= m_twoStarHearts && m_numOfHearts < m_threeStarHearts)
+            {
+                return 2;
+            }
+
+            else if (m_numOfHearts >= m_threeStarHearts)
+            {
+                return 3;
+            }
+
+            return -1;
+
+        }
+
+
         public void UpdateRecievedHearts(int numberOfhearts)
         {
             m_numOfHearts = numberOfhearts;
