@@ -153,7 +153,6 @@ namespace Assets.Scripts
                 Debug.Log("One star");
                 starbar.GetComponent<Image>().sprite = sbi2.sprite;
                 m_firstStar.SetActive(true);
-
                 // starbar.sprite = sbi2.sprite;
                 //  m_firstStar.gameObject.SetActive(true);
             }
