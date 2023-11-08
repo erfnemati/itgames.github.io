@@ -72,4 +72,12 @@ public class LevelSelectManager : MonoBehaviour
     {
         return m_currentLevel;
     }
+
+    public void UpdateCurrentLevel(int nextLevel)
+    {
+        if (nextLevel >= m_currentLevel)
+        {
+            m_currentLevel = nextLevel;
+        }
+    }
 }

@@ -7564,6 +7564,7 @@ MonoBehaviour:
   m_remainingTime: 45
   m_secNeedToWin: 45
   m_spotLight: {fileID: 1112811081}
+  m_levelSelectorManager: {fileID: 146929416537956027, guid: a25c70cfa5d85cf4bba9abd2aa1cc915, type: 3}
   m_moonSpots:
   - {fileID: 675854989}
   m_moonObject: {fileID: 7514018754514144962, guid: 5f0e5463ee6bebd42853ec1c35d9df4f, type: 3}

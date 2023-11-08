@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class ThirdRoamingGameManager : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class ThirdRoamingGameManager : MonoBehaviour
 
     [SerializeField] GameObject m_winningVfx;
     [SerializeField] AudioSource m_backgroundMusic;
+
+    [SerializeField] GameObject m_levelSelectorManager;
 
     
 
@@ -189,13 +192,36 @@ public class ThirdRoamingGameManager : MonoBehaviour
     }
     public void ShowResultMenu()
     {
+        UpdateLevelSelectManager();
         OverlayUiController._instance.ShowResultMenu();
         m_backgroundMusic.DOFade(0f, 1f);
     }
 
-    
+    private void UpdateLevelSelectManager()
+    {
+        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+
+        LevelInfo tempLvlInfo = new LevelInfo(3, true);
+
+        if (LevelSelectManager._levelSelectManagerInstance != null)
+        {
+            LevelSelectManager._levelSelectManagerInstance.UpdateLevelInfo(currentLevelIndex, tempLvlInfo);
+        }
+        else
+        {
+            Instantiate(m_levelSelectorManager);
+            LevelSelectManager._levelSelectManagerInstance.UpdateLevelInfo(currentLevelIndex, tempLvlInfo);
+
+        }
+
+        LevelSelectManager._levelSelectManagerInstance.UpdateCurrentLevel
+            ((SceneManager.GetActiveScene().buildIndex + 1));
+
+    }
 
 
 
-    
+
+
+
 }

@@ -1705,6 +1705,7 @@ MonoBehaviour:
   m_LampParent: {fileID: 894536334}
   m_winningVfx: {fileID: 900657217}
   m_backgroundAudioSource: {fileID: 285468887}
+  m_levelSelectorManager: {fileID: 146929416537956027, guid: a25c70cfa5d85cf4bba9abd2aa1cc915, type: 3}
 --- !u!1 &264662178
 GameObject:
   m_ObjectHideFlags: 0

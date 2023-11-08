@@ -17,6 +17,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject m_middleStar;
     [SerializeField] GameObject RewardPanel;
     [SerializeField] GameObject anarwinvfx;
+    [SerializeField] GameObject m_levelSelectorManager;
     public static LevelManager m_instance;
     public AudioSource catchscore, win;
 
@@ -185,8 +186,30 @@ public class LevelManager : MonoBehaviour
 
     private void FinishLevel()
     {
+        UpdateLevelSelectManager();
         m_leftPanel.gameObject.SetActive(false);
         m_rightPanel.gameObject.SetActive(false);
         m_player.SetIsGameOver(true);
+    }
+
+    private void UpdateLevelSelectManager()
+    {
+        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log("Current level index is : " + currentLevelIndex);
+
+        LevelInfo tempLvlInfo = new LevelInfo(3, true);
+
+        if (LevelSelectManager._levelSelectManagerInstance != null)
+        {
+            LevelSelectManager._levelSelectManagerInstance.UpdateLevelInfo(currentLevelIndex, tempLvlInfo);
+        }
+        else
+        {
+            Instantiate(m_levelSelectorManager);
+            LevelSelectManager._levelSelectManagerInstance.UpdateLevelInfo(currentLevelIndex, tempLvlInfo);
+        }
+        LevelSelectManager._levelSelectManagerInstance.UpdateCurrentLevel
+            ((SceneManager.GetActiveScene().buildIndex + 1));
+
     }
 }
