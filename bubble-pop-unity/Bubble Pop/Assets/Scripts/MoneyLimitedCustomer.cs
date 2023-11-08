@@ -31,7 +31,7 @@ namespace Assets.Scripts
         //  [SerializeField] GameObject m_limitedCustomerUi;
         //  [SerializeField] RTLTextMeshPro m_limitedCustomerText;
         [SerializeField] Slider staarbar;
-
+        scoreandtimerlevel1 stl1;
         public bool fstar=false, secstar=false, thirdstar=false;
 
        
@@ -42,6 +42,7 @@ namespace Assets.Scripts
         }
         private void Start()
         {
+             stl1 = GetComponent<scoreandtimerlevel1>();
             starbar.GetComponent<Image>().sprite = sbi1.sprite; 
             
             if (m_instance != null && m_instance != this)
@@ -149,9 +150,13 @@ namespace Assets.Scripts
             else if (m_numOfHearts >= m_oneStarHearts && m_numOfHearts < m_twoStarHearts)
             {
                 Debug.Log("One star");
+                int onestar = 1;
                 starbar.GetComponent<Image>().sprite = sbi2.sprite;
                 m_firstStar.SetActive(true);
-
+                FindObjectOfType<scoreandtimerlevel1>().scorecounter(onestar);
+                //stl1.score++;
+                //**************************************************************************************************************************
+                
                 // starbar.sprite = sbi2.sprite;
                 //  m_firstStar.gameObject.SetActive(true);
             }
@@ -159,9 +164,13 @@ namespace Assets.Scripts
             else if (m_numOfHearts >= m_twoStarHearts && m_numOfHearts <m_threeStarHearts)
             {
                 Debug.Log("Two star");
+                int twostar = 2;
+
                 starbar.GetComponent<Image>().sprite = sbi3.sprite;
                 m_firstStar.SetActive(true);
                 m_secStar.SetActive(true);
+                FindObjectOfType<scoreandtimerlevel1>().scorecounter(twostar);
+
                 //  starbar.sprite = sbi3.sprite;
                 //m_firstStar.gameObject.SetActive(true);
                 //m_secStar.gameObject.SetActive(true);
@@ -171,10 +180,13 @@ namespace Assets.Scripts
             else if (m_numOfHearts >= m_threeStarHearts)
             {
                 Debug.Log("Three star");
+                int threestar=3;
                 starbar.GetComponent<Image>().sprite = sbi4.sprite;
                 m_firstStar.SetActive(true);
                 m_secStar.SetActive(true);
                 m_thirdStar.SetActive(true);
+                FindObjectOfType<scoreandtimerlevel1>().scorecounter(threestar);
+
                 //starbar.sprite = sbi4.sprite;
                 //m_firstStar.gameObject.SetActive(true);
                 //m_secStar.gameObject.SetActive(true);

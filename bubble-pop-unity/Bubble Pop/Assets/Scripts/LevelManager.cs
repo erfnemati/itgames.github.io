@@ -272,6 +272,7 @@ namespace Assets.Scripts
         {
            
             yield return new WaitForSeconds(duration);
+            //SceneManager.LoadScene("The End");
             int currentLevel = SceneManager.GetActiveScene().buildIndex;
             int nextLevel = (currentLevel + 1) % SceneManager.sceneCountInBuildSettings;
             SceneManager.LoadScene(nextLevel);
