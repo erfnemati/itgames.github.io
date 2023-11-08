@@ -155,6 +155,8 @@ namespace Assets.Scripts
                 int onestar = 1;
                 starbar.GetComponent<Image>().sprite = sbi2.sprite;
                 m_firstStar.SetActive(true);
+                FindObjectOfType<scoreandtimerlevel1>().scorecounter(onestar);
+
                 // starbar.sprite = sbi2.sprite;
                 //  m_firstStar.gameObject.SetActive(true);
             }

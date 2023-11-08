@@ -1768,7 +1768,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -5176,7 +5176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -10.6, y: 9.800049}
+  m_AnchoredPosition: {x: -10.6, y: -4.8}
   m_SizeDelta: {x: 54, y: 46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1910095054
@@ -5259,6 +5259,18 @@ PrefabInstance:
     - target: {fileID: 96151440843293931, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_Name
       value: OverlayUi (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 96151440843293933, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 96151440843293933, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1440
+      objectReference: {fileID: 0}
+    - target: {fileID: 96151440843293933, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 2880
       objectReference: {fileID: 0}
     - target: {fileID: 96151440843293935, guid: 36acec029e1bf844da2938a8e5ea8dda, type: 3}
       propertyPath: m_Pivot.x
