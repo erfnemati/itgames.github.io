@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class DoshanbeSuriGameManager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class DoshanbeSuriGameManager : MonoBehaviour
     [SerializeField] GameObject m_winningVfx;
 
     [SerializeField] DoshanbeSuriBackgroundMusic m_backgroundAudioSource;
+    [SerializeField] GameObject m_levelSelectorManager;
 
     private void Start()
     {
@@ -33,6 +35,7 @@ public class DoshanbeSuriGameManager : MonoBehaviour
 
     public void FinishGame()
     {
+        UpdateLevelSelectManager();
         m_backgroundAudioSource.FadeOutMusic();
         m_winningVfx.gameObject.SetActive(true);
         Invoke(nameof(ShowResultMenu), 2f);
@@ -40,9 +43,32 @@ public class DoshanbeSuriGameManager : MonoBehaviour
 
     private void ShowResultMenu()
     {
+        //UpdateLevelSelectManager();
         m_pauseMenu.gameObject.SetActive(false);
         m_grayScreen.gameObject.SetActive(true);
         m_resultMenu.gameObject.SetActive(true);
+    }
+
+    private void UpdateLevelSelectManager()
+    {
+        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log("Current level index is : " + currentLevelIndex);
+
+        LevelInfo tempLvlInfo = new LevelInfo(3, true);
+
+        if (LevelSelectManager._levelSelectManagerInstance != null)
+        {
+            LevelSelectManager._levelSelectManagerInstance.UpdateLevelInfo(currentLevelIndex, tempLvlInfo);
+        }
+        else
+        {
+            Instantiate(m_levelSelectorManager);
+            LevelSelectManager._levelSelectManagerInstance.UpdateLevelInfo(currentLevelIndex, tempLvlInfo);
+
+        }
+        LevelSelectManager._levelSelectManagerInstance.UpdateCurrentLevel
+            (SceneManager.GetActiveScene().buildIndex + 1);
+
     }
 
     public void StartDoshanbeSuri()

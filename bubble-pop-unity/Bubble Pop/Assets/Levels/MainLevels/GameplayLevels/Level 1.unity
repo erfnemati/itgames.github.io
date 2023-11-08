@@ -639,6 +639,7 @@ MonoBehaviour:
   - {fileID: 1523219363}
   - {fileID: 332182133}
   closinggate: {fileID: 291551943}
+  m_levelSelectorManager: {fileID: 0}
   ranvalue: 0
   m_customerGameObject:
   - {fileID: 6975827703512782287, guid: 7f52c57ef2d235d40a05503702354c30, type: 3}
@@ -5595,6 +5596,7 @@ MonoBehaviour:
   m_QuitButton: {fileID: 412700664}
   m_resultText: {fileID: 1943921655}
   staarbar: {fileID: 787353585}
+  m_levelSelectorManager: {fileID: 146929416537956027, guid: a25c70cfa5d85cf4bba9abd2aa1cc915, type: 3}
   fstar: 0
   secstar: 0
   thirdstar: 0

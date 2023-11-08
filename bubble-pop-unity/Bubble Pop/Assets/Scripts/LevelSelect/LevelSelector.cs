@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using RTLTMPro;
 
 public class LevelSelector : MonoBehaviour
 {
@@ -16,7 +17,9 @@ public class LevelSelector : MonoBehaviour
     [SerializeField] Button m_lockedLevelState;
     [SerializeField] Sprite m_turnedOnLevel;
     [SerializeField] Sprite m_turnedOffLevel;
-    [SerializeField] SpriteRenderer m_thisLevelSpriteRenderer;
+    [SerializeField] Image m_thisLevelSpriteRenderer;
+    [SerializeField] int m_indexOffset;
+    [SerializeField] RTLTextMeshPro m_levelText;
     
     private void GetLevelInfo()
     {
@@ -35,6 +38,7 @@ public class LevelSelector : MonoBehaviour
 
     private void Start()
     {
+        SetLevelText();
         GetLevelInfo();
     }
 
@@ -43,8 +47,14 @@ public class LevelSelector : MonoBehaviour
         SceneManager.LoadScene(m_thisLevelIndex);
     }
 
+    private void SetLevelText()
+    {
+        m_levelText.text = (m_thisLevelIndex - m_indexOffset) + "";
+    }
+
     private void SetLevelStarsUi(int numOfAchievedStars)
     {
+        Debug.Log("Hello i am here with : " + numOfAchievedStars);
         if (numOfAchievedStars == 1)
         {
             m_firstStar.sprite = m_turnedOnStar;
@@ -56,6 +66,7 @@ public class LevelSelector : MonoBehaviour
         }
         else if (numOfAchievedStars == 3)
         {
+            
             m_firstStar.sprite = m_turnedOnStar;
             m_secStar.sprite = m_turnedOnStar;
             m_thirdStar.sprite = m_turnedOnStar;

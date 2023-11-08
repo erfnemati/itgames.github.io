@@ -5,6 +5,7 @@ using UnityEngine.Rendering.Universal;
 using DG.Tweening;
 using UnityEngine.UI;
 using Assets.Scripts;
+using UnityEngine.SceneManagement;
 
 public class AlwaysOnNigthsGameManager : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
     [SerializeField] float m_remainingTime = 30f;
     [SerializeField] float m_secNeedToWin = 30f;
     [SerializeField] Light2D m_spotLight;
+    [SerializeField] GameObject m_levelSelectorManager;
 
     //Parameters for generating moon : 
     [SerializeField] List<Transform> m_moonSpots = new List<Transform>();
@@ -281,8 +283,9 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
 
     public void AcitvateWinningScreen()
     {
-        
-        
+
+
+        UpdateLevelSelectManager();
         //m_spotLight.pointLightOuterRadius = 15;
 
         //----ch00b1n----
@@ -294,7 +297,30 @@ public class AlwaysOnNigthsGameManager : MonoBehaviour
         Invoke(nameof(EndGame), 2f);
         
     }
-   
+
+    private void UpdateLevelSelectManager()
+    {
+        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log("Current level index is : " + currentLevelIndex);
+
+        LevelInfo tempLvlInfo = new LevelInfo(3, true);
+
+        if (LevelSelectManager._levelSelectManagerInstance != null)
+        {
+            LevelSelectManager._levelSelectManagerInstance.UpdateLevelInfo(currentLevelIndex, tempLvlInfo);
+        }
+        else
+        {
+            Instantiate(m_levelSelectorManager);
+            LevelSelectManager._levelSelectManagerInstance.UpdateLevelInfo(currentLevelIndex, tempLvlInfo);
+
+        }
+        LevelSelectManager._levelSelectManagerInstance.UpdateCurrentLevel
+            ((SceneManager.GetActiveScene().buildIndex + 1));
+
+
+    }
+
     public void resforendchatpop()
     {
       //  Time.timeScale = 1.0f;

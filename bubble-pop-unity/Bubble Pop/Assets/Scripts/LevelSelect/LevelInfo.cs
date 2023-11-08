@@ -13,6 +13,13 @@ public class LevelInfo
 		m_isPassed = false;
 	}
 
+	public LevelInfo(int numOfStars,bool isLevelPassed)
+    {
+		m_elapsedTime = 0.0f;
+		m_recievedStars = numOfStars;
+		m_isPassed = isLevelPassed;
+    }
+
 	public int GetNumOfStars()
     {
 		return m_recievedStars;

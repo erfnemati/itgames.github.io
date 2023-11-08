@@ -16,6 +16,7 @@ namespace Assets.Scripts
         [SerializeField] GameObject m_bubblePrefab;
         [SerializeField] Transform[] m_bubbleTransfroms;
         [SerializeField] GameObject closinggate;
+        [SerializeField] GameObject m_levelSelectorManager;
         //[SerializeField] Transform m_initialCustomerPos;
         //[SerializeField] Transform m_targetCustomerPos;
         public int ranvalue;
@@ -256,6 +257,7 @@ namespace Assets.Scripts
 
         public void LoadNextLevel()
         {
+
             closinggate.SetActive(true);
             Time.timeScale = 1.0f;
             Foo();
