@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class scoreandtimerending : MonoBehaviour
 {
-    public float level1;
+    public float timers,min;
     public int totalscore;
     public Text scoretxt,timertxt;
     //InputField phonenumber;
@@ -15,11 +15,11 @@ public class scoreandtimerending : MonoBehaviour
     void Start()
     {
 
-        level1 = PlayerPrefs.GetFloat("level1timer");
+        timers = PlayerPrefs.GetFloat("level1timer");
         totalscore = PlayerPrefs.GetInt("totalstars");
-
+        min = Mathf.Floor(timers / 60);
         scoretxt.text = totalscore.ToString();
-        timertxt.text = level1.ToString();
+        timertxt.text = min.ToString();
     }
 
     // Update is called once per frame
