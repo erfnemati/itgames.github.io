@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class scoreandtimerlevel1 : MonoBehaviour
@@ -12,6 +13,12 @@ public class scoreandtimerlevel1 : MonoBehaviour
     {
         score += PlayerPrefs.GetInt("totalstars");
         timer += PlayerPrefs.GetFloat("level1timer");
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            score = 0;
+            timer = 0;
+        }
+
     }
 
     // Update is called once per frame
