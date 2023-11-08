@@ -734,6 +734,7 @@ MonoBehaviour:
   levelsound: {fileID: 1158072466}
   openingdone: {fileID: 136112731}
   showlogo: {fileID: 1494826733}
+  m_levelSelectorManager: {fileID: 146929416537956027, guid: a25c70cfa5d85cf4bba9abd2aa1cc915, type: 3}
 --- !u!82 &136112731
 AudioSource:
   m_ObjectHideFlags: 0

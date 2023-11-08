@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_maxLevelIndex: 11
-  m_minLevelIndex: 4
-  m_currentLevel: 4
+  m_minLevelIndex: 3
+  m_currentLevel: 3

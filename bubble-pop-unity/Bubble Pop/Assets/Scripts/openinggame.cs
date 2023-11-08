@@ -22,6 +22,7 @@ public class openinggame : MonoBehaviour
     [SerializeField] AudioSource levelsound;
     [SerializeField] AudioSource openingdone;
     [SerializeField] AudioSource showlogo;
+    [SerializeField] GameObject m_levelSelectorManager;
     
 
     // Start is called before the first frame update
@@ -82,6 +83,7 @@ public class openinggame : MonoBehaviour
 
     private IEnumerator TemporarilyDeactivate(float duration)
     {
+        UpdateLevelSelectManager();
         yield return new WaitForSeconds(3.0f);
         showlogo.Play();
         syaremanlogo.SetActive(true);
@@ -92,5 +94,28 @@ public class openinggame : MonoBehaviour
         Debug.Log("endtimer");
         
     }
+
+    private void UpdateLevelSelectManager()
+    {
+        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log("Current level index is : " + currentLevelIndex);
+
+        LevelInfo tempLvlInfo = new LevelInfo(3, true);
+
+        if (LevelSelectManager._levelSelectManagerInstance != null)
+        {
+            LevelSelectManager._levelSelectManagerInstance.UpdateLevelInfo(currentLevelIndex, tempLvlInfo);
+        }
+        else
+        {
+            Instantiate(m_levelSelectorManager);
+            LevelSelectManager._levelSelectManagerInstance.UpdateLevelInfo(currentLevelIndex, tempLvlInfo);
+        }
+        LevelSelectManager._levelSelectManagerInstance.UpdateCurrentLevel
+            ((SceneManager.GetActiveScene().buildIndex + 1));
+
+    }
+
+
 
 }
