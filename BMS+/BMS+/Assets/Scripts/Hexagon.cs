@@ -13,19 +13,44 @@ public class Hexagon : MonoBehaviour
         m_spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void AddColor()
+    public void AddColor(HexagonColor chosenColor)
     {
-        ReloadColor();
+        if (m_colorList.Contains(chosenColor))
+        {
+            Debug.Log("Repeatitive color");
+            return;
+        }
+        m_colorList.Add(chosenColor);
+        ReloadColorFromAddition(chosenColor);
     }
 
-    private void DeleteColor()
+    public void DeleteColor(HexagonColor deletedColor)
     {
-        ReloadColor();
+        foreach (HexagonColor hexagonColor in m_colorList)
+        {
+            if(hexagonColor == deletedColor)
+            {
+                m_colorList.Remove(hexagonColor);
+            }
+        }
+        ReloadColorFromDeletion();
     }
 
-    private void ReloadColor()
+    private void ReloadColorFromDeletion()
     {
-        Sprite sprite = HexagonColorManager._instance.GetSprite(m_colorList);
+        m_currentColor  = HexagonColorManager._instance.GetColor(m_colorList);
+        UpdateSprite();
+    }
+
+    private void ReloadColorFromAddition(HexagonColor chosenColor)
+    {
+        m_currentColor = HexagonColorManager._instance.GetColor(m_currentColor, chosenColor);
+        UpdateSprite();
+    }
+
+    private void UpdateSprite()
+    {
+        HexagonSpriteManager._instance.GetHexagonSprite(m_currentColor);
     }
 
     

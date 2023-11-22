@@ -18,13 +18,13 @@ public class HexagonColorManager : MonoBehaviour
 
     private void Awake()
     {
-        if(_instance == null || _instance != this)
+        if(_instance != null && _instance != this)
         {
-            _instance = this;
+            Destroy(this.gameObject);
         }
         else
         {
-            Destroy(this.gameObject);
+            _instance = this;
         }
     }
 
@@ -120,59 +120,19 @@ public class HexagonColorManager : MonoBehaviour
         
     }
 
-    public Sprite GetSprite(List<HexagonColor> colorList)
+    public HexagonColor GetColor(List<HexagonColor> colorList)
     {
         HexagonColor nextColor = CalculateColor(colorList);
-        Sprite nextSprite = ChooseSprite(nextColor);
-        return nextSprite;
+        return nextColor;
     }
 
-    public Sprite GetSprite(HexagonColor currentColor,HexagonColor addedColor)
+    public HexagonColor GetColor(HexagonColor currentColor,HexagonColor addedColor)
     {
         HexagonColor nextColor = CalculateColor(currentColor, addedColor);
-        Sprite nextSprite = ChooseSprite(nextColor);
-        return nextSprite;
+        return nextColor;
     }
 
-    private Sprite ChooseSprite(HexagonColor color)
-    {
-        if (color == HexagonColor.White)
-        {
-            return m_whiteHexagonColorSprite;
-        }
-        else if (color == HexagonColor.Blue)
-        {
-            return m_blueHexagonColorSprite;
-        }
-        else if (color == HexagonColor.Red)
-        {
-            return m_redHexagonColorSprite;
-        }
-        else if (color == HexagonColor.Yellow)
-        {
-            return m_yellowHexagonColorSprite;
-        }
-        else if (color == HexagonColor.Orange)
-        {
-            return m_orangeHexagonColorSprite;
-        }
-        else if (color == HexagonColor.Green)
-        {
-            return m_greenHexagonColorSprite;
-        }
-        else if (color == HexagonColor.Purple)
-        {
-            return m_purpleHexagonColorSprite;
-        }
-        else if (color == HexagonColor.Brown)
-        {
-            return m_brownHexagonColorSpirte;              
-        }
-        else
-        {
-            return m_whiteHexagonColorSprite;
-        }
-    }
+    
 
     
 }
