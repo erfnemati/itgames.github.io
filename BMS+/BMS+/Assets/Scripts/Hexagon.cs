@@ -50,7 +50,18 @@ public class Hexagon : MonoBehaviour
 
     private void UpdateSprite()
     {
-        HexagonSpriteManager._instance.GetHexagonSprite(m_currentColor);
+        m_spriteRenderer.sprite =  HexagonSpriteManager._instance.GetHexagonSprite(m_currentColor);
+    }
+
+    public HexagonColor GetHexagonColor()
+    {
+        return m_currentColor;
+    }
+
+    public void SetHexagonColor(HexagonColor hexagonColor)
+    {
+        m_currentColor = hexagonColor;
+        UpdateSprite();
     }
 
     
