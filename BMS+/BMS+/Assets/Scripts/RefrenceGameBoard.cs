@@ -21,5 +21,10 @@ public class RefrenceGameBoard : MonoBehaviour
         }
     }
 
+    public List<HexagonColor> GetHexagonColors()
+    {
+        return m_hexagonColorList;
+    }
+
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameBoard : MonoBehaviour
 {
-    List<Hexagon> m_hexagons = new List<Hexagon>();
+    [SerializeField] List<Hexagon> m_hexagons = new List<Hexagon>();
 
     public List<Hexagon> GetHexagons()
     {
