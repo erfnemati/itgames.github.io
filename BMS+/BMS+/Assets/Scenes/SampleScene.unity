@@ -348,6 +348,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.data[0]
       value: 
       objectReference: {fileID: 444520527}
@@ -484,6 +504,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
@@ -634,6 +674,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
@@ -1172,6 +1232,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1613,6 +1693,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1961,6 +2061,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.data[0]
       value: 
       objectReference: {fileID: 842695733}
@@ -2240,6 +2360,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -2388,6 +2528,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
@@ -2540,6 +2700,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -2688,6 +2868,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.data[0]
@@ -3427,6 +3627,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -3917,6 +4137,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -4151,6 +4391,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.data[0]
       value: 
       objectReference: {fileID: 1656911255}
@@ -4287,6 +4547,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
@@ -4923,6 +5203,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -5166,6 +5466,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.data[0]
       value: 
       objectReference: {fileID: 1940782766}
@@ -5401,6 +5721,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -5549,6 +5889,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
@@ -5771,6 +6131,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.data[0]
@@ -6008,6 +6388,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -6156,6 +6556,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.data[0]
@@ -6436,6 +6856,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.data[0]
       value: 
       objectReference: {fileID: 1932084015}
@@ -6671,6 +7111,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -6815,6 +7275,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
@@ -7043,6 +7523,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.data[0]
       value: 
       objectReference: {fileID: 93505807}
@@ -7255,6 +7755,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
@@ -7506,6 +8026,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
@@ -7796,6 +8336,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -7942,6 +8502,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.data[0]
       value: 
       objectReference: {fileID: 444520527}
@@ -8078,6 +8658,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
@@ -8443,6 +9043,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -8737,6 +9357,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -8881,6 +9521,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
@@ -9130,6 +9790,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -9375,6 +10055,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.data[0]
@@ -9831,6 +10531,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.data[0]
       value: 
       objectReference: {fileID: 1940782766}
@@ -9967,6 +10687,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.data[0]
@@ -10202,6 +10942,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
@@ -10451,6 +11211,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.data[0]
       value: 
       objectReference: {fileID: 93505807}
@@ -10587,6 +11367,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
@@ -11085,6 +11885,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -11359,6 +12179,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -11624,6 +12464,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -11865,6 +12725,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
@@ -12211,6 +13091,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.data[0]
       value: 
       objectReference: {fileID: 1656911255}
@@ -12347,6 +13247,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
@@ -12689,6 +13609,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -12839,6 +13779,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -12987,6 +13947,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
@@ -13426,6 +14406,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.data[0]
       value: 
       objectReference: {fileID: 125790001}
@@ -13758,6 +14758,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -14003,6 +15023,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
@@ -14252,6 +15292,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -14497,6 +15557,26 @@ PrefabInstance:
     - target: {fileID: 804973580666543415, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_Color.a
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_redObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_blueObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_yellowObject
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_initialPinPointSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24dd9c8e076f65c48bcde6897b00d975, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_fullPinPointScaleFactor
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_ownedHexagons.Array.data[0]

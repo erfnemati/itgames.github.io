@@ -14,16 +14,18 @@ public class Pinpoint : MonoBehaviour
     private float m_initialPinPointWidth;
     private float m_initialPinPointHeight;
     private Color m_initialPinPointColor;
-    [SerializeField] float m_fullPinPointHeigth;
-    [SerializeField] float m_fullPinPointWidth;
+    private RectTransform m_pinPointRect;
+    [SerializeField] Sprite m_initialPinPointSprite;
+    [SerializeField] float m_fullPinPointScaleFactor;
+ 
     [SerializeField] Sprite m_redObject;
     [SerializeField] Sprite m_yellowObject;
     [SerializeField] Sprite m_blueObject;
 
     private void GetInitialPinPointDimentions()
     {
-        m_initialPinPointHeight = GetComponent<RectTransform>().rect.height;
-        m_initialPinPointWidth = GetComponent<RectTransform>().rect.width;
+        m_initialPinPointHeight = m_pinPointRect.rect.height;
+        m_initialPinPointWidth = m_pinPointRect.rect.width;
     }
 
     private void GetInitialColor()
@@ -33,10 +35,17 @@ public class Pinpoint : MonoBehaviour
 
     private void Start()
     {
+        GetRectTransform();
         GetInitialColor();
         GetInitialPinPointDimentions();
+        
         m_pinPoint = GetComponent<Button>();
         m_pinPoint.onClick.AddListener(()=>GetComponent<Pinpoint>().ClickPinPoint());
+    }
+
+    private void GetRectTransform()
+    {
+        m_pinPointRect = GetComponent<RectTransform>();
     }
 
 
@@ -54,12 +63,40 @@ public class Pinpoint : MonoBehaviour
 
     private void AddSprite()
     {
+        float temp = m_initialPinPointHeight * m_fullPinPointScaleFactor;
+        m_pinPointRect.sizeDelta = new Vector2(m_initialPinPointWidth, temp);
+        
+        m_pinPoint.image.color = new Color(255, 255, 255, 255);
+        ChooseSprite();
+        
 
+    }
+
+    private void ChooseSprite()
+    {
+        if (m_currentPin.GetPinColor() == PinColor.Blue)
+        {
+            m_pinPoint.image.sprite = m_blueObject;
+        }
+        else if (m_currentPin.GetPinColor() == PinColor.Yellow)
+        {
+            m_pinPoint.image.sprite = m_yellowObject;
+        }
+        else if (m_currentPin.GetPinColor() == PinColor.Red)
+        {
+            m_pinPoint.image.sprite = m_redObject;
+        }
+        else
+        {
+            m_pinPoint.image.sprite = m_initialPinPointSprite;
+        }
     }
 
     private void RemoveSprite()
     {
-
+        m_pinPointRect.sizeDelta = new Vector2(m_initialPinPointWidth, m_initialPinPointHeight);
+        m_pinPoint.image.sprite = m_initialPinPointSprite;
+        m_pinPoint.image.color = m_initialPinPointColor;
     }
 
     public void ClickPinPoint()
@@ -85,6 +122,7 @@ public class Pinpoint : MonoBehaviour
             Debug.Log("This pinpoint is full");
             return;
         }
+        m_currentPin = chosenPin;
         UpdateHexagonColorsFromPinAddition(chosenPin);
         ChangePinpointSprite();
         
@@ -96,7 +134,9 @@ public class Pinpoint : MonoBehaviour
         {
             return;
         }
+        
         UpdateHexagonColorsFromPinDeletion();
+        m_currentPin = null;
         ChangePinpointSprite();
 
     }
@@ -107,12 +147,12 @@ public class Pinpoint : MonoBehaviour
         {
             tempHexagon.DeleteColor(FromPinColorToHexagonColor(m_currentPin));
         }
-        m_currentPin = null;
+        
     }
 
     private void UpdateHexagonColorsFromPinAddition(Pin chosenPin)
     {
-        m_currentPin = chosenPin;
+        
         foreach(Hexagon tempHexagon in m_ownedHexagons)
         {
             tempHexagon.AddColor(FromPinColorToHexagonColor(chosenPin));
