@@ -11,6 +11,7 @@ public class Hexagon : MonoBehaviour
     private void Awake()
     {
         m_spriteRenderer = GetComponent<SpriteRenderer>();
+        m_colorList.Add(HexagonColor.White);
     }
 
     public void AddColor(HexagonColor chosenColor)
@@ -31,6 +32,7 @@ public class Hexagon : MonoBehaviour
             if(hexagonColor == deletedColor)
             {
                 m_colorList.Remove(hexagonColor);
+                break;
             }
         }
         ReloadColorFromDeletion();
