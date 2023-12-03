@@ -5,7 +5,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static Player _instance;
-    Pin currentPlayerPin;
+    Pin m_currentPlayerPin;
+    [SerializeField] GameObject m_redPin;
+    [SerializeField] GameObject m_yellowPin;
+    [SerializeField] GameObject m_bluePin;
 
     private void Awake()
     {
@@ -21,35 +24,35 @@ public class Player : MonoBehaviour
 
     public Pin GetPlayerPin()
     {
-        return currentPlayerPin;
-    }
-
-    
-    private void SetPin(PinColor chosenPinColor)
-    {
-        Pin tempPin = new Pin(chosenPinColor);
-        if (tempPin.GetPinColor() != currentPlayerPin.GetPinColor())
-        {
-            currentPlayerPin.ResetPinUi();
-            currentPlayerPin = new Pin(chosenPinColor);
-        }
-        
+        return m_currentPlayerPin;
     }
 
     //Probably not the best idea:
 
     public void PickRedPin()
     {
-        SetPin(PinColor.Red);
+        if (m_currentPlayerPin != null)
+        {
+            m_currentPlayerPin.ResetPinUi();
+        }
+        m_currentPlayerPin = m_redPin.GetComponent<Pin>();
     }
 
     public void PickYellowPin()
     {
-        SetPin(PinColor.Yellow);
+        if (m_currentPlayerPin != null)
+        {
+            m_currentPlayerPin.ResetPinUi();
+        }
+        m_currentPlayerPin = m_yellowPin.GetComponent<Pin>();
     }
 
     public void PickBluePin()
     {
-        SetPin(PinColor.Blue);
+        if (m_currentPlayerPin != null)
+        {
+            m_currentPlayerPin.ResetPinUi();
+        }
+        m_currentPlayerPin = m_bluePin.GetComponent<Pin>();
     }
 }
