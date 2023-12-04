@@ -24,7 +24,12 @@ public class Player : MonoBehaviour
 
     public Pin GetPlayerPin()
     {
-        return m_currentPlayerPin;
+        if (m_currentPlayerPin.isPinLeft())
+        {
+            return m_currentPlayerPin;
+        }
+        return null;
+        
     }
 
     //Probably not the best idea:
@@ -54,5 +59,15 @@ public class Player : MonoBehaviour
             m_currentPlayerPin.ResetPinUi();
         }
         m_currentPlayerPin = m_bluePin.GetComponent<Pin>();
+    }
+
+    public void ReleasePin()
+    {
+        m_currentPlayerPin.DecrementUsages();
+    }
+
+    public void ReloadPin(Pin pin)
+    {
+        pin.IncrementUsages();
     }
 }

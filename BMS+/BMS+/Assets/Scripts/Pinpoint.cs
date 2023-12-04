@@ -101,16 +101,18 @@ public class Pinpoint : MonoBehaviour
 
     public void ClickPinPoint()
     {
-        if(Player._instance.GetPlayerPin() == null)
-        {
-            return;
-        }
-        if (m_currentPin == null)
+        //if(Player._instance.GetPlayerPin() == null)
+        //{
+        //    return;
+        //}
+        if (m_currentPin == null && Player._instance.GetPlayerPin() != null)
         {
             AddPin(Player._instance.GetPlayerPin());
+            Player._instance.ReleasePin();
         }
         else if (m_currentPin != null)
         {
+            Player._instance.ReloadPin(m_currentPin);
             RemovePin();
         }
     }

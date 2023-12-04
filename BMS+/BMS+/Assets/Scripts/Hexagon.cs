@@ -6,7 +6,7 @@ public class Hexagon : MonoBehaviour
 {
     SpriteRenderer m_spriteRenderer;
     private HexagonColor m_currentColor = HexagonColor.White;
-    List<HexagonColor> m_colorList = new List<HexagonColor>();
+    [SerializeField]List<HexagonColor> m_colorList = new List<HexagonColor>();
 
     private void Awake()
     {
@@ -16,11 +16,11 @@ public class Hexagon : MonoBehaviour
 
     public void AddColor(HexagonColor chosenColor)
     {
-        if (m_colorList.Contains(chosenColor))
-        {
-            Debug.Log("Repeatitive color");
-            return;
-        }
+        //if (m_colorList.Contains(chosenColor))
+        //{
+        //    Debug.Log("Repeatitive color");
+        //    return;
+        //}
         m_colorList.Add(chosenColor);
         ReloadColorFromAddition(chosenColor);
     }

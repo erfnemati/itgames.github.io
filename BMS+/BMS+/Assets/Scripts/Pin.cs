@@ -13,6 +13,11 @@ public class Pin : MonoBehaviour
     [SerializeField] RTLTextMeshPro m_numOfUsagesText;
     [SerializeField] GameObject m_buttonFrame;
 
+
+    private void Start()
+    {
+        UpdateTextOfPin();
+    }
     public Pin(PinColor pinColor)
     {
         m_pinColor = pinColor;
@@ -26,7 +31,7 @@ public class Pin : MonoBehaviour
     public void IncrementUsages()
     {
         m_numOfUsages++;
-        UpdateUi();
+        UpdateTextOfPin();
     }
 
     public void DecrementUsages()
@@ -36,11 +41,11 @@ public class Pin : MonoBehaviour
         {
             m_numOfUsages = 0;
         }
-        UpdateUi();
+        UpdateTextOfPin();
     }
 
     //UI code here:
-    public void UpdateUi()
+    public void UpdateTextOfPin()
     {
         m_numOfUsagesText.text = m_numOfUsages + "";
     }
@@ -48,6 +53,13 @@ public class Pin : MonoBehaviour
     public void ResetPinUi()
     {
         m_buttonFrame.gameObject.SetActive(false);
+    }
+
+    public bool isPinLeft()
+    {
+        if (m_numOfUsages >= 1)
+            return true;
+        return false;
     }
 
     
