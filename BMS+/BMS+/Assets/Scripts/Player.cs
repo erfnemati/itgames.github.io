@@ -24,6 +24,11 @@ public class Player : MonoBehaviour
 
     public Pin GetPlayerPin()
     {
+        if (m_currentPlayerPin == null)
+        {
+            return null;
+        }
+
         if (m_currentPlayerPin.isPinLeft())
         {
             return m_currentPlayerPin;
