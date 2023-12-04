@@ -24,24 +24,19 @@ public class LevelManager : MonoBehaviour
     public void CompareBoards()
     {
         List<Hexagon> gameBoardHexagons = m_gameBoard.GetHexagons();
-        List<HexagonColor> referenceColors = m_referenceGameBoard.GetHexagonColors();
+        List<ReferenceHexagon> referenceHexagons = new List<ReferenceHexagon>();
 
-        if (gameBoardHexagons.Count != referenceColors.Count)
+        if (gameBoardHexagons.Count != referenceHexagons.Count)
         {
-            Debug.Log("The boards are not equal");
             return;
         }
-
-        for(int i = 0; i<gameBoardHexagons.Count;i++)
+        
+        for(int i = 0; i <gameBoardHexagons.Count; i++)
         {
-            if(gameBoardHexagons[i].GetHexagonColor() != referenceColors[i])
-            {
-                return;
-            }
+
         }
 
         WinLevel();
-
     }
 
     private void WinLevel()

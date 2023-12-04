@@ -6,11 +6,11 @@ using RTLTMPro;
 public class Hexagon : MonoBehaviour
 {
     
-    private HexagonColor m_currentColor = HexagonColor.White;
-    [SerializeField]List<HexagonColor> m_colorList = new List<HexagonColor>();
+    protected HexagonColor m_currentColor = HexagonColor.White;
+    [SerializeField] protected List<HexagonColor> m_colorList = new List<HexagonColor>();
     private int m_numOfAddedColors = 0;
-    [SerializeField] RTLTextMeshPro m_numberOfAddedColorsText;
-    [SerializeField] SpriteRenderer m_spriteRenderer;
+    [SerializeField] protected RTLTextMeshPro m_numberOfAddedColorsText;
+    [SerializeField] protected SpriteRenderer m_spriteRenderer;
 
     private void Awake()
     {
