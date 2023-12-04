@@ -8,6 +8,24 @@ TagManager:
   - SendButton
   - DiscardButton
   - Customer
+  - AnarPowerUp
+  - AnarPowerUpIcon
+  - Menu
+  - AnarObject
+  - ScreenBorder
+  - Obstacle
+  - FuelBubble
+  - Buck
+  - InnerHandler
+  - ShuttleStarter
+  - Shuttle
+  - ShuttlePart
+  - RoamingBubble
+  - LevelBoundry
+  - AddedValueBubble
+  - MoonBubble
+  - Astronut
+  - TutorialAddedValueBubble
   layers:
   - Default
   - TransparentFX
@@ -15,8 +33,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - PostProcessing
+  - No Post
   - 
   - 
   - 

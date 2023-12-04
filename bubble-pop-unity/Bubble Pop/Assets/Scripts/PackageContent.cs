@@ -66,7 +66,7 @@ namespace Assets.Scripts
             }
             else
             {
-                dataText = m_data.GetData() + "GB\n";
+                dataText = m_data.GetData() + " گیگ";
             }
             
             if (m_callTime == null)
@@ -75,7 +75,7 @@ namespace Assets.Scripts
             }
             else
             {
-                callTimeText = m_callTime.GetCallTime() + "Mins\n";
+                callTimeText = m_callTime.GetCallTime() + " دقیقه";
             }
             
             if (m_messages == null)
@@ -84,7 +84,7 @@ namespace Assets.Scripts
             }
             else
             {
-                messagesCount = m_messages.GetMessageCount() + "SMS";
+                messagesCount = m_messages.GetMessageCount() + " پیامک";
             }
            
             packageContent = dataText + callTimeText + messagesCount;
@@ -120,12 +120,12 @@ namespace Assets.Scripts
             return m_data;
         }
 
-        public CallTime GetCallTime()
+        public CallTime GetCallTimeContetn()
         {
             return m_callTime;
         }
 
-        public Message GetMessage()
+        public Message GetMessageContent()
         {
             return m_messages;
         }

@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.UI;
+using RTLTMPro;
 
 namespace Assets.Scripts
 {
@@ -11,147 +12,68 @@ namespace Assets.Scripts
         [SerializeField] GameObject m_popEffect;
        
         PackageContent m_content;
+        PackageContent m_initialPackage;
         
-        BubbleSize m_bubbleSizeState = BubbleSize.Small;
-        [SerializeField] float m_distance = 2f;
+        [SerializeField] Sprite m_dataIcon;
+        [SerializeField] Sprite m_callTimeIcon;
+        [SerializeField] Sprite m_messageIcon;
 
-        private bool m_isDirectionChosen = false;
-        private Vector2 m_flowingDirection = Vector2.zero;
+        [SerializeField] RTLTextMeshPro m_text;
+        [SerializeField] Image m_bubbleIcon;
+        [SerializeField] RectTransform m_rectTransform;
+
+        [SerializeField] float m_finalScale;
+
         private Vector3 m_initialPos;
-        private BubbleMovingState m_movingState = BubbleMovingState.GoingOut;
-        [SerializeField] float m_flowingSpeed = 0.5f;
-
-
-
-        [SerializeField] TMP_Text m_text;
         // Start is called before the first frame update
         void Awake()
         {
           
-            m_text = GetComponentInChildren<TMP_Text>();
+            //m_text = GetComponentInChildren<TMP_Text>();
             m_content = new PackageContent();
-            m_initialPos = transform.position;
+            SetInitialPos();
             SetSize();
-            SetText();
+            SetBubbleUi();
+            SetInitialPackage();
         }
 
-        private void Update()
+        private void SetInitialPos()
         {
-            if (m_movingState == BubbleMovingState.GoingOut)
-            {
-                if (m_isDirectionChosen)
-                {
-                    Vector3 movement = new Vector3(m_flowingDirection.x, m_flowingDirection.y, 0) * Time.deltaTime * m_flowingSpeed;
-                    transform.position =
-                    transform.position + movement;
-                    
-                    if (Vector3.Distance(transform.position , m_initialPos)>= m_distance)
-                    {
-                        m_movingState = BubbleMovingState.GettingBack;
-                        m_isDirectionChosen = false;
-                       
-                    }
-                }
-                else
-                {
-                    float horizontal = Random.Range(-1f, 1f);
-                    float vertical = Random.Range(-1f, 1f);
-
-                    m_flowingDirection = new Vector2(horizontal, vertical);
-                    m_isDirectionChosen = true;
-                }
-            }
-            else if (m_movingState == BubbleMovingState.GettingBack)
-            {
-                m_flowingDirection = m_initialPos - transform.position;
-                Vector3 movement = new Vector3(m_flowingDirection.x, m_flowingDirection.y, 0) * Time.deltaTime * m_flowingSpeed;
-                transform.position =
-                transform.position + movement;
-
-                if (Vector3.Distance(transform.position,m_initialPos) <= 0.5)
-                {
-                    m_movingState = BubbleMovingState.GoingOut;
-                 
-                }
-
-            }
-
-            Vector3 viewPortPos = Camera.main.WorldToViewportPoint(transform.position);
-            if (viewPortPos.x < 0.1)
-            {
-                m_movingState = BubbleMovingState.GettingBack;
-                m_isDirectionChosen = false;
-
-            }
-            else if (viewPortPos.x > 0.9)
-            {
-                m_movingState = BubbleMovingState.GettingBack;
-                m_isDirectionChosen = false;
-
-            }
-            else if (viewPortPos.y > 0.9)
-            {
-                m_movingState = BubbleMovingState.GettingBack;
-                m_isDirectionChosen = false;
-
-            }
-            else if (viewPortPos.y < 0.4)
-            {
-                m_movingState = BubbleMovingState.GettingBack;
-                m_isDirectionChosen = false;
-
-            }
+            m_initialPos = transform.position;
         }
 
-       
-        private void OnTriggerEnter2D(Collider2D collision)
+        public Vector3 GetInitialPos()
         {
-            m_movingState = BubbleMovingState.GettingBack;
+            return m_initialPos;
         }
 
-        private void SetText()
+        private void SetBubbleUi()
         {
             m_text.text = m_content.GetPackageTextContent();
-        }
-
-        private void SetSizeState()
-        {
-            int numOfContentTypes = m_content.GetNumOfContents();
-
-            if (numOfContentTypes <= 1)
+            if(m_content.GetDataContent() != null)
             {
-                m_bubbleSizeState = BubbleSize.Small;
+                m_bubbleIcon.sprite = m_dataIcon;
+                return;
             }
 
-            else if (numOfContentTypes == 2)
+            if (m_content.GetCallTimeContetn() != null)
             {
-                m_bubbleSizeState = BubbleSize.Medium;
+                m_bubbleIcon.sprite = m_callTimeIcon;
+                return;
             }
-            else 
+
+            if (m_content.GetMessageContent() != null )
             {
-                m_bubbleSizeState = BubbleSize.Big;
+
+                m_rectTransform.sizeDelta = new Vector2(0.08f, 0.06f);
+                m_bubbleIcon.sprite = m_messageIcon;
+                return;
             }
         }
 
         private void SetSize()
         {
-            SetSizeState();
-            switch(m_bubbleSizeState)
-            {
-                case BubbleSize.Small:
-                    transform.localScale = new Vector3(0.5f, 0.5f,0.5f);
-                    
-                    break;
-                case BubbleSize.Medium:
-                    transform.localScale = new Vector3(2, 2, 1);
-                    
-                    break;
-                case BubbleSize.Big:
-                
-                    transform.localScale = new Vector3(3, 3, 1);
-                    break;
-            }
-            
+            this.transform.localScale = new Vector3(m_finalScale, m_finalScale, m_finalScale);
         }
 
         public void Pop()
@@ -162,6 +84,11 @@ namespace Assets.Scripts
             //gameObject.SetActive(false);
         }
 
+        public void TutorialPop()
+        {
+            Destroy(this.gameObject);
+        }
+
         public Data GetBubbleData()
         {
             return m_content.GetDataContent();
@@ -169,26 +96,77 @@ namespace Assets.Scripts
 
         public CallTime GetBubbleCallTime()
         {
-            return (m_content.GetCallTime());
+            return (m_content.GetCallTimeContetn());
         }
 
         public Message GetBubbleMessage()
         {
-            return (m_content.GetMessage());
+            return (m_content.GetMessageContent());
         }
 
-        
+        public void ActivateAnarestanPowerUp()
+        {
+            Data newData = null;
+            CallTime newCallTime = null;
+            Message newMessage = null;
 
+            if (m_content.GetDataContent() != null)
+            {
+                newData = new Data((int)2 * GetBubbleData().GetData());
+            }
 
+            if (m_content.GetCallTimeContetn() != null)
+            {
+                newCallTime = new CallTime((int)2 * GetBubbleCallTime().GetCallTime());
+            }
+
+            if (m_content.GetMessageContent() != null)
+            {
+                newMessage = new Message((int)2 * GetBubbleMessage().GetMessageCount());
+            }
+
+            m_content = new PackageContent(newData,newCallTime,newMessage);
+            SetSize();
+            SetBubbleUi();
+
+        }
+
+        public void DeactivateAnarestanPowerUp()
+        {
+
+            Debug.Log("Deactivating power up");
+            m_content = new PackageContent(m_initialPackage.GetDataContent(), m_initialPackage.GetCallTimeContetn(), m_initialPackage.GetMessageContent());
+            SetSize();
+            SetBubbleUi();
+        }
+
+        private void SetInitialPackage()
+        {
+            Data data = null;
+            CallTime callTime = null;
+            Message message = null;
+
+            if (m_content.GetDataContent() != null)
+            {
+                data = new Data(m_content.GetDataContent().GetData());
+            }
+
+            if (m_content.GetCallTimeContetn() != null)
+            {
+                callTime = new CallTime(m_content.GetCallTimeContetn().GetCallTime());
+            }
+
+            if (m_content.GetMessageContent() != null)
+            {
+                message = new Message(m_content.GetMessageContent().GetMessageCount());
+            }
+
+            m_initialPackage = new PackageContent(data, callTime, message);
+        }
     }
 
     enum BubbleSize
     {
         Small,Medium , Big
-    }
-
-    enum BubbleMovingState
-    {
-        GoingOut , GettingBack
     }
 }
