@@ -6,9 +6,9 @@ using RTLTMPro;
 public class Hexagon : MonoBehaviour
 {
     
-    protected HexagonColor m_currentColor = HexagonColor.White;
+    [SerializeField] protected int m_numOfAddedColors = 0;
     [SerializeField] protected List<HexagonColor> m_colorList = new List<HexagonColor>();
-    private int m_numOfAddedColors = 0;
+    [SerializeField] protected HexagonColor m_currentColor = HexagonColor.White;
     [SerializeField] protected RTLTextMeshPro m_numberOfAddedColorsText;
     [SerializeField] protected SpriteRenderer m_spriteRenderer;
 
@@ -52,9 +52,13 @@ public class Hexagon : MonoBehaviour
     {
         if(m_numOfAddedColors > 0)
         {
-
+            m_numberOfAddedColorsText.text = m_numOfAddedColors + "";
         }
-        m_numberOfAddedColorsText.text = m_numOfAddedColors + "";
+        else
+        {
+            m_numberOfAddedColorsText.text = " ";
+        }
+        
         
     }
 
@@ -71,7 +75,7 @@ public class Hexagon : MonoBehaviour
         UpdateSprite();
     }
 
-    private void UpdateSprite()
+    protected void UpdateSprite()
     {
         //m_spriteRenderer.sprite =  HexagonSpriteManager._instance.GetHexagonSprite(m_currentColor);
         m_spriteRenderer.color = HexagonColorPicker._instance.GetHexagonColor(m_currentColor);
@@ -83,10 +87,15 @@ public class Hexagon : MonoBehaviour
         return m_currentColor;
     }
 
-    public void SetHexagonColor(HexagonColor hexagonColor)
+    public  void SetHexagonColor(HexagonColor hexagonColor)
     {
         m_currentColor = hexagonColor;
         UpdateSprite();
+    }
+
+    public int GetHexagonNumber()
+    {
+        return m_numOfAddedColors;
     }
 
     

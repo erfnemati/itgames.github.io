@@ -1,12 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager _instance;
-    [SerializeField] RefrenceGameBoard m_referenceGameBoard;
+    [SerializeField] ReferenceGameBoard m_referenceGameBoard;
     [SerializeField] GameBoard m_gameBoard;
+    [SerializeField] List<Button> m_towerButtons = new List<Button>();
+
+
+    private void OnEnable()
+    {
+        LevelTimer.OnTimeOver += LostLevel;
+        LevelTimer.OnTimeOver += DeactivateTowerButtons;
+        
+    }
+
+    private void OnDisable()
+    {
+        LevelTimer.OnTimeOver -= LostLevel;
+    }
+
     private void Awake()
     {
         if(_instance != null && _instance!= this)
@@ -24,19 +40,44 @@ public class LevelManager : MonoBehaviour
     public void CompareBoards()
     {
         List<Hexagon> gameBoardHexagons = m_gameBoard.GetHexagons();
-        List<ReferenceHexagon> referenceHexagons = new List<ReferenceHexagon>();
+        List<ReferenceHexagon> referenceHexagons = m_referenceGameBoard.GetReferenceHexagons();
 
         if (gameBoardHexagons.Count != referenceHexagons.Count)
         {
+            Debug.Log("Something wrong with gameboard hexagons and reference hexagons");
             return;
         }
         
         for(int i = 0; i <gameBoardHexagons.Count; i++)
         {
-
+            if (gameBoardHexagons[i].GetHexagonColor() == referenceHexagons[i].GetHexagonColor())
+            {
+                if (gameBoardHexagons[i].GetHexagonNumber() == referenceHexagons[i].GetHexagonNumber())
+                {
+                    continue;
+                }
+                else
+                {
+                    Debug.Log("Not there yet");
+                    return;
+                }
+            }
+            else
+            {
+                Debug.Log("Not there yet");
+                return;
+            }
         }
 
         WinLevel();
+    }
+
+    private void DeactivateTowerButtons()
+    {
+        foreach(Button tempButton in m_towerButtons)
+        {
+            tempButton.enabled = false;
+        }
     }
 
     private void WinLevel()
@@ -47,9 +88,7 @@ public class LevelManager : MonoBehaviour
 
     private void LostLevel()
     {
-        //TODO ui stuff here
         Debug.Log("You have lost");
-
     }
 
     

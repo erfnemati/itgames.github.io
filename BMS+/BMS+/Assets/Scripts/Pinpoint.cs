@@ -101,10 +101,6 @@ public class Pinpoint : MonoBehaviour
 
     public void ClickPinPoint()
     {
-        //if(Player._instance.GetPlayerPin() == null)
-        //{
-        //    return;
-        //}
         if (m_currentPin == null && Player._instance.GetPlayerPin() != null)
         {
             AddPin(Player._instance.GetPlayerPin());
@@ -115,6 +111,8 @@ public class Pinpoint : MonoBehaviour
             Player._instance.ReloadPin(m_currentPin);
             RemovePin();
         }
+
+        LevelManager._instance.CompareBoards();
     }
 
     private void AddPin(Pin chosenPin)
