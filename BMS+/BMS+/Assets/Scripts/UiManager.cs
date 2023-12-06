@@ -14,12 +14,14 @@ public class UiManager : MonoBehaviour
     {
         LevelManager.OnLevelVictory += ShowVictoryScreen;
         LevelManager.OnLevelDefeat += ShowDefeatScreen;
+        Debug.Log("Ui manager enabling");
     }
 
     private void OnDisable()
     {
         LevelManager.OnLevelDefeat -= ShowDefeatScreen;
         LevelManager.OnLevelVictory -= ShowVictoryScreen;
+        Debug.Log("Ui manager disabling");
     }
 
     private void ShowVictoryScreen()

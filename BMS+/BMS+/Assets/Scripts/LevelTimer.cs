@@ -9,21 +9,28 @@ public class LevelTimer : MonoBehaviour
     public delegate void TimeOverAction();
     public static event TimeOverAction OnTimeOver;
     bool m_isLevelOver = false;
+    bool m_isLevelNearOver = false;
 
     [SerializeField] float m_remainingTimer;
     [SerializeField] Slider m_timerSlider;
     [SerializeField] RTLTextMeshPro m_timerText;
+    [SerializeField] AudioClip m_levelDefeatSoundEffect;
+    [SerializeField] AudioClip m_nearLevelDefeatSoundEffect;
 
     private void OnEnable()
     {
         LevelManager.OnLevelVictory += StopTimer;
-        LevelManager.OnLevelDefeat -= StopTimer;
+        LevelManager.OnLevelDefeat += StopTimer;
+        LevelManager.OnLevelDefeat += PlayLevelDefeatSound;
+        Debug.Log("Level Timer enabling");
     }
 
     private void OnDisable()
     {
         LevelManager.OnLevelVictory -= StopTimer;
         LevelManager.OnLevelDefeat -= StopTimer;
+        LevelManager.OnLevelDefeat -= PlayLevelDefeatSound;
+        Debug.Log("Level Timer disabling");
     }
     private void Start()
     {
@@ -65,6 +72,13 @@ public class LevelTimer : MonoBehaviour
 
     private void UpdateTimerText()
     {
+        if (m_remainingTimer - 5f < Mathf.Epsilon && m_isLevelNearOver == false)
+        {
+
+            //SoundManager._instance.FadeBackgroundMusic();
+            SoundManager._instance.PlaySoundEffect(m_nearLevelDefeatSoundEffect);
+            m_isLevelNearOver = true;
+        }
         if (m_remainingTimer - 60.0f < Mathf.Epsilon)
         {
             m_timerText.text = (int)m_remainingTimer + "";
@@ -89,4 +103,11 @@ public class LevelTimer : MonoBehaviour
     {
         m_isLevelOver = true;
     }
+
+    private void PlayLevelDefeatSound()
+    {
+        SoundManager._instance.PlaySoundEffect(m_levelDefeatSoundEffect);
+    }
+
+    
 }

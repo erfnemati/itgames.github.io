@@ -19,12 +19,15 @@ public class LevelManager : MonoBehaviour
     {
         LevelTimer.OnTimeOver += LostLevel;
         LevelTimer.OnTimeOver += DeactivateTowerButtons;
-        
+        Debug.Log("Level manager enabling");
+
     }
 
     private void OnDisable()
     {
         LevelTimer.OnTimeOver -= LostLevel;
+        LevelTimer.OnTimeOver -= DeactivateTowerButtons;
+        Debug.Log("Level manager disabling");
     }
 
     private void Awake()

@@ -10,15 +10,18 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject m_redPin;
     [SerializeField] GameObject m_yellowPin;
     [SerializeField] GameObject m_bluePin;
+    
 
     private void OnEnable()
     {
         LevelTimer.OnTimeOver += LevelIsOver;
+        Debug.Log("Player enabling");
     }
 
     private void OnDisable()
     {
         LevelTimer.OnTimeOver -= LevelIsOver;
+        Debug.Log("Player Disabling");
     }
     private void Awake()
     {
