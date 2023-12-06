@@ -10,6 +10,10 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameBoard m_gameBoard;
     [SerializeField] List<Button> m_towerButtons = new List<Button>();
 
+    public delegate void EndLevelAction();
+    public static event EndLevelAction OnLevelVictory;
+    public static event EndLevelAction OnLevelDefeat;
+
 
     private void OnEnable()
     {
@@ -82,13 +86,15 @@ public class LevelManager : MonoBehaviour
 
     private void WinLevel()
     {
-        //TODO ui stuff here
+        
         Debug.Log("You have won");
+        OnLevelVictory();
     }
 
     private void LostLevel()
     {
         Debug.Log("You have lost");
+        OnLevelDefeat();
     }
 
     

@@ -14,7 +14,17 @@ public class LevelTimer : MonoBehaviour
     [SerializeField] Slider m_timerSlider;
     [SerializeField] RTLTextMeshPro m_timerText;
 
+    private void OnEnable()
+    {
+        LevelManager.OnLevelVictory += StopTimer;
+        LevelManager.OnLevelDefeat -= StopTimer;
+    }
 
+    private void OnDisable()
+    {
+        LevelManager.OnLevelVictory -= StopTimer;
+        LevelManager.OnLevelDefeat -= StopTimer;
+    }
     private void Start()
     {
         m_timerSlider.maxValue = m_remainingTimer;
@@ -73,5 +83,10 @@ public class LevelTimer : MonoBehaviour
             }
             
         }
+    }
+
+    private void StopTimer()
+    {
+        m_isLevelOver = true;
     }
 }

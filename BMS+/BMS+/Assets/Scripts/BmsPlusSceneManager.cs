@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class BmsPlusSceneManager : MonoBehaviour
 {
     public static BmsPlusSceneManager _instance;
+    [SerializeField] int m_mainMenuIndex;
 
     private void Awake()
     {
@@ -30,6 +31,12 @@ public class BmsPlusSceneManager : MonoBehaviour
     {
         int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentLevelIndex);
+    }
+
+    public void LoadMainMenu()
+    {
+        Debug.Log("Loading main menu");
+        SceneManager.LoadScene(m_mainMenuIndex);
     }
 
     public void OnApplicationQuit()
