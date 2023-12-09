@@ -9352,7 +9352,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u06F1"
+  m_text: "\u06F3"
   m_isRightToLeft: 1
   m_fontAsset: {fileID: 11400000, guid: e1e48b4a81153f347bb3d9485122a3a8, type: 2}
   m_sharedMaterial: {fileID: -4491573295339467307, guid: e1e48b4a81153f347bb3d9485122a3a8, type: 2}
@@ -9423,7 +9423,7 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
   preserveNumbers: 0
   farsi: 1
-  originalText: 1
+  originalText: 3
   fixTags: 1
   forceFix: 1
 --- !u!222 &574598863
