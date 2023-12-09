@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] ReferenceGameBoard m_referenceGameBoard;
     [SerializeField] GameBoard m_gameBoard;
     [SerializeField] List<Button> m_towerButtons = new List<Button>();
+    [SerializeField] AudioClip m_victorySound;
 
     public delegate void EndLevelAction();
     public static event EndLevelAction OnLevelVictory;
@@ -19,6 +20,7 @@ public class LevelManager : MonoBehaviour
     {
         LevelTimer.OnTimeOver += LostLevel;
         LevelTimer.OnTimeOver += DeactivateTowerButtons;
+        OnLevelVictory += PlayVictorySound;
         Debug.Log("Level manager enabling");
 
     }
@@ -27,6 +29,7 @@ public class LevelManager : MonoBehaviour
     {
         LevelTimer.OnTimeOver -= LostLevel;
         LevelTimer.OnTimeOver -= DeactivateTowerButtons;
+        OnLevelVictory -= PlayVictorySound;
         Debug.Log("Level manager disabling");
     }
 
@@ -98,6 +101,14 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("You have lost");
         OnLevelDefeat();
+    }
+
+    private void PlayVictorySound()
+    {
+        Debug.Log("Play victory sound");
+        SoundManager._instance.StopAllSoundEffects();
+        SoundManager._instance.PlaySoundEffect(m_victorySound);
+        
     }
 
     

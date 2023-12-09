@@ -30,21 +30,21 @@ public class BmsPlusSceneManager : MonoBehaviour
     public void RestartLevel()
     {
         int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+        SoundManager._instance.StopAllSoundEffects();
         SceneManager.LoadScene(currentLevelIndex);
+        
     }
 
     public void LoadMainMenu()
     {
         Debug.Log("Loading main menu");
+        SoundManager._instance.StopAllSoundEffects();
         SceneManager.LoadScene(m_mainMenuIndex);
+        
     }
 
     public void OnApplicationQuit()
     {
         Application.Quit();
     }
-
-
-
-
 }

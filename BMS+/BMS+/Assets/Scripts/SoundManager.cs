@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioSource m_musicSource;
     [SerializeField] AudioSource m_soundEffectSource;
 
+
     private void Awake()
     {
         if(_instance != null && _instance != this)
@@ -22,7 +23,6 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    
     public void PlaySoundEffect(AudioClip clip)
     {
         m_soundEffectSource.PlayOneShot(clip);
@@ -34,14 +34,16 @@ public class SoundManager : MonoBehaviour
         m_musicSource.Play();
     }
 
-    private void FadeBackgroundMusic(float endValue)
+    public void StopAllSoundEffects()
     {
-        m_musicSource.DOFade(endValue, 0.5f);
+        if (m_soundEffectSource.isPlaying)
+        {
+            Debug.Log("Stopping sound");
+            m_soundEffectSource.Stop();
+        }
+        else
+        {
+            Debug.Log("noting is playing");
+        }
     }
-
-    
-
-    
-
-    
 }

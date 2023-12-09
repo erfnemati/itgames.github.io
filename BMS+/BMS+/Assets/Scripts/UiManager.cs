@@ -12,7 +12,7 @@ public class UiManager : MonoBehaviour
 
     private void OnEnable()
     {
-        LevelManager.OnLevelVictory += ShowVictoryScreen;
+        LevelManager.OnLevelVictory += InvokeVictoryScreen;
         LevelManager.OnLevelDefeat += ShowDefeatScreen;
         Debug.Log("Ui manager enabling");
     }
@@ -20,16 +20,22 @@ public class UiManager : MonoBehaviour
     private void OnDisable()
     {
         LevelManager.OnLevelDefeat -= ShowDefeatScreen;
-        LevelManager.OnLevelVictory -= ShowVictoryScreen;
+        LevelManager.OnLevelVictory -= InvokeVictoryScreen;
         Debug.Log("Ui manager disabling");
+    }
+
+    private void InvokeVictoryScreen()
+    {
+        Debug.Log("Show winning screen");
+        Invoke(nameof(ShowVictoryScreen), 0.5f);
+        
+
     }
 
     private void ShowVictoryScreen()
     {
-        Debug.Log("Show winning screen");
         m_blurredBackground.gameObject.SetActive(true);
         AnimateScreen(m_VictoryScreen);
-
     }
 
     private void AnimateScreen(GameObject targetGameObject)
@@ -49,6 +55,4 @@ public class UiManager : MonoBehaviour
         AnimateScreen(m_DefeatScreen);
 
     }
-
-    
 }

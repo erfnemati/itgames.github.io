@@ -17,6 +17,8 @@ public class Pinpoint : MonoBehaviour
     private RectTransform m_pinPointRect;
     [SerializeField] Sprite m_initialPinPointSprite;
     [SerializeField] float m_fullPinPointScaleFactor;
+
+    [SerializeField] AudioClip m_pinSound;
  
     [SerializeField] Sprite m_redObject;
     [SerializeField] Sprite m_yellowObject;
@@ -104,11 +106,13 @@ public class Pinpoint : MonoBehaviour
         if (m_currentPin == null && Player._instance.GetPlayerPin() != null)
         {
             AddPin(Player._instance.GetPlayerPin());
+            SoundManager._instance.PlaySoundEffect(m_pinSound);//I should recycle it later.
             Player._instance.ReleasePin();
         }
         else if (m_currentPin != null)
         {
             Player._instance.ReloadPin(m_currentPin);
+            SoundManager._instance.PlaySoundEffect(m_pinSound);//I should recycle it later.
             RemovePin();
         }
 

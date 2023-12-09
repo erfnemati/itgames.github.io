@@ -495,6 +495,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -894,6 +898,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -1139,6 +1147,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -1803,6 +1815,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -2526,6 +2542,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -3335,6 +3355,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -4243,6 +4267,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -4514,6 +4542,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -4684,6 +4716,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -4853,6 +4889,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -6710,6 +6750,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -7817,6 +7861,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -8371,6 +8419,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -8612,6 +8664,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -9103,6 +9159,7 @@ MonoBehaviour:
   - {fileID: 399707966}
   - {fileID: 1184002397}
   - {fileID: 466734372}
+  m_victorySound: {fileID: 8300000, guid: 4d948d8db68a5c5438e36a4712f9e3af, type: 3}
 --- !u!4 &569378282
 Transform:
   m_ObjectHideFlags: 0
@@ -9742,6 +9799,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -10971,6 +11032,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -11686,6 +11751,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -11956,6 +12025,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -12358,6 +12431,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -13240,6 +13317,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -13713,6 +13794,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -14149,6 +14234,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -14495,6 +14584,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -14660,6 +14753,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -15269,6 +15366,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -15628,6 +15729,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -16312,6 +16417,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -17013,6 +17122,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -17178,6 +17291,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -17476,6 +17593,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -18403,6 +18524,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -18477,7 +18602,7 @@ MonoBehaviour:
   m_redPin: {fileID: 570191659}
   m_yellowPin: {fileID: 1740891576}
   m_bluePin: {fileID: 1549881354}
-  m_pinAudioClip: {fileID: 8300000, guid: 33f70a6bc8482ed49b93a68b2921c03e, type: 3}
+  m_playerChoosingSound: {fileID: 8300000, guid: 33f70a6bc8482ed49b93a68b2921c03e, type: 3}
 --- !u!4 &1365172537
 Transform:
   m_ObjectHideFlags: 0
@@ -19125,6 +19250,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -20018,6 +20147,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -20294,7 +20427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac606a741a0406c4ab8b35bef85357ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_remainingTimer: 60
+  m_remainingTimer: 10
   m_timerSlider: {fileID: 1350194225}
   m_timerText: {fileID: 7504169}
   m_levelDefeatSoundEffect: {fileID: 8300000, guid: 0d2992e880c860b40bbac78d07d0f55c, type: 3}
@@ -20626,6 +20759,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -21085,6 +21222,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -21892,6 +22033,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -22049,6 +22194,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -22311,6 +22460,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -22726,6 +22879,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -22883,6 +23040,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -23497,6 +23658,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -24302,6 +24467,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -24586,6 +24755,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -25097,6 +25270,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -25801,6 +25978,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -26042,6 +26223,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -26697,6 +26882,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -26866,6 +27055,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -27238,6 +27431,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -28367,6 +28564,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -29230,6 +29431,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -29604,6 +29809,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
@@ -30338,6 +30547,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 
       objectReference: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
@@ -30828,6 +31041,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
+      propertyPath: m_pinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1033bff7493a8144b92d15f56604e3bb, type: 3}
     - target: {fileID: 9043796720099552663, guid: 5189bca17fafb924ca8bbb0131605b63, type: 3}
       propertyPath: m_redObject
       value: 

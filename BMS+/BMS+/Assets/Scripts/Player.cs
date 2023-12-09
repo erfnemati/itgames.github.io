@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject m_redPin;
     [SerializeField] GameObject m_yellowPin;
     [SerializeField] GameObject m_bluePin;
+
+    [SerializeField] AudioClip m_playerChoosingSound;
     
 
     private void OnEnable()
@@ -63,6 +65,7 @@ public class Player : MonoBehaviour
             m_currentPlayerPin.ResetPinUi();
         }
         m_currentPlayerPin = m_redPin.GetComponent<Pin>();
+        SoundManager._instance.PlaySoundEffect(m_playerChoosingSound);
     }
 
     public void PickYellowPin()
@@ -76,6 +79,7 @@ public class Player : MonoBehaviour
             m_currentPlayerPin.ResetPinUi();
         }
         m_currentPlayerPin = m_yellowPin.GetComponent<Pin>();
+        SoundManager._instance.PlaySoundEffect(m_playerChoosingSound);
     }
 
     public void PickBluePin()
@@ -89,6 +93,7 @@ public class Player : MonoBehaviour
             m_currentPlayerPin.ResetPinUi();
         }
         m_currentPlayerPin = m_bluePin.GetComponent<Pin>();
+        SoundManager._instance.PlaySoundEffect(m_playerChoosingSound);
     }
 
     public void ReleasePin()
@@ -107,4 +112,5 @@ public class Player : MonoBehaviour
         m_isLevelOver = true;
         m_currentPlayerPin = null;
     }
+
 }
