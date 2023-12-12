@@ -16,13 +16,13 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        LevelTimer.OnTimeOver += LevelIsOver;
+        LevelManager.OnLevelDefeat += LevelIsOver;
         Debug.Log("Player enabling");
     }
 
     private void OnDisable()
     {
-        LevelTimer.OnTimeOver -= LevelIsOver;
+        LevelManager.OnLevelDefeat -= LevelIsOver;
         Debug.Log("Player Disabling");
     }
     private void Awake()

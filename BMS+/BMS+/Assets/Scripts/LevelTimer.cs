@@ -54,6 +54,7 @@ public class LevelTimer : MonoBehaviour
         if (m_remainingTimer < Mathf.Epsilon)
         {
             m_isLevelOver = true;
+            //PlayerLifeManager._instance.DecrementNumOfLives();
             OnTimeOver();
         }
         UpdateTimerUi();

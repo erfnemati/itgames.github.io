@@ -19,8 +19,10 @@ public class LevelManager : MonoBehaviour
     private void OnEnable()
     {
         LevelTimer.OnTimeOver += LostLevel;
-        LevelTimer.OnTimeOver += DeactivateTowerButtons;
+        //LevelTimer.OnTimeOver += DeactivateTowerButtons;
+        OnLevelDefeat += DeactivateTowerButtons;
         OnLevelVictory += PlayVictorySound;
+        OnLevelVictory += DeactivateTowerButtons;
         Debug.Log("Level manager enabling");
 
     }
@@ -28,8 +30,10 @@ public class LevelManager : MonoBehaviour
     private void OnDisable()
     {
         LevelTimer.OnTimeOver -= LostLevel;
-        LevelTimer.OnTimeOver -= DeactivateTowerButtons;
+        //LevelTimer.OnTimeOver -= DeactivateTowerButtons;
+        OnLevelDefeat -= DeactivateTowerButtons;
         OnLevelVictory -= PlayVictorySound;
+        OnLevelVictory -= DeactivateTowerButtons;
         Debug.Log("Level manager disabling");
     }
 
@@ -100,6 +104,10 @@ public class LevelManager : MonoBehaviour
     private void LostLevel()
     {
         Debug.Log("You have lost");
+        if (PlayerLifeManager._instance != null)
+        {
+            PlayerLifeManager._instance.DecrementNumOfLives();
+        }
         OnLevelDefeat();
     }
 

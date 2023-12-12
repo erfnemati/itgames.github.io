@@ -24,6 +24,7 @@ public class BmsPlusSceneManager : MonoBehaviour
     {
         int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
         int nextLevelIndex = (currentLevelIndex + 1) % SceneManager.sceneCountInBuildSettings;
+        PlayerLifeManager._instance.ResetNumOfLives();
         SceneManager.LoadScene(nextLevelIndex);
     }
 
@@ -39,6 +40,7 @@ public class BmsPlusSceneManager : MonoBehaviour
     {
         Debug.Log("Loading main menu");
         SoundManager._instance.StopAllSoundEffects();
+        PlayerLifeManager._instance.ResetNumOfLives();
         SceneManager.LoadScene(m_mainMenuIndex);
         
     }

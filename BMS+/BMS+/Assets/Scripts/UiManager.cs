@@ -7,8 +7,13 @@ public class UiManager : MonoBehaviour
 {
     [SerializeField] GameObject m_blurredBackground;
     [SerializeField] GameObject m_VictoryScreen;
-    [SerializeField] GameObject m_DefeatScreen;
+    [SerializeField] GameObject m_defeatScreen;
+    [SerializeField] GameObject m_gameOverScreen;
     [SerializeField] float m_scalingTime;
+    [SerializeField] GameObject m_firstHeart;
+    [SerializeField] GameObject m_secHeart;
+    [SerializeField] GameObject m_thirdHeart;
+
 
     private void OnEnable()
     {
@@ -22,6 +27,11 @@ public class UiManager : MonoBehaviour
         LevelManager.OnLevelDefeat -= ShowDefeatScreen;
         LevelManager.OnLevelVictory -= InvokeVictoryScreen;
         Debug.Log("Ui manager disabling");
+    }
+
+    private void Start()
+    {
+        UpdateNumberOfLives();
     }
 
     private void InvokeVictoryScreen()
@@ -50,9 +60,49 @@ public class UiManager : MonoBehaviour
 
     private void ShowDefeatScreen()
     {
-        m_blurredBackground.SetActive(true);
+        int m_numberOfLives = PlayerLifeManager._instance.GetCurrentNumberOfLives();
         m_blurredBackground.gameObject.SetActive(true);
-        AnimateScreen(m_DefeatScreen);
+        if (m_numberOfLives < 1)
+        {
+            AnimateScreen(m_gameOverScreen);
+        }
+        else
+        {
+            AnimateScreen(m_defeatScreen);
+        }
+        
+    }
 
+    private void UpdateNumberOfLives()
+    {
+        if (PlayerLifeManager._instance == null)
+        {
+            return;
+        }
+
+        int m_numberOfLives = PlayerLifeManager._instance.GetCurrentNumberOfLives();
+
+        if (m_numberOfLives == 1)
+        {
+            m_firstHeart.gameObject.SetActive(true);
+            m_secHeart.gameObject.SetActive(false);
+            m_thirdHeart.gameObject.SetActive(false);
+        }
+        else if (m_numberOfLives == 2)
+        {
+            m_firstHeart.gameObject.SetActive(true);
+            m_secHeart.gameObject.SetActive(true);
+            m_thirdHeart.gameObject.SetActive(false);
+        }
+        else if (m_numberOfLives == 3)
+        {
+            m_firstHeart.gameObject.SetActive(true);
+            m_secHeart.gameObject.SetActive(true);
+            m_thirdHeart.gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("Something is wrong");
+        }
     }
 }
