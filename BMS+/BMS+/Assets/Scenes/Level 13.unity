@@ -364,7 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_numOfAddedColors: 2
   m_colorList: 
-  m_currentColor: 4
+  m_currentColor: 6
   m_numberOfAddedColorsText: {fileID: 622785374}
   m_spriteRenderer: {fileID: 886947076}
 --- !u!1001 &28396771
@@ -2305,9 +2305,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881555f46cb42c6419158f1aa3f896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_numOfAddedColors: 1
+  m_numOfAddedColors: 2
   m_colorList: 
-  m_currentColor: 3
+  m_currentColor: 2
   m_numberOfAddedColorsText: {fileID: 1878360344}
   m_spriteRenderer: {fileID: 1026552131}
 --- !u!1 &124235129
@@ -5921,9 +5921,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881555f46cb42c6419158f1aa3f896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_numOfAddedColors: 2
+  m_numOfAddedColors: 0
   m_colorList: 
-  m_currentColor: 1
+  m_currentColor: 0
   m_numberOfAddedColorsText: {fileID: 1571544338}
   m_spriteRenderer: {fileID: 1418679306}
 --- !u!1 &358298255
@@ -6266,9 +6266,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881555f46cb42c6419158f1aa3f896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_numOfAddedColors: 0
+  m_numOfAddedColors: 1
   m_colorList: 
-  m_currentColor: 0
+  m_currentColor: 1
   m_numberOfAddedColorsText: {fileID: 469412711}
   m_spriteRenderer: {fileID: 2086717985}
 --- !u!1 &365590563
@@ -8033,9 +8033,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881555f46cb42c6419158f1aa3f896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_numOfAddedColors: 1
+  m_numOfAddedColors: 3
   m_colorList: 
-  m_currentColor: 1
+  m_currentColor: 7
   m_numberOfAddedColorsText: {fileID: 415831084}
   m_spriteRenderer: {fileID: 658576163}
 --- !u!1 &466734370
@@ -8701,9 +8701,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881555f46cb42c6419158f1aa3f896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_numOfAddedColors: 2
+  m_numOfAddedColors: 0
   m_colorList: 
-  m_currentColor: 6
+  m_currentColor: 0
   m_numberOfAddedColorsText: {fileID: 233272324}
   m_spriteRenderer: {fileID: 583915765}
 --- !u!1001 &505722889
@@ -10214,7 +10214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_pinColor: 1
-  m_numOfUsages: 6
+  m_numOfUsages: 4
   m_numOfUsagesText: {fileID: 988956137}
   m_buttonFrame: {fileID: 803153388}
 --- !u!114 &570191661
@@ -12325,7 +12325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_numOfAddedColors: 2
   m_colorList: 
-  m_currentColor: 6
+  m_currentColor: 5
   m_numberOfAddedColorsText: {fileID: 694310180}
   m_spriteRenderer: {fileID: 511634590}
 --- !u!1 &689160293
@@ -13256,7 +13256,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u06F0\u06F1"
+  m_text: "\u06F3\u06F1"
   m_isRightToLeft: 1
   m_fontAsset: {fileID: 11400000, guid: e1e48b4a81153f347bb3d9485122a3a8, type: 2}
   m_sharedMaterial: {fileID: -4491573295339467307, guid: e1e48b4a81153f347bb3d9485122a3a8, type: 2}
@@ -13283,7 +13283,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 61.6
+  m_fontSize: 50.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -13319,7 +13319,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.26838693, y: 0.6930542, z: 0.05165865, w: -0.0006866264}
+  m_margin: {x: 7.0389404, y: 6.6092377, z: 6.3427277, w: 10.920959}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -13327,7 +13327,7 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
   preserveNumbers: 0
   farsi: 1
-  originalText: 10
+  originalText: 13
   fixTags: 1
   forceFix: 1
 --- !u!222 &763797354
@@ -21459,7 +21459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_numOfAddedColors: 1
   m_colorList: 
-  m_currentColor: 2
+  m_currentColor: 1
   m_numberOfAddedColorsText: {fileID: 33727385}
   m_spriteRenderer: {fileID: 1525006101}
 --- !u!1001 &1397284273
@@ -22665,9 +22665,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881555f46cb42c6419158f1aa3f896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_numOfAddedColors: 1
+  m_numOfAddedColors: 0
   m_colorList: 
-  m_currentColor: 1
+  m_currentColor: 0
   m_numberOfAddedColorsText: {fileID: 254550438}
   m_spriteRenderer: {fileID: 1934086884}
 --- !u!1 &1495377839
@@ -22800,7 +22800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac606a741a0406c4ab8b35bef85357ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_remainingTimer: 100
+  m_remainingTimer: 105
   m_timerSlider: {fileID: 1851633029}
   m_timerText: {fileID: 1862956516}
   m_levelDefeatSoundEffect: {fileID: 8300000, guid: 0d2992e880c860b40bbac78d07d0f55c, type: 3}
@@ -23739,7 +23739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_pinColor: 2
-  m_numOfUsages: 4
+  m_numOfUsages: 6
   m_numOfUsagesText: {fileID: 66173852}
   m_buttonFrame: {fileID: 51249002}
 --- !u!114 &1549881356
@@ -24429,7 +24429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881555f46cb42c6419158f1aa3f896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_numOfAddedColors: 5
+  m_numOfAddedColors: 2
   m_colorList: 
   m_currentColor: 6
   m_numberOfAddedColorsText: {fileID: 1408671291}
@@ -24857,9 +24857,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881555f46cb42c6419158f1aa3f896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_numOfAddedColors: 1
+  m_numOfAddedColors: 2
   m_colorList: 
-  m_currentColor: 2
+  m_currentColor: 5
   m_numberOfAddedColorsText: {fileID: 1393052311}
   m_spriteRenderer: {fileID: 1403542908}
 --- !u!1001 &1596084617
@@ -26040,9 +26040,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881555f46cb42c6419158f1aa3f896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_numOfAddedColors: 3
+  m_numOfAddedColors: 0
   m_colorList: 
-  m_currentColor: 6
+  m_currentColor: 0
   m_numberOfAddedColorsText: {fileID: 1932130672}
   m_spriteRenderer: {fileID: 1175953907}
 --- !u!1 &1668721624
@@ -27267,7 +27267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_pinColor: 0
-  m_numOfUsages: 1
+  m_numOfUsages: 3
   m_numOfUsagesText: {fileID: 1252242005}
   m_buttonFrame: {fileID: 1698952918}
 --- !u!1001 &1741859862
@@ -29324,9 +29324,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881555f46cb42c6419158f1aa3f896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_numOfAddedColors: 0
+  m_numOfAddedColors: 1
   m_colorList: 
-  m_currentColor: 0
+  m_currentColor: 2
   m_numberOfAddedColorsText: {fileID: 448059932}
   m_spriteRenderer: {fileID: 629621968}
 --- !u!1 &1851633027
@@ -31654,9 +31654,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881555f46cb42c6419158f1aa3f896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_numOfAddedColors: 3
+  m_numOfAddedColors: 0
   m_colorList: 
-  m_currentColor: 6
+  m_currentColor: 0
   m_numberOfAddedColorsText: {fileID: 2013143629}
   m_spriteRenderer: {fileID: 177870791}
 --- !u!1001 &1989880957
@@ -31920,9 +31920,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881555f46cb42c6419158f1aa3f896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_numOfAddedColors: 1
+  m_numOfAddedColors: 2
   m_colorList: 
-  m_currentColor: 3
+  m_currentColor: 5
   m_numberOfAddedColorsText: {fileID: 155200727}
   m_spriteRenderer: {fileID: 183054653}
 --- !u!1 &1997928013
@@ -33017,9 +33017,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881555f46cb42c6419158f1aa3f896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_numOfAddedColors: 0
+  m_numOfAddedColors: 2
   m_colorList: 
-  m_currentColor: 0
+  m_currentColor: 5
   m_numberOfAddedColorsText: {fileID: 1617110158}
   m_spriteRenderer: {fileID: 526125220}
 --- !u!1001 &2070264121
@@ -34192,9 +34192,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881555f46cb42c6419158f1aa3f896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_numOfAddedColors: 0
+  m_numOfAddedColors: 1
   m_colorList: 
-  m_currentColor: 0
+  m_currentColor: 1
   m_numberOfAddedColorsText: {fileID: 1754944096}
   m_spriteRenderer: {fileID: 2145234575}
 --- !u!1 &2134188334
