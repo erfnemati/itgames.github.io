@@ -7338,7 +7338,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -1.32, y: -0.9960003}
+  m_AnchoredPosition: {x: -1.29, y: -1.26}
   m_SizeDelta: {x: 1.6226, y: 2.0537}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &448059930
@@ -10143,7 +10143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_pinColor: 1
-  m_numOfUsages: 1
+  m_numOfUsages: 4
   m_numOfUsagesText: {fileID: 988956137}
   m_buttonFrame: {fileID: 803153388}
 --- !u!114 &570191661
@@ -27157,7 +27157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_pinColor: 0
-  m_numOfUsages: 1
+  m_numOfUsages: 4
   m_numOfUsagesText: {fileID: 1252242005}
   m_buttonFrame: {fileID: 1698952918}
 --- !u!1001 &1741859862
