@@ -22,6 +22,7 @@ public class Hexagon : MonoBehaviour
         m_colorList.Add(HexagonColor.White);
         //AddColor(HexagonColor.White);
         UpdateNumOfAddedColorsText();
+        UpdateSprite();
         
     }
 

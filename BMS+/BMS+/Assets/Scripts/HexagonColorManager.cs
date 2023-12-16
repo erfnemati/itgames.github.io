@@ -7,15 +7,6 @@ public class HexagonColorManager : MonoBehaviour
 {
     public static HexagonColorManager _instance;
 
-    [SerializeField] Sprite m_whiteHexagonColorSprite;
-    [SerializeField] Sprite m_blueHexagonColorSprite;
-    [SerializeField] Sprite m_redHexagonColorSprite;
-    [SerializeField] Sprite m_yellowHexagonColorSprite;
-    [SerializeField] Sprite m_orangeHexagonColorSprite;
-    [SerializeField] Sprite m_greenHexagonColorSprite;
-    [SerializeField] Sprite m_purpleHexagonColorSprite;
-    [SerializeField] Sprite m_brownHexagonColorSpirte;
-
     private void Awake()
     {
         if(_instance != null && _instance != this)
