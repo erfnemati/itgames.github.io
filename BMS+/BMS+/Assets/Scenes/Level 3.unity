@@ -3234,8 +3234,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_blurredBackground: {fileID: 785028602}
   m_VictoryScreen: {fileID: 1345961495}
-  m_DefeatScreen: {fileID: 172601813}
+  m_defeatScreen: {fileID: 0}
+  m_gameOverScreen: {fileID: 0}
   m_scalingTime: 0.5
+  m_firstHeart: {fileID: 0}
+  m_secHeart: {fileID: 0}
+  m_thirdHeart: {fileID: 0}
 --- !u!4 &167459322
 Transform:
   m_ObjectHideFlags: 0
@@ -9205,6 +9209,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -9278,6 +9283,18 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b70ede5032217248807d9be2c8271a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &521378490
 PrefabInstance:
   m_ObjectHideFlags: 0
