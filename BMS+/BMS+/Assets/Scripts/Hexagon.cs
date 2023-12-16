@@ -12,18 +12,11 @@ public class Hexagon : MonoBehaviour
     [SerializeField] protected RTLTextMeshPro m_numberOfAddedColorsText;
     [SerializeField] protected SpriteRenderer m_spriteRenderer;
 
-    private void Awake()
+    private void Start()
     {
-        if(m_numberOfAddedColorsText == null)
-        {
-            Debug.Log("It is null");
-        }
-        //m_spriteRenderer = GetComponent<SpriteRenderer>();
         m_colorList.Add(HexagonColor.White);
-        //AddColor(HexagonColor.White);
         UpdateNumOfAddedColorsText();
         UpdateSprite();
-        
     }
 
     public void AddColor(HexagonColor chosenColor)
@@ -79,6 +72,15 @@ public class Hexagon : MonoBehaviour
     protected void UpdateSprite()
     {
         //m_spriteRenderer.sprite =  HexagonSpriteManager._instance.GetHexagonSprite(m_currentColor);
+        if (m_spriteRenderer == null)
+        {
+            Debug.Log("Sprite null here");
+        }
+
+        if (HexagonSpritePicker._instance == null)
+        {
+            Debug.Log("Sprite picker is null");
+        }
         m_spriteRenderer.sprite = HexagonSpritePicker._instance.GetHexagonSprite(m_currentColor);
 
     }
