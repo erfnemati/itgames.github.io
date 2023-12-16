@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerLifeManager : MonoBehaviour
 {
     public static PlayerLifeManager _instance;
-    private int m_currentNumOfLives = 3;
+    [SerializeField] int m_currentNumOfLives = 3;
     [SerializeField] int m_initialNumberOfLives;
 
 

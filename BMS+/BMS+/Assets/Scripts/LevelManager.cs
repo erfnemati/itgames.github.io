@@ -111,6 +111,11 @@ public class LevelManager : MonoBehaviour
         OnLevelDefeat();
     }
 
+    public void RetreatLevel()
+    {
+        LostLevel();
+    }
+
     private void PlayVictorySound()
     {
         Debug.Log("Play victory sound");
