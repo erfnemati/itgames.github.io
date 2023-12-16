@@ -78,7 +78,7 @@ public class Hexagon : MonoBehaviour
     protected void UpdateSprite()
     {
         //m_spriteRenderer.sprite =  HexagonSpriteManager._instance.GetHexagonSprite(m_currentColor);
-        m_spriteRenderer.color = HexagonColorPicker._instance.GetHexagonColor(m_currentColor);
+        m_spriteRenderer.sprite = HexagonSpritePicker._instance.GetHexagonSprite(m_currentColor);
 
     }
 
