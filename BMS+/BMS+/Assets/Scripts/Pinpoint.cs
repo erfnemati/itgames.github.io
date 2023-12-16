@@ -65,9 +65,8 @@ public class Pinpoint : MonoBehaviour
 
     private void AddSprite()
     {
-        float temp = m_initialPinPointHeight * m_fullPinPointScaleFactor;
-        m_pinPointRect.sizeDelta = new Vector2(m_initialPinPointWidth, temp);
-        
+        float temp = 1.5f * m_initialPinPointHeight * m_fullPinPointScaleFactor;
+        m_pinPointRect.sizeDelta = new Vector2(1.5f * m_initialPinPointWidth, temp);
         m_pinPoint.image.color = new Color(255, 255, 255, 255);
         ChooseSprite();
         
