@@ -7,22 +7,27 @@ using System.Text.RegularExpressions;
 
 public class TextInputManager : MonoBehaviour
 {
-    [SerializeField] RTLTextMeshPro m_inputText;
     private string m_convertedString;
     private char[] m_englishNumbers = new char[] { '0','1', '2', '3', '4', '5', '6', '7', '8', '9' };
 
-    private bool ValidateText()
+    public string ValidateText(string enteredText)
     {
-        Debug.Log(m_convertedString);
+        ConvertText(enteredText);
         Regex reg = new Regex("^(\\+98|0)?9\\d{9}$");
-        return reg.IsMatch(m_convertedString);
-
+        if (reg.IsMatch(m_convertedString))
+        {
+            Debug.Log("Validated");
+            return m_convertedString;
+           
+        }
+        return null;
     }
 
-    private void ConvertText()
+    private void ConvertText(string enteredText)
     {
-        char[] tempCharString = m_inputText.text.ToCharArray();
-        char[] secondTempCharStr = new char[m_inputText.text.Length - 1];
+        
+        char[] tempCharString = enteredText.ToCharArray();
+        char[] secondTempCharStr = new char [enteredText.Length - 1];
         int j = 0;
 
         for (int i = 0; i < tempCharString.Length - 1 ;i++)
@@ -31,20 +36,6 @@ public class TextInputManager : MonoBehaviour
             secondTempCharStr[secondTempCharStr.Length - 1 - i] = tempCharString[i];
         }
         m_convertedString = new string(secondTempCharStr);
-        
+        Debug.Log("Converting : " + m_convertedString);
     }
-
-    public void SaveText()
-    {
-        ConvertText();
-
-        if (ValidateText())
-        {
-            Debug.Log("Time to save");
-        }
-        else
-        {
-            Debug.Log("Not validated");
-        }
-    } 
 }
