@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 public class PersistentDataManager : MonoBehaviour
@@ -10,7 +11,7 @@ public class PersistentDataManager : MonoBehaviour
 
     private TextInputManager m_textInputManager;
     public const string m_playersInfoString = "PlayersInfo";
-    PlayerInfos m_playersInfo;
+    PlayersInfo m_playersInfo;
     PlayerPersistentData m_currentData;
 
     private void OnEnable()
@@ -38,13 +39,9 @@ public class PersistentDataManager : MonoBehaviour
     private void Start()
     {
         m_textInputManager = GetComponent<TextInputManager>();
-        m_playersInfo = GetComponent<PlayerInfos>();
-        if (m_playersInfo != null)
-        {
-            Debug.Log("Null not here");
-        }
+        m_playersInfo = new PlayersInfo();
+        Debug.Log("Instantiating new playersInfo object");
         StartNewPlaythrough();
-        RetrieveData();
     }
 
     private void Update()
@@ -58,38 +55,23 @@ public class PersistentDataManager : MonoBehaviour
     public void StartNewPlaythrough()
     {
         m_currentData = new PlayerPersistentData();
-        if (m_currentData != null)
-        {
-            Debug.Log("Not null here");
-        }
     }
 
-    public void AddData()
+    public void AddData(string phoneNumber)
     {
-        if (m_playersInfo == null)
-        {
-            Debug.Log("It is null");
-        }
-        //m_playersInfo.m_PlayerPersistentDatas.Add(m_currentData);
+        m_playersInfo.m_playersInfoList.Add
+            (new PlayerPersistentData(phoneNumber,m_currentData.GetNumOfConsumedLives(),m_currentData.GetPlayingTime()));
     }
 
     public void SaveData(string enteredText)
     {
         string phoneNumber = m_textInputManager.ValidateText(enteredText);
-        if (phoneNumber == null)
-        {
-            Debug.Log("No need to save");
-            return;
-        }
 
         SetPhoneNumber(phoneNumber);
+        AddData(phoneNumber);
 
-        AddData();
-
-        Debug.Log("Saving player persistend data");
-        string jsonString = JsonUtility.ToJson(m_playersInfo);
+        string jsonString = JsonUtility.ToJson(m_playersInfo,true);
         PlayerPrefs.SetString(m_playersInfoString, jsonString);
-        PlayerPrefs.Save();
     }
 
     private void SetPhoneNumber(string phoneNumber)
@@ -97,31 +79,22 @@ public class PersistentDataManager : MonoBehaviour
         m_currentData.SetPhoneNumber(phoneNumber);
     }
 
-    private void RetrieveData()
+    public void RetrieveData()
     {
-        string jsonString = PlayerPrefs.GetString(m_playersInfoString, null);
-        if (jsonString == null)
-        {
-            Debug.Log("No data");
-        }
-
-        else
-        {
-            m_playersInfo = JsonUtility.FromJson<PlayerInfos>(jsonString);
-        }
+        
+        string jsonString = PlayerPrefs.GetString(m_playersInfoString, "Empty");
+        m_playersInfo = JsonUtility.FromJson<PlayersInfo>(jsonString);
     }
 
     private void IncrementNumOfConsumedLives()
     {
-        if (m_currentData == null)
-        {
-            Debug.Log("Null here");
-        }
-        else
-        {
-            Debug.Log("Increasing number of lives");
-            m_currentData.IncrementConsumedLives();
-        }
+        Debug.Log("Increasing number of lives");
+        m_currentData.IncrementConsumedLives();
     }
+}
 
+[Serializable]
+public class PlayersInfo
+{
+    public List<PlayerPersistentData> m_playersInfoList = new List<PlayerPersistentData>();
 }

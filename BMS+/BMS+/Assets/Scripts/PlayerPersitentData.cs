@@ -1,9 +1,12 @@
-﻿[System.Serializable]
+﻿using System;
+using UnityEngine;
+
+[Serializable]
 public class PlayerPersistentData
 {
-    private string m_phoneNumber;
-    private int m_numOfConsumedLives;
-    private float m_playingTime;
+    [SerializeField] private string m_phoneNumber;
+    [SerializeField] private int m_numOfConsumedLives;
+    [SerializeField] private float m_playingTime;
 
     public PlayerPersistentData()
     {
@@ -34,7 +37,7 @@ public class PlayerPersistentData
         return m_playingTime;
     }
 
-    public void SetPhoneNumber(string phoneNumber="Not Added Yer")
+    public void SetPhoneNumber(string phoneNumber="Not Added Yet")
     {
         m_phoneNumber = phoneNumber;
     }

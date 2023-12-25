@@ -13,13 +13,13 @@ public class TextInputManager : MonoBehaviour
     public string ValidateText(string enteredText)
     {
         ConvertText(enteredText);
+
         Regex reg = new Regex("^(\\+98|0)?9\\d{9}$");
         if (reg.IsMatch(m_convertedString))
         {
-            Debug.Log("Validated");
             return m_convertedString;
-           
         }
+
         return null;
     }
 
@@ -36,6 +36,5 @@ public class TextInputManager : MonoBehaviour
             secondTempCharStr[secondTempCharStr.Length - 1 - i] = tempCharString[i];
         }
         m_convertedString = new string(secondTempCharStr);
-        Debug.Log("Converting : " + m_convertedString);
     }
 }

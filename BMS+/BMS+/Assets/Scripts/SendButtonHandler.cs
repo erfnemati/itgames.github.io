@@ -9,7 +9,6 @@ public class SendButtonHandler : MonoBehaviour
 
     public void SavePhoneNumber()
     {
-        Debug.Log("Saving phone number : " + m_phoneNumber);
         PersistentDataManager._instance.SaveData(m_phoneNumber.text);
     }
 }
