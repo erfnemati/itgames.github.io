@@ -14,14 +14,20 @@ public class PersistentDataManager : MonoBehaviour
     PlayersInfo m_playersInfo;
     PlayerPersistentData m_currentData;
 
+    private bool m_isLevelOver = false;
+
     private void OnEnable()
     {
         LevelManager.OnLevelDefeat += IncrementNumOfConsumedLives;
+        PhoneScreenManager.EndLevel += TurnOffTimer;
+        PlayerLifeManager.GameIsOver += DestroyItSelf;
     }
 
     private void OnDisable()
     {
         LevelManager.OnLevelDefeat -= IncrementNumOfConsumedLives;
+        PhoneScreenManager.EndLevel -= TurnOffTimer;
+        PlayerLifeManager.GameIsOver -= DestroyItSelf;
     }
 
     private void Awake()
@@ -46,7 +52,7 @@ public class PersistentDataManager : MonoBehaviour
 
     private void Update()
     {
-        if (m_currentData != null)
+        if (m_currentData != null && m_isLevelOver == false )
         {
             m_currentData.UpdateTime(Time.deltaTime);
         }
@@ -89,6 +95,16 @@ public class PersistentDataManager : MonoBehaviour
     {
         Debug.Log("Increasing number of lives");
         m_currentData.IncrementConsumedLives();
+    }
+
+    public void TurnOffTimer()
+    {
+        m_isLevelOver = true;
+    }
+
+    private void DestroyItSelf()
+    {
+        Destroy(this.gameObject);
     }
 }
 

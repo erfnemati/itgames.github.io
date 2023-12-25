@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerLifeManager : MonoBehaviour
 {
     public static PlayerLifeManager _instance;
+
+    public delegate void GameOver();
+    public static event GameOver GameIsOver;
+
     [SerializeField] int m_currentNumOfLives = 3;
     [SerializeField] int m_initialNumberOfLives;
-
-
 
     private void Awake()
     {
@@ -42,9 +44,10 @@ public class PlayerLifeManager : MonoBehaviour
     {
         Debug.Log("Decrementing");
         m_currentNumOfLives -= 1;
-        if (m_currentNumOfLives <0)
+        if (m_currentNumOfLives <=0)
         {
             m_currentNumOfLives = 0;
+            GameIsOver();
         }
     }
 
