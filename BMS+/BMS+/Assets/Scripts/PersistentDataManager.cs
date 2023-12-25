@@ -102,6 +102,13 @@ public class PersistentDataManager : MonoBehaviour
         m_isLevelOver = true;
     }
 
+    public PlayerPersistentData GetCurrentPlayerData()
+    {
+        return m_currentData;
+    }
+
+
+
     private void DestroyItSelf()
     {
         Destroy(this.gameObject);
@@ -112,4 +119,9 @@ public class PersistentDataManager : MonoBehaviour
 public class PlayersInfo
 {
     public List<PlayerPersistentData> m_playersInfoList = new List<PlayerPersistentData>();
+
+    public  void SortListBasedOnTime()
+    {
+        //To be implemented.
+    }
 }
