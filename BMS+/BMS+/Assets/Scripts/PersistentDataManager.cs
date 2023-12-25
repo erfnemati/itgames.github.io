@@ -81,7 +81,6 @@ public class PersistentDataManager : MonoBehaviour
 
     public void RetrieveData()
     {
-        
         string jsonString = PlayerPrefs.GetString(m_playersInfoString, "Empty");
         m_playersInfo = JsonUtility.FromJson<PlayersInfo>(jsonString);
     }

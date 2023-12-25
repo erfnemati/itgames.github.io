@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 
 public class TextInputManager : MonoBehaviour
 {
+    
     private string m_convertedString;
     private char[] m_englishNumbers = new char[] { '0','1', '2', '3', '4', '5', '6', '7', '8', '9' };
 
@@ -20,6 +21,7 @@ public class TextInputManager : MonoBehaviour
             return m_convertedString;
         }
 
+        FindObjectOfType<SendButtonHandler>().TryAgain();
         return null;
     }
 
@@ -37,4 +39,7 @@ public class TextInputManager : MonoBehaviour
         }
         m_convertedString = new string(secondTempCharStr);
     }
+
+    
+ 
 }
