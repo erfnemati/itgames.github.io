@@ -16,6 +16,10 @@ public class PersistentDataManager : MonoBehaviour
 
     private bool m_isLevelOver = false;
 
+    [SerializeField] string m_phoneNumer;
+    [SerializeField] int m_numOfConsumedLives;
+    [SerializeField] float m_passedTime;
+
     private void OnEnable()
     {
         LevelManager.OnLevelDefeat += IncrementNumOfConsumedLives;
@@ -78,6 +82,7 @@ public class PersistentDataManager : MonoBehaviour
 
         string jsonString = JsonUtility.ToJson(m_playersInfo,true);
         PlayerPrefs.SetString(m_playersInfoString, jsonString);
+        RetrieveData();
     }
 
     private void SetPhoneNumber(string phoneNumber)
@@ -89,6 +94,17 @@ public class PersistentDataManager : MonoBehaviour
     {
         string jsonString = PlayerPrefs.GetString(m_playersInfoString, "Empty");
         m_playersInfo = JsonUtility.FromJson<PlayersInfo>(jsonString);
+
+        foreach(PlayerPersistentData temp in m_playersInfo.m_playersInfoList)
+        {
+            m_phoneNumer = temp.GetPhoneNumber();
+            m_numOfConsumedLives = temp.GetNumOfConsumedLives();
+            m_passedTime = temp.GetPlayingTime();
+
+            Debug.Log("Phone number : " + temp.GetPhoneNumber());
+            Debug.Log("Consumed number of lives : " + temp.GetNumOfConsumedLives());
+            Debug.Log("Passed time : " + temp.GetPlayingTime());
+        }
     }
 
     private void IncrementNumOfConsumedLives()
