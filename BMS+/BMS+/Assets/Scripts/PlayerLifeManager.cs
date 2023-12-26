@@ -47,7 +47,10 @@ public class PlayerLifeManager : MonoBehaviour
         if (m_currentNumOfLives <=0)
         {
             m_currentNumOfLives = 0;
-            GameIsOver();
+            if (PersistentDataManager._instance != null)
+            {
+                GameIsOver();
+            }
         }
     }
 
