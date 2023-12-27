@@ -22431,7 +22431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac606a741a0406c4ab8b35bef85357ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_remainingTimer: 10
+  m_remainingTimer: 100
   m_timerSlider: {fileID: 374055642}
   m_timerText: {fileID: 2046549604}
   m_levelDefeatSoundEffect: {fileID: 8300000, guid: 0d2992e880c860b40bbac78d07d0f55c, type: 3}
