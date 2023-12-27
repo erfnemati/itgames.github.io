@@ -17,6 +17,7 @@ public class Pinpoint : MonoBehaviour
     private RectTransform m_pinPointRect;
     [SerializeField] Sprite m_initialPinPointSprite;
     [SerializeField] float m_fullPinPointScaleFactor;
+    [SerializeField] float m_additionalPinPointScaleFactor;
 
     [SerializeField] AudioClip m_pinSound;
  
@@ -37,6 +38,7 @@ public class Pinpoint : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("Red object : " + m_redObject.rect.size);
         GetRectTransform();
         GetInitialColor();
         GetInitialPinPointDimentions();
@@ -65,31 +67,38 @@ public class Pinpoint : MonoBehaviour
 
     private void AddSprite()
     {
-        float temp = 1.5f * m_initialPinPointHeight * m_fullPinPointScaleFactor;
-        m_pinPointRect.sizeDelta = new Vector2(1.5f * m_initialPinPointWidth, temp);
-        m_pinPoint.image.color = new Color(255, 255, 255, 255);
-        ChooseSprite();
-        
+        Sprite chosenSprite = ChooseSprite();
 
+        float heightToWidthAspectRatio = chosenSprite.rect.height / chosenSprite.rect.width;
+
+        m_pinPointRect.sizeDelta = 
+            new Vector2(m_additionalPinPointScaleFactor *m_initialPinPointWidth,
+            m_additionalPinPointScaleFactor * m_initialPinPointWidth * heightToWidthAspectRatio);
+
+        m_pinPoint.image.color = new Color(255, 255, 255, 255);
     }
 
-    private void ChooseSprite()
+    private Sprite ChooseSprite()
     {
         if (m_currentPin.GetPinColor() == PinColor.Blue)
         {
             m_pinPoint.image.sprite = m_blueObject;
+            return m_blueObject;
         }
         else if (m_currentPin.GetPinColor() == PinColor.Yellow)
         {
             m_pinPoint.image.sprite = m_yellowObject;
+            return m_yellowObject;
         }
         else if (m_currentPin.GetPinColor() == PinColor.Red)
         {
             m_pinPoint.image.sprite = m_redObject;
+            return m_redObject;
         }
         else
         {
             m_pinPoint.image.sprite = m_initialPinPointSprite;
+            return m_initialPinPointSprite;
         }
     }
 
