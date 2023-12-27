@@ -16,8 +16,7 @@ public class Pinpoint : MonoBehaviour
     private Color m_initialPinPointColor;
     private RectTransform m_pinPointRect;
     [SerializeField] Sprite m_initialPinPointSprite;
-    [SerializeField] float m_fullPinPointScaleFactor;
-    [SerializeField] float m_additionalPinPointScaleFactor;
+    [SerializeField] float m_additionalPinPointScaleFactor = 1.5f;
 
     [SerializeField] AudioClip m_pinSound;
  
