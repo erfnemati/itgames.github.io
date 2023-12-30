@@ -41,8 +41,15 @@ public class BmsPlusSceneManager : MonoBehaviour
     public void LoadMainMenu()
     {
         Debug.Log("Loading main menu");
-        SoundManager._instance.StopAllSoundEffects();
-        PlayerLifeManager._instance.ResetNumOfLives();
+        if (SoundManager._instance != null)
+        {
+            SoundManager._instance.StopAllSoundEffects();
+        }
+
+        if (PlayerLifeManager._instance != null)
+        {
+            PlayerLifeManager._instance.ResetNumOfLives();
+        }
         SceneManager.LoadScene(m_mainMenuIndex);
         
     }
