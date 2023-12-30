@@ -139,8 +139,5 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Play victory sound");
         SoundManager._instance.StopAllSoundEffects();
         SoundManager._instance.PlaySoundEffect(m_victorySound);
-        
     }
-
-    
 }
