@@ -109,7 +109,7 @@ public class PersistentDataManager : MonoBehaviour
         }
     }
 
-    private void IncrementNumOfConsumedLives()
+    public void IncrementNumOfConsumedLives()
     {
         Debug.Log("Increasing number of lives");
         m_currentData.IncrementConsumedLives();

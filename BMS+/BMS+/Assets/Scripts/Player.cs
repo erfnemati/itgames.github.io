@@ -17,12 +17,14 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         LevelManager.OnLevelDefeat += LevelIsOver;
+        LevelManager.OnLevelRetreat += LevelIsOver;
         Debug.Log("Player enabling");
     }
 
     private void OnDisable()
     {
         LevelManager.OnLevelDefeat -= LevelIsOver;
+        LevelManager.OnLevelRetreat -= LevelIsOver;
         Debug.Log("Player Disabling");
     }
     private void Awake()

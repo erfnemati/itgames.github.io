@@ -53,6 +53,9 @@ public class PlayerLifeManager : MonoBehaviour
             }
         }
     }
-
     
+    public void SetNumOfLives(int numOfLives)
+    {
+        m_currentNumOfLives = numOfLives;
+    }
 }

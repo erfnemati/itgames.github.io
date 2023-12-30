@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
     public delegate void EndLevelAction();
     public static event EndLevelAction OnLevelVictory;
     public static event EndLevelAction OnLevelDefeat;
+    public static event EndLevelAction OnLevelRetreat;
 
 
     private void OnEnable()
@@ -23,6 +24,7 @@ public class LevelManager : MonoBehaviour
         OnLevelDefeat += DeactivateTowerButtons;
         OnLevelVictory += PlayVictorySound;
         OnLevelVictory += DeactivateTowerButtons;
+        OnLevelRetreat += DeactivateTowerButtons;
         Debug.Log("Level manager enabling");
 
     }
@@ -34,6 +36,7 @@ public class LevelManager : MonoBehaviour
         OnLevelDefeat -= DeactivateTowerButtons;
         OnLevelVictory -= PlayVictorySound;
         OnLevelVictory -= DeactivateTowerButtons;
+        OnLevelRetreat -= DeactivateTowerButtons;
         Debug.Log("Level manager disabling");
     }
 
@@ -114,6 +117,21 @@ public class LevelManager : MonoBehaviour
     public void RetreatLevel()
     {
         LostLevel();
+    }
+
+    public void RetreatMainMenu()
+    {
+        int numOfCurrentLives = PlayerLifeManager._instance.GetCurrentNumberOfLives();
+        for (int i = 0; i < numOfCurrentLives;i++)
+        {
+            Debug.Log("Oops i am here");
+            if(PersistentDataManager._instance != null)
+            {
+                PersistentDataManager._instance.IncrementNumOfConsumedLives();
+            }
+            PlayerLifeManager._instance.DecrementNumOfLives();
+        }
+        OnLevelRetreat();
     }
 
     private void PlayVictorySound()
