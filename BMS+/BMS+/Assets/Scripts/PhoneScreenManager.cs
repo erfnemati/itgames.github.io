@@ -5,13 +5,17 @@ using UnityEngine;
 public class PhoneScreenManager : MonoBehaviour
 {
 
+    public static string _phoneScreenLevelName = "PhoneScreen";
     public delegate void TheEnd();
     public static event TheEnd EndLevel;
+
     // Start is called before the first frame update
     private void Start()
     {
         EndLevel();
     }
+
+
 
 
 }

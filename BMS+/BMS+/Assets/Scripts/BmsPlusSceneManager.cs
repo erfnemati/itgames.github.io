@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class BmsPlusSceneManager : MonoBehaviour
 {
     public static BmsPlusSceneManager _instance;
+    public const int m_offsetFromStart = 0;
     [SerializeField] int m_mainMenuIndex;
+
 
     private void Awake()
     {
@@ -43,6 +45,20 @@ public class BmsPlusSceneManager : MonoBehaviour
         PlayerLifeManager._instance.ResetNumOfLives();
         SceneManager.LoadScene(m_mainMenuIndex);
         
+    }
+
+    public void LoadPhoneScreenLevel()
+    {
+        SoundManager._instance.StopAllSoundEffects();
+        PlayerLifeManager._instance.ResetNumOfLives();
+        SceneManager.LoadScene(PhoneScreenManager._phoneScreenLevelName);
+    }
+
+    public int GetCurrentLevel()
+    {
+        int currentLevelBuildIndex = SceneManager.GetActiveScene().buildIndex;
+        int level = currentLevelBuildIndex + m_offsetFromStart;
+        return level;
     }
 
     public void OnApplicationQuit()

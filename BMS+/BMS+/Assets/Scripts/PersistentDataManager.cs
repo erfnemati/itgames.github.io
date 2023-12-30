@@ -19,19 +19,20 @@ public class PersistentDataManager : MonoBehaviour
     [SerializeField] string m_phoneNumer;
     [SerializeField] int m_numOfConsumedLives;
     [SerializeField] float m_passedTime;
+    [SerializeField] int m_playerLastLevel;
 
     private void OnEnable()
     {
         LevelManager.OnLevelDefeat += IncrementNumOfConsumedLives;
         PhoneScreenManager.EndLevel += TurnOffTimer;
-        PlayerLifeManager.GameIsOver += DestroyItSelf;
+        PlayerLifeManager.GameIsOver += GetLevel;
     }
 
     private void OnDisable()
     {
         LevelManager.OnLevelDefeat -= IncrementNumOfConsumedLives;
         PhoneScreenManager.EndLevel -= TurnOffTimer;
-        PlayerLifeManager.GameIsOver -= DestroyItSelf;
+        PlayerLifeManager.GameIsOver -= GetLevel;
     }
 
     private void Awake()
@@ -59,6 +60,7 @@ public class PersistentDataManager : MonoBehaviour
         if (m_currentData != null && m_isLevelOver == false )
         {
             m_currentData.UpdateTime(Time.deltaTime);
+            m_passedTime = m_currentData.GetPlayingTime();
         }
     }
 
@@ -115,6 +117,7 @@ public class PersistentDataManager : MonoBehaviour
 
     public void TurnOffTimer()
     {
+        Debug.Log("Timer is off");
         m_isLevelOver = true;
     }
 
@@ -123,11 +126,11 @@ public class PersistentDataManager : MonoBehaviour
         return m_currentData;
     }
 
-
-
-    private void DestroyItSelf()
+    public void GetLevel()
     {
-        Destroy(this.gameObject);
+        int level = BmsPlusSceneManager._instance.GetCurrentLevel();
+        m_currentData.SetPlayerLastLevel(level -1);
+        m_playerLastLevel = level -1;
     }
 }
 

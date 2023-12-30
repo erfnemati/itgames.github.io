@@ -7,12 +7,15 @@ public class PlayerPersistentData
     [SerializeField] private string m_phoneNumber;
     [SerializeField] private int m_numOfConsumedLives;
     [SerializeField] private float m_playingTime;
+    [SerializeField] private int m_playerLastLevel;
+    
 
     public PlayerPersistentData()
     {
         SetPhoneNumber();
         SetPlayingTime();
         SetNumOfConsumedLives();
+        SetPlayerLastLevel();
     }
 
     public PlayerPersistentData(string phoneNumber,int lives,float time)
@@ -60,5 +63,10 @@ public class PlayerPersistentData
     public void UpdateTime(float deltaTime)
     {
         m_playingTime += deltaTime;
+    }
+
+    public void SetPlayerLastLevel(int level=0)
+    {
+        m_playerLastLevel = level;
     }
 }
