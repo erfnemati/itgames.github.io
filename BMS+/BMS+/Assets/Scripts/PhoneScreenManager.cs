@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PhoneScreenManager : MonoBehaviour
 {
@@ -13,6 +14,17 @@ public class PhoneScreenManager : MonoBehaviour
     private void Start()
     {
         EndLevel();
+    }
+
+    public void QuitFromPhoneScreen()
+    {
+        PersistentDataManager persistentDataManager = FindObjectOfType<PersistentDataManager>();
+        if (persistentDataManager != null)
+        {
+            Destroy(persistentDataManager);
+        }
+
+        SceneManager.LoadScene(0);
     }
 
 

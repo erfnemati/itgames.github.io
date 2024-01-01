@@ -1,9 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
+
 [Serializable]
 public class PlayerPersistentData:IComparable
 {
+    [SerializeField] private int m_playerId;
     [SerializeField] private string m_phoneNumber;
     [SerializeField] private int m_numOfConsumedLives;
     [SerializeField] private float m_playingTime;
@@ -16,14 +18,16 @@ public class PlayerPersistentData:IComparable
         SetPlayingTime();
         SetNumOfConsumedLives();
         SetPlayerLastLevel();
+        SetPlayerId();
     }
 
-    public PlayerPersistentData(string phoneNumber,int lives,float time,int lastLevel)
+    public PlayerPersistentData(string phoneNumber,int lives,float time,int lastLevel,int id=-1)
     {
         SetPhoneNumber(phoneNumber);
         SetNumOfConsumedLives(lives);
         SetPlayingTime(time);
         SetPlayerLastLevel(lastLevel);
+        SetPlayerId(id);
     }
 
     public string GetPhoneNumber()
@@ -74,6 +78,25 @@ public class PlayerPersistentData:IComparable
     public int GetPlayerLastLevel()
     {
         return m_playerLastLevel;
+    }
+
+    public int GetPlayerId()
+    {
+        return m_playerId;
+    }
+
+    private void SetPlayerId(int id = -1)
+    {
+        if (id == -1)
+        {
+            var random = new System.Random();
+            m_playerId = random.Next(1000000, 2000000);
+        }
+        else
+        {
+            m_playerId = id;
+        }
+        
     }
 
     public int CompareTo(object obj)

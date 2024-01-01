@@ -47,12 +47,15 @@ public class PersistentDataManager : MonoBehaviour
             _instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+        StartNewPlaythrough();
     }
+
+
     private void Start()
     {
         m_playersInfo = new PlayersInfo();
         Debug.Log("Instantiating new playersInfo object");
-        StartNewPlaythrough();
+        //StartNewPlaythrough();
         RetrieveData();
     }
 
@@ -74,7 +77,8 @@ public class PersistentDataManager : MonoBehaviour
     {
         m_playersInfo.m_playersInfoList.Add
             (new PlayerPersistentData
-                (phoneNumber,m_currentData.GetNumOfConsumedLives(),m_currentData.GetPlayingTime(),m_currentData.GetPlayerLastLevel())
+                (phoneNumber,m_currentData.GetNumOfConsumedLives(),m_currentData.GetPlayingTime(),
+                m_currentData.GetPlayerLastLevel(),m_currentData.GetPlayerId())
             );
     }
 
@@ -102,8 +106,10 @@ public class PersistentDataManager : MonoBehaviour
         Debug.Log("Retriving");
         string jsonString = PlayerPrefs.GetString(m_playersInfoString, "Empty");
         Debug.Log(jsonString);
-
-        m_playersInfo = JsonUtility.FromJson<PlayersInfo>(jsonString);
+        if (jsonString != "Empty")
+        {
+            m_playersInfo = JsonUtility.FromJson<PlayersInfo>(jsonString);
+        }
     }
 
     public void IncrementNumOfConsumedLives()
@@ -135,6 +141,16 @@ public class PersistentDataManager : MonoBehaviour
     {
         m_playersInfo.Sort();
     }
+
+    public float  GetPlayerCluster()
+    {
+        int playerRank = m_playersInfo.GetIndex(m_currentData.GetPlayerId()) + 1;
+        float playerCluster = (float)playerRank / m_playersInfo.m_playersInfoList.Count;
+        Debug.Log("Player cluster is : " + playerCluster);
+        return playerCluster;
+        //Debug.Log("Player rank is : " + m_playersInfo.GetIndex(m_currentData.GetPlayerId()));
+        //return (m_playersInfo.GetIndex(m_currentData.GetPlayerId()));
+    }
 }
 
 [Serializable]
@@ -145,5 +161,19 @@ public class PlayersInfo
     public  void Sort()
     {
         m_playersInfoList.Sort();
+    }
+
+    public int GetIndex(int id)
+    {
+        for(int i = 0; i < m_playersInfoList.Count; i++)
+        {
+            if (m_playersInfoList[i].GetPlayerId() == id)
+            {
+                return i;
+            }
+                
+        }
+
+        return -1;
     }
 }
