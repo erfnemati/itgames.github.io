@@ -18,11 +18,12 @@ public class PlayerPersistentData
         SetPlayerLastLevel();
     }
 
-    public PlayerPersistentData(string phoneNumber,int lives,float time)
+    public PlayerPersistentData(string phoneNumber,int lives,float time,int lastLevel)
     {
         SetPhoneNumber(phoneNumber);
         SetNumOfConsumedLives(lives);
         SetPlayingTime(time);
+        SetPlayerLastLevel(lastLevel);
     }
 
     public string GetPhoneNumber()
@@ -68,5 +69,10 @@ public class PlayerPersistentData
     public void SetPlayerLastLevel(int level=0)
     {
         m_playerLastLevel = level;
+    }
+
+    public int GetPlayerLastLevel()
+    {
+        return m_playerLastLevel;
     }
 }

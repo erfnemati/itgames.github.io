@@ -19,7 +19,7 @@ public class UiManager : MonoBehaviour
     {
         LevelManager.OnLevelVictory += InvokeVictoryScreen;
         LevelManager.OnLevelDefeat += ShowDefeatScreen;
-        LevelManager.OnLevelRetreat += ShowDefeatScreen;
+        LevelManager.OnLevelRetreat += ShowRetreatScreen;
         //Debug.Log("Ui manager enabling");
     }
 
@@ -27,7 +27,7 @@ public class UiManager : MonoBehaviour
     {
         LevelManager.OnLevelDefeat -= ShowDefeatScreen;
         LevelManager.OnLevelVictory -= InvokeVictoryScreen;
-        LevelManager.OnLevelRetreat -= ShowDefeatScreen;
+        LevelManager.OnLevelRetreat -= ShowRetreatScreen;
         //Debug.Log("Ui manager disabling");
     }
 
@@ -73,6 +73,12 @@ public class UiManager : MonoBehaviour
             AnimateScreen(m_defeatScreen);
         }
         
+    }
+
+    private void ShowRetreatScreen()
+    {
+        m_blurredBackground.gameObject.SetActive(true);
+        AnimateScreen(m_gameOverScreen);
     }
 
     private void UpdateNumberOfLives()

@@ -26,6 +26,7 @@ public class PersistentDataManager : MonoBehaviour
         LevelManager.OnLevelDefeat += IncrementNumOfConsumedLives;
         PhoneScreenManager.EndLevel += TurnOffTimer;
         PlayerLifeManager.GameIsOver += GetLevel;
+        LevelManager.OnLevelRetreat += GetLevel;
     }
 
     private void OnDisable()
@@ -33,6 +34,7 @@ public class PersistentDataManager : MonoBehaviour
         LevelManager.OnLevelDefeat -= IncrementNumOfConsumedLives;
         PhoneScreenManager.EndLevel -= TurnOffTimer;
         PlayerLifeManager.GameIsOver -= GetLevel;
+        LevelManager.OnLevelRetreat -= GetLevel;
     }
 
     private void Awake()
@@ -53,6 +55,7 @@ public class PersistentDataManager : MonoBehaviour
         m_playersInfo = new PlayersInfo();
         Debug.Log("Instantiating new playersInfo object");
         StartNewPlaythrough();
+        RetrieveData();
     }
 
     private void Update()
@@ -72,7 +75,9 @@ public class PersistentDataManager : MonoBehaviour
     public void AddData(string phoneNumber)
     {
         m_playersInfo.m_playersInfoList.Add
-            (new PlayerPersistentData(phoneNumber,m_currentData.GetNumOfConsumedLives(),m_currentData.GetPlayingTime()));
+            (new PlayerPersistentData
+                (phoneNumber,m_currentData.GetNumOfConsumedLives(),m_currentData.GetPlayingTime(),m_currentData.GetPlayerLastLevel())
+            );
     }
 
     public void SaveData(string enteredText)
@@ -84,7 +89,7 @@ public class PersistentDataManager : MonoBehaviour
 
         string jsonString = JsonUtility.ToJson(m_playersInfo,true);
         PlayerPrefs.SetString(m_playersInfoString, jsonString);
-        RetrieveData();
+        PlayerPrefs.Save();
     }
 
     private void SetPhoneNumber(string phoneNumber)
@@ -94,19 +99,23 @@ public class PersistentDataManager : MonoBehaviour
 
     public void RetrieveData()
     {
+        Debug.Log("Retriving");
         string jsonString = PlayerPrefs.GetString(m_playersInfoString, "Empty");
+        Debug.Log(jsonString);
+
         m_playersInfo = JsonUtility.FromJson<PlayersInfo>(jsonString);
 
-        foreach(PlayerPersistentData temp in m_playersInfo.m_playersInfoList)
-        {
-            m_phoneNumer = temp.GetPhoneNumber();
-            m_numOfConsumedLives = temp.GetNumOfConsumedLives();
-            m_passedTime = temp.GetPlayingTime();
+        //Debug.Log("Count of data in players info : " + m_playersInfo.m_playersInfoList.Count);
+        //foreach(PlayerPersistentData temp in m_playersInfo.m_playersInfoList)
+        //{
+        //    m_phoneNumer = temp.GetPhoneNumber();
+        //    m_numOfConsumedLives = temp.GetNumOfConsumedLives();
+        //    m_passedTime = temp.GetPlayingTime();
 
-            Debug.Log("Phone number : " + temp.GetPhoneNumber());
-            Debug.Log("Consumed number of lives : " + temp.GetNumOfConsumedLives());
-            Debug.Log("Passed time : " + temp.GetPlayingTime());
-        }
+        //    Debug.Log("Phone number : " + temp.GetPhoneNumber());
+        //    Debug.Log("Consumed number of lives : " + temp.GetNumOfConsumedLives());
+        //    Debug.Log("Passed time : " + temp.GetPlayingTime());
+        //}
     }
 
     public void IncrementNumOfConsumedLives()
@@ -128,6 +137,7 @@ public class PersistentDataManager : MonoBehaviour
 
     public void GetLevel()
     {
+        Debug.Log("Getting Level");
         int level = BmsPlusSceneManager._instance.GetCurrentLevel();
         m_currentData.SetPlayerLastLevel(level -1);
         m_playerLastLevel = level -1;
