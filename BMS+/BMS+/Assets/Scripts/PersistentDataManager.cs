@@ -7,10 +7,9 @@ using System;
 public class PersistentDataManager : MonoBehaviour
 {
 
+    public const string m_playersInfoString = "PlayersInfo";
     public static PersistentDataManager _instance;
 
-    private TextInputManager m_textInputManager;
-    public const string m_playersInfoString = "PlayersInfo";
     PlayersInfo m_playersInfo;
     PlayerPersistentData m_currentData;
 
@@ -51,7 +50,6 @@ public class PersistentDataManager : MonoBehaviour
     }
     private void Start()
     {
-        m_textInputManager = GetComponent<TextInputManager>();
         m_playersInfo = new PlayersInfo();
         Debug.Log("Instantiating new playersInfo object");
         StartNewPlaythrough();
@@ -82,7 +80,7 @@ public class PersistentDataManager : MonoBehaviour
 
     public void SaveData(string enteredText)
     {
-        string phoneNumber = m_textInputManager.ValidateText(enteredText);
+        string phoneNumber = enteredText;
 
         SetPhoneNumber(phoneNumber);
         AddData(phoneNumber);
@@ -104,18 +102,6 @@ public class PersistentDataManager : MonoBehaviour
         Debug.Log(jsonString);
 
         m_playersInfo = JsonUtility.FromJson<PlayersInfo>(jsonString);
-
-        //Debug.Log("Count of data in players info : " + m_playersInfo.m_playersInfoList.Count);
-        //foreach(PlayerPersistentData temp in m_playersInfo.m_playersInfoList)
-        //{
-        //    m_phoneNumer = temp.GetPhoneNumber();
-        //    m_numOfConsumedLives = temp.GetNumOfConsumedLives();
-        //    m_passedTime = temp.GetPlayingTime();
-
-        //    Debug.Log("Phone number : " + temp.GetPhoneNumber());
-        //    Debug.Log("Consumed number of lives : " + temp.GetNumOfConsumedLives());
-        //    Debug.Log("Passed time : " + temp.GetPlayingTime());
-        //}
     }
 
     public void IncrementNumOfConsumedLives()

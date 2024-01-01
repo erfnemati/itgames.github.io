@@ -11,21 +11,19 @@ public class TextInputManager : MonoBehaviour
     private string m_convertedString;
     private char[] m_englishNumbers = new char[] { '0','1', '2', '3', '4', '5', '6', '7', '8', '9' };
 
-    public string ValidateText(string enteredText)
+    public bool ValidateText(string enteredText)
     {
-        ConvertText(enteredText);
-
+        
         Regex reg = new Regex("^(\\+98|0)?9\\d{9}$");
         if (reg.IsMatch(m_convertedString))
         {
-            return m_convertedString;
+            return true;
         }
 
-        FindObjectOfType<SendButtonHandler>().TryAgain();
-        return null;
+        return false;
     }
 
-    private void ConvertText(string enteredText)
+    public string ConvertText(string enteredText)
     {
         
         char[] tempCharString = enteredText.ToCharArray();
@@ -38,6 +36,7 @@ public class TextInputManager : MonoBehaviour
             secondTempCharStr[secondTempCharStr.Length - 1 - i] = tempCharString[i];
         }
         m_convertedString = new string(secondTempCharStr);
+        return m_convertedString;
     }
 
     

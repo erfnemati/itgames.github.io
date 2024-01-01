@@ -8,14 +8,31 @@ using TMPro;
 
 public class SendButtonHandler : MonoBehaviour
 {
+    [SerializeField] TextInputManager m_textInputManager;
     [SerializeField] RTLTextMeshPro m_errorText;
     [SerializeField] RTLTextMeshPro m_phoneNumber;
     [SerializeField] TMP_InputField m_InputField;
- 
+
+    public void Start()
+    {
+        m_textInputManager = GetComponent<TextInputManager>();
+    }
     public void SavePhoneNumber()
     {
-        PersistentDataManager._instance.SaveData(m_phoneNumber.text);
+        string convertedString = m_textInputManager.ConvertText(m_phoneNumber.text);
+        if (m_textInputManager.ValidateText(convertedString))
+        {
+            PersistentDataManager._instance.SaveData(convertedString);
+            GetComponent<Button>().gameObject.SetActive(false);
+        }
+        else
+        {
+            TryAgain();
+        }
+        
     }
+
+
 
     public void TryAgain()
     {
