@@ -84,8 +84,10 @@ public class PersistentDataManager : MonoBehaviour
 
         SetPhoneNumber(phoneNumber);
         AddData(phoneNumber);
+        SortPlayersList();
 
         string jsonString = JsonUtility.ToJson(m_playersInfo,true);
+        Debug.Log("Here is saved note: " + jsonString);
         PlayerPrefs.SetString(m_playersInfoString, jsonString);
         PlayerPrefs.Save();
     }
@@ -128,6 +130,11 @@ public class PersistentDataManager : MonoBehaviour
         m_currentData.SetPlayerLastLevel(level -1);
         m_playerLastLevel = level -1;
     }
+
+    private void SortPlayersList()
+    {
+        m_playersInfo.Sort();
+    }
 }
 
 [Serializable]
@@ -135,8 +142,8 @@ public class PlayersInfo
 {
     public List<PlayerPersistentData> m_playersInfoList = new List<PlayerPersistentData>();
 
-    public  void SortListBasedOnTime()
+    public  void Sort()
     {
-        //To be implemented.
+        m_playersInfoList.Sort();
     }
 }

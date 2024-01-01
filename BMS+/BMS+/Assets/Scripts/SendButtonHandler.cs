@@ -32,8 +32,6 @@ public class SendButtonHandler : MonoBehaviour
         
     }
 
-
-
     public void TryAgain()
     {
         m_errorText.gameObject.SetActive(true);

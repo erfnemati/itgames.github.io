@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [Serializable]
-public class PlayerPersistentData
+public class PlayerPersistentData:IComparable
 {
     [SerializeField] private string m_phoneNumber;
     [SerializeField] private int m_numOfConsumedLives;
@@ -75,4 +75,59 @@ public class PlayerPersistentData
     {
         return m_playerLastLevel;
     }
+
+    public int CompareTo(object obj)
+    {
+        PlayerPersistentData playerPersitentData = (PlayerPersistentData)obj;
+        if (playerPersitentData != null)
+        {
+            if (CompareWithLevel(playerPersitentData) == 0)
+            {
+                return CompareWithPlayingTime(playerPersitentData);
+            }
+            else
+            {
+                return CompareWithLevel(playerPersitentData);
+            }
+        }
+
+        else
+        {
+            return 0;
+        }
+    }
+
+    private int CompareWithLevel(PlayerPersistentData playerPersistentData)
+    {
+        if (playerPersistentData.m_playerLastLevel > this.m_playerLastLevel)
+        {
+            return 1;
+        }
+        else if (playerPersistentData.m_playerLastLevel < this.m_playerLastLevel)
+        {
+            return -1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    private int CompareWithPlayingTime(PlayerPersistentData playerPersistentData)
+    {
+        if (playerPersistentData.m_playingTime < this.m_playingTime)
+        {
+            return 1;
+        }
+        else if (playerPersistentData.m_playingTime > this.m_playingTime)
+        {
+            return -1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    
 }
