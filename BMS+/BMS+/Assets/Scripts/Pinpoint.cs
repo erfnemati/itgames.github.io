@@ -37,7 +37,6 @@ public class Pinpoint : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Red object : " + m_redObject.rect.size);
         GetRectTransform();
         GetInitialColor();
         GetInitialPinPointDimentions();
