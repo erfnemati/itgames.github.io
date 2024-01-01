@@ -13,7 +13,6 @@ public class StartScreen : MonoBehaviour
         {
             return;
         }
-        Debug.Log("Pressed");
         LoadNextLevel();
     }
 
