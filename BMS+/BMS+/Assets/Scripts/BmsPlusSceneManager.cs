@@ -40,7 +40,7 @@ public class BmsPlusSceneManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        Debug.Log("Loading main menu");
+        //Debug.Log("Loading main menu");
         if (SoundManager._instance != null)
         {
             SoundManager._instance.StopAllSoundEffects();

@@ -24,7 +24,7 @@ public class LevelTimer : MonoBehaviour
         LevelManager.OnLevelDefeat += PlayLevelDefeatSound;
         LevelManager.OnLevelRetreat += PlayLevelDefeatSound;
         LevelManager.OnLevelRetreat += StopTimer;
-        Debug.Log("Level Timer enabling");
+        //Debug.Log("Level Timer enabling");
     }
 
     private void OnDisable()
@@ -34,7 +34,7 @@ public class LevelTimer : MonoBehaviour
         LevelManager.OnLevelDefeat -= PlayLevelDefeatSound;
         LevelManager.OnLevelRetreat -= PlayLevelDefeatSound;
         LevelManager.OnLevelRetreat -= StopTimer;
-        Debug.Log("Level Timer disabling");
+        //Debug.Log("Level Timer disabling");
     }
     private void Start()
     {

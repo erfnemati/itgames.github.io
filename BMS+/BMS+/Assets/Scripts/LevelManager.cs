@@ -25,7 +25,7 @@ public class LevelManager : MonoBehaviour
         OnLevelVictory += PlayVictorySound;
         OnLevelVictory += DeactivateTowerButtons;
         OnLevelRetreat += DeactivateTowerButtons;
-        Debug.Log("Level manager enabling");
+        //Debug.Log("Level manager enabling");
 
     }
 
@@ -37,7 +37,7 @@ public class LevelManager : MonoBehaviour
         OnLevelVictory -= PlayVictorySound;
         OnLevelVictory -= DeactivateTowerButtons;
         OnLevelRetreat -= DeactivateTowerButtons;
-        Debug.Log("Level manager disabling");
+        //Debug.Log("Level manager disabling");
     }
 
     private void Awake()

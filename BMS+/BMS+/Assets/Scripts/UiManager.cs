@@ -20,7 +20,7 @@ public class UiManager : MonoBehaviour
         LevelManager.OnLevelVictory += InvokeVictoryScreen;
         LevelManager.OnLevelDefeat += ShowDefeatScreen;
         LevelManager.OnLevelRetreat += ShowDefeatScreen;
-        Debug.Log("Ui manager enabling");
+        //Debug.Log("Ui manager enabling");
     }
 
     private void OnDisable()
@@ -28,7 +28,7 @@ public class UiManager : MonoBehaviour
         LevelManager.OnLevelDefeat -= ShowDefeatScreen;
         LevelManager.OnLevelVictory -= InvokeVictoryScreen;
         LevelManager.OnLevelRetreat -= ShowDefeatScreen;
-        Debug.Log("Ui manager disabling");
+        //Debug.Log("Ui manager disabling");
     }
 
     private void Start()
