@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     {
         LevelManager.OnLevelDefeat += LevelIsOver;
         LevelManager.OnLevelRetreat += LevelIsOver;
+        LevelManager.OnLevelVictory += LevelIsOver;
         //Debug.Log("Player enabling");
     }
 
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     {
         LevelManager.OnLevelDefeat -= LevelIsOver;
         LevelManager.OnLevelRetreat -= LevelIsOver;
+        LevelManager.OnLevelVictory -= LevelIsOver;
         //Debug.Log("Player Disabling");
     }
     private void Awake()

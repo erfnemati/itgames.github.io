@@ -26,6 +26,7 @@ public class PersistentDataManager : MonoBehaviour
         PhoneScreenManager.EndLevel += TurnOffTimer;
         PlayerLifeManager.GameIsOver += GetLevel;
         LevelManager.OnLevelRetreat += GetLevel;
+        LevelManager.OnGameWin += GetLevelAfterWin;
     }
 
     private void OnDisable()
@@ -34,6 +35,8 @@ public class PersistentDataManager : MonoBehaviour
         PhoneScreenManager.EndLevel -= TurnOffTimer;
         PlayerLifeManager.GameIsOver -= GetLevel;
         LevelManager.OnLevelRetreat -= GetLevel;
+        LevelManager.OnGameWin -= GetLevelAfterWin;
+
     }
 
     private void Awake()
@@ -135,6 +138,14 @@ public class PersistentDataManager : MonoBehaviour
         int level = BmsPlusSceneManager._instance.GetCurrentLevel();
         m_currentData.SetPlayerLastLevel(level -1);
         m_playerLastLevel = level -1;
+    }
+
+    public void GetLevelAfterWin()
+    {
+        int level = BmsPlusSceneManager._instance.GetCurrentLevel();
+        m_currentData.SetPlayerLastLevel(level);
+        m_playerLastLevel = level;
+        Debug.Log("Our level is : " + level);
     }
 
     private void SortPlayersList()

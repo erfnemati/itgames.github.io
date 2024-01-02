@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour
     public static event EndLevelAction OnLevelVictory;
     public static event EndLevelAction OnLevelDefeat;
     public static event EndLevelAction OnLevelRetreat;
+    public static event EndLevelAction OnGameWin;
 
 
     private void OnEnable()
@@ -52,8 +53,16 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            WinLevel();
+        }
+    }
 
-    
+
+
     public void CompareBoards()
     {
         List<Hexagon> gameBoardHexagons = m_gameBoard.GetHexagons();
@@ -102,6 +111,11 @@ public class LevelManager : MonoBehaviour
         
         Debug.Log("You have won");
         OnLevelVictory();
+        if (BmsPlusSceneManager._instance.IsLastLvl())
+        {
+            OnGameWin();
+        }
+
     }
 
     private void LostLevel()
