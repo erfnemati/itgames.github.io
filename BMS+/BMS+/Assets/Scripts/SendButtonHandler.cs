@@ -24,6 +24,7 @@ public class SendButtonHandler : MonoBehaviour
         {
             PersistentDataManager._instance.SaveData(convertedString);
             GetComponent<Button>().gameObject.SetActive(false);
+            Invoke(nameof(LoadNextLevel), 0.5f);
         }
         else
         {
@@ -43,6 +44,11 @@ public class SendButtonHandler : MonoBehaviour
     public void ClearErrorText()
     {
         m_errorText.gameObject.SetActive(false);
+    }
+
+    public void LoadNextLevel()
+    {
+        BmsPlusSceneManager._instance.LoadNextLevel();
     }
 
 

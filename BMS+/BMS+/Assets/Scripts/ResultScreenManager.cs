@@ -27,7 +27,7 @@ public class ResultScreenManager : MonoBehaviour
     private void SetTimeRecord()
     {
         float time = m_currentPlayerData.GetPlayingTime();
-        m_timeRecord.text =  ((int)time).ToString() + "ثانیه";
+        m_timeRecord.text =  ((int)time).ToString() +  " ثانیه ";
     }
 
     private void SetHpCounter()
@@ -46,7 +46,7 @@ public class ResultScreenManager : MonoBehaviour
         }
         else if (playerCluster - 0.5f < Mathf.Epsilon && playerCluster - 0.25f > Mathf.Epsilon)
         {
-            m_playerRank.text = "عملکردت در بازی شبیه میانگین بازیکان هست!";
+            m_playerRank.text = "عملکردت در بازی شبیه میانگین بازیکنان هست!";
         }
         else if(playerCluster -0.75f <Mathf.Epsilon && playerCluster - 0.5f > Mathf.Epsilon)
         {
