@@ -3724,6 +3724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_mainMenuIndex: 0
+  m_lastLevelIndex: 15
 --- !u!1 &229134187
 GameObject:
   m_ObjectHideFlags: 0
@@ -6727,7 +6728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3165461117858958774, guid: 09e52d5f48737494db04f1056167088b, type: 3}
       propertyPath: m_currentColor
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3165461117858958774, guid: 09e52d5f48737494db04f1056167088b, type: 3}
       propertyPath: m_numOfAddedColors
