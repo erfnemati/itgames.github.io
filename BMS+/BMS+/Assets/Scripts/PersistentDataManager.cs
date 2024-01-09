@@ -155,6 +155,19 @@ public class PersistentDataManager : MonoBehaviour
 
     public float  GetPlayerCluster()
     {
+        if (m_playersInfo.m_playersInfoList.Count <= 4)
+        {
+            if (m_currentData.GetPlayerLastLevel() >= 11 && m_currentData.GetPlayerLastLevel() <= 14)
+            {
+                return 0.125f;
+            }
+
+            else
+            {
+                return 0.3f;
+            }
+        }
+
         int playerRank = m_playersInfo.GetIndex(m_currentData.GetPlayerId()) + 1;
         float playerCluster = (float)playerRank / m_playersInfo.m_playersInfoList.Count;
         Debug.Log("Player cluster is : " + playerCluster);

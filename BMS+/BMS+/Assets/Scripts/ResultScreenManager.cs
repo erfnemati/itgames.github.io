@@ -56,8 +56,7 @@ public class ResultScreenManager : MonoBehaviour
         else
         {
             m_playerRank.text = "باید خیلی بیش‌تر تلاش کنی،اکثر بازیکنا ازت جلوترن";
-        }
-        
+        }   
     }
 
     public void QuitFromResultScreen()
