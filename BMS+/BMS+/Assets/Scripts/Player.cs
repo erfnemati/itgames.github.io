@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static Player _instance;
-    Pin m_currentPlayerPin;
+    [SerializeField] Pin m_currentPlayerPin;
     private bool m_isLevelOver = false;
     [SerializeField] GameObject m_redPin;
     [SerializeField] GameObject m_yellowPin;

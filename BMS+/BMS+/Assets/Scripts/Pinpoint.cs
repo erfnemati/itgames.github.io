@@ -9,6 +9,7 @@ public class Pinpoint : MonoBehaviour
 
     private Button m_pinPoint;
     private Pin m_currentPin = null;
+    [SerializeField] bool m_isTutorialMode = false;
 
     //Ui stuff here,maybe recycle later:
     private float m_initialPinPointWidth;
@@ -122,7 +123,12 @@ public class Pinpoint : MonoBehaviour
             RemovePin();
         }
 
-        LevelManager._instance.CompareBoards();
+        if (m_isTutorialMode == false)
+        {
+            LevelManager._instance.CompareBoards();
+        }
+    
+        
     }
 
     private void AddPin(Pin chosenPin)

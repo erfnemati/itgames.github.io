@@ -6762,6 +6762,14 @@ PrefabInstance:
       propertyPath: m_numOfAddedColors
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3165461119540345644, guid: 09e52d5f48737494db04f1056167088b, type: 3}
+      propertyPath: m_currentColor
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165461119540345644, guid: 09e52d5f48737494db04f1056167088b, type: 3}
+      propertyPath: m_numOfAddedColors
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3165461119825461299, guid: 09e52d5f48737494db04f1056167088b, type: 3}
       propertyPath: m_currentColor
       value: 1
