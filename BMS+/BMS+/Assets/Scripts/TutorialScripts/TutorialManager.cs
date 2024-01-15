@@ -19,7 +19,10 @@ public class TutorialManager : MonoBehaviour
     public void LoadNextState()
     {
         m_lastListIndex = (m_lastListIndex + 1) % m_stateList.Count;
-        m_currentState.SetActive(false);
+        //m_currentState.SetActive(false);
+        Destroy(m_currentState.gameObject);
+        //The worst code here :
+        Player._instance = null;
         m_stateList[m_lastListIndex].SetActive(true);
         m_currentState = m_stateList[m_lastListIndex];
 
