@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Levels/StartScreen.unity
     guid: 15d90ce74b9714d44bf85bc7d6f03540
   - enabled: 1
+    path: Assets/Scenes/Main Levels/Tutorial.unity
+    guid: 4574721314cbcd54b81f4d8fea5e08cc
+  - enabled: 1
     path: Assets/Scenes/Main Levels/Level 1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
