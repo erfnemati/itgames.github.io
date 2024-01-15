@@ -9,11 +9,15 @@ public class StartScreen : MonoBehaviour
 
     private void Update()
     {
-        if (!Touchscreen.current.primaryTouch.press.isPressed)
+        if (Touchscreen.current != null)
         {
-            return;
+            if (Touchscreen.current.primaryTouch.press.isPressed)
+            {
+                LoadNextLevel();
+            }
         }
-        LoadNextLevel();
+        
+       
     }
 
 
