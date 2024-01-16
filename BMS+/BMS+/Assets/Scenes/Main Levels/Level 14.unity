@@ -3724,7 +3724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_mainMenuIndex: 0
-  m_lastLevelIndex: 14
+  m_lastLevelIndex: 15
 --- !u!1 &229134187
 GameObject:
   m_ObjectHideFlags: 0
@@ -20252,6 +20252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64481afd2fb8054a9cd797f25443b6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_currentPlayerPin: {fileID: 0}
   m_redPin: {fileID: 570191659}
   m_yellowPin: {fileID: 1740891576}
   m_bluePin: {fileID: 1549881354}
