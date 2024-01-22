@@ -6,57 +6,84 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main Levels/StartScreen.unity
-    guid: 15d90ce74b9714d44bf85bc7d6f03540
+    path: Assets/Scenes/Test Levels/NewLvl 1.unity
+    guid: b9ea1b3c05f353c40865a244bd5fb886
   - enabled: 1
-    path: Assets/Scenes/Main Levels/Tutorial.unity
-    guid: 4574721314cbcd54b81f4d8fea5e08cc
+    path: Assets/Scenes/Test Levels/NewLvl 2.unity
+    guid: 315272e8b6847b94692b35b7eaf846ff
   - enabled: 1
-    path: Assets/Scenes/Main Levels/Level 1.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Test Levels/NewLvl 3.unity
+    guid: 57efb9a277e31c1479f20785897e2fb3
   - enabled: 1
-    path: Assets/Scenes/Main Levels/Level 2.unity
-    guid: 9355714575806f84e94e551a99db6404
+    path: Assets/Scenes/Test Levels/NewLvl 4.unity
+    guid: 217303126b4824b4ea807574aef8cf15
   - enabled: 1
-    path: Assets/Scenes/Main Levels/Level 3.unity
-    guid: b61ea4631eb4f204f996aad56cbb7b43
+    path: Assets/Scenes/Test Levels/NewLvl 5.unity
+    guid: bd42a3055eaef9541bf1c884cd880c80
   - enabled: 1
-    path: Assets/Scenes/Main Levels/Level 4.unity
-    guid: 238a3b97c5d79c543bbf634aafcb5976
+    path: Assets/Scenes/Test Levels/NewLvl 6.unity
+    guid: a357a533ebc845e42b7ee897034f164b
   - enabled: 1
-    path: Assets/Scenes/Main Levels/Level 5.unity
-    guid: a3b50303443f2ee42ae3eb7131602d71
+    path: Assets/Scenes/Test Levels/NewLvl 7.unity
+    guid: 0288a1121598f0d498b45d3811437c1a
   - enabled: 1
-    path: Assets/Scenes/Main Levels/Level 6.unity
-    guid: 2413e5d8490a6dd44b07b262f950b051
+    path: Assets/Scenes/Test Levels/NewLvl 8.unity
+    guid: abb624bc5c369ec41ae65e6122fbf61c
   - enabled: 1
-    path: Assets/Scenes/Main Levels/Level 7.unity
-    guid: c4e7b5f1c66587b4582cd6ef2df7ef44
+    path: Assets/Scenes/Test Levels/NewLvl 9.unity
+    guid: 9afe955bdf532d944b90c0fc75c992f5
   - enabled: 1
-    path: Assets/Scenes/Main Levels/Level 8.unity
-    guid: 855448748d587804d98222a25d590ea2
+    path: Assets/Scenes/Test Levels/NewLvl 10.unity
+    guid: f6ba51b43eee9ab40865fd769488200d
   - enabled: 1
-    path: Assets/Scenes/Main Levels/Level 9.unity
-    guid: 092b1aa9a5111834197c531b75190f7e
+    path: Assets/Scenes/Test Levels/NewLvl 11.unity
+    guid: f2caa5f1e994a6e42a0f4b6cf6593482
   - enabled: 1
-    path: Assets/Scenes/Main Levels/Level 10.unity
-    guid: 58c1367b444314641a1fb46fac13f1a5
+    path: Assets/Scenes/Test Levels/NewLvl 12.unity
+    guid: 7c3482bb33e20a5468a71f87d198dbcc
   - enabled: 1
-    path: Assets/Scenes/Main Levels/Level 11.unity
-    guid: a80ce03f86c8de54caaa68b139c99a5f
+    path: Assets/Scenes/Test Levels/NewLvl 13.unity
+    guid: 49ec18b2455bc17459c1efd28970b62a
   - enabled: 1
-    path: Assets/Scenes/Main Levels/Level 12.unity
-    guid: 498ff9316382793479b059e5e1f248a0
+    path: Assets/Scenes/Test Levels/NewLvl 14.unity
+    guid: 0fca0065438d50647a10a4159844ea24
   - enabled: 1
-    path: Assets/Scenes/Main Levels/Level 13.unity
-    guid: 82e90fd8ed9e15a479b0ecc6b6d4e71b
+    path: Assets/Scenes/Test Levels/NewLvl 15.unity
+    guid: 2981ccbb87cd2b24a9c449a3b6a8da53
   - enabled: 1
-    path: Assets/Scenes/Main Levels/Level 14.unity
-    guid: 8493c35d56d0a824ebfaf40a80e523f0
+    path: Assets/Scenes/Test Levels/NewLvl 16.unity
+    guid: 917e658d95e8274438ed2374e82042c1
   - enabled: 1
-    path: Assets/Scenes/Main Levels/PhoneScreen.unity
-    guid: 3e0909b8271289044b0154c9c7857a0e
+    path: Assets/Scenes/Test Levels/NewLvl 17.unity
+    guid: 6a82bbed58c7dc44487e423252e95236
   - enabled: 1
-    path: Assets/Scenes/Main Levels/ResultScreen.unity
-    guid: 60b3eda44234d5c4784db6a595e4d68b
+    path: Assets/Scenes/Test Levels/NewLvl 18.unity
+    guid: 88be8c043e66f1e46a746a79cd3a3195
+  - enabled: 1
+    path: Assets/Scenes/Test Levels/NewLvl 19.unity
+    guid: b436d32ebd41a6c40be154e3d06d1e12
+  - enabled: 1
+    path: Assets/Scenes/Test Levels/NewLvl 20.unity
+    guid: be0ba231af725d04791128fcb366e234
+  - enabled: 1
+    path: Assets/Scenes/Test Levels/NewLvl 21.unity
+    guid: 16b8cc98a07c8654d80ad322437a7203
+  - enabled: 1
+    path: Assets/Scenes/Test Levels/NewLvl 22.unity
+    guid: 4c5c13db570f52a4c9df5c74745b1333
+  - enabled: 1
+    path: Assets/Scenes/Test Levels/NewLvl 23.unity
+    guid: e3011051f7b67094f993b119f36c9b47
+  - enabled: 1
+    path: Assets/Scenes/Test Levels/NewLvl 24.unity
+    guid: a69ad86c1e641ca499a3b961e1699b14
+  - enabled: 1
+    path: Assets/Scenes/Test Levels/NewLvl 25.unity
+    guid: 169141d77cf967544b56d6e009242766
+  - enabled: 1
+    path: Assets/Scenes/Test Levels/NewLvl 26.unity
+    guid: 458dc29128dc4f846876d7727c5edd8b
+  - enabled: 1
+    path: Assets/Scenes/Test Levels/NewLvl 27.unity
+    guid: 26c4d338b1ce07848b3635bdd97f767a
   m_configObjects: {}
