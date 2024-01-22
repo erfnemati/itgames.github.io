@@ -17411,13 +17411,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1924681855006466623, guid: 0702018e5add41d41ab3a8343067f15e, type: 3}
       propertyPath: m_text
-      value: "\u06F7\u06F2\n"
+      value: "\u06F8\u06F2"
       objectReference: {fileID: 0}
     - target: {fileID: 1924681855006466623, guid: 0702018e5add41d41ab3a8343067f15e, type: 3}
       propertyPath: originalText
-      value: '27
-
-'
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 1924681855020250850, guid: 0702018e5add41d41ab3a8343067f15e, type: 3}
       propertyPath: m_Name
