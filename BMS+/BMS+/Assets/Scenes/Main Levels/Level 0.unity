@@ -3724,6 +3724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_mainMenuIndex: 0
+  m_lastLevelIndex: 14
 --- !u!1 &229134187
 GameObject:
   m_ObjectHideFlags: 0
@@ -16300,6 +16301,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_musicSource: {fileID: 689160295}
   m_soundEffectSource: {fileID: 2100492337}
+  m_isMute: 0
+  m_lastMusicVolume: 0
+  m_lastSoundEffectVolume: 0
 --- !u!4 &1077318365
 Transform:
   m_ObjectHideFlags: 0
@@ -20119,6 +20123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64481afd2fb8054a9cd797f25443b6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_currentPlayerPin: {fileID: 0}
   m_redPin: {fileID: 570191659}
   m_yellowPin: {fileID: 1740891576}
   m_bluePin: {fileID: 1549881354}
@@ -25740,7 +25745,7 @@ GameObject:
   - component: {fileID: 1668721626}
   - component: {fileID: 1668721625}
   m_Layer: 0
-  m_Name: HexagonColorManager
+  m_Name: "Hexagon\u064FSpriteManager"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25762,18 +25767,10 @@ MonoBehaviour:
   m_blueHexagonColorSprite: {fileID: 21300000, guid: c14a05bf5469c914fb2d1dd21b9ed5bf, type: 3}
   m_redHexagonColorSprite: {fileID: 21300000, guid: 0d98a071df497964d8ea5da4f8dca2d6, type: 3}
   m_yellowHexagonColorSprite: {fileID: 21300000, guid: 4253d38ce4bd4cc4b8918264593c907b, type: 3}
-  m_orangeHexagonColorSprite: {fileID: 21300000, guid: 67c1c91688ec3234eb3725cdcf338814, type: 3}
+  m_orangeHexagonColorSprite: {fileID: 21300000, guid: 425ff161ad74dea4f902a9677e4c4d64, type: 3}
   m_greenHexagonColorSprite: {fileID: 21300000, guid: b40ce3ec726407046b5279a16022c80a, type: 3}
   m_purpleHexagonColorSprite: {fileID: 21300000, guid: 956ee762991831c4dba80f7acdcb5a48, type: 3}
-  m_brownHexagonColorSpirte: {fileID: 21300000, guid: 230410cb26b46364f87f7a15a7a7908f, type: 3}
-  m_whiteColor: {r: 0, g: 0, b: 0, a: 0}
-  m_redColor: {r: 0, g: 0, b: 0, a: 0}
-  m_blueColor: {r: 0, g: 0, b: 0, a: 0}
-  m_yellowColor: {r: 0, g: 0, b: 0, a: 0}
-  m_orangeColor: {r: 0, g: 0, b: 0, a: 0}
-  m_purpleColor: {r: 0, g: 0, b: 0, a: 0}
-  m_greenColor: {r: 0, g: 0, b: 0, a: 0}
-  m_brownColor: {r: 0, g: 0, b: 0, a: 0}
+  m_brownHexagonColorSpirte: {fileID: 21300000, guid: 883eabac28a8a8f45916553be6da7e84, type: 3}
 --- !u!4 &1668721626
 Transform:
   m_ObjectHideFlags: 0

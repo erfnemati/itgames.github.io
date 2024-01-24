@@ -15,14 +15,14 @@ public class HexagonSpritePicker : MonoBehaviour
     [SerializeField] Sprite m_purpleHexagonColorSprite;
     [SerializeField] Sprite m_brownHexagonColorSpirte;
 
-    [SerializeField] Color m_whiteColor;
+    /*[SerializeField] Color m_whiteColor;
     [SerializeField] Color m_redColor;
     [SerializeField] Color m_blueColor;
     [SerializeField] Color m_yellowColor;
     [SerializeField] Color m_orangeColor;
     [SerializeField] Color m_purpleColor;
     [SerializeField] Color m_greenColor;
-    [SerializeField] Color m_brownColor;
+    [SerializeField] Color m_brownColor;*/
 
     
 
@@ -38,7 +38,7 @@ public class HexagonSpritePicker : MonoBehaviour
         }
     }
 
-    public Color GetHexagonColor(HexagonColor color)
+    /*public Color GetHexagonColor(HexagonColor color)
     {
         if (color == HexagonColor.White)
         {
@@ -76,7 +76,7 @@ public class HexagonSpritePicker : MonoBehaviour
         {
             return m_whiteColor;
         }
-    }
+    }*/
 
     public Sprite GetHexagonSprite(HexagonColor color)
     {
