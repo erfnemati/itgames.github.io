@@ -6059,11 +6059,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5309439043121980551, guid: edec0756b3d32374297e0c96ecebe430, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.16
+      value: -1.4
       objectReference: {fileID: 0}
     - target: {fileID: 5309439043121980551, guid: edec0756b3d32374297e0c96ecebe430, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.42
+      value: -1.11
       objectReference: {fileID: 0}
     - target: {fileID: 5309439043121980551, guid: edec0756b3d32374297e0c96ecebe430, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6819,15 +6819,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3165461117813978363, guid: 09e52d5f48737494db04f1056167088b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.13
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3165461117813978363, guid: 09e52d5f48737494db04f1056167088b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.31
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 3165461117813978363, guid: 09e52d5f48737494db04f1056167088b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.031889
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 3165461117813978363, guid: 09e52d5f48737494db04f1056167088b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10069,7 +10069,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.4, y: 2.7}
+  m_AnchoredPosition: {x: 1.64, y: 1.81}
   m_SizeDelta: {x: 1.3, y: 1.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &574598860
@@ -16901,15 +16901,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2575733805677408277, guid: 214b440447e84d34192442de201066d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.91
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 2575733805677408277, guid: 214b440447e84d34192442de201066d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.17
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2575733805677408277, guid: 214b440447e84d34192442de201066d7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.031602
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 2575733805677408277, guid: 214b440447e84d34192442de201066d7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -24131,7 +24131,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.4, y: 1.7}
+  m_AnchoredPosition: {x: 1.64, y: 0.8}
   m_SizeDelta: {x: 1.3, y: 1.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1550948368
@@ -26463,7 +26463,7 @@ GameObject:
   - component: {fileID: 1668721626}
   - component: {fileID: 1668721625}
   m_Layer: 0
-  m_Name: HexagonColorManager
+  m_Name: "Hexagon\u064FSpriteManager"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26485,18 +26485,10 @@ MonoBehaviour:
   m_blueHexagonColorSprite: {fileID: 21300000, guid: c14a05bf5469c914fb2d1dd21b9ed5bf, type: 3}
   m_redHexagonColorSprite: {fileID: 21300000, guid: 0d98a071df497964d8ea5da4f8dca2d6, type: 3}
   m_yellowHexagonColorSprite: {fileID: 21300000, guid: 4253d38ce4bd4cc4b8918264593c907b, type: 3}
-  m_orangeHexagonColorSprite: {fileID: 21300000, guid: 67c1c91688ec3234eb3725cdcf338814, type: 3}
+  m_orangeHexagonColorSprite: {fileID: 21300000, guid: 425ff161ad74dea4f902a9677e4c4d64, type: 3}
   m_greenHexagonColorSprite: {fileID: 21300000, guid: b40ce3ec726407046b5279a16022c80a, type: 3}
   m_purpleHexagonColorSprite: {fileID: 21300000, guid: 956ee762991831c4dba80f7acdcb5a48, type: 3}
-  m_brownHexagonColorSpirte: {fileID: 21300000, guid: 230410cb26b46364f87f7a15a7a7908f, type: 3}
-  m_whiteColor: {r: 0, g: 0, b: 0, a: 0}
-  m_redColor: {r: 0, g: 0, b: 0, a: 0}
-  m_blueColor: {r: 0, g: 0, b: 0, a: 0}
-  m_yellowColor: {r: 0, g: 0, b: 0, a: 0}
-  m_orangeColor: {r: 0, g: 0, b: 0, a: 0}
-  m_purpleColor: {r: 0, g: 0, b: 0, a: 0}
-  m_greenColor: {r: 0, g: 0, b: 0, a: 0}
-  m_brownColor: {r: 0, g: 0, b: 0, a: 0}
+  m_brownHexagonColorSpirte: {fileID: 21300000, guid: 883eabac28a8a8f45916553be6da7e84, type: 3}
 --- !u!4 &1668721626
 Transform:
   m_ObjectHideFlags: 0
@@ -27722,7 +27714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.4, y: 3.7}
+  m_AnchoredPosition: {x: 1.64, y: 2.81}
   m_SizeDelta: {x: 1.3, y: 1.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1740891581
