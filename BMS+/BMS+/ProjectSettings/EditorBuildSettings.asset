@@ -30,22 +30,22 @@ EditorBuildSettings:
     path: Assets/Scenes/Test Levels/Level 14.unity
     guid: d09523ab67f89f74cb477b0ceaad6af2
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 1.unity
+    path: Assets/Scenes/Test Levels/Level 15.unity
     guid: b9ea1b3c05f353c40865a244bd5fb886
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 2.unity
+    path: Assets/Scenes/Test Levels/Level 16.unity
     guid: 315272e8b6847b94692b35b7eaf846ff
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 3.unity
+    path: Assets/Scenes/Test Levels/Level 17.unity
     guid: 57efb9a277e31c1479f20785897e2fb3
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 4.unity
+    path: Assets/Scenes/Test Levels/Level 18.unity
     guid: 217303126b4824b4ea807574aef8cf15
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 5.unity
+    path: Assets/Scenes/Test Levels/Level 19.unity
     guid: bd42a3055eaef9541bf1c884cd880c80
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 6.unity
+    path: Assets/Scenes/Test Levels/Level 20.unity
     guid: a357a533ebc845e42b7ee897034f164b
   - enabled: 1
     path: Assets/Scenes/Test Levels/NewLvl 7.unity
