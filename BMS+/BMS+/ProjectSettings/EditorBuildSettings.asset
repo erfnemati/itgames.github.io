@@ -5,109 +5,115 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/StandVersion/StartScreen 2.unity
+    guid: 9138f5785ccec2b498e0fcb4ec804c04
   - enabled: 1
-    path: Assets/Scenes/Test Levels/Level 7.unity
-    guid: cc9a962e4b0eec549a9b7bd48657dd78
+    path: Assets/Scenes/StandVersion/Level 7.unity
+    guid: 037dee164d7a27b448549bf6f509f05f
   - enabled: 1
-    path: Assets/Scenes/Test Levels/Level 8.unity
-    guid: abce3075c1f7394469f01747a9d40ee1
+    path: Assets/Scenes/StandVersion/Level 8.unity
+    guid: 10638370ee75f12499efdfb0a95e57a4
   - enabled: 1
-    path: Assets/Scenes/Test Levels/Level 9.unity
-    guid: 0ac3afbaad2565c46859de41dcb5b55c
+    path: Assets/Scenes/StandVersion/Level 9.unity
+    guid: b213a7b8ba2f2b54da1cf8e0b4a97e00
   - enabled: 1
-    path: Assets/Scenes/Test Levels/Level 10.unity
-    guid: 7f35d0c36ec21ec418e453cdd09f3ba2
+    path: Assets/Scenes/StandVersion/Level 10.unity
+    guid: f503ece09b8f34c46b8415e3212dc88b
   - enabled: 1
-    path: Assets/Scenes/Test Levels/Level 11.unity
-    guid: 50cb11018ca26e544bde2536b0a1b3a9
+    path: Assets/Scenes/StandVersion/Level 11.unity
+    guid: 2cac058d67f190f48a318664e62bc775
   - enabled: 1
-    path: Assets/Scenes/Test Levels/Level 12.unity
-    guid: a4dad416f40c96c458258df9f3464bc7
+    path: Assets/Scenes/StandVersion/Level 12.unity
+    guid: 09d1bb7a3f9c00249ab4809d5d903e15
   - enabled: 1
-    path: Assets/Scenes/Test Levels/Level 13.unity
-    guid: d7ee4a621fd864c4c9c17b6e796d155e
+    path: Assets/Scenes/StandVersion/Level 13.unity
+    guid: 6913a7f5094fb714d8b90c5afb69869e
   - enabled: 1
-    path: Assets/Scenes/Test Levels/Level 14.unity
-    guid: d09523ab67f89f74cb477b0ceaad6af2
+    path: Assets/Scenes/StandVersion/Level 14.unity
+    guid: 09effac646bfac94e968b087f7fd5d1d
   - enabled: 1
-    path: Assets/Scenes/Test Levels/Level 15.unity
-    guid: b9ea1b3c05f353c40865a244bd5fb886
+    path: Assets/Scenes/StandVersion/Level 15.unity
+    guid: c59e87ab3fc21c94081a3b95c493cb63
   - enabled: 1
-    path: Assets/Scenes/Test Levels/Level 16.unity
-    guid: 315272e8b6847b94692b35b7eaf846ff
+    path: Assets/Scenes/StandVersion/Level 16.unity
+    guid: aa2134d72d8e41745975ce442e67dc06
   - enabled: 1
-    path: Assets/Scenes/Test Levels/Level 17.unity
-    guid: 57efb9a277e31c1479f20785897e2fb3
+    path: Assets/Scenes/StandVersion/Level 17.unity
+    guid: 5a0f23f361d36c6448b2fcc9fc5fd0e7
   - enabled: 1
-    path: Assets/Scenes/Test Levels/Level 18.unity
-    guid: 217303126b4824b4ea807574aef8cf15
+    path: Assets/Scenes/StandVersion/Level 18.unity
+    guid: c589c9419da54c14387a013d687cd9d5
   - enabled: 1
-    path: Assets/Scenes/Test Levels/Level 19.unity
-    guid: bd42a3055eaef9541bf1c884cd880c80
+    path: Assets/Scenes/StandVersion/Level 19.unity
+    guid: f469187f4ad5d534fa8abc4d831028b8
   - enabled: 1
-    path: Assets/Scenes/Test Levels/Level 20.unity
-    guid: a357a533ebc845e42b7ee897034f164b
+    path: Assets/Scenes/StandVersion/Level 20.unity
+    guid: 3400f2f85ae04d047a5777424ce1258c
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 7.unity
-    guid: 0288a1121598f0d498b45d3811437c1a
+    path: Assets/Scenes/StandVersion/Level 21.unity
+    guid: ae95a1c9d7050f54f9cb9ccc66d25891
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 8.unity
-    guid: abb624bc5c369ec41ae65e6122fbf61c
+    path: Assets/Scenes/StandVersion/Level 22.unity
+    guid: d32324315ab93b6428b0a0304caf1c09
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 9.unity
-    guid: 9afe955bdf532d944b90c0fc75c992f5
+    path: Assets/Scenes/StandVersion/Level 23.unity
+    guid: 5ba4fdb08ef32ed438ecfa9ebb523a75
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 10.unity
-    guid: f6ba51b43eee9ab40865fd769488200d
+    path: Assets/Scenes/StandVersion/Level 24.unity
+    guid: ea710e549814ab944beca425fe66b4be
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 11.unity
-    guid: f2caa5f1e994a6e42a0f4b6cf6593482
+    path: Assets/Scenes/StandVersion/Level 25.unity
+    guid: 13d27bac8c6644e49a5612347f00f0b7
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 12.unity
-    guid: 7c3482bb33e20a5468a71f87d198dbcc
+    path: Assets/Scenes/StandVersion/Level 26.unity
+    guid: 431947d86b80537459b1efcff2b8f7ce
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 13.unity
-    guid: 49ec18b2455bc17459c1efd28970b62a
+    path: Assets/Scenes/StandVersion/Level 27.unity
+    guid: e4b82a872587cb247ae3c8a1a3e7d8e0
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 14.unity
-    guid: 0fca0065438d50647a10a4159844ea24
+    path: Assets/Scenes/StandVersion/Level 28.unity
+    guid: 5bd93cbf39c3c5f4e96f5a4e274a3d07
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 15.unity
-    guid: 2981ccbb87cd2b24a9c449a3b6a8da53
+    path: Assets/Scenes/StandVersion/Level 29.unity
+    guid: 0bbd4610c31be5a4481fa7fe51ab91e0
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 16.unity
-    guid: 917e658d95e8274438ed2374e82042c1
+    path: Assets/Scenes/StandVersion/Level 30.unity
+    guid: 748015b700ea9314abd2d5d69471f341
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 17.unity
-    guid: 6a82bbed58c7dc44487e423252e95236
+    path: Assets/Scenes/StandVersion/Level 31.unity
+    guid: 30fa9ca53d0b67249b57a376e4878be6
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 18.unity
-    guid: 88be8c043e66f1e46a746a79cd3a3195
+    path: Assets/Scenes/StandVersion/Level 32.unity
+    guid: 448ac23e97991e846b0858cb0e5e2ee6
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 19.unity
-    guid: b436d32ebd41a6c40be154e3d06d1e12
+    path: Assets/Scenes/StandVersion/Level 33.unity
+    guid: 57d47d5c6be369144aa64740e3ff5798
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 20.unity
-    guid: be0ba231af725d04791128fcb366e234
+    path: Assets/Scenes/StandVersion/Level 34.unity
+    guid: 5eee76fbd3a8c594da9accd0c82aac37
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 21.unity
-    guid: 16b8cc98a07c8654d80ad322437a7203
+    path: Assets/Scenes/StandVersion/Level 35.unity
+    guid: 77a6e779a9fe328418e73f1d0fd8d6ec
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 22.unity
-    guid: 4c5c13db570f52a4c9df5c74745b1333
+    path: Assets/Scenes/StandVersion/Level 36.unity
+    guid: 132e2039880f0a649a506e71f20f24d4
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 23.unity
-    guid: e3011051f7b67094f993b119f36c9b47
+    path: Assets/Scenes/StandVersion/Level 37.unity
+    guid: aee7ad14198324d44be91fa1eadd81e1
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 24.unity
-    guid: a69ad86c1e641ca499a3b961e1699b14
+    path: Assets/Scenes/StandVersion/Level 38.unity
+    guid: 58935738a42060b40a3893ed55da4fe8
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 25.unity
-    guid: 169141d77cf967544b56d6e009242766
+    path: Assets/Scenes/StandVersion/Level 39.unity
+    guid: 4dde65ad3b46b4843b32c29de0638a11
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 26.unity
-    guid: 458dc29128dc4f846876d7727c5edd8b
+    path: Assets/Scenes/StandVersion/Level 40.unity
+    guid: 0d0c69e26e3d2fd4caf4a6cfefc1f2b2
   - enabled: 1
-    path: Assets/Scenes/Test Levels/NewLvl 27.unity
-    guid: 26c4d338b1ce07848b3635bdd97f767a
+    path: Assets/Scenes/StandVersion/PhoneScreen.unity
+    guid: 8fd55462705357342a3c47d07b33ebc0
+  - enabled: 1
+    path: Assets/Scenes/StandVersion/ResultScreen.unity
+    guid: 80a9d7baba2ac4042a6622f205f892cc
   m_configObjects: {}

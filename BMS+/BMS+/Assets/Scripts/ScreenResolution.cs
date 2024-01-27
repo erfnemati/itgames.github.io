@@ -8,8 +8,9 @@ public class ScreenResolution : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (Screen.height < Screen.width)
+        if (BmsPlusSceneManager._instance != null && VersionController._instance.IsStandVersion())
         {
+            Debug.Log("Setting portrait resolution");
             SetPortraitResolution();
         }
         
@@ -17,10 +18,10 @@ public class ScreenResolution : MonoBehaviour
 
     private void SetPortraitResolution()
     {
-        Debug.Log("Changing");
         float nativeAspectRatio = 1920f / 1080f;
-        float screenHeight = Screen.height;
-        float screenWidth = screenHeight / nativeAspectRatio;
-        Screen.SetResolution(2160, 3840, true);
+        int screenHeight = Screen.height;
+        int screenWidth = (int)(screenHeight / nativeAspectRatio);
+        Debug.Log(screenWidth);
+        Screen.SetResolution(screenWidth, screenHeight, true);
     }
 }
