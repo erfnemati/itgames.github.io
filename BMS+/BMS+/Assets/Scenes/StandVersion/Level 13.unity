@@ -3724,7 +3724,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_mainMenuIndex: 0
-  m_lastLevelIndex: 14
 --- !u!1 &229134187
 GameObject:
   m_ObjectHideFlags: 0
@@ -26371,7 +26370,7 @@ GameObject:
   - component: {fileID: 1668721626}
   - component: {fileID: 1668721625}
   m_Layer: 0
-  m_Name: HexagonColorManager
+  m_Name: HexagonSpriteManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

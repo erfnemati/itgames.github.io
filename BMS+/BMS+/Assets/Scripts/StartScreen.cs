@@ -16,8 +16,11 @@ public class StartScreen : MonoBehaviour
                 LoadNextLevel();
             }
         }
-        
-       
+
+        else if (Input.anyKeyDown)
+        {
+            LoadNextLevel();
+        }
     }
 
 

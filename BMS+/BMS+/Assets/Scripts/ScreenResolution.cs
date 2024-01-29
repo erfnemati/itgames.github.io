@@ -8,7 +8,7 @@ public class ScreenResolution : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (BmsPlusSceneManager._instance != null && VersionController._instance.IsStandVersion())
+        if (VersionController._instance.IsStandVersion())
         {
             Debug.Log("Setting portrait resolution");
             SetPortraitResolution();

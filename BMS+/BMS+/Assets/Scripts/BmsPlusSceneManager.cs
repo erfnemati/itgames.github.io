@@ -8,7 +8,7 @@ public class BmsPlusSceneManager : MonoBehaviour
     public static BmsPlusSceneManager _instance;
     public const int m_offsetFromStart = 0;
     [SerializeField] int m_mainMenuIndex = 0;
-    [SerializeField] int m_lastLevelIndex = 14;
+    int m_lastLevelIndex = 54;
 
 
     private void Awake()
@@ -79,6 +79,7 @@ public class BmsPlusSceneManager : MonoBehaviour
         Debug.Log("Checking");
         if (SceneManager.GetActiveScene().buildIndex == m_lastLevelIndex)
         {
+            Debug.Log("Last level");
             return true;
         }
         return false;
