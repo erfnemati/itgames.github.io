@@ -3871,7 +3871,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_mainMenuIndex: 0
-  m_lastLevelIndex: 14
 --- !u!1 &229134187
 GameObject:
   m_ObjectHideFlags: 0
@@ -20299,6 +20298,67 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1261450066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1261450069}
+  - component: {fileID: 1261450068}
+  - component: {fileID: 1261450067}
+  m_Layer: 0
+  m_Name: PersistentDataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1261450067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261450066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7aa1e25eb6425941800cc6b5b3d0b30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1261450068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261450066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f8629f3745b2040860de510102c3ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_phoneNumer: 
+  m_numOfConsumedLives: 0
+  m_passedTime: 0
+  m_playerLastLevel: 0
+--- !u!4 &1261450069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261450066}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 32
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1278456376
 GameObject:
   m_ObjectHideFlags: 0
@@ -26893,7 +26953,7 @@ GameObject:
   - component: {fileID: 1668721626}
   - component: {fileID: 1668721625}
   m_Layer: 0
-  m_Name: HexagonColorManager
+  m_Name: HexagonSpriteManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26915,10 +26975,10 @@ MonoBehaviour:
   m_blueHexagonColorSprite: {fileID: 21300000, guid: c14a05bf5469c914fb2d1dd21b9ed5bf, type: 3}
   m_redHexagonColorSprite: {fileID: 21300000, guid: 0d98a071df497964d8ea5da4f8dca2d6, type: 3}
   m_yellowHexagonColorSprite: {fileID: 21300000, guid: 4253d38ce4bd4cc4b8918264593c907b, type: 3}
-  m_orangeHexagonColorSprite: {fileID: 21300000, guid: 67c1c91688ec3234eb3725cdcf338814, type: 3}
+  m_orangeHexagonColorSprite: {fileID: 21300000, guid: 425ff161ad74dea4f902a9677e4c4d64, type: 3}
   m_greenHexagonColorSprite: {fileID: 21300000, guid: b40ce3ec726407046b5279a16022c80a, type: 3}
   m_purpleHexagonColorSprite: {fileID: 21300000, guid: 956ee762991831c4dba80f7acdcb5a48, type: 3}
-  m_brownHexagonColorSpirte: {fileID: 21300000, guid: 230410cb26b46364f87f7a15a7a7908f, type: 3}
+  m_brownHexagonColorSpirte: {fileID: 21300000, guid: 883eabac28a8a8f45916553be6da7e84, type: 3}
 --- !u!4 &1668721626
 Transform:
   m_ObjectHideFlags: 0
