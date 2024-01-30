@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 public class BmsPlusSceneManager : MonoBehaviour
 {
     public static BmsPlusSceneManager _instance;
-    public const int m_offsetFromStart = 0;
     [SerializeField] int m_mainMenuIndex = 0;
     int m_lastLevelIndex = 54;
+    public static int m_offsetFromStart = 2;
+    public static int _numOfLevels = 25;
 
 
     private void Awake()
@@ -65,7 +66,7 @@ public class BmsPlusSceneManager : MonoBehaviour
     public int GetCurrentLevel()
     {
         int currentLevelBuildIndex = SceneManager.GetActiveScene().buildIndex;
-        int level = currentLevelBuildIndex + m_offsetFromStart;
+        int level = currentLevelBuildIndex - m_offsetFromStart + 1;
         return level;
     }
 

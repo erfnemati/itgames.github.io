@@ -3606,7 +3606,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_mainMenuIndex: 0
-  m_lastLevelIndex: 14
 --- !u!1 &230194157
 GameObject:
   m_ObjectHideFlags: 0
@@ -76846,7 +76845,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1790379709
 Transform:
   m_ObjectHideFlags: 0

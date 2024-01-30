@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StandVersion/StartScreen 2.unity
     guid: 9138f5785ccec2b498e0fcb4ec804c04
   - enabled: 1
+    path: Assets/Scenes/StandVersion/Tutorial.unity
+    guid: 72c60b4ff6564bf4abac23ae8b37f1c0
+  - enabled: 1
     path: Assets/Scenes/StandVersion/Level 1.unity
     guid: 3118413f1773f664a919f93a0f1be36b
   - enabled: 1
@@ -119,6 +122,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StandVersion/Level 37.unity
     guid: aee7ad14198324d44be91fa1eadd81e1
+  - enabled: 1
+    path: Assets/Scenes/StandVersion/Level 38.unity
+    guid: 4889bb6b07d1d684f8bacd3111518815
   - enabled: 1
     path: Assets/Scenes/StandVersion/Level 39.unity
     guid: 58935738a42060b40a3893ed55da4fe8
