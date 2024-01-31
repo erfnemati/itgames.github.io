@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class UiManager : MonoBehaviour
     [SerializeField] GameObject m_firstHeart;
     [SerializeField] GameObject m_secHeart;
     [SerializeField] GameObject m_thirdHeart;
+    [SerializeField] GameObject m_oneThirdAntenna;
+    [SerializeField] GameObject m_twoThirdAntenna;
+    [SerializeField] GameObject m_CompleteAntenna;
 
 
     private void OnEnable()
@@ -92,21 +96,22 @@ public class UiManager : MonoBehaviour
 
         if (m_numberOfLives == 1)
         {
-            m_firstHeart.gameObject.SetActive(true);
-            m_secHeart.gameObject.SetActive(false);
-            m_thirdHeart.gameObject.SetActive(false);
+            m_oneThirdAntenna.gameObject.SetActive(true);
+            m_twoThirdAntenna.gameObject.SetActive(false);
+            m_CompleteAntenna.gameObject.SetActive(false);
+
         }
         else if (m_numberOfLives == 2)
         {
-            m_firstHeart.gameObject.SetActive(true);
-            m_secHeart.gameObject.SetActive(true);
-            m_thirdHeart.gameObject.SetActive(false);
+            m_oneThirdAntenna.gameObject.SetActive(false);
+            m_twoThirdAntenna.gameObject.SetActive(true);
+            m_CompleteAntenna.gameObject.SetActive(false);
         }
         else if (m_numberOfLives == 3)
         {
-            m_firstHeart.gameObject.SetActive(true);
-            m_secHeart.gameObject.SetActive(true);
-            m_thirdHeart.gameObject.SetActive(true);
+            m_oneThirdAntenna.gameObject.SetActive(false);
+            m_twoThirdAntenna.gameObject.SetActive(false);
+            m_CompleteAntenna.gameObject.SetActive(true);
         }
         else
         {

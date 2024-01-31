@@ -2,30 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class MuteButtonController : MonoBehaviour
 {
-    private TextMeshProUGUI m_buttonText;
+    private Image m_buttonImage;
+    [SerializeField] Sprite m_muteSprite;
+    [SerializeField] Sprite m_unMuteSprite;
     private bool m_isMute = false;
 
     private void Start()
     {
-        m_buttonText = GetComponentInChildren<TextMeshProUGUI>();
-        UpdateMuteButtonText();
+        m_buttonImage = GetComponentInChildren<Image>();
+        UpdateButtonImage();
         m_isMute = SoundManager._instance.GetMuteState();
     }
 
-    private void UpdateMuteButtonText()
+    private void UpdateButtonImage()
     {
         bool muteState = SoundManager._instance.GetMuteState();
         
         if (muteState == true)
         {
-            m_buttonText.text = "UnMute";
+            m_buttonImage.sprite = m_muteSprite;
         }
         else
         {
-            m_buttonText.text = "Mute";
+            m_buttonImage.sprite = m_unMuteSprite;
         }
     }
 
@@ -34,16 +37,15 @@ public class MuteButtonController : MonoBehaviour
         if (m_isMute == false)
         {
             SoundManager._instance.MuteSound();
-            m_buttonText.text = "UnMute";
             m_isMute = true;
             
         }
         else
         {
             SoundManager._instance.UnmuteSound();
-            m_buttonText.text = "Mute";
             m_isMute = false;
         }
+        UpdateButtonImage();
     }
 
 

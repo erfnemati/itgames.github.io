@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VersionController : MonoBehaviour
 {
-    [SerializeField] private bool m_isStandVersion = true;
+    public static bool m_isStandVersion = false;
     public static VersionController _instance;
 
     private void Awake()

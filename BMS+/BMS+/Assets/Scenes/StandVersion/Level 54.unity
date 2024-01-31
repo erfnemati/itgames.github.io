@@ -3063,6 +3063,9 @@ MonoBehaviour:
   m_firstHeart: {fileID: 1518641235}
   m_secHeart: {fileID: 1518641234}
   m_thirdHeart: {fileID: 1518641233}
+  m_oneThirdAntenna: {fileID: 0}
+  m_twoThirdAntenna: {fileID: 0}
+  m_CompleteAntenna: {fileID: 0}
 --- !u!4 &167459322
 Transform:
   m_ObjectHideFlags: 0

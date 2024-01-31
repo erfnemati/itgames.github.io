@@ -7,9 +7,9 @@ public class BmsPlusSceneManager : MonoBehaviour
 {
     public static BmsPlusSceneManager _instance;
     [SerializeField] int m_mainMenuIndex = 0;
-    int m_lastLevelIndex = 54;
+    int m_lastLevelIndex = 31;
     public static int m_offsetFromStart = 2;
-    public static int _numOfLevels = 25;
+    public static int _numOfLevels = 30;
 
 
     private void Awake()

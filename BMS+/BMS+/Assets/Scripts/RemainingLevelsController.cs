@@ -17,6 +17,6 @@ public class RemainingLevelsController : MonoBehaviour
         int numOfLevels = BmsPlusSceneManager._numOfLevels;
         int currentLevel = BmsPlusSceneManager._instance.GetCurrentLevel();
 
-        m_remainingText.text = "مرحله  " + currentLevel + " / " + numOfLevels;
+        m_remainingText.text = currentLevel + " مرحله" + " از " + numOfLevels + " تا رو حل کردی!";
     }
 }
