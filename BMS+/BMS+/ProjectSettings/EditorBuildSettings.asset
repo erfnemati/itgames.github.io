@@ -36,19 +36,19 @@ EditorBuildSettings:
     path: Assets/Scenes/DemoVersion/9.Level 30.unity
     guid: a4ad122e6f239694bba516bef2d6c9c7
   - enabled: 1
-    path: Assets/Scenes/DemoVersion/12.Level 13.unity
+    path: Assets/Scenes/DemoVersion/9.Level 13.unity
     guid: 232457535c8652044bc0032da5b37228
   - enabled: 1
-    path: Assets/Scenes/DemoVersion/13.Level 29.unity
+    path: Assets/Scenes/DemoVersion/10.Level 29.unity
     guid: 36bfd2e39fd58ea42874b6234c8cb0b0
   - enabled: 1
-    path: Assets/Scenes/DemoVersion/15.Level 10.unity
+    path: Assets/Scenes/DemoVersion/11.Level 10.unity
     guid: e3a4a015ce756b145b870d119e61ead7
   - enabled: 1
-    path: Assets/Scenes/DemoVersion/5.Level 26.unity
+    path: Assets/Scenes/DemoVersion/11.Level 26.unity
     guid: aa5df38f37b800848ababe26590fd2ee
   - enabled: 1
-    path: Assets/Scenes/DemoVersion/11.Level 37.unity
+    path: Assets/Scenes/DemoVersion/12.Level 37.unity
     guid: 58d2b63b3dd1a814c93da2b9a1f02f8d
   - enabled: 1
     path: Assets/Scenes/DemoVersion/14.Level 41.unity
