@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.IO;
 
 
 public class PersistentDataManager : MonoBehaviour
@@ -19,6 +20,8 @@ public class PersistentDataManager : MonoBehaviour
     [SerializeField] int m_numOfConsumedLives;
     [SerializeField] float m_passedTime;
     [SerializeField] int m_playerLastLevel;
+
+    private string m_saveDataPath;
 
     private void OnEnable()
     {
@@ -58,6 +61,7 @@ public class PersistentDataManager : MonoBehaviour
     {
         m_playersInfo = new PlayersInfo();
         Debug.Log("Instantiating new playersInfo object");
+        m_saveDataPath = Application.dataPath + "LeaderBoardTextFile.json";
         //StartNewPlaythrough();
         RetrieveData();
     }
@@ -95,8 +99,9 @@ public class PersistentDataManager : MonoBehaviour
 
         string jsonString = JsonUtility.ToJson(m_playersInfo,true);
         Debug.Log("Here is saved note: " + jsonString);
-        PlayerPrefs.SetString(m_playersInfoString, jsonString);
-        PlayerPrefs.Save();
+        File.WriteAllText(Application.dataPath + "LeaderBoardTextFile.json", jsonString);
+        //PlayerPrefs.SetString(m_playersInfoString, jsonString);
+        //PlayerPrefs.Save();
     }
 
     private void SetPhoneNumber(string phoneNumber)
@@ -106,12 +111,21 @@ public class PersistentDataManager : MonoBehaviour
 
     public void RetrieveData()
     {
+        //string jsonString = PlayerPrefs.GetString(m_playersInfoString, "Empty");
         Debug.Log("Retriving");
-        string jsonString = PlayerPrefs.GetString(m_playersInfoString, "Empty");
-        Debug.Log(jsonString);
-        if (jsonString != "Empty")
+        if (File.Exists(m_saveDataPath))
         {
-            m_playersInfo = JsonUtility.FromJson<PlayersInfo>(jsonString);
+            string retrivedJsonString = File.ReadAllText(m_saveDataPath);
+            Debug.Log(retrivedJsonString);
+            if (retrivedJsonString != null)
+            {
+                m_playersInfo = JsonUtility.FromJson<PlayersInfo>(retrivedJsonString);
+            }
+            else
+            {
+                Debug.Log("Nothing to show for now");
+            }
+
         }
     }
 
@@ -175,6 +189,11 @@ public class PersistentDataManager : MonoBehaviour
         //Debug.Log("Player rank is : " + m_playersInfo.GetIndex(m_currentData.GetPlayerId()));
         //return (m_playersInfo.GetIndex(m_currentData.GetPlayerId()));
     }
+
+    public List<PlayerPersistentData> GetPlayersInfo()
+    {
+        return m_playersInfo.m_playersInfoList;
+    }
 }
 
 [Serializable]
@@ -197,7 +216,6 @@ public class PlayersInfo
             }
                 
         }
-
         return -1;
     }
 }
