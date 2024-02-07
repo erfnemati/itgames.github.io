@@ -8,9 +8,9 @@ public class LeaderBoardManager : MonoBehaviour
     [SerializeField] GameObject m_leaderboardObject;
     [SerializeField] int m_numOfLeaderboardItems = 10;
 
-    private void Start()
+    private void OnEnable()
     {
-        Invoke(nameof(LoadLeaderBoard),0.5f);
+        Invoke(nameof(LoadLeaderBoard),0.1f);
     }
 
     private void LoadLeaderBoard()
