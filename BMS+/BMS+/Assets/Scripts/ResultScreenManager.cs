@@ -21,19 +21,19 @@ public class ResultScreenManager : MonoBehaviour
 
     private void SetPlayerLastPassedLvl()
     {
-        m_lastPassedLvl.text = m_currentPlayerData.GetPlayerLastLevel().ToString();
+        m_lastPassedLvl.text ="آخرین مرحله : " + m_currentPlayerData.GetPlayerLastLevel().ToString();
     }
 
     private void SetTimeRecord()
     {
         float time = m_currentPlayerData.GetPlayingTime();
-        m_timeRecord.text =  ((int)time).ToString() +  " ثانیه ";
+        m_timeRecord.text =  "زمان : " + ((int)time).ToString() +  " ثانیه ";
     }
 
     private void SetHpCounter()
     {
         int hpCounter = m_currentPlayerData.GetNumOfConsumedLives();
-        m_HpCounter.text = hpCounter.ToString();
+        m_HpCounter.text = "آنتن از دست رفته : " + hpCounter.ToString();
     }
 
     private void SetPlayerRank()
