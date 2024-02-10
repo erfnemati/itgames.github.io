@@ -55,8 +55,17 @@ public class LeaderBoardElementHandler : MonoBehaviour
     {
         int minutes = (int) passedTime / 60;
         int seconds = ((int)passedTime) % 60;
+        string finalString;
+        if (seconds < 10)
+        {
+            finalString = "0" + seconds + ":" + minutes;
+        }
+        else
+        {
+            finalString = seconds + ":" + minutes;
+        }
 
-        string finalString = seconds + ":" + minutes;
+        
         return finalString;
     }
 
