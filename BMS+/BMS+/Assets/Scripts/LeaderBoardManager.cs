@@ -21,7 +21,7 @@ public class LeaderBoardManager : MonoBehaviour
          
             Vector3 initialLocalPos = m_leaderboardElement.GetComponent<RectTransform>().localPosition;
             float leaderboardElementHeight = m_leaderboardElement.GetComponent<RectTransform>().rect.height;
-            for (int i = 0; i < playerPersistentDatas.Count;i++)
+            for (int i = 0; i <m_numOfLeaderboardItems;i++)
             {
                 int rank = i + 1;
                 string phoneNumber = playerPersistentDatas[i].GetPhoneNumber();
