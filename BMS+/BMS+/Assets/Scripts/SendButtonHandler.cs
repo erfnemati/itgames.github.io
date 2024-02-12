@@ -10,19 +10,13 @@ public class SendButtonHandler : MonoBehaviour
 {
     [SerializeField] TextInputManager m_textInputManager;
     [SerializeField] RTLTextMeshPro m_errorText;
-    [SerializeField] RTLTextMeshPro m_phoneNumber;
-    [SerializeField] TMP_InputField m_InputField;
 
-    public void Start()
-    {
-        m_textInputManager = GetComponent<TextInputManager>();
-    }
     public void SavePhoneNumber()
     {
-        string convertedString = m_textInputManager.ConvertText(m_phoneNumber.text);
-        if (m_textInputManager.ValidateText(convertedString))
+        
+        if (m_textInputManager.ValidateText())
         {
-            PersistentDataManager._instance.SaveData(convertedString);
+            PersistentDataManager._instance.SaveData(m_textInputManager.GetConvertedString());
             GetComponent<Button>().gameObject.SetActive(false);
             Invoke(nameof(LoadNextLevel), 0.5f);
         }
@@ -35,13 +29,17 @@ public class SendButtonHandler : MonoBehaviour
 
     public void TryAgain()
     {
-        m_errorText.gameObject.SetActive(true);
-        m_InputField.Select();
-        m_InputField.text = "";
-        Invoke(nameof(ClearErrorText), 1.5f);
+        m_textInputManager.RefreshInput();
+        ActivateError();
     }
 
-    public void ClearErrorText()
+    public void ActivateError()
+    {
+        m_errorText.gameObject.SetActive(true);
+        Invoke(nameof(DeactivateErrorText), 2f);
+    } 
+    
+    public void DeactivateErrorText()
     {
         m_errorText.gameObject.SetActive(false);
     }
