@@ -6,7 +6,8 @@ public class SkipButtonController : MonoBehaviour
 {
     private int m_waitForExit = 5;
     private int m_numOfTries = 0;
-    public void SkipLevel()
+
+    public void Quit()
     {
         if (m_numOfTries >= m_waitForExit)
         {
@@ -15,5 +16,15 @@ public class SkipButtonController : MonoBehaviour
         }
         m_numOfTries++;
        
+    }
+
+    public void SkipLevel()
+    {
+        if (m_numOfTries  >= m_waitForExit)
+        {
+            Debug.Log("Skipping");
+            BmsPlusSceneManager._instance.LoadNextLevel();
+        }
+        m_numOfTries++;
     }
 }
