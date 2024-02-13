@@ -29,16 +29,17 @@ public class TextInputManager : MonoBehaviour
 
     public string ConvertText()
     {
-        
+        Debug.Log("Unconverted string is : " + m_phoneNumberText.text);
         char[] tempCharString = m_phoneNumberText.text.ToCharArray();
         char[] secondTempCharStr = new char [m_phoneNumberText.text.Length - 1];
 
-        for (int i = 0; i < tempCharString.Length - 1 ;i++)
+        for (int i = 0; i < tempCharString.Length - 1;i++)
         {
             tempCharString[i] = m_englishNumbers[(tempCharString[i] - 0x06F0)];
             secondTempCharStr[secondTempCharStr.Length - 1 - i] = tempCharString[i];
         }
         m_convertedString = new string(secondTempCharStr);
+        Debug.Log("converted string is : " + m_convertedString);
         return m_convertedString;
     }
 
@@ -84,10 +85,12 @@ public class TextInputManager : MonoBehaviour
 
     }
 
+    
+
     public void RefreshInput()
     {
         m_phoneNumberText.color = new Color32(255,255,255,76);
-        m_phoneNumberText.text = "09125281416";
+        m_phoneNumberText.text = "09121234567";
         m_phoneNumberStack.Clear();
     }
 

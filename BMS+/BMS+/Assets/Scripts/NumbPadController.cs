@@ -23,5 +23,10 @@ public class NumbPadController : MonoBehaviour
         m_phoneTextManager.RemoveDigit();
     }
 
+    public void ClearAllText()
+    {
+        m_phoneTextManager.RefreshInput();
+    }
+
 
 }

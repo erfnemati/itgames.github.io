@@ -7,6 +7,7 @@ public class LeaderBoardManager : MonoBehaviour
     [SerializeField] GameObject m_leaderboardElement;
     [SerializeField] GameObject m_leaderboardObject;
     [SerializeField] int m_numOfLeaderboardItems = 10;
+    [SerializeField] HashSet<string> m_cashedData = new HashSet<string>();
 
     private void OnEnable()
     {
@@ -21,20 +22,39 @@ public class LeaderBoardManager : MonoBehaviour
          
             Vector3 initialLocalPos = m_leaderboardElement.GetComponent<RectTransform>().localPosition;
             float leaderboardElementHeight = m_leaderboardElement.GetComponent<RectTransform>().rect.height;
-            for (int i = 0; i <m_numOfLeaderboardItems;i++)
+            int i = 0;
+            int numberOfCashedItems = 0;
+            while (numberOfCashedItems < m_numOfLeaderboardItems)
             {
-                int rank = i + 1;
-                string phoneNumber = playerPersistentDatas[i].GetPhoneNumber();
-                int passedTime = (int)playerPersistentDatas[i].GetPlayingTime();
-                int lastPassedLevel = playerPersistentDatas[i].GetPlayerLastLevel();
-                
-                GameObject temp = Instantiate(m_leaderboardElement,m_leaderboardObject.transform);
-                temp.GetComponent<LeaderBoardElementHandler>().SetElements(rank, phoneNumber, lastPassedLevel, passedTime);
-                temp.transform.localPosition = new Vector3
-                    (initialLocalPos.x,
-                    initialLocalPos.y - (leaderboardElementHeight * i),
-                    initialLocalPos.z);
-                temp.gameObject.SetActive(true);
+                if(i > playerPersistentDatas.Count -1)
+                {
+                    break;
+                }
+
+                if (m_cashedData.Contains(playerPersistentDatas[i].GetPhoneNumber()))
+                {
+                    i++;
+                    continue;
+                  
+                }
+                else
+                {
+                    int rank = numberOfCashedItems + 1;
+                    string phoneNumber = playerPersistentDatas[i].GetPhoneNumber();
+                    int passedTime = (int)playerPersistentDatas[i].GetPlayingTime();
+                    int lastPassedLevel = playerPersistentDatas[i].GetPlayerLastLevel();
+                    m_cashedData.Add(phoneNumber);
+
+                    GameObject temp = Instantiate(m_leaderboardElement, m_leaderboardObject.transform);
+                    temp.GetComponent<LeaderBoardElementHandler>().SetElements(rank, phoneNumber, lastPassedLevel, passedTime);
+                    temp.transform.localPosition = new Vector3
+                        (initialLocalPos.x,
+                        initialLocalPos.y - (leaderboardElementHeight * numberOfCashedItems),
+                        initialLocalPos.z);
+                    temp.gameObject.SetActive(true);
+                    numberOfCashedItems++;
+                    i++;
+                }
             }
         }
     }
