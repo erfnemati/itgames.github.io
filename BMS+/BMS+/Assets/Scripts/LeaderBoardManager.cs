@@ -16,6 +16,7 @@ public class LeaderBoardManager : MonoBehaviour
 
     private void LoadLeaderBoard()
     {
+        m_cashedData.Clear();
         if (PersistentDataManager._instance != null)
         {
             List<PlayerPersistentData> playerPersistentDatas = PersistentDataManager._instance.GetPlayersInfo();
