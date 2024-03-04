@@ -1,31 +1,17 @@
 {
     "m_playersInfoList": [
         {
-            "m_playerId": 1239291,
-            "m_phoneNumber": "9388488693",
-            "m_numOfConsumedLives": 3,
-            "m_playingTime": 11.197978973388672,
-            "m_playerLastLevel": 1
-        },
-        {
-            "m_playerId": 1814619,
+            "m_playerId": 1500711,
             "m_phoneNumber": "9151158297",
             "m_numOfConsumedLives": 0,
             "m_playingTime": 0.0,
             "m_playerLastLevel": 0
         },
         {
-            "m_playerId": 1547082,
-            "m_phoneNumber": "9388488693",
-            "m_numOfConsumedLives": 3,
-            "m_playingTime": 2.3692872524261476,
-            "m_playerLastLevel": 0
-        },
-        {
-            "m_playerId": 1087215,
-            "m_phoneNumber": "9388488693",
-            "m_numOfConsumedLives": 3,
-            "m_playingTime": 12.044539451599121,
+            "m_playerId": 1352771,
+            "m_phoneNumber": "9379152183",
+            "m_numOfConsumedLives": 0,
+            "m_playingTime": 0.0,
             "m_playerLastLevel": 0
         }
     ]
