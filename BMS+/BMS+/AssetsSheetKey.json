@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "dakalchin",
+  "private_key_id": "5c4636eff4722c4df821474accd2133156ff49c2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCvE2jA5o0JvBNg\nnTazNnhDKhPG9beF0950bOq7CcKv6jGMe6dhhzmZU3e4M0/nW6i950OlL6KGA6fO\nAb3hPpM4YzU0pwEnlJrItHWhNJsAFojzIc9LcGzIM3d947OmfNR/fes3UxX2wVa5\nv4MYf7HEBhlOH+l7HMt/A1j+Bi79u3e8gL7nzzMIwt4pJEovThlPt7f2UxKY2rt8\netFmg2KkMvbRPXmAWeQWfeT5rDETDtf1gjhwdiNAzGK3aYza/6r5B/H/c6jlqX0+\nPUA98/5eNuivkqpgO2jY07omdoVg7AGSKYyIFdHpRMuO7MT9YTnFidlk7HmKalnW\nmdNFGQnxAgMBAAECggEALXMu9yEDDTtnlmXJ3QVvfBQw1S5V6eaiMfxShaLXiV6V\nZWB2iAGYaN77zfR4MlofuMkQTRJMMVlCl17pYc+iXXmXxubyDEnuUttSTDrBYGj5\nPZER5QY3H1QJGcPij/6JFd3lEdQ+d/QiJQ98I4CG8BobOKZdMQo9I+iFElEdot25\nRXFPoEvI7v9SpAPhscFgxkAZs9nE64CY8YCoaASMd4yd5YLgP1xqvP2jrfFiFT5V\nWHTRgEkqhCAKBhfO2B8fzf2MQuQVOX+9nmTZpNhu3EUplswh7Pt4oHefxHe1rFPI\nNUZU/AiQkKgALdwms6/bbZr9d570V1PkPoqL26lmvwKBgQDld5W/BcIXVzNbfCyB\n50HtMwcEli6cop+Je6IVfUCfd9UH9Saj0ibhzGix9bsf5Q1y8VIn7IzCGl0ab901\nGEXRa7qUqtyA5TBrShArAY0fCtcBP1ph+Rr1TtlDsOQJdvzhXF/i31Ck83kRUMxk\nfitQ4IeblxpkEdTzrWXYXuLDqwKBgQDDUcv+koPHiDzuXlrsTTUhJBZw2qOzW0VO\nwaIXuXzWBoub0GiiFMdielj111G4ZrfngYpxt237qX/qF3Ilq7CPOeg5JMQsvYmV\nEfwDt+uklGJhoncu1DXr7CPxhMzLzA8nDjqZxZOjzAosrR9OxECVcfYqS0ZvNNLy\nfTaAf1FM0wKBgQChtZGhKcSrQDegLDUNYtTR/VjfwZqdpfk6IReLf1ZQS1mknv4Z\nCtt92tiZOSwjAP9mVmxoWEql64BbRiQk67MgL4QwiuyUJW/m3C3isNgr3S7B4Uyn\nqK5325Y/HuTFSsZRZxDnyCqD5FUYf9FarJOIDoNiga0Ggo6JH1Sbk9rIuwKBgEH+\n4W6jEuPYpL3mI9K0Q79u8iYvuiBgNorl4l8hzYyDqah8Qt6BJt2feW+X0YT9MCaJ\nHr5NvFvMaewu/+K6oG3EozKruZ1kbZhw+zZGbtitSpCy1JJ+IboVkA+LT6eMy5Hm\nvOY4XCp8RvPRi0KSDUBxwTuJM8NfledZZ5EDc/UBAoGBAMCIvHjfSvvyQbAN9bnx\naKocltP9kB5PJpQ4qhp+hjdg7pal2BtnJaYwmFraWfWYgmzmG3TpAqeEijO64+3F\ne2CtnJTKd1yof5DOMweYSJOFXIQbLxUmi1pMLVdm9dZBFB5QXWZVKWc6zu6rbBBD\ngNJOIugwiNiDHmHS9po4pN5V\n-----END PRIVATE KEY-----\n",
+  "client_email": "dakalchinleaderboard@dakalchin.iam.gserviceaccount.com",
+  "client_id": "115165466603167124031",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dakalchinleaderboard%40dakalchin.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

@@ -1,0 +1,354 @@
+{
+    "m_playersInfoList": [
+        {
+            "m_playerId": 1455955,
+            "m_phoneNumber": "9037869216",
+            "m_numOfConsumedLives": 4,
+            "m_playingTime": 2500.77734375,
+            "m_playerLastLevel": 30
+        },
+        {
+            "m_playerId": 1841370,
+            "m_phoneNumber": "9129101744",
+            "m_numOfConsumedLives": 5,
+            "m_playingTime": 2867.513916015625,
+            "m_playerLastLevel": 30
+        },
+        {
+            "m_playerId": 1259278,
+            "m_phoneNumber": "9167702045",
+            "m_numOfConsumedLives": 10,
+            "m_playingTime": 3302.012451171875,
+            "m_playerLastLevel": 29
+        },
+        {
+            "m_playerId": 1222410,
+            "m_phoneNumber": "9135153593",
+            "m_numOfConsumedLives": 10,
+            "m_playingTime": 2554.72998046875,
+            "m_playerLastLevel": 22
+        },
+        {
+            "m_playerId": 1111747,
+            "m_phoneNumber": "9146733320",
+            "m_numOfConsumedLives": 7,
+            "m_playingTime": 1803.5487060546875,
+            "m_playerLastLevel": 18
+        },
+        {
+            "m_playerId": 1326093,
+            "m_phoneNumber": "9102369436",
+            "m_numOfConsumedLives": 19,
+            "m_playingTime": 3.6399755477905275,
+            "m_playerLastLevel": 16
+        },
+        {
+            "m_playerId": 1001989,
+            "m_phoneNumber": "9193810894",
+            "m_numOfConsumedLives": 6,
+            "m_playingTime": 1847.3011474609375,
+            "m_playerLastLevel": 16
+        },
+        {
+            "m_playerId": 1399580,
+            "m_phoneNumber": "9125463109",
+            "m_numOfConsumedLives": 6,
+            "m_playingTime": 1925.082763671875,
+            "m_playerLastLevel": 16
+        },
+        {
+            "m_playerId": 1556154,
+            "m_phoneNumber": "9334695231",
+            "m_numOfConsumedLives": 10,
+            "m_playingTime": 2413.638671875,
+            "m_playerLastLevel": 16
+        },
+        {
+            "m_playerId": 1235470,
+            "m_phoneNumber": "9146501711",
+            "m_numOfConsumedLives": 15,
+            "m_playingTime": 256.3128356933594,
+            "m_playerLastLevel": 12
+        },
+        {
+            "m_playerId": 1119395,
+            "m_phoneNumber": "9221496892",
+            "m_numOfConsumedLives": 8,
+            "m_playingTime": 423.7989501953125,
+            "m_playerLastLevel": 12
+        },
+        {
+            "m_playerId": 1128413,
+            "m_phoneNumber": "9961707505",
+            "m_numOfConsumedLives": 5,
+            "m_playingTime": 1117.21435546875,
+            "m_playerLastLevel": 12
+        },
+        {
+            "m_playerId": 1389942,
+            "m_phoneNumber": "9392989512",
+            "m_numOfConsumedLives": 10,
+            "m_playingTime": 1769.57470703125,
+            "m_playerLastLevel": 12
+        },
+        {
+            "m_playerId": 1228892,
+            "m_phoneNumber": "9023320042",
+            "m_numOfConsumedLives": 15,
+            "m_playingTime": 971.7660522460938,
+            "m_playerLastLevel": 11
+        },
+        {
+            "m_playerId": 1671239,
+            "m_phoneNumber": "9011360302",
+            "m_numOfConsumedLives": 8,
+            "m_playingTime": 1474.704345703125,
+            "m_playerLastLevel": 11
+        },
+        {
+            "m_playerId": 1976123,
+            "m_phoneNumber": "9910536926",
+            "m_numOfConsumedLives": 15,
+            "m_playingTime": 89.42041778564453,
+            "m_playerLastLevel": 8
+        },
+        {
+            "m_playerId": 1189285,
+            "m_phoneNumber": "9935354331",
+            "m_numOfConsumedLives": 4,
+            "m_playingTime": 659.1800537109375,
+            "m_playerLastLevel": 8
+        },
+        {
+            "m_playerId": 1656570,
+            "m_phoneNumber": "9120378807",
+            "m_numOfConsumedLives": 4,
+            "m_playingTime": 732.9132690429688,
+            "m_playerLastLevel": 8
+        },
+        {
+            "m_playerId": 1559868,
+            "m_phoneNumber": "9014528756",
+            "m_numOfConsumedLives": 6,
+            "m_playingTime": 902.0582275390625,
+            "m_playerLastLevel": 8
+        },
+        {
+            "m_playerId": 1982739,
+            "m_phoneNumber": "9351089733",
+            "m_numOfConsumedLives": 12,
+            "m_playingTime": 27.927988052368165,
+            "m_playerLastLevel": 7
+        },
+        {
+            "m_playerId": 1186806,
+            "m_phoneNumber": "9151158297",
+            "m_numOfConsumedLives": 3,
+            "m_playingTime": 73.17581939697266,
+            "m_playerLastLevel": 7
+        },
+        {
+            "m_playerId": 1498593,
+            "m_phoneNumber": "9197306225",
+            "m_numOfConsumedLives": 12,
+            "m_playingTime": 79.63214874267578,
+            "m_playerLastLevel": 7
+        },
+        {
+            "m_playerId": 1224202,
+            "m_phoneNumber": "9365807664",
+            "m_numOfConsumedLives": 30,
+            "m_playingTime": 184.84683227539063,
+            "m_playerLastLevel": 7
+        },
+        {
+            "m_playerId": 1527094,
+            "m_phoneNumber": "9125438741",
+            "m_numOfConsumedLives": 11,
+            "m_playingTime": 189.15272521972657,
+            "m_playerLastLevel": 7
+        },
+        {
+            "m_playerId": 1804315,
+            "m_phoneNumber": "9391439824",
+            "m_numOfConsumedLives": 3,
+            "m_playingTime": 371.0050964355469,
+            "m_playerLastLevel": 7
+        },
+        {
+            "m_playerId": 1515486,
+            "m_phoneNumber": "9129461377",
+            "m_numOfConsumedLives": 3,
+            "m_playingTime": 388.699951171875,
+            "m_playerLastLevel": 7
+        },
+        {
+            "m_playerId": 1530559,
+            "m_phoneNumber": "9194757448",
+            "m_numOfConsumedLives": 3,
+            "m_playingTime": 418.3593444824219,
+            "m_playerLastLevel": 7
+        },
+        {
+            "m_playerId": 1921927,
+            "m_phoneNumber": "9382455807",
+            "m_numOfConsumedLives": 3,
+            "m_playingTime": 433.65509033203127,
+            "m_playerLastLevel": 7
+        },
+        {
+            "m_playerId": 1025246,
+            "m_phoneNumber": "9203613017",
+            "m_numOfConsumedLives": 3,
+            "m_playingTime": 452.3048095703125,
+            "m_playerLastLevel": 7
+        },
+        {
+            "m_playerId": 1987048,
+            "m_phoneNumber": "9303338566",
+            "m_numOfConsumedLives": 6,
+            "m_playingTime": 452.9701232910156,
+            "m_playerLastLevel": 7
+        },
+        {
+            "m_playerId": 1344170,
+            "m_phoneNumber": "9050170354",
+            "m_numOfConsumedLives": 3,
+            "m_playingTime": 483.1678161621094,
+            "m_playerLastLevel": 7
+        },
+        {
+            "m_playerId": 1226684,
+            "m_phoneNumber": "9037869216",
+            "m_numOfConsumedLives": 8,
+            "m_playingTime": 585.3697509765625,
+            "m_playerLastLevel": 7
+        },
+        {
+            "m_playerId": 1374539,
+            "m_phoneNumber": "9373356499",
+            "m_numOfConsumedLives": 4,
+            "m_playingTime": 640.835205078125,
+            "m_playerLastLevel": 7
+        },
+        {
+            "m_playerId": 1595442,
+            "m_phoneNumber": "9192164319",
+            "m_numOfConsumedLives": 5,
+            "m_playingTime": 657.9450073242188,
+            "m_playerLastLevel": 7
+        },
+        {
+            "m_playerId": 1252945,
+            "m_phoneNumber": "9368828008",
+            "m_numOfConsumedLives": 4,
+            "m_playingTime": 660.08349609375,
+            "m_playerLastLevel": 7
+        },
+        {
+            "m_playerId": 1381892,
+            "m_phoneNumber": "9197096456",
+            "m_numOfConsumedLives": 6,
+            "m_playingTime": 875.0203247070313,
+            "m_playerLastLevel": 7
+        },
+        {
+            "m_playerId": 1144881,
+            "m_phoneNumber": "9122159564",
+            "m_numOfConsumedLives": 6,
+            "m_playingTime": 886.6619873046875,
+            "m_playerLastLevel": 7
+        },
+        {
+            "m_playerId": 1228509,
+            "m_phoneNumber": "9101620486",
+            "m_numOfConsumedLives": 6,
+            "m_playingTime": 889.4650268554688,
+            "m_playerLastLevel": 7
+        },
+        {
+            "m_playerId": 1667910,
+            "m_phoneNumber": "9374887523",
+            "m_numOfConsumedLives": 18,
+            "m_playingTime": 10.84630012512207,
+            "m_playerLastLevel": 6
+        },
+        {
+            "m_playerId": 1191915,
+            "m_phoneNumber": "9102704228",
+            "m_numOfConsumedLives": 5,
+            "m_playingTime": 372.7829895019531,
+            "m_playerLastLevel": 5
+        },
+        {
+            "m_playerId": 1219615,
+            "m_phoneNumber": "9358986883",
+            "m_numOfConsumedLives": 3,
+            "m_playingTime": 377.8451843261719,
+            "m_playerLastLevel": 5
+        },
+        {
+            "m_playerId": 1033643,
+            "m_phoneNumber": "9121234567",
+            "m_numOfConsumedLives": 16,
+            "m_playingTime": 2880.24462890625,
+            "m_playerLastLevel": 5
+        },
+        {
+            "m_playerId": 1019138,
+            "m_phoneNumber": "9379151158",
+            "m_numOfConsumedLives": 12,
+            "m_playingTime": 50.15086364746094,
+            "m_playerLastLevel": 4
+        },
+        {
+            "m_playerId": 1925180,
+            "m_phoneNumber": "9981691096",
+            "m_numOfConsumedLives": 12,
+            "m_playingTime": 364.3038330078125,
+            "m_playerLastLevel": 4
+        },
+        {
+            "m_playerId": 1085341,
+            "m_phoneNumber": "9126844894",
+            "m_numOfConsumedLives": 14,
+            "m_playingTime": 3.056070566177368,
+            "m_playerLastLevel": 3
+        },
+        {
+            "m_playerId": 1013870,
+            "m_phoneNumber": "9178838621",
+            "m_numOfConsumedLives": 6,
+            "m_playingTime": 147.5867462158203,
+            "m_playerLastLevel": 3
+        },
+        {
+            "m_playerId": 1905561,
+            "m_phoneNumber": "9113333333",
+            "m_numOfConsumedLives": 3,
+            "m_playingTime": 25.348976135253908,
+            "m_playerLastLevel": 2
+        },
+        {
+            "m_playerId": 1780890,
+            "m_phoneNumber": "9111110000",
+            "m_numOfConsumedLives": 10,
+            "m_playingTime": 3.239650011062622,
+            "m_playerLastLevel": 1
+        },
+        {
+            "m_playerId": 1344001,
+            "m_phoneNumber": "9151158297",
+            "m_numOfConsumedLives": 3,
+            "m_playingTime": 15.516929626464844,
+            "m_playerLastLevel": 0
+        },
+        {
+            "m_playerId": 1547794,
+            "m_phoneNumber": "9191352209",
+            "m_numOfConsumedLives": 3,
+            "m_playingTime": 144.7573699951172,
+            "m_playerLastLevel": 0
+        }
+    ]
+}
