@@ -4,6 +4,12 @@ using UnityEngine;
 using System;
 using System.IO;
 
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Sheets.v4;
+using Google.Apis.Sheets.v4.Data;
+using Google.Apis.Services;
+
+
 
 public class PersistentDataManager : MonoBehaviour
 {
@@ -22,6 +28,15 @@ public class PersistentDataManager : MonoBehaviour
     [SerializeField] int m_playerLastLevel;
 
     private string m_saveDataPath;
+
+
+    static readonly string[] Scopes = { SheetsService.Scope.Spreadsheets};
+    static readonly string ApplicationName = "Dakalchin";
+    static readonly string SpreadsheetId = "Your SpreadSheet Id";
+    static readonly string sheet = "DakalChinLeaderboard";
+    private string m_sheetKeyName = "SheetKey.json";
+    private string m_spreadSheetId = "1ezyZpRn0TlhcrO6R0u8J8GZViRCU5xdVkZKH1_GLUmU";
+
 
     private void OnEnable()
     {
@@ -64,6 +79,7 @@ public class PersistentDataManager : MonoBehaviour
         m_saveDataPath = Application.dataPath + "LeaderBoardTextFile.json";
         //StartNewPlaythrough();
         RetrieveData();
+        //Debug.Log(GetSpreadsheet(m_spreadSheetId).SpreadsheetUrl);
     }
 
     private void Update()
@@ -193,6 +209,59 @@ public class PersistentDataManager : MonoBehaviour
     public List<PlayerPersistentData> GetPlayersInfo()
     {
         return m_playersInfo.m_playersInfoList;
+    }
+
+    public Spreadsheet CreateSpreadsheet(string title)
+    {
+        var googleCredential = GetCredential();
+        if (googleCredential == null)
+            throw new ArgumentNullException();
+
+        var service = new SheetsService(new BaseClientService.Initializer()
+        {
+            HttpClientInitializer = googleCredential,
+            ApplicationName = ApplicationName,
+        });
+
+        Spreadsheet chosenSpreadSheet = new Spreadsheet()
+        {
+            Properties = new SpreadsheetProperties()
+            {
+                Title = title
+            }
+        };
+
+        return (service.Spreadsheets.Create(chosenSpreadSheet).Execute());
+    }
+
+
+    public GoogleCredential GetCredential()
+    {
+        if (File.Exists(Application.dataPath + m_sheetKeyName))
+        {
+            string keyPath = Application.dataPath + m_sheetKeyName;
+            using (var stream = new FileStream(keyPath, FileMode.Open, FileAccess.Read))
+            {
+                return (GoogleCredential.FromStream(stream).CreateScoped(Scopes));
+            }
+        }
+        return null;
+    }
+
+    public Spreadsheet GetSpreadsheet(string spreadsheetId)
+    {
+
+        var googleCredential = GetCredential();
+        if (googleCredential == null)
+            throw new ArgumentNullException();
+
+        var service = new SheetsService(new BaseClientService.Initializer()
+        {
+            HttpClientInitializer = googleCredential,
+            ApplicationName = ApplicationName,
+        });
+
+        return (service.Spreadsheets.Get(spreadsheetId).Execute());
     }
 }
 
