@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="UI end Phase">
+    <Position X="21.125" Y="6.354" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Game Phase">
+    <Position X="7.594" Y="6.083" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="services&#xD;&#xA;">
+    <Position X="11.323" Y="14.708" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="tutorial&#xD;&#xA;">
+    <Position X="2.802" Y="5.896" Height="0.75" Width="1.7" />
+  </Comment>
+  <Class Name="BmsPlusSceneManager" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEEDAAAAAAAEAAAACAAAAAAIAAAAAQQUAAAAAAgEA=</HashCode>
+      <FileName>Assets\Scripts\BmsPlusSceneManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameBoard" Collapsed="true">
+    <Position X="9.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Assets\Scripts\GameBoard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hexagon" Collapsed="true">
+    <Position X="12.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ECAQCAAAICIQAAIAgAAAAAAgAAAAAAAAARAAQAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Hexagon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HexagonColorManager" Collapsed="true">
+    <Position X="14.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAABAAAAAAAAAAAAAAAAAACAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\HexagonColorManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HexagonSpritePicker" Collapsed="true">
+    <Position X="16.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAEAAAEAAAAAAAABEQAAAAAOAAAAAAEAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\HexagonSpritePicker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LeaderBoardElementHandler" Collapsed="true">
+    <Position X="7.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAIgmAACAAAAAAAAAAAgAAIAAAAAQAAAAAAAgAA=</HashCode>
+      <FileName>Assets\Scripts\LeaderBoardElementHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LeaderBoardManager" Collapsed="true">
+    <Position X="7.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAABAAAAAgAAAAAAAAAAAAAAAAAgAECAA=</HashCode>
+      <FileName>Assets\Scripts\LeaderBoardManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelManager" Collapsed="true">
+    <Position X="9.75" Y="9.75" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="LevelManager.EndLevelAction" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\LevelManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gAQMAAAAACogAAAAAAACBAAAAAEAAAEKCAIAIAAAGEA=</HashCode>
+      <FileName>Assets\Scripts\LevelManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelTimer" Collapsed="true">
+    <Position X="11.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAQAAiAAgQAABAgAAAAIIAAAAgUIBMAAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\LevelTimer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MuteButtonController" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIADACAAAAAAAAAAAAAAQAAAAAAAAAAAAACAAIA=</HashCode>
+      <FileName>Assets\Scripts\MuteButtonController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NumbPadController" Collapsed="true">
+    <Position X="22.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACIAAAAAAAACAAAAAAAAACAAABAAAAAQAAA=</HashCode>
+      <FileName>Assets\Scripts\NumbPadController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PersistentDataManager" Collapsed="true">
+    <Position X="12.25" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>OAQEAIACBaAEACgACAIQAQQVAAAgBgIICAIIAGEACEA=</HashCode>
+      <FileName>Assets\Scripts\PersistentDataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PhoneScreenManager" Collapsed="true">
+    <Position X="20.75" Y="7.5" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="PhoneScreenManager.TheEnd" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\PhoneScreenManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAEAAAAAAAAAAAAAAAAAAAAACAE=</HashCode>
+      <FileName>Assets\Scripts\PhoneScreenManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pin" Collapsed="true">
+    <Position X="13.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQAAAAIACAAEAAABAAgAAAAAAAABAAAAAQAAAASAAA=</HashCode>
+      <FileName>Assets\Scripts\Pin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pinpoint" Collapsed="true">
+    <Position X="12" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAQABAMgCIACDAQAQEBAAyAAAAAABBABAAYIQAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Pinpoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player" Collapsed="true">
+    <Position X="7.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGCAAAAAAAAEAAAAAADAAAAAAAEgQIAAABQAJBCEA=</HashCode>
+      <FileName>Assets\Scripts\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerLifeManager" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAEQAAAACIAAAAAAAAAAAIAAAAAAAEAACAABAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\PlayerLifeManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerPersistentData" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAUADhBGAAQQIAAAAIQAAQAAAAAAAAAAAAAAiABA=</HashCode>
+      <FileName>Assets\Scripts\PlayerPersitentData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReferenceGameBoard" Collapsed="true">
+    <Position X="5.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ReferenceGameBoard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReferenceHexagon" Collapsed="true">
+    <Position X="12.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\ReferenceHexagon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RemainingLevelsController" Collapsed="true">
+    <Position X="20.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAACAAAAgAAA=</HashCode>
+      <FileName>Assets\Scripts\RemainingLevelsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ResultScreenManager" Collapsed="true">
+    <Position X="23" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAIAACAAAAAAAAAAiAAAAABBAAAgACAAAAAABBA=</HashCode>
+      <FileName>Assets\Scripts\ResultScreenManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScreenResolution" Collapsed="true">
+    <Position X="7.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Assets\Scripts\ScreenResolution.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SendButtonHandler" Collapsed="true">
+    <Position X="4.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAEAAgAAAAAEAAAAAABAAAAAAAAQAACAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\SendButtonHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SkipButtonController" Collapsed="true">
+    <Position X="6" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAACAAAQAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Assets\Scripts\SkipButtonController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundManager" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEABgCACAgBAAgAAAAAAAAAQAAAAAAgAAQAAAABEI=</HashCode>
+      <FileName>Assets\Scripts\SoundManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StartScreen" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\StartScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextInputManager" Collapsed="true">
+    <Position X="20.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QABAAAAAAQCEAAAAAgAAAEAAABBAACABAAAAAACQAAA=</HashCode>
+      <FileName>Assets\Scripts\TextInputManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TipBoxManager" Collapsed="true">
+    <Position X="1.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAABAAABAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\TutorialScripts\TipBoxManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TutorialManager" Collapsed="true">
+    <Position X="2.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAACAACAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\TutorialScripts\TutorialManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UiManager" Collapsed="true">
+    <Position X="9.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAJQACCAAAwBEAAAAABIAASAEAIIAIAAAAAACAg=</HashCode>
+      <FileName>Assets\Scripts\UiManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VersionController" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAACEA=</HashCode>
+      <FileName>Assets\Scripts\VersionController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="HexagonColor" Collapsed="true">
+    <Position X="1.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAIhAAAAAAAAAABAAAAAAAAAAAADAAAAA=</HashCode>
+      <FileName>Assets\Scripts\HexagonColor.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PinColor" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Assets\Scripts\PinColor.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

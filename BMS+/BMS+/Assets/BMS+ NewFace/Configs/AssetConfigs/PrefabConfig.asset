@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a80e457855904864999c284eb40a2856, type: 3}
+  m_Name: PrefabConfig
+  m_EditorClassIdentifier: 
+  ShapePrefab: {fileID: 8804097968719893535, guid: 8ef99ff5d886ec545b7473f3e355c66d, type: 3}
+  PinPrefab: {fileID: 5591652278848524284, guid: 0c89f70ee860f844ca82f897fc600d32, type: 3}
+  PinPointPrefab: {fileID: 804973580666543412, guid: 3259bf7edb8265441accf59d19cab746, type: 3}
