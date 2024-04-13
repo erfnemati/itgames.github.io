@@ -27,6 +27,7 @@ public class LevelTimer : MonoBehaviour
         //Debug.Log("Level Timer enabling");
     }
 
+  // [q] have multiple events function acroos the project
     private void OnDisable()
     {
         LevelManager.OnLevelVictory -= StopTimer;

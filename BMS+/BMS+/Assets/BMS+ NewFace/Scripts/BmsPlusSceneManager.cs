@@ -3,32 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BmsPlusSceneManager1 : MonoBehaviour, IGameService
+public class BmsPlusSceneManager : MonoBehaviour, IGameService
 {
-    [SerializeField] int m_mainMenuIndex = 0;
-    int m_lastLevelIndex = 31;
-    public static int m_offsetFromStart = 2;
-    public static int _numOfLevels = 30;
-
-
+    public enum SceneName
+    {
+        MainMenu,
+        Tutorial,
+        levelScene,
+        phoneScreen
+    }
+    private int currentLevel=0;
+    private List<LevelConfigData> levels;
+    private PlayerLifeManager playerLifeManager;
+    public LevelConfigData levelToLoad { get; private set; }
+    public int NumberOfLevels { get { return levels.Count; } }
     private void Awake()
     {
-        ServiceLocator.Current.Register(this);
-    }
+        ServiceLocator._instance.Register(this,gameObject);
+        playerLifeManager = ServiceLocator._instance.Get<PlayerLifeManager>();
 
+    }
+    private void Start()
+    {
+        levels = ServiceLocator._instance.Get<DataManager>().GetData<LevelsConfig>().levels;
+
+    }
     public void LoadNextLevel()
     {
-        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextLevelIndex = (currentLevelIndex + 1) % SceneManager.sceneCountInBuildSettings;
-        PlayerLifeManager._instance.ResetNumOfLives();
-        SceneManager.LoadScene(nextLevelIndex);
+
+        playerLifeManager.ResetNumOfLives(); // this should be done in events OnLeveREatreat ...
+        levelToLoad = levels[currentLevel++];
+        SceneManager.LoadScene((int)SceneName.levelScene);
     }
+    public void LoadTutorial() => SceneManager.LoadScene((int)SceneName.Tutorial);
 
     public void RestartLevel()
     {
-        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
         SoundManager._instance.StopAllSoundEffects();
-        SceneManager.LoadScene(currentLevelIndex);
+        levelToLoad = levels[currentLevel];
+        SceneManager.LoadScene((int)SceneName.levelScene);
         
     }
 
@@ -40,26 +53,24 @@ public class BmsPlusSceneManager1 : MonoBehaviour, IGameService
             SoundManager._instance.StopAllSoundEffects();
         }
 
-        if (PlayerLifeManager._instance != null)
+        if (playerLifeManager != null)
         {
-            PlayerLifeManager._instance.ResetNumOfLives();
+            playerLifeManager.ResetNumOfLives();
         }
-        SceneManager.LoadScene(m_mainMenuIndex);
+        SceneManager.LoadScene((int)SceneName.MainMenu);
         
     }
 
     public void LoadPhoneScreenLevel()
     {
         SoundManager._instance.StopAllSoundEffects();
-        PlayerLifeManager._instance.ResetNumOfLives();
-        SceneManager.LoadScene(PhoneScreenManager._phoneScreenLevelName);
+        playerLifeManager.ResetNumOfLives();
+        SceneManager.LoadScene((int)SceneName.phoneScreen);
     }
 
     public int GetCurrentLevel()
     {
-        int currentLevelBuildIndex = SceneManager.GetActiveScene().buildIndex;
-        int level = currentLevelBuildIndex - m_offsetFromStart + 1;
-        return level;
+        return currentLevel;
     }
 
     public void OnApplicationQuit()
@@ -70,7 +81,7 @@ public class BmsPlusSceneManager1 : MonoBehaviour, IGameService
     public bool IsLastLvl()
     {
         Debug.Log("Checking");
-        if (SceneManager.GetActiveScene().buildIndex == m_lastLevelIndex)
+        if (currentLevel == levels.Count)
         {
             Debug.Log("Last level");
             return true;

@@ -9,35 +9,89 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 343051c08b18f664d857d11826ad49b5, type: 3}
+  m_Script: {fileID: 11500000, guid: 292a97304b4c29544a3f0f9562bf7f64, type: 3}
   m_Name: ColorConfig
   m_EditorClassIdentifier: 
   ShapeType: 0
   shapeColors:
-  - _color: {r: 0, g: 0, b: 0, a: 0}
+  - _color:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
     _name: 0
     _sprite: {fileID: 21300000, guid: eb78e15898adacf40a83bd87ab1d04cb, type: 3}
-  - _color: {r: 0, g: 0, b: 1, a: 0}
+  - _color:
+      a: 0
+      b: 0
+      c: 1
+      d: 0
+      e: 0
+      f: 0
     _name: 1
     _sprite: {fileID: 21300000, guid: c14a05bf5469c914fb2d1dd21b9ed5bf, type: 3}
-  - _color: {r: 1, g: 0, b: 0, a: 0}
+  - _color:
+      a: 1
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
     _name: 2
     _sprite: {fileID: 21300000, guid: 0d98a071df497964d8ea5da4f8dca2d6, type: 3}
-  - _color: {r: 0, g: 1, b: 0, a: 0}
+  - _color:
+      a: 0
+      b: 1
+      c: 0
+      d: 0
+      e: 0
+      f: 0
     _name: 3
     _sprite: {fileID: 21300000, guid: 4253d38ce4bd4cc4b8918264593c907b, type: 3}
-  - _color: {r: 1, g: 1, b: 0, a: 0}
+  - _color:
+      a: 1
+      b: 1
+      c: 0
+      d: 0
+      e: 0
+      f: 0
     _name: 4
     _sprite: {fileID: 21300000, guid: 67c1c91688ec3234eb3725cdcf338814, type: 3}
-  - _color: {r: 0, g: 1, b: 1, a: 0}
+  - _color:
+      a: 0
+      b: 1
+      c: 1
+      d: 0
+      e: 0
+      f: 0
     _name: 5
     _sprite: {fileID: 21300000, guid: b40ce3ec726407046b5279a16022c80a, type: 3}
-  - _color: {r: 1, g: 0, b: 1, a: 0}
+  - _color:
+      a: 1
+      b: 0
+      c: 1
+      d: 0
+      e: 0
+      f: 0
     _name: 6
     _sprite: {fileID: 21300000, guid: 956ee762991831c4dba80f7acdcb5a48, type: 3}
-  - _color: {r: 1, g: 1, b: 1, a: 0}
+  - _color:
+      a: 1
+      b: 1
+      c: 1
+      d: 0
+      e: 0
+      f: 0
     _name: 7
     _sprite: {fileID: 21300000, guid: 230410cb26b46364f87f7a15a7a7908f, type: 3}
-  - _color: {r: 1, g: 1, b: 1, a: 1}
+  - _color:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 1
     _name: 8
     _sprite: {fileID: 21300000, guid: eb78e15898adacf40a83bd87ab1d04cb, type: 3}

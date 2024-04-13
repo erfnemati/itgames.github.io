@@ -23,7 +23,7 @@ public class Hexagon : MonoBehaviour
     {
         m_colorList.Add(chosenColor);
         ReloadColorFromAddition(chosenColor);
-        m_numOfAddedColors++;
+        m_numOfAddedColors++; // in chikar mikone
         UpdateNumOfAddedColorsText();
     }
 

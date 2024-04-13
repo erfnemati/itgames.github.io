@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using RTLTMPro;
 
+
+//[Change]: should be handled by buildmanager
 public class ScreenResolution : MonoBehaviour
 {
     // Start is called before the first frame update

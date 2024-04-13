@@ -1,3 +1,5 @@
+using ConfigData;
+using GameEnums;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,21 +7,65 @@ using UnityEngine;
 
 public class ShapesColorManager
 {
-    public ShapesColorManager() { }
-
-    public  Color GetCombinedColor(Color BaseColor, Color addedColor)
-    {
-        Color resaultColor = BaseColor+addedColor/2;
-        return DataManager._instance.GetData<ShapeColorData>(resaultColor).color;
-    }
-    public Color GetSubtractedColor(Color BaseColor, Color subtractedColor)
-    {
-        Color resaultColor= BaseColor-subtractedColor/2;
-        return DataManager._instance.GetData<ShapeColorData> (resaultColor).color;
+    private DataManager dataManager;
+    public ShapesColorManager() { 
+        dataManager = ServiceLocator._instance.Get<DataManager>();
     }
 
-    public Sprite GetSprite(Color color)
+    public VectorInt GetCombinedColor(VectorInt baseColor, VectorInt addedColor)
     {
-        return DataManager._instance.GetData<ShapeColorData>(color).sprite;
+        VectorInt resaultColor = baseColor + addedColor;
+
+
+        ShapeConfigData data = dataManager.GetData<ShapeConfigData>(resaultColor);
+        if (data == null)
+            return resaultColor;
+        else
+            return data.color;
+    }
+
+    public bool IsJammedCheck(VectorInt resaultColor)
+    {
+        if (resaultColor.f == 1)
+            return true;
+        else
+            return false;
+    }
+
+    public VectorInt GetSubtractedColor(VectorInt baseColor, VectorInt subtractedColor)
+    {
+        VectorInt resaultColor = baseColor - subtractedColor;
+
+        Debug.Log(resaultColor);
+        ShapeConfigData data = dataManager.GetData<ShapeConfigData>(resaultColor);
+        if (data == null)
+            return resaultColor;
+        else
+            return data.color;
+    }
+
+    public Sprite GetSprite(VectorInt color)
+    {
+        ShapeConfigData data;
+        if (IsJammedCheck(color))
+            data = dataManager.GetData<ShapeConfigData>(VectorInt.Jammed);
+        else
+            data = dataManager.GetData<ShapeConfigData>(color);
+        if (data != null)
+            return data.sprite;
+        else
+            return null;
+    }
+    public GameColorName? GetColorName(VectorInt color)
+    {
+        ShapeConfigData data;
+        if (IsJammedCheck(color))
+            data = dataManager.GetData<ShapeConfigData>(VectorInt.Jammed);
+        else
+            data = dataManager.GetData<ShapeConfigData>(color);
+        if (data != null)
+            return data.name;
+        else
+            return null;
     }
 }

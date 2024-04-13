@@ -3,38 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using RTLTMPro;
 using UnityEngine.UI;
+using System;
 
 public class Pin1 : MonoBehaviour
 {
-    [SerializeField] Color m_pinColor;
-    [SerializeField] int m_numOfUsages; //[C]: whats the difference between tower pins and station pins?
+    VectorInt m_pinColor;
+    public int m_numOfUsages { get; private set; } //[C]: whats the difference between tower pins and station pins?
 
     //UI code here:
     [SerializeField] Button m_button;
     [SerializeField] RTLTextMeshPro m_numOfUsagesText;
     [SerializeField] GameObject m_buttonFrame;
-    private LevelManager1 m_levelManager;
-    public void InitializePin( Color ConfigPinColor,int ConfigNumOfUsages)
+    private EventManager eventManager;
+    public void InitializePin(VectorInt ConfigPinColor,int ConfigNumOfUsages)
     {
         m_pinColor = ConfigPinColor;
         m_numOfUsages=ConfigNumOfUsages;
     }
     private void Awake()
     {
-        m_levelManager = ServiceLocator.Current.Get<LevelManager1>();
+        eventManager  = ServiceLocator._instance.Get<EventManager>();
+
 
     }
     public void OnDisable()
     {
-        m_levelManager.OnLevelDefeat -= DisableButton;
-        m_levelManager.OnLevelRetreat -= DisableButton;
-        m_levelManager.OnLevelVictory -= DisableButton;
+        eventManager.StartListening(EventName.OnLevelDefeat, new Action(DisableButton));
+        eventManager.StartListening(EventName.OnLevelRetreat, new Action(DisableButton));
+        eventManager.StartListening(EventName.OnLevelVictory, new Action(DisableButton));
     }
     public void OnEnable()
     {
-        m_levelManager.OnLevelDefeat += DisableButton;
-        m_levelManager.OnLevelRetreat += DisableButton;
-        m_levelManager.OnLevelVictory += DisableButton;
+        eventManager.StopListening(EventName.OnLevelDefeat, new Action(DisableButton));
+        eventManager.StopListening(EventName.OnLevelRetreat, new Action(DisableButton));
+        eventManager.StopListening(EventName.OnLevelVictory, new Action(DisableButton));
     }
     private void Start()
     {
@@ -43,7 +45,7 @@ public class Pin1 : MonoBehaviour
     }
     private void SetSprite()
     {
-        gameObject.GetComponentInChildren<Image>().sprite = DataManager._instance.GetData<PinColorData>(m_pinColor).sprite; //[E] : bugkhiz
+        gameObject.GetComponentInChildren<Image>().sprite = ServiceLocator._instance.Get<DataManager>().GetData<ConfigData.PinConfigData>(m_pinColor).sprite; //[E] : bugkhiz
     }
     private void DisableButton()
     {
@@ -51,7 +53,7 @@ public class Pin1 : MonoBehaviour
     }
 
 
-    public Color GetPinColor()
+    public VectorInt GetPinColor()
     {
         return m_pinColor;
     }
@@ -80,7 +82,7 @@ public class Pin1 : MonoBehaviour
 
     public void ResetPinUi()
     {
-        m_buttonFrame.gameObject.SetActive(false);
+        gameObject.GetComponentsInChildren<Image>()[2].gameObject.SetActive(false);
     }
 
     public bool isPinLeft()

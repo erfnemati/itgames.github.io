@@ -21,7 +21,7 @@ public class ShapeGenerator
     }
     public void GenerateHexagons()
     {
-        RectTransform rect = board.GetComponent<RectTransform>();
+        Transform rect = board.GetComponent<Transform>();
         Transform canvasTransform = AddCanvasComponants(rect);
         //hexagon Generation Attribiutes
         float margin = 0.2f;
@@ -66,7 +66,7 @@ public class ShapeGenerator
         }
     }
 
-    private void InstantiateShape(RectTransform rect, Vector3 position, int shapeID)
+    private void InstantiateShape(Transform rect, Vector3 position, int shapeID)
     {
         GameObject shape = GameObject.Instantiate(EditorDataManager._instance.GetData<PrefabConfig>().ShapePrefab, position, Quaternion.identity, rect);
         EditorShapeManager shapeManager = shape.AddComponent<EditorShapeManager>();
@@ -123,7 +123,7 @@ public class ShapeGenerator
 
 
 
-    private Transform AddCanvasComponants(RectTransform rect)
+    private Transform AddCanvasComponants(Transform rect)
     {
         GameObject temp = new GameObject();
         GameObject board = GameObject.Instantiate(temp, rect);
@@ -150,25 +150,41 @@ public class ShapeGenerator
     {
         CreateReferenceBoard();
         InitializeShapes();
+        setReferenceBoardTransform();
+        SetShapeData();
     }
     private void CreateReferenceBoard()
     {
         board.referenceBoard = new GameObject("Reference Board");
         board.referenceBoard.transform.position = board.transform.position; // get this from gameboard instance; 
+
     }
     private void InitializeShapes()
     {
+
         foreach(var shape in board.shapeManagerList)
         {
             GameObject referenceShape = GameObject.Instantiate(EditorDataManager._instance.GetData<PrefabConfig>().ShapePrefab,
                 shape.transform.localPosition,
                 Quaternion.identity, board.referenceBoard.transform);
             var refereneShapeManager=referenceShape.AddComponent<EditorShapeManager>();
-            EditorUtility.CopySerialized(shape, refereneShapeManager);
+            refereneShapeManager.SetID(shape.shapeData.shapeId);
+            board.referenceShapeManagerList.Add(refereneShapeManager );
 
         }
+
+    }
+    private void setReferenceBoardTransform()
+    {
         board.referenceBoard.transform.localPosition = new Vector3(2.4f, -2, 0.03f);
         board.referenceBoard.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
 
+    }
+    private void SetShapeData()
+    {
+        foreach(var shape in board.referenceShapeManagerList)
+        {
+            shape.SetPosition();
+        }
     }
 }

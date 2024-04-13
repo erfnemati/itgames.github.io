@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Pinpoint : MonoBehaviour
 {
-    [SerializeField] List<Hexagon> m_ownedHexagons;
+    [SerializeField] List<Hexagon> m_ownedHexagons; //[Arch]: how to handle this in board designer
 
     private Button m_pinPoint;
     private Pin m_currentPin = null;
@@ -25,6 +25,9 @@ public class Pinpoint : MonoBehaviour
     [SerializeField] Sprite m_yellowObject;
     [SerializeField] Sprite m_blueObject;
 
+/// <summary>
+/// add an Initialize() => do all the initialization
+/// </summary>
     private void GetInitialPinPointDimentions()
     {
         m_initialPinPointHeight = m_pinPointRect.rect.height;
@@ -43,7 +46,7 @@ public class Pinpoint : MonoBehaviour
         GetInitialPinPointDimentions();
         
         m_pinPoint = GetComponent<Button>();
-        m_pinPoint.onClick.AddListener(()=>GetComponent<Pinpoint>().ClickPinPoint());
+        m_pinPoint.onClick.AddListener(()=>GetComponent<Pinpoint>().ClickPinPoint()); // why??
     }
 
     private void GetRectTransform()
@@ -175,7 +178,7 @@ public class Pinpoint : MonoBehaviour
         }
     }
 
-    private HexagonColor FromPinColorToHexagonColor(Pin pin)
+    private HexagonColor FromPinColorToHexagonColor(Pin pin) //[Q]: why there is not a single collor enum.
     {
         PinColor pinColor = pin.GetPinColor();
         if (pinColor == PinColor.Yellow)

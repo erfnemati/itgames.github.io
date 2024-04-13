@@ -1,3 +1,4 @@
+using ConfigData;
 using LevelDesign;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -9,6 +10,10 @@ public class EditorShapeWindow : Editor
 {
     private Rect windowRect = new Rect(20, 20, 120, 50);
     private EditorShapeManager shapeManager;
+    float occuranceTime = 0f;
+    int shapeAddedNumber = 0;
+    VectorInt eventColor;
+
     private void Awake()
     {
         shapeManager = (EditorShapeManager)target;
@@ -16,14 +21,17 @@ public class EditorShapeWindow : Editor
 
     private void OnSceneGUI()
     {
-        if (LevelDesignBoard._instance.phase==LevelDesignPhase.Phase4)
+        if (LevelDesignBoard._instance.phase==LevelDesignPhase.Phase5)
+        {
             windowRect = GUILayout.Window(0, windowRect, WindowFunction, "My Window");
+        }
     }
 
     private void WindowFunction(int windowID)
     {
-        List<ShapeColorData> colors = EditorDataManager._instance.GetData<ShapeColorConfig>().shapeColors;
-        foreach (ShapeColorData color in colors)
+        List<ShapeConfigData> colors = EditorDataManager._instance.GetData<ShapeConfig>().shapeColors;
+        GUILayout.BeginHorizontal();
+        foreach (ShapeConfigData color in colors)
         {
             if (GUILayout.Button(color.name.ToString()))
             {
@@ -31,17 +39,39 @@ public class EditorShapeWindow : Editor
             }
 
         }
-        shapeManager.shapeData.shapeAddedNumber = EditorGUILayout.IntField("Number OF Collors", 
-            shapeManager.shapeData.shapeAddedNumber);
+        GUILayout.EndHorizontal();
 
+        if(shapeManager.shapeEvent != null)
+        {
+            shapeManager.shapeEvent.time = EditorGUILayout.FloatField("Occurance TIme", shapeManager.shapeEvent.time);
+            shapeManager.shapeData.shapeAddedNumber = EditorGUILayout.IntField("Number OF Collors",
+                shapeManager.shapeData.shapeAddedNumber);
+
+        }
+        else
+        {
+            occuranceTime = EditorGUILayout.FloatField("Occurance TIme", occuranceTime);
+            shapeAddedNumber = EditorGUILayout.IntField("Number OF Collors", shapeAddedNumber);
+        }
+        if(GUILayout.Button("Add Event"))
+        {
+            shapeManager.SetEventData(eventColor, occuranceTime, shapeAddedNumber);
+            shapeManager.EventAddedNumber(shapeAddedNumber);
+
+        }
+        if (GUILayout.Button("Save Events"))
+        {
+            LevelDesignBoard._instance.SaveEventsToConfig();
+        }
 
         GUI.DragWindow(new Rect(0, 0, 10000, 10000));
     }
-    private void SetShapeColor(ShapeColorData color)
+    private void SetShapeColor(ShapeConfigData color)
     {
         target.GetComponentsInChildren<SpriteRenderer>()[1].sprite=color.sprite;
-        shapeManager.SetColor(color.color);
+        eventColor=color.color;
     }
+
 }
 
 //public class CustomTools : EditorWindow

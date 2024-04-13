@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618ef19396dc0be4e9c4574c5abd7bf3, type: 3}
+  m_Name: PinsConfig
+  m_EditorClassIdentifier: 
+  pins:
+  - _color:
+      a: 0
+      b: 1
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    _name: 0
+    _sprite: {fileID: 21300000, guid: 5ed74c48bb43d6949a03b758b8dc9896, type: 3}
+  - _color:
+      a: 1
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    _name: 1
+    _sprite: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+  - _color:
+      a: 0
+      b: 0
+      c: 1
+      d: 0
+      e: 0
+      f: 0
+    _name: 2
+    _sprite: {fileID: 21300000, guid: 1ab154de8e41f8140bdb71858836045d, type: 3}
+  - _color:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 1
+    _name: 3
+    _sprite: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+  - _color:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 1
+      f: 0
+    _name: 4
+    _sprite: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}

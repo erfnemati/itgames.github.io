@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     public static Player _instance;
     [SerializeField] Pin m_currentPlayerPin;
-    private bool m_isLevelOver = false;
+    private bool m_isLevelOver = false; //[change] i rather disable button or have controller flags in a controller class
     [SerializeField] GameObject m_redPin;
     [SerializeField] GameObject m_yellowPin;
     [SerializeField] GameObject m_bluePin;
@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
 
     //Probably not the best idea:
 
-    public void PickRedPin()
+    public void PickRedPin(Color pinColor)
     {
         if(m_isLevelOver)
         {
@@ -71,7 +71,9 @@ public class Player : MonoBehaviour
         m_currentPlayerPin = m_redPin.GetComponent<Pin>();
         SoundManager._instance.PlaySoundEffect(m_playerChoosingSound);
     }
-
+    /// <summary>
+    /// these should be combined
+    /// </summary>
     public void PickYellowPin()
     {
         if (m_isLevelOver)
@@ -110,7 +112,7 @@ public class Player : MonoBehaviour
         pin.IncrementUsages();
     }
 
-    private void LevelIsOver()
+    private void LevelIsOver() //should not be here
     {
         Debug.Log("Level is over");
         m_isLevelOver = true;

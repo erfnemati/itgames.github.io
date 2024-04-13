@@ -1,4 +1,5 @@
-﻿public enum HexagonColor
+﻿
+public enum HexagonColor
 {
     White,
     Blue,
@@ -9,5 +10,4 @@
     Purple,
     Brown,
 }
-
 

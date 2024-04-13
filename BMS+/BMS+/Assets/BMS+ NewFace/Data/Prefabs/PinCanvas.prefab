@@ -239,7 +239,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &5591652278848524282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,8 +289,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b622230c77c35214bba4d7e9df244e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_pinColor: {r: 1, g: 0, b: 0, a: 0}
+  m_pinColor:
+    a: 0
+    b: 0
+    c: 0
+    d: 0
+    e: 0
+    f: 0
   m_numOfUsages: 1
+  m_button: {fileID: 0}
   m_numOfUsagesText: {fileID: 5591652279033472318}
   m_buttonFrame: {fileID: 5591652278682928443}
 --- !u!1 &5591652279033472319

@@ -1,4 +1,5 @@
 using RTLTMPro;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,27 +7,29 @@ using UnityEngine;
 
 public class ReferenceShapeManager : ShapeManager
 {
-    private void UpdateHexagonAddedColorNumber()
+    private void OnEnable()
     {
-        m_numberOfAddedColorsText.text = m_numOfAddedColors + "";
-    }
+        eventManager.StartListening(EventName.OnBlitzHappened, new Action<int, VectorInt>(BlitzEventRoutine));
 
-    private void Awake()
+        eventManager.StopListening(EventName.OnColorAdded, new Action<int, VectorInt>(AddColorRoutine));
+        eventManager.StopListening(EventName.OnColorRemoved, new Action<int, VectorInt>(RemoveColorRoutine));
+    }
+    private void OnDisable()
     {
-        if (m_numOfAddedColors > 0)
+        eventManager.StopListening(EventName.OnBlitzHappened, new Action<int, VectorInt>(BlitzEventRoutine));
+    }
+    private void BlitzEventRoutine(int shapeEffected, VectorInt changeToColor)
+    {
+
+        if (shapeEffected == shapeId)
         {
-            UpdateHexagonAddedColorNumber();
+            m_numOfAddedColors++;
+            m_currentColor = changeToColor;
+            UpdateNumOfAddedColorsText();
+            UpdateSprite();
         }
 
     }
 
-    private void Start()
-    {
-        colorManager = new ShapesColorManager();
-        m_numberOfAddedColorsText = gameObject.GetComponentsInChildren<RTLTextMeshPro>().First();
-        m_spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
-        UpdateNumOfAddedColorsText();
-        UpdateSprite();
-    }
 
 }

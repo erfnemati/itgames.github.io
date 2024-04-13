@@ -1,3 +1,4 @@
+using ConfigData;
 using GameData;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,16 +8,16 @@ using UnityEngine;
 public class EditorPin : MonoBehaviour
 {
     public PinData pinData;
-    public PinColorData pinColorData;
+    public PinConfigData pinColorData;
     private void Awake()
     {
         pinData = new PinData();
         pinData.pinCapacity = 0;
-        pinData.pincolor = Color.white;
+        pinData.pincolor = VectorInt.White;
     }
     public void SetPinCapacity(int number)=> pinData.pinCapacity=number;
-    public void SetPinColor(Color color) =>  pinData.pincolor = color;
-    public void SetPinColorData(PinColorData data) => pinColorData = data;
+    public void SetPinColor(VectorInt color) =>  pinData.pincolor = color;
+    public void SetPinColorData(PinConfigData data) => pinColorData = data;
     public void AddPinNum()=> pinData.pinCapacity++;
     public void RemovePinNum()=>pinData.pinCapacity--;
 }

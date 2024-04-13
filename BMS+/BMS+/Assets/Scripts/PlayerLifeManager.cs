@@ -2,32 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerLifeManager : MonoBehaviour
+// [q] how to handle this small classes
+public class PlayerLifeManager : IGameService
 {
     public static PlayerLifeManager _instance;
 
     public delegate void GameOver();
     public static event GameOver GameIsOver;
 
-    [SerializeField] int m_currentNumOfLives = 3;
+    [SerializeField] int m_currentNumOfLives = 3;// get this from config
     [SerializeField] int m_initialNumberOfLives;
 
-    private void Awake()
+    public PlayerLifeManager()
     {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            _instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
+        ServiceLocator.Current.Register(this);
+        InitializeVariables();
     }
-
-    public void Start()
+    public void InitializeVariables()
     {
-        m_currentNumOfLives = m_initialNumberOfLives;
+        //m_currentNumOfLives = 
+
+    }
+    public void PreDestroy()
+    {
+
     }
 
     public void ResetNumOfLives()

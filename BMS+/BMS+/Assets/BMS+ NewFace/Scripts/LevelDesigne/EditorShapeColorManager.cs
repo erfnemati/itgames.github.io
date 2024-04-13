@@ -1,3 +1,4 @@
+using ConfigData;
 using GameEnums;
 using LevelDesign;
 using System;
@@ -12,50 +13,58 @@ namespace LevelDesign
     {
         public EditorShapesColorManager() { }
 
-        public Color GetCombinedColor(Color BaseColor, Color addedColor)
+        public VectorInt GetCombinedColor(VectorInt baseColor, VectorInt addedColor)
         {
-            Color resaultColor = BaseColor + addedColor ;
+            VectorInt resaultColor = baseColor + addedColor;
 
-            ShapeColorData data = EditorDataManager._instance.GetData<ShapeColorData>(resaultColor);
-            if (data == null)
-                return resaultColor;
-            else
-                return data.color;
-        }
-
-        private Color IsJammedCheck(Color resaultColor)
-        {
-            Color clampedColor = new Color(Math.Min(1, resaultColor.r), Math.Min(1, resaultColor.g),
-                Math.Min(1, resaultColor.b), Math.Min(1, resaultColor.a));
-            if (clampedColor == Color.white)
-                return clampedColor;
-            else return resaultColor;
-        }
-
-        public Color GetSubtractedColor(Color BaseColor, Color subtractedColor)
-        {
-            Color resaultColor = BaseColor - subtractedColor ;
             Debug.Log(resaultColor);
-            ShapeColorData data = EditorDataManager._instance.GetData<ShapeColorData>(resaultColor);
+            ShapeConfigData data = EditorDataManager._instance.GetData<ShapeConfigData>(resaultColor);
             if (data == null)
                 return resaultColor;
             else
                 return data.color;
         }
 
-        public Sprite GetSprite(Color color)
+        public bool IsJammedCheck(VectorInt resaultColor)
         {
-            color = IsJammedCheck(color);
-            ShapeColorData data = EditorDataManager._instance.GetData<ShapeColorData>(color);
+            if (resaultColor.f == 1)
+                return true;
+            else 
+                return false;
+        }
+
+        public VectorInt GetSubtractedColor(VectorInt baseColor, VectorInt subtractedColor)
+        {
+            VectorInt resaultColor = baseColor - subtractedColor;
+
+            Debug.Log(resaultColor);
+            ShapeConfigData data = EditorDataManager._instance.GetData<ShapeConfigData>(resaultColor);
+            if (data == null)
+                return resaultColor;
+            else
+                return data.color;
+        }
+
+        public Sprite GetSprite(VectorInt color)
+        {
+            ShapeConfigData data;
+            if (IsJammedCheck(color))
+                data = EditorDataManager._instance.GetData<ShapeConfigData>(VectorInt.Jammed);
+            else
+                data = EditorDataManager._instance.GetData<ShapeConfigData>(color);
             if(data!=null)
                 return data.sprite;
             else 
                 return null;
         }  
-        public GameColorName? GetColorName(Color color)
+        public GameColorName? GetColorName(VectorInt color)
         {
-            ShapeColorData data = EditorDataManager._instance.GetData<ShapeColorData>(color);
-            if(data!=null)
+            ShapeConfigData data;
+            if (IsJammedCheck(color))
+                data = EditorDataManager._instance.GetData<ShapeConfigData>(VectorInt.Jammed);
+            else
+                data = EditorDataManager._instance.GetData<ShapeConfigData>(color);
+            if (data!=null)
                 return data.name;
             else 
                 return null;

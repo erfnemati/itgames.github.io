@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// [Change] this should be handled by buildmanager
 public class VersionController : MonoBehaviour
 {
     public static bool m_isStandVersion = false;

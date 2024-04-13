@@ -34,6 +34,8 @@ public class LevelDesignWindow : Editor
             ShowGameBoardWindow();
         else if (board.phase == LevelDesignPhase.Phase4)
             ShowSaveWindow();
+        //else if (board.phase == LevelDesignPhase.Phase5)
+
 
 
 
@@ -113,11 +115,18 @@ public class LevelDesignWindow : Editor
                 {
                     board.phase = LevelDesignPhase.Phase1;
                     SaveDefaultToConfig();
+                    board.SaveToConfig(board.GetComponent<RectTransform>(), board.shapeManagerList);
+                    board.SaveToConfig(board.referenceBoard.transform, board.referenceShapeManagerList);
+
                 }
                 break;
             case GameMode.Blitz:
                 if (GUILayout.Button("Proceed To Events"))
                 {
+                    board.phase = LevelDesignPhase.Phase5;
+                    SaveDefaultToConfig();
+                    board.SaveToConfig(board.referenceBoard.transform, board.referenceShapeManagerList);
+                    board.SaveToConfig(board.GetComponent<RectTransform>(), board.shapeManagerList);
                 }
                 break;
             case GameMode.HalfWayThere:
@@ -125,6 +134,7 @@ public class LevelDesignWindow : Editor
                 if(GUILayout.Button(" Save Initial Board "))
                 {
                     SaveDefaultToConfig();
+                    board.SaveHalfWayThereToConfig(board.GetComponent<RectTransform>(), board.shapeManagerList);
                 }
                 if(GUILayout.Button("Save Goal Board"))
                 {
@@ -140,12 +150,13 @@ public class LevelDesignWindow : Editor
 
     private void SaveDefaultToConfig()
     {
-        board.SaveToConfig(board.GetComponent<RectTransform>(), board.shapeManagerList);
         board.SaveToConfig(board.pinPointList);
         board.SaveToConfig(board.pinPlaceholder, board.pinList);
         board.SaveToConfig(board.guideCanvas);
-        board.SaveToConfig(board.referenceBoard.transform,board.referenceShapeManagerList);
+        board.SetForSave();
     }
+
+    private void ShowBlitzSaveWindow() { }
 
     public void GenerateBoardShapes(ShapeType type)
     {

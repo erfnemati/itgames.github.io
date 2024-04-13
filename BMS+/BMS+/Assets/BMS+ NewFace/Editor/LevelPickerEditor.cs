@@ -26,7 +26,7 @@ public class LevelPickerEditor : ExtendedEditorWindow
     }
     void GenerateConfig()
     {
-        List<LevelConfig> selectedLevels = new List<LevelConfig>();
+        List<LevelConfigData> selectedLevels = new List<LevelConfigData>();
         string path = "Assets/BMS+ NewFace/levels.asset";
         foreach (Keyframe key in curveX.keys)
         {
@@ -38,11 +38,11 @@ public class LevelPickerEditor : ExtendedEditorWindow
         Debug.Log(resultConfig.levels);
         AssetDatabase.CreateAsset(resultConfig, path);
     }
-    public LevelConfig GetNearestLevel(Keyframe key)
+    public LevelConfigData GetNearestLevel(Keyframe key)
     {
         float smallestDistance = float.MaxValue;
-        LevelConfig nearestLevel = null;
-        foreach(LevelConfig level in m_LevelsConfig.levels)
+        LevelConfigData nearestLevel = null;
+        foreach (LevelConfigData level in m_LevelsConfig.levels)
         {
             if (Math.Abs( level.dificaulty - key.value) < smallestDistance)
             {
@@ -50,6 +50,7 @@ public class LevelPickerEditor : ExtendedEditorWindow
                 nearestLevel = level;
             }
         }
+        m_LevelsConfig.levels.Remove(nearestLevel);
         if (nearestLevel == null)
         {
             Debug.LogError("LevelConfigError: null level");

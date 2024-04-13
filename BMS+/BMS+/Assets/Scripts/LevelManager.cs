@@ -53,7 +53,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void Update() //[con]: whats this for
     {
         if (Input.GetKeyUp(KeyCode.RightArrow))
         {

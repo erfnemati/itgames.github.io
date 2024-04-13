@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Pin : MonoBehaviour
 {
     [SerializeField] PinColor m_pinColor;
-    [SerializeField] int m_numOfUsages;
+    [SerializeField] int m_numOfUsages; //[C]: whats the difference between tower pins and station pins?
 
     //UI code here:
     [SerializeField] RTLTextMeshPro m_numOfUsagesText;

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public interface IGameService {
     public void PreDestroy();
@@ -7,15 +8,15 @@ public interface IGameService {
 
 public class ServiceLocator
 {
-    private static readonly Dictionary<string, IGameService> services = new Dictionary<string, IGameService>();
+    private Dictionary<string, IGameService> services = new Dictionary<string, IGameService>();
 
     private ServiceLocator() { }
 
-    public static ServiceLocator Current { get; private set; }
+    public static ServiceLocator _instance { get; private set; }
 
     public static void Initialize()
     {
-        Current = new ServiceLocator();
+        _instance = new ServiceLocator();
     }
 
     public T Get<T>() where T : IGameService
@@ -26,6 +27,13 @@ public class ServiceLocator
             throw new Exception($"Service of type {typeof(T).Name} not found in the locator.");
     }
 
+    public void Register<T>(T service, GameObject gameObject) where T : IGameService
+    {
+        if (services.ContainsKey(typeof(T).Name))
+            Unregister<T>();
+        services[typeof(T).Name] = service;
+       GameObject.DontDestroyOnLoad(gameObject);
+    }
     public void Register<T>(T service) where T : IGameService
     {
         services[typeof(T).Name] = service;

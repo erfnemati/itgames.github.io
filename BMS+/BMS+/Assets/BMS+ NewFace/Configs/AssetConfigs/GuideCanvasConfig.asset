@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcd2d9d1eae4c854781e6dad4e5e6315, type: 3}
+  m_Script: {fileID: 11500000, guid: 370d04c9ed91d624484705fb20ae6275, type: 3}
   m_Name: GuideCanvasConfig
   m_EditorClassIdentifier: 
   guideCanvases:

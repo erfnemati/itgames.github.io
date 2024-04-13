@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using GameEnums;
+using ConfigData;
+using System.Linq;
+using RTLTMPro;
+using static UnityEngine.GraphicsBuffer;
+using System;
 public class Pinpoint1 : MonoBehaviour
 {
     [SerializeField] List<ShapeManager> m_ownedShapes; //[Arch]: how to handle this in board designer 
@@ -11,7 +16,8 @@ public class Pinpoint1 : MonoBehaviour
     private Button m_pinPoint;
     private Pin1 m_currentPin = null;
     [SerializeField] bool m_isTutorialMode = false;
-    private Color m_PinPointColor;
+    private VectorInt m_PinPointColor;
+    public VectorInt GetPinPointColor { get { return m_PinPointColor; } }
 
     //Ui stuff here,maybe recycle later:
     private float m_initialPinPointWidth;
@@ -21,38 +27,47 @@ public class Pinpoint1 : MonoBehaviour
 
     [SerializeField] AudioClip m_pinSound;
 
+    // PinPoint Data
+    private List<int> m_shapesId; 
+    private DataManager dataManager;
+    private LevelManager levelManager;
+    private EventManager eventManager;
+    private Player1 player;
 
-
-    /// <summary>
-    /// add an Initialize() => do all the initialization
-    /// </summary>
-
-    //[q]: should all of data get initialized via level Manager
+    private void Awake()
+    {
+        dataManager = ServiceLocator._instance.Get<DataManager>();
+        levelManager = ServiceLocator._instance.Get<LevelManager>();
+        player = ServiceLocator._instance.Get<Player1>();
+        eventManager = ServiceLocator._instance.Get<EventManager>();    
+             
+    }
     public void DisableButton()
     {
         m_pinPoint.enabled = false;
     }
-    public void InitializePinPoint(List<ShapeManager> ConfigownedShapes, Color configPinPointColor, Color initialpinpointColor )
+    public void InitializePinPoint(List<ShapeManager> ConfigownedShapes, VectorInt configPinPointColor, Color initialpinpointColor, List<int> m_shapesId)
     {
         m_ownedShapes = ConfigownedShapes;
         m_PinPointColor = configPinPointColor;
         pinpointInitialColor = initialpinpointColor;
+        this.m_shapesId = m_shapesId;
 
     }
     private void Start()
     {
         InitializeVariables();
-        SetClickEvent();
     }
     private void InitializeVariables()
     {
-        pinpointInitalSprite = DataManager._instance.GetData<GameSpriteData>((int)SpriteName.PinPoint).sprite;
+        pinpointInitalSprite = dataManager.GetData<ConfigData.SpriteConfigData>((int)SpriteName.PinPoint).sprite;
+        m_pinSound = dataManager.GetData<ConfigData.SoundConfigData>((int)SoundName.playerChoosingSound).audioClip;
         m_pinPointRect = GetComponent<RectTransform>();
         m_pinPoint = GetComponent<Button>();
         m_initialPinPointHeight = m_pinPointRect.rect.height;
         m_initialPinPointWidth = m_pinPointRect.rect.width;
     }
-    private void SetClickEvent() => m_pinPoint.onClick.AddListener(() => GetComponent<Pinpoint1>().ClickPinPoint()); // why??
+ //   public void SetClickEvent() => GetComponent<Button>().onClick.AddListener(() => GetComponent<Pinpoint1>().ClickPinPoint()); //[kasif] idk witch componant should handle this;
 
 
     private void ChangePinpointSprite()
@@ -82,7 +97,7 @@ public class Pinpoint1 : MonoBehaviour
 
     private Sprite ChooseSprite()
     {
-        return DataManager._instance.GetData<PinColorData>(m_PinPointColor).sprite;
+        return dataManager.GetData<ConfigData.PinConfigData>(m_PinPointColor).sprite;
     }
 
     private void RemoveSprite()
@@ -94,68 +109,90 @@ public class Pinpoint1 : MonoBehaviour
 
     public void ClickPinPoint()
     {
-        if (m_currentPin == null && Player._instance.GetPlayerPin() != null)
+        if (m_currentPin == null && player.GetPlayerPin() != null)
         {
-            AddPin(Player1._instance.GetPlayerPin());
+            AddPin(player.GetPlayerPin());
             SoundManager._instance.PlaySoundEffect(m_pinSound);//I should recycle it later.
-            Player1._instance.ReleasePin();
+            player.ReleasePin();
         }
         else if (m_currentPin != null)
         {
-            Player1._instance.ReloadPin(m_currentPin);
+            player.ReloadPin(m_currentPin);
             SoundManager._instance.PlaySoundEffect(m_pinSound);//I should recycle it later.
             RemovePin();
         }
 
         if (m_isTutorialMode == false)
         {
-            ServiceLocator.Current.Get<LevelManager1>().CompareBoards();
+            levelManager.CompareBoards();
         }
 
 
     }
 
-    public void AddPin(Pin1 chosenPin)
+    public void AddPin(Pin1 pin)
     {
-        if (m_currentPin != null)
+        if (m_currentPin == null && pin.m_numOfUsages>0)
         {
-            Debug.Log("This pinpoint is full");
-            return;
+            m_currentPin = pin;
+            m_PinPointColor = pin.GetPinColor();
+            InvokeAddColorEvent(m_PinPointColor);
+            Image image = gameObject.GetComponent<Image>();
+            image.sprite = dataManager.GetData<PinConfigData>(m_PinPointColor).sprite;
+            image.color = Color.white;
         }
-        m_currentPin = chosenPin;
-        UpdateShapeColorsAfterPinAddition(chosenPin);
-        ChangePinpointSprite();
 
     }
 
     private void RemovePin()
     {
-        if (m_currentPin == null)
+        if (m_currentPin != null)
         {
-            return;
+            InvokeRemoveColorEvent(m_PinPointColor);
+            m_currentPin = null;
+            Image image = gameObject.GetComponent<Image>();
+            image.sprite = dataManager.GetData<SpriteConfigData>((int)SpriteName.PinPoint).sprite;
+            image.color = Color.black;
+
         }
-
-        UpdateShapeColorsAfterPinDeletion();
-        m_currentPin = null;
-        ChangePinpointSprite();
-
     }
 
-    private void UpdateShapeColorsAfterPinDeletion()
+    public void InvokeAddColorEvent(VectorInt addedColor)
     {
-        foreach (ShapeManager tempShape in m_ownedShapes)
+        switch (GetPinName())
         {
-            tempShape.DeleteColor(m_PinPointColor);
+            case GameEnums.PinName.Unkown:
+                List<int> orderedShapes = m_shapesId.OrderByDescending(n => n).ToList();
+                List<VectorInt> addedColors = new List<VectorInt> { VectorInt.Red, VectorInt.Green, VectorInt.Blue };
+                for (int i = 0; i < m_shapesId.Count; i++)
+                {
+                    eventManager.TriggerEvent<int, VectorInt>(EventName.OnColorAdded, orderedShapes[i], addedColors[i]);
+                }
+                break;
+            default:
+                for (int i = 0; i < m_shapesId.Count; i++)
+                    eventManager.TriggerEvent<int, VectorInt>(EventName.OnColorAdded, m_shapesId[i], addedColor);
+
+                break;
         }
-
     }
-
-    private void UpdateShapeColorsAfterPinAddition(Pin1 chosenPin)
+    public void InvokeRemoveColorEvent(VectorInt removedColor)
     {
-
-        foreach (ReferenceShapeManager tempShape in m_ownedShapes)
+        switch (GetPinName())// should this be implemented here?
         {
-            tempShape.AddColor(chosenPin.GetPinColor());
+            case GameEnums.PinName.Unkown:
+                List<int> orderedShapes = m_shapesId.OrderByDescending(n => n).ToList();
+                List<VectorInt> RemovedColors = new List<VectorInt> { VectorInt.Red, VectorInt.Green, VectorInt.Blue };
+                for (int i = 0; i < m_shapesId.Count; i++)
+                {
+                    eventManager.TriggerEvent<int, VectorInt>(EventName.OnColorRemoved, orderedShapes[i], RemovedColors[i]);
+                }
+                break;
+            default:
+                for (int i = 0; i < m_shapesId.Count; i++)
+                    eventManager.TriggerEvent<int, VectorInt>(EventName.OnColorRemoved, m_shapesId[i], removedColor);
+                break;
         }
     }
+    private GameEnums.PinName GetPinName() => dataManager.GetData<PinConfigData>(m_PinPointColor).name;
 }

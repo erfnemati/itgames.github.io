@@ -2,6 +2,7 @@ using GameEnums;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace LevelDesign
@@ -11,80 +12,124 @@ namespace LevelDesign
     public class EditorShapeManager :MonoBehaviour
     {
         public GameData.ShapeData shapeData;
+        public GameData.EventData shapeEvent;
         SpriteRenderer spriteRenderer;
+        EditorShapesColorManager shapesColorManager;
         private void OnDestroy()
         {
             Debug.Log("bye bye");
             LevelDesignBoard._instance.shapeManagerList.Remove(this);
             LevelDesignBoard._instance.OnColorAdded -= AddColor;
-            LevelDesignBoard._instance.OnColorRemoved -= RemoveColor;
+            LevelDesignBoard._instance.OnColorRemoved -= RemoveColorRoutine;
         }
         private void Awake()
         {
             gameObject.AddComponent<BoxCollider2D>();
             spriteRenderer=gameObject.GetComponentsInChildren<SpriteRenderer>()[1];
+            shapesColorManager=new EditorShapesColorManager(); ;
             SetInitialData();
             LevelDesignBoard._instance.OnColorAdded += AddColor;
-            LevelDesignBoard._instance.OnColorRemoved += RemoveColor;
+            LevelDesignBoard._instance.OnColorRemoved += RemoveColorRoutine;
 
         }
         public void SetInitialData()
         {
             shapeData=new GameData.ShapeData();
-            shapeData.Position=transform.position;
+            shapeData.Position=transform.localPosition;
             shapeData.shapeAddedNumber=0;
-            shapeData.ColorData = new Color(0, 0, 0, 0);
+            shapeData.ColorData = VectorInt.White;
         }
-        public void SetPosition(Vector3 position) => shapeData.Position = position;
+        public void SetPosition() => shapeData.Position = transform.localPosition;
         public void SetID(int id)=> shapeData.shapeId = id;
         public void SetAddedNumber(int number)=> shapeData.shapeAddedNumber = number;
         public int GetShapeId()=> shapeData.shapeId;
         public void SetColorFromEditorWindow(GameEnums.GameColorName colorName)
         {
-            ShapeColorData SelectedColorData = EditorDataManager._instance.GetData<ShapeColorData>((int)colorName);
+            ConfigData.ShapeConfigData SelectedColorData = EditorDataManager._instance.GetData<ConfigData.ShapeConfigData>((int)colorName);
             shapeData.ColorData = SelectedColorData.color;
             spriteRenderer.sprite = SelectedColorData.sprite;
         }
-        public void SetColor(Color color)
+        public void SetEventData(VectorInt color,float time, int number)
         {
-            shapeData.ColorData=color;
+            shapeEvent = new GameData.EventData();
+            shapeEvent.shapeAddedNumber=number;
+            shapeEvent.time=time;
+            shapeEvent.changeToColor=color;
+            shapeEvent.shapeId=shapeData.shapeId;
         }
-        public void AddColor(int shapeEffected, Color addedColor)
+        public void AddColor(int shapeEffected, VectorInt addedColor)
         {
             if (shapeEffected == shapeData.shapeId)
             {
-                shapeData.shapeAddedNumber++;
-                EditorShapesColorManager shapesColorManager = new EditorShapesColorManager();
-                Color color = shapesColorManager.GetCombinedColor(shapeData.ColorData, addedColor);
-                shapeData.ColorData = color;
-                Sprite addedColorSprite = shapesColorManager.GetSprite(color);
-                if (addedColorSprite != null)
-                    spriteRenderer.sprite = addedColorSprite;
-                if (color == Color.white || shapesColorManager.GetColorName(color) == GameColorName.White)
-                {
-                    GetComponentInChildren < RTLTMPro.RTLTextMeshPro>().text="";
-                }
+                if(shapeData.ColorData != VectorInt.Jammed)
+                    AddColor(addedColor);
+                else if (addedColor == VectorInt.Jammed)
+                    AddColor(addedColor);
                 else
-                    GetComponentInChildren<RTLTMPro.RTLTextMeshPro>().text = shapeData.shapeAddedNumber.ToString();
+                    shapeData.shapeAddedNumber++;
             }
         }
-        public void RemoveColor(int shapeEffected,Color RemovedColor)
+
+        private void AddColor(VectorInt addedColor)
+        {
+            shapeData.shapeAddedNumber++;
+            VectorInt color = shapesColorManager.GetCombinedColor(shapeData.ColorData, addedColor);
+            shapeData.ColorData = color;
+            Sprite addedColorSprite = shapesColorManager.GetSprite(color);
+            UpdateNumOfAddedColorsText();
+            UpdateSprite();
+        }
+
+        public void RemoveColorRoutine(int shapeEffected, VectorInt RemovedColor)
         {
             if (shapeEffected==shapeData.shapeId)
             {
-                shapeData.shapeAddedNumber--;
-                EditorShapesColorManager shapesColorManager = new EditorShapesColorManager();
-                Color color = shapesColorManager.GetSubtractedColor(shapeData.ColorData,RemovedColor);
-                shapeData.ColorData = color;
-                Sprite addedColorSprite = shapesColorManager.GetSprite(color);
-                if(addedColorSprite!= null)
-                    spriteRenderer.sprite = addedColorSprite;
-                if (color == Color.white || shapesColorManager.GetColorName(color) == GameColorName.White)
-                    GetComponentInChildren<RTLTMPro.RTLTextMeshPro>().text = "";
+                if(shapeData.ColorData != VectorInt.Jammed)
+                {
+                    RemoveColor(RemovedColor);
+                }
+                else if (RemovedColor == VectorInt.Jammed)
+                {
+                    RemoveColor(RemovedColor);
+                }
                 else
-                    GetComponentInChildren<RTLTMPro.RTLTextMeshPro>().text = shapeData.shapeAddedNumber.ToString();
+                    shapeData.shapeAddedNumber--;
+
 
             }
+        }
+
+        private void RemoveColor(VectorInt RemovedColor)
+        {
+            shapeData.shapeAddedNumber--;
+            VectorInt color = shapesColorManager.GetSubtractedColor(shapeData.ColorData, RemovedColor);
+            shapeData.ColorData = color;
+            UpdateNumOfAddedColorsText();
+            UpdateSprite();
+        }
+
+        private void UpdateNumOfAddedColorsText()
+        {
+            if (shapesColorManager.GetColorName(shapeData.ColorData) == GameColorName.White || shapesColorManager.GetColorName(shapeData.ColorData) == GameColorName.Jam)
+                GetComponentInChildren<RTLTMPro.RTLTextMeshPro>().text = "";
+            else
+                GetComponentInChildren<RTLTMPro.RTLTextMeshPro>().text = shapeData.shapeAddedNumber.ToString();
+
+        }       
+        public void EventAddedNumber(int number)
+        {
+            if (shapesColorManager.GetColorName(shapeData.ColorData) == GameColorName.White || shapesColorManager.GetColorName(shapeData.ColorData) == GameColorName.Jam)
+                GetComponentInChildren<RTLTMPro.RTLTextMeshPro>().text = "";
+            else
+                GetComponentInChildren<RTLTMPro.RTLTextMeshPro>().text = number.ToString();
+
+        }
+
+        protected void UpdateSprite()
+        {
+            Sprite addedColorSprite = shapesColorManager.GetSprite(shapeData.ColorData);
+            if (addedColorSprite != null)
+                spriteRenderer.sprite = addedColorSprite;
         }
 
     }

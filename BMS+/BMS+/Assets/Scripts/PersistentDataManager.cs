@@ -10,8 +10,8 @@ using Google.Apis.Sheets.v4.Data;
 using Google.Apis.Services;
 
 
-
-public class PersistentDataManager : MonoBehaviour
+// [change] should get time from level Timer
+public class PersistentDataManager : MonoBehaviour,IGameService
 {
 
     public const string m_playersInfoString = "PlayersInfo";
@@ -37,8 +37,12 @@ public class PersistentDataManager : MonoBehaviour
     private string m_sheetKeyName = "SheetKey.json";
     private string m_spreadSheetId = "1ezyZpRn0TlhcrO6R0u8J8GZViRCU5xdVkZKH1_GLUmU";
 
-
-    private void OnEnable()
+    public PersistentDataManager()
+    {
+        ServiceLocator.Current.Register(this);
+        AddEvents();
+    }
+    private void AddEvents()
     {
         LevelManager.OnLevelDefeat += IncrementNumOfConsumedLives;
         PhoneScreenManager.EndLevel += TurnOffTimer;
@@ -47,7 +51,7 @@ public class PersistentDataManager : MonoBehaviour
         LevelManager.OnGameWin += GetLevelAfterWin;
     }
 
-    private void OnDisable()
+    public void PreDestroy()
     {
         LevelManager.OnLevelDefeat -= IncrementNumOfConsumedLives;
         PhoneScreenManager.EndLevel -= TurnOffTimer;
@@ -56,22 +60,6 @@ public class PersistentDataManager : MonoBehaviour
         LevelManager.OnGameWin -= GetLevelAfterWin;
 
     }
-
-    private void Awake()
-    {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            _instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        StartNewPlaythrough();
-    }
-
-
     private void Start()
     {
         m_playersInfo = new PlayersInfo();
@@ -82,6 +70,7 @@ public class PersistentDataManager : MonoBehaviour
         //Debug.Log(GetSpreadsheet(m_spreadSheetId).SpreadsheetUrl);
     }
 
+    // [change] this should be removed
     private void Update()
     {
         if (m_currentData != null && m_isLevelOver == false )

@@ -4,36 +4,27 @@ using UnityEngine;
 
 public class Player1 :IGameService
 {
-    public static Player1 _instance;
     public Pin1 m_currentPlayerPin {  get; private set; }
-    private bool m_isLevelOver = false;
 
     private AudioClip m_playerChoosingSound;
-    
+    LevelManager m_levelManager;
 
     public Player1()
     {
-        ServiceLocator.Current.Register(this);
+        ServiceLocator._instance.Register(this);
         AddEvents();
         InitializeVariables();
     }
 
     private void AddEvents()
     {
-        LevelManager.OnLevelDefeat += LevelIsOver;
-        LevelManager.OnLevelRetreat += LevelIsOver;
-        LevelManager.OnLevelVictory += LevelIsOver;
     }
     private void InitializeVariables()
     {
-        m_playerChoosingSound=DataManager._instance.GetData<SoundData>((int)GameEnums.SoundName.playerChoosingSound).audioClip;
+        m_playerChoosingSound=ServiceLocator._instance.Get<DataManager>().GetData<ConfigData.SoundConfigData>((int)GameEnums.SoundName.playerChoosingSound).audioClip;
     }
     public void PreDestroy()
     {
-        LevelManager.OnLevelDefeat -= LevelIsOver;
-        LevelManager.OnLevelRetreat -= LevelIsOver;
-        LevelManager.OnLevelVictory -= LevelIsOver;
-        //Debug.Log("Player Disabling");
     }
 
     public Pin1 GetPlayerPin()
@@ -53,10 +44,6 @@ public class Player1 :IGameService
 
     public void PickPin(Pin1 selectedPin)
     {
-        if(m_isLevelOver)
-        {
-            return;
-        }
         if (m_currentPlayerPin != null)
         {
             m_currentPlayerPin.ResetPinUi();
@@ -76,11 +63,6 @@ public class Player1 :IGameService
         pin.IncrementUsages();
     }
 
-    private void LevelIsOver() //should not be here
-    {
-        Debug.Log("Level is over");
-        m_isLevelOver = true;
-        m_currentPlayerPin = null;
-    }
+
 
 }

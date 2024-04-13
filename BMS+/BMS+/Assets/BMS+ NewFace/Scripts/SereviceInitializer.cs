@@ -1,18 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SereviceInitializer : MonoBehaviour
+public class SereviceInitializer : MonoBehaviour,IGameService
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        InitalizeServiceLocator();
+        ServiceLocator._instance.Register<SereviceInitializer>(this, gameObject);
+        InitializeService<EventManager>();
+        InitializeService<PersistentDataManager>();
+        InitializeService<PlayerLifeManager>();
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private void InitalizeServiceLocator()=>ServiceLocator.Initialize();
+    private void InitializeService<T>() where T : new() => new T();
+
+    public void PreDestroy() { }
 }

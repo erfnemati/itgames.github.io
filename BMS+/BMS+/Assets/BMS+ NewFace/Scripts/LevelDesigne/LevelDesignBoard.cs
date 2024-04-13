@@ -3,6 +3,7 @@ using GameEnums;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -15,17 +16,17 @@ namespace LevelDesign
     [ExecuteInEditMode]
     public class LevelDesignBoard : MonoBehaviour
     {
-        public Action<int,Color> OnColorAdded;
-        public Action<int,Color> OnColorRemoved;
+        public Action<int, VectorInt> OnColorAdded;
+        public Action<int, VectorInt> OnColorRemoved;
 
         public static LevelDesignBoard _instance;
-        public LevelConfig level { get; set; }
+        public LevelConfigData level { get; set; }
         public List<EditorShapeManager> shapeManagerList;
         public List<EditorShapeManager> referenceShapeManagerList;
         public List<EditorPinPoint> pinPointList;
         public List<EditorPin> pinList;
+        public List<GameData.EventData> eventList;
 
-        public GameObject GuideReference;
         public List<bool> pinsChecker;
         public GuideCanvasName selectedGuideCanvasName;
         // window properties
@@ -34,6 +35,7 @@ namespace LevelDesign
         public bool isBoardgenerated=false;
 
         private string directory;
+        public string levelName="level";
         public Vector2 gameBoardSize = new Vector2(3, 3);
         private Vector3 InitialPinPlaceHolderPosition=new Vector3(1.64f,1.8f,0);
         private Vector3 InitialGuideCanvasPosition = new Vector3(-1.4f,-1.11f,0);
@@ -42,7 +44,7 @@ namespace LevelDesign
         public GameObject guideCanvas;
         public GameObject pinPlaceholder;
 
-        void Awake()
+        void Start()
         {
             if (_instance == null)
             {
@@ -50,9 +52,9 @@ namespace LevelDesign
             }
             else
                 DestroyImmediate(_instance.gameObject);
-            level = LevelConfig.CreateInstance<LevelConfig>();
             shapeManagerList = new List<EditorShapeManager>();
-            pinPointList= new List<EditorPinPoint>();
+            referenceShapeManagerList= new List<EditorShapeManager>();
+            pinPointList = new List<EditorPinPoint>();
             pinsChecker = new List<bool>();
             for (int i = 0;i< EditorDataManager._instance.GetData<PinConfig>().pins.Count;i++)
             {
@@ -61,12 +63,17 @@ namespace LevelDesign
         }
         public void CreateNewLevel()
         {
-            level=new LevelConfig();
-            directory = EditorUtility.OpenFolderPanel("Select Directory", "Assets/BMS+ NewFace/Configs", "");
-            string path = "Assets" + directory.Split("Assets")[1] + "/level.asset";
+            level = new LevelConfigData();
+            string path = EditorUtility.SaveFilePanelInProject(
+            "Save New Asset",
+            "NewAsset",
+            "asset",
+            "enter level name",
+            "assets/BMS+ NewFace/Configs/Levels"
+        );
             AssetDatabase.CreateAsset(level, path);
         }
-        public void LoadLevel() => level = (LevelConfig)EditorGUILayout.ObjectField("My Asset", level, typeof(LevelConfig), false);
+        public void LoadLevel() => level = (LevelConfigData)EditorGUILayout.ObjectField("My Asset", level, typeof(LevelConfigData), false);
 
         public void InstantiateLevelWindowObjects()
         {
@@ -75,7 +82,7 @@ namespace LevelDesign
         }
         private void CreateGuideCanvas()
         {
-            GameObject guideCanvasPrefab = EditorDataManager._instance.GetData<GuideCanvasDataa>((int)selectedGuideCanvasName).prefab;
+            GameObject guideCanvasPrefab = EditorDataManager._instance.GetData<ConfigData.GuideCanvasConfigData>((int)selectedGuideCanvasName).prefab;
             guideCanvas = Instantiate(guideCanvasPrefab, InitialGuideCanvasPosition, Quaternion.identity);
             guideCanvas.name = "GuideCanvas";
         }
@@ -92,7 +99,7 @@ namespace LevelDesign
                     GameObject pinPrefab = EditorDataManager._instance.GetData<PrefabConfig>().PinPrefab;
                     GameObject pinObject = Instantiate(pinPrefab, pinPlaceholder.transform);
                     EditorPin pin = pinObject.AddComponent<EditorPin>();
-                    PinColorData data = EditorDataManager._instance.GetData<PinColorData>(i);
+                    ConfigData.PinConfigData data = EditorDataManager._instance.GetData<ConfigData.PinConfigData>(i);
                     pin.SetPinColorData(data);
                     Debug.Log(data.color);
                     Debug.Log(pin);
@@ -110,40 +117,82 @@ namespace LevelDesign
             grid.childAlignment = TextAnchor.MiddleCenter;
             grid.cellSize = new Vector2(0.7f, 0.7f);
         }
-        #region SaveRegion
-        public void SaveToConfig(RectTransform gameBoardCanvas,List<EditorShapeManager> boardShapes)
+        #region DefaultSaves
+        public void SaveToConfig(GameObject pinPlaceHolder, List<EditorPin> pins)
         {
-            level.GameBoardCanvas = gameBoardCanvas;
-            level.shapes = boardShapes.Select(shape => shape.shapeData).ToList();
+            boardData<PinData> data = new boardData<PinData>();
+            data.boardLocation = pinPlaceHolder.transform.localPosition;
+            data.shapes = pins.Select(pinData => pinData.pinData).ToList();
+            level.pins = data;
         }
-        public void SaveToConfig( GameObject pinPlaceHolder, List<EditorPin> pins)
+
+        public void SaveToConfig(Transform referenceGameBoard, List<EditorShapeManager> referenceShapes)
         {
-            level.PinPlaceholder = pinPlaceHolder.transform.position;
-            level.pins=pins.Select(pinData=>pinData.pinData).ToList();
-        }
-        public void SaveToConfig(Transform referenceGameBoard, List<EditorShapeManager> referenceShapes )
-        {
-            level.refrenceShapes = referenceShapes.Select(shape => shape.shapeData).ToList();
-            level.ReferenceGameBoard=referenceGameBoard;
+            boardData<ShapeData> data = new boardData<ShapeData>();
+            data.boardLocation = referenceGameBoard.localPosition;
+            data.boardScale = referenceGameBoard.localScale;
+            data.shapes = new List<ShapeData>(referenceShapes.Select(shape => shape.shapeData).ToList());
+            level.ReferenceGameBoard = data;
 
         }
         public void SaveToConfig(List<EditorPinPoint> gameBoardPinPoints)
         {
-            level.gameBoardPinPoints= gameBoardPinPoints.Select(pinPoint => pinPoint.pinPointData).ToList();
+            level.gameBoardPinPoints = gameBoardPinPoints.Select(pinPoint => pinPoint.pinPointData).ToList();
         }
         public void SaveToConfig(GameObject guidCanvas)
         {
             GuideCanvasData data = new GuideCanvasData();
             data.position = guidCanvas.transform.position;
-            data.GuidCanvasPrefab= guidCanvas;
+            data.name = selectedGuideCanvasName;
             level.GuideCanvas = data;
         }
-        public void SaveToConfig(List<EventData> events)
+        public void SetForSave()
         {
-            level.events= events;
+            EditorUtility.SetDirty(level);
         }
         #endregion
+        #region SaveNormalModeRegion
+        public void SaveToConfig(RectTransform gameBoardCanvas,List<EditorShapeManager> boardShapes)
+        {
+            boardData<ShapeData> data = new boardData<ShapeData>();
+            data.boardLocation = gameBoardCanvas.transform.localPosition;
+            data.boardScale = gameBoardCanvas.localScale;
+            data.shapes = boardShapes.Select(shape => {
+                shape.shapeData.ColorData = VectorInt.White;
+                shape.shapeData.shapeAddedNumber = 0;
+                return shape.shapeData;
+                } ).ToList();
+            level.GameBoardCanvas = data;
+        }
+        #endregion
+        #region SaveBlitzMode
+        public void SaveEventsToConfig()
+        {
+            eventList = new List<EventData>();
+            foreach (EditorShapeManager refShape in referenceShapeManagerList )
+            {
+                if(refShape.shapeEvent != null)
+                    eventList.Add(refShape.shapeEvent);
 
+            }
+            level.events = eventList;
+        }
+
+        #endregion
+        #region SaveHalfWayThereMode
+        public void SaveHalfWayThereToConfig(RectTransform gameBoardCanvas, List<EditorShapeManager> boardShapes)
+        {
+            boardData<ShapeData> data = new boardData<ShapeData>();
+            data.boardLocation = gameBoardCanvas.transform.localPosition;
+            data.boardScale = gameBoardCanvas.localScale;
+            data.shapes = new List<ShapeData>();
+            foreach(var shape in boardShapes.Select(shape => shape.shapeData).ToList())
+            {
+                data.shapes.Add((ShapeData)shape.Clone());
+            }
+            level.GameBoardCanvas = data;
+        }
+        #endregion
     }
 
 }
