@@ -195,4 +195,5 @@ public class Pinpoint : MonoBehaviour
         }
         return HexagonColor.White;
     }
+    public List<Hexagon> GetOwnedHexagons()=> m_ownedHexagons;
 }

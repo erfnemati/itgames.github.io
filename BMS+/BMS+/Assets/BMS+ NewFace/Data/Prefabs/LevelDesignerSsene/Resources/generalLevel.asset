@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52874fb3155104a41b439201daa3d087, type: 3}
+  m_Name: generalLevel
+  m_EditorClassIdentifier: 
+  gameMode: 0
+  shapeType: 0
+  dificaulty: 0
+  pins:
+    boardLocation: {x: 1.64, y: 1.8, z: 0}
+    boardScale: {x: 1, y: 1, z: 1}
+    shapes:
+    - pinCapacity: 0
+      pincolor:
+        a: 1
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    - pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 1
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    - pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 1
+        d: 0
+        e: 0
+        f: 0
+  GameBoardCanvas:
+    boardLocation: {x: 0, y: 0, z: 0}
+    boardScale: {x: 0, y: 0, z: 0}
+    shapes: []
+  ReferenceGameBoard:
+    boardLocation: {x: 0, y: 0, z: 0}
+    boardScale: {x: 0, y: 0, z: 0}
+    shapes: []
+  gameBoardPinPoints: []
+  GuideCanvas:
+    position: {x: -1.4, y: -1.11, z: 0}
+    name: 1
+  events: []

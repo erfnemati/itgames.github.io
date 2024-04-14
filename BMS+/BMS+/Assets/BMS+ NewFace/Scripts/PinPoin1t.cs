@@ -37,7 +37,7 @@ public class Pinpoint1 : MonoBehaviour
     private void Awake()
     {
         dataManager = ServiceLocator._instance.Get<DataManager>();
-        levelManager = ServiceLocator._instance.Get<LevelManager>();
+        //levelManager = ServiceLocator._instance.Get<LevelManager>();
         player = ServiceLocator._instance.Get<Player1>();
         eventManager = ServiceLocator._instance.Get<EventManager>();    
              

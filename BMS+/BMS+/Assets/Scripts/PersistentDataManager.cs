@@ -37,9 +37,9 @@ public class PersistentDataManager : MonoBehaviour,IGameService
     private string m_sheetKeyName = "SheetKey.json";
     private string m_spreadSheetId = "1ezyZpRn0TlhcrO6R0u8J8GZViRCU5xdVkZKH1_GLUmU";
 
-    public PersistentDataManager()
+    private void Awake()
     {
-        ServiceLocator.Current.Register(this);
+       // ServiceLocator._instance.Register(this);
         AddEvents();
     }
     private void AddEvents()

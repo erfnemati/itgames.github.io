@@ -1,5 +1,6 @@
 using GameData;
 using GameEnums;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +8,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class SceneToConfigCreator : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -17,17 +18,27 @@ public class SceneToConfigCreator : MonoBehaviour
     private GameObject Redpin;
     private GameObject Bluepin;
     private GameObject Yellowpin;
-    readonly string path = "assets/BMS+ NewFace/Configs/DemoLevels";
+    private string path = "assets/BMS+ NewFace/Configs/DemoLevels/";
 
     private LevelConfigData level;
     void Start()
     {
+        path += SceneManager.GetActiveScene().name + ".asset";
         LevelConfigData levelData = (LevelConfigData)Resources.Load("generalLevel");
         level = Instantiate<LevelConfigData>(levelData);
+#if UNITY_EDITOR
+        Debug.Log("here");
         AssetDatabase.CreateAsset(level, path);
+#endif
         FIndGameObjects();
+        SaveGameBoardToConfig();
+        SavePinPointsToConfig();
+        SavePinsToConfig();
+        SaveReferenceBoardToConfig();
+        SetForSave();
 
     }
+
 
     private void FIndGameObjects()
     {
@@ -36,6 +47,7 @@ public class SceneToConfigCreator : MonoBehaviour
         Redpin = GameObject.Find("RedPinCanvas");
         Bluepin = GameObject.Find("BluePinCanvas");
         Yellowpin = GameObject.Find("YellowPinCanvas");
+
     }
 
     // Update is called once per frame
@@ -43,15 +55,15 @@ public class SceneToConfigCreator : MonoBehaviour
     {
         
     }
-    public void SavePinsToConfig()
+    private void SavePinsToConfig()
     {
         level.pins.shapes[0].pinCapacity = Redpin.GetComponent<Pin>().GetNumberOfUsage();
         level.pins.shapes[1].pinCapacity = Yellowpin.GetComponent<Pin>().GetNumberOfUsage();
-        level.pins.shapes[2].pinCapacity = Redpin.GetComponent<Pin>().GetNumberOfUsage();
+        level.pins.shapes[2].pinCapacity = Bluepin.GetComponent<Pin>().GetNumberOfUsage();
 
     }
 
-    public void SaveGameBoardToConfig()
+    private void SaveGameBoardToConfig()
     {
         boardData<ShapeData> data = new boardData<ShapeData>();
         data.shapes = new List<ShapeData>();
@@ -70,7 +82,7 @@ public class SceneToConfigCreator : MonoBehaviour
         level.GameBoardCanvas = data;
 
     }
-    public void SavePinPointsToConfig()
+    private void SavePinPointsToConfig()
     {
         level.gameBoardPinPoints = new List<PinPointData>();
         List<Hexagon> gameBoardHexagons = GameBoard.GetComponent<GameBoard>().GetHexagons();
@@ -89,11 +101,12 @@ public class SceneToConfigCreator : MonoBehaviour
                         data.neighborShapes.Add(i);
                     }
                 }
+            level.gameBoardPinPoints.Add(data);
         }
 
 
     }
-    public void SaveReferenceBoardToConfig(GameObject guidCanvas)
+    private void SaveReferenceBoardToConfig()
     {
         boardData<ShapeData> data = new boardData<ShapeData>();
         data.shapes = new List<ShapeData>();
@@ -109,6 +122,13 @@ public class SceneToConfigCreator : MonoBehaviour
             shapeData.Position = hexagons[i].transform.localPosition;
             data.shapes.Add(shapeData);
         }
-        level.GameBoardCanvas = data;
+        level.ReferenceGameBoard = data;
+    }
+
+    private void SetForSave()
+    {
+#if UNITY_EDITOR
+        EditorUtility.SetDirty(level);
+#endif
     }
 }

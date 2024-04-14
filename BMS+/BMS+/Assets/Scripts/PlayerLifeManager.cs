@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // [q] how to handle this small classes
-public class PlayerLifeManager : IGameService
+public class PlayerLifeManager : MonoBehaviour,IGameService
 {
     public static PlayerLifeManager _instance;
 
@@ -13,9 +13,9 @@ public class PlayerLifeManager : IGameService
     [SerializeField] int m_currentNumOfLives = 3;// get this from config
     [SerializeField] int m_initialNumberOfLives;
 
-    public PlayerLifeManager()
+    private void Awake()
     {
-        ServiceLocator.Current.Register(this);
+        //ServiceLocator._instance.Register(this);
         InitializeVariables();
     }
     public void InitializeVariables()
