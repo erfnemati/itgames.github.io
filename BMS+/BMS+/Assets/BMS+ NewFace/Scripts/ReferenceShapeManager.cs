@@ -20,9 +20,11 @@ public class ReferenceShapeManager : ShapeManager
     }
     private void BlitzEventRoutine(int shapeEffected, VectorInt changeToColor)
     {
+        Debug.Log("Here3");
 
         if (shapeEffected == shapeId)
         {
+            Debug.Log("here4");
             m_numOfAddedColors++;
             m_currentColor = changeToColor;
             UpdateNumOfAddedColorsText();

@@ -5,6 +5,8 @@ using LevelDesign;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using UnityEditor;
+using System;
+using System.Linq;
 public class ShapeGenerator
 {
     private LevelDesignBoard board;
@@ -68,7 +70,7 @@ public class ShapeGenerator
 
     private void InstantiateShape(Transform rect, Vector3 position, int shapeID)
     {
-        GameObject shape = GameObject.Instantiate(EditorDataManager._instance.GetData<PrefabConfig>().ShapePrefab, position, Quaternion.identity, rect);
+        GameObject shape = GameObject.Instantiate(LevelDesignBoard._instance.GetData<PrefabConfig>().ShapePrefab, position, Quaternion.identity, rect);
         EditorShapeManager shapeManager = shape.AddComponent<EditorShapeManager>();
         shapeManager.SetID(shapeID);
         board.shapeManagerList.Add(shapeManager);
@@ -117,7 +119,7 @@ public class ShapeGenerator
 
     private void InstantiateAndConfigurePinPoint(Transform parent, Vector3 position)
     {
-        GameObject pinPoint = GameObject.Instantiate(EditorDataManager._instance.GetData<PrefabConfig>().PinPointPrefab, position, Quaternion.identity, parent);
+        GameObject pinPoint = GameObject.Instantiate(LevelDesignBoard._instance.GetData<PrefabConfig>().PinPointPrefab, position, Quaternion.identity, parent);
         board.pinPointList.Add(pinPoint.AddComponent<EditorPinPoint>());
     }
 
@@ -164,7 +166,7 @@ public class ShapeGenerator
 
         foreach(var shape in board.shapeManagerList)
         {
-            GameObject referenceShape = GameObject.Instantiate(EditorDataManager._instance.GetData<PrefabConfig>().ShapePrefab,
+            GameObject referenceShape = GameObject.Instantiate(LevelDesignBoard._instance.GetData<PrefabConfig>().ShapePrefab,
                 shape.transform.localPosition,
                 Quaternion.identity, board.referenceBoard.transform);
             var refereneShapeManager=referenceShape.AddComponent<EditorShapeManager>();
@@ -186,5 +188,15 @@ public class ShapeGenerator
         {
             shape.SetPosition();
         }
+    }
+
+    public void RemoveShapes()
+    {
+        int shapeCount = board.shapeManagerList.Count;
+        int pinpointCount=board.pinPointList.Count;
+        for(int i=0; i<shapeCount; i++)
+            GameObject.DestroyImmediate(board.shapeManagerList.First().gameObject);
+        for(int i=0;i<pinpointCount; i++)
+            GameObject.DestroyImmediate(board.pinPointList.First().gameObject);
     }
 }

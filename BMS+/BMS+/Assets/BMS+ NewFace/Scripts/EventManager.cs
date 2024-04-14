@@ -90,5 +90,21 @@ public class EventManager : IGameService
             }
         }
     }
+    public void TriggerEvent<T>(EventName eventName,T arg)
+    {
+        if (eventDictionary.ContainsKey(eventName))
+        {
+            var del = eventDictionary[eventName];
+
+            if (del is System.Action<T> action)
+            {
+                action.Invoke(arg);
+            }
+            else
+            {
+                Debug.LogError("Attempting to invoke event with incompatible delegate types. Check your event arguments.");
+            }
+        }
+    }
     public void PreDestroy() { }
 }

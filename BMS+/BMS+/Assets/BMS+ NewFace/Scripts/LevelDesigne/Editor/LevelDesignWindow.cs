@@ -6,25 +6,28 @@ using LevelDesign;
 using GameEnums;
 using System;
 
-[CustomEditor(typeof(LevelDesignBoard))]
-public class LevelDesignWindow : Editor
+public class LevelDesignWindow : ExtendedEditorWindow
 {
     LevelDesignBoard board;
     ShapeGenerator shapeGenerator;
     private Rect windowRect = new Rect(20, 20, 120, 50);
 
 
-    private void Awake()
+    private void OnEnable()
     {
-        board = (LevelDesignBoard)target;
-        shapeGenerator = new ShapeGenerator(board);
+
     }
-    private void OnSceneGUI()
+    [MenuItem("Level Design/LevelDesigner")]
+    public static void ShowWIndow()
     {
-        windowRect = GUILayout.Window(0, windowRect, WindowFunction, "My Window");
+        LevelDesignWindow window=GetWindow<LevelDesignWindow>("LevelDesignWindow");
+        GameObject board =Instantiate(Resources.Load("DesignBoard") as GameObject);
+        Debug.Log(board);
+        window.board = board.GetComponent<LevelDesignBoard>();
+        window.shapeGenerator = new ShapeGenerator(window.board);
     }
 
-    private void WindowFunction(int windowID)
+    void OnGUI()
     {
         if (board.phase == LevelDesignPhase.Phase1)
             ShowInitialWindow();
@@ -36,12 +39,20 @@ public class LevelDesignWindow : Editor
             ShowSaveWindow();
         //else if (board.phase == LevelDesignPhase.Phase5)
 
-
-
-
-        GUI.DragWindow(new Rect(0, 0, 10000, 10000));
     }
-
+    private void ShowNavigationWindow()
+    {
+        GUILayout.BeginHorizontal();
+        if(GUILayout.Button("back") && board.phase>LevelDesignPhase.Phase3)
+        {
+            board.phase--;
+        }
+        if(GUILayout.Button("next") && board.phase <LevelDesignPhase.Phase5)
+        {
+            board.phase++;
+        }
+        GUILayout.EndHorizontal();
+    }
     private void ShowInitialWindow()
     {
         GUILayout.BeginHorizontal();
@@ -59,6 +70,7 @@ public class LevelDesignWindow : Editor
     }
     private void ShowLevelWindow()
     {
+        ShowNavigationWindow();
         GUILayout.BeginVertical();
         GUILayout.Label("Pins", EditorStyles.boldLabel);
         for (int i = 0; i < board.pinsChecker.Count; i++)
@@ -78,6 +90,7 @@ public class LevelDesignWindow : Editor
     }
     private void ShowGameBoardWindow()
     {
+        ShowNavigationWindow();
         GUILayout.BeginVertical();
         board.level.shapeType = (ShapeType)EditorGUILayout.EnumPopup("Choose Shape Type", board.level.shapeType);
         GUILayout.BeginHorizontal();
@@ -94,6 +107,10 @@ public class LevelDesignWindow : Editor
         {
             shapeGenerator.AddPinPointNeighbors();
         }
+        if(GUILayout.Button("RemoveShapes"))
+        {
+            shapeGenerator.RemoveShapes();
+        }
         GUILayout.EndHorizontal();
 
         GUILayout.BeginHorizontal();
@@ -108,6 +125,8 @@ public class LevelDesignWindow : Editor
     }
     private void ShowSaveWindow()
     {
+        ShowNavigationWindow();
+
         switch (board.level.gameMode)
         {
             case GameMode.Normal:
@@ -146,6 +165,8 @@ public class LevelDesignWindow : Editor
                 SaveDefaultToConfig();
                 break;
         }
+        if (GUILayout.Button("Remove Reference Shapes"))
+            board.DestroyIfExist(board.referenceBoard);
     }
 
     private void SaveDefaultToConfig()

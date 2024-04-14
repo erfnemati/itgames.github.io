@@ -18,7 +18,7 @@ namespace LevelDesign
             VectorInt resaultColor = baseColor + addedColor;
 
             Debug.Log(resaultColor);
-            ShapeConfigData data = EditorDataManager._instance.GetData<ShapeConfigData>(resaultColor);
+            ShapeConfigData data = LevelDesignBoard._instance.GetData<ShapeConfigData>(resaultColor);
             if (data == null)
                 return resaultColor;
             else
@@ -38,7 +38,7 @@ namespace LevelDesign
             VectorInt resaultColor = baseColor - subtractedColor;
 
             Debug.Log(resaultColor);
-            ShapeConfigData data = EditorDataManager._instance.GetData<ShapeConfigData>(resaultColor);
+            ShapeConfigData data = LevelDesignBoard._instance.GetData<ShapeConfigData>(resaultColor);
             if (data == null)
                 return resaultColor;
             else
@@ -49,9 +49,9 @@ namespace LevelDesign
         {
             ShapeConfigData data;
             if (IsJammedCheck(color))
-                data = EditorDataManager._instance.GetData<ShapeConfigData>(VectorInt.Jammed);
+                data = LevelDesignBoard._instance.GetData<ShapeConfigData>(VectorInt.Jammed);
             else
-                data = EditorDataManager._instance.GetData<ShapeConfigData>(color);
+                data = LevelDesignBoard._instance.GetData<ShapeConfigData>(color);
             if(data!=null)
                 return data.sprite;
             else 
@@ -61,9 +61,9 @@ namespace LevelDesign
         {
             ShapeConfigData data;
             if (IsJammedCheck(color))
-                data = EditorDataManager._instance.GetData<ShapeConfigData>(VectorInt.Jammed);
+                data = LevelDesignBoard._instance.GetData<ShapeConfigData>(VectorInt.Jammed);
             else
-                data = EditorDataManager._instance.GetData<ShapeConfigData>(color);
+                data = LevelDesignBoard._instance.GetData<ShapeConfigData>(color);
             if (data!=null)
                 return data.name;
             else 

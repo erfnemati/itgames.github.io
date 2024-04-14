@@ -1,4 +1,5 @@
 using ConfigData;
+using GameData;
 using LevelDesign;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -13,7 +14,6 @@ public class EditorShapeWindow : Editor
     float occuranceTime = 0f;
     int shapeAddedNumber = 0;
     VectorInt eventColor;
-
     private void Awake()
     {
         shapeManager = (EditorShapeManager)target;
@@ -29,7 +29,8 @@ public class EditorShapeWindow : Editor
 
     private void WindowFunction(int windowID)
     {
-        List<ShapeConfigData> colors = EditorDataManager._instance.GetData<ShapeConfig>().shapeColors;
+        List<ShapeConfigData> colors = LevelDesignBoard._instance.GetData<ShapeConfig>().shapeColors;
+
         GUILayout.BeginHorizontal();
         foreach (ShapeConfigData color in colors)
         {
@@ -41,23 +42,18 @@ public class EditorShapeWindow : Editor
         }
         GUILayout.EndHorizontal();
 
-        if(shapeManager.shapeEvent != null)
-        {
-            shapeManager.shapeEvent.time = EditorGUILayout.FloatField("Occurance TIme", shapeManager.shapeEvent.time);
-            shapeManager.shapeData.shapeAddedNumber = EditorGUILayout.IntField("Number OF Collors",
-                shapeManager.shapeData.shapeAddedNumber);
+        occuranceTime = EditorGUILayout.FloatField("Occurance TIme", shapeManager.shapeEvent.time);
+        shapeAddedNumber = EditorGUILayout.IntField("Number OF Collors",
+            shapeManager.shapeEvent.shapeAddedNumber);
+        GUILayout.Label("NeededPins");
+        for(int i = 0 ; i<LevelDesignBoard._instance.pinList.Count;i++)
+            shapeManager.shapeEvent.Pins2Add[i] = EditorGUILayout.Toggle(((GameEnums.PinName)i).ToString(), shapeManager.shapeEvent.Pins2Add[i]);
 
-        }
-        else
-        {
-            occuranceTime = EditorGUILayout.FloatField("Occurance TIme", occuranceTime);
-            shapeAddedNumber = EditorGUILayout.IntField("Number OF Collors", shapeAddedNumber);
-        }
+
         if(GUILayout.Button("Add Event"))
         {
             shapeManager.SetEventData(eventColor, occuranceTime, shapeAddedNumber);
             shapeManager.EventAddedNumber(shapeAddedNumber);
-
         }
         if (GUILayout.Button("Save Events"))
         {
@@ -66,7 +62,7 @@ public class EditorShapeWindow : Editor
 
         GUI.DragWindow(new Rect(0, 0, 10000, 10000));
     }
-    private void SetShapeColor(ShapeConfigData color)
+     void SetShapeColor(ShapeConfigData color)
     {
         target.GetComponentsInChildren<SpriteRenderer>()[1].sprite=color.sprite;
         eventColor=color.color;

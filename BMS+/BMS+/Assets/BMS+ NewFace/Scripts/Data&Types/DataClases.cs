@@ -54,6 +54,7 @@ namespace GameData
         public int shapeId;
         public VectorInt changeToColor;
         public int shapeAddedNumber;
+        public List<bool> Pins2Add;
     }
     [Serializable]
     public class TransformData:IPlaceable

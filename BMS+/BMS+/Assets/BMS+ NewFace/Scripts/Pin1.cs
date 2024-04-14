@@ -4,10 +4,13 @@ using UnityEngine;
 using RTLTMPro;
 using UnityEngine.UI;
 using System;
+using GameEnums;
+using ConfigData;
 
 public class Pin1 : MonoBehaviour
 {
     VectorInt m_pinColor;
+    PinConfigData m_pinConfig;
     public int m_numOfUsages { get; private set; } //[C]: whats the difference between tower pins and station pins?
 
     //UI code here:
@@ -19,6 +22,7 @@ public class Pin1 : MonoBehaviour
     {
         m_pinColor = ConfigPinColor;
         m_numOfUsages=ConfigNumOfUsages;
+        m_pinConfig = ServiceLocator._instance.Get<DataManager>().GetData<PinConfigData>(m_pinColor);
     }
     private void Awake()
     {
@@ -31,12 +35,15 @@ public class Pin1 : MonoBehaviour
         eventManager.StartListening(EventName.OnLevelDefeat, new Action(DisableButton));
         eventManager.StartListening(EventName.OnLevelRetreat, new Action(DisableButton));
         eventManager.StartListening(EventName.OnLevelVictory, new Action(DisableButton));
+        eventManager.StartListening(EventName.OnBlitzHappened, new Action<PinName>(BlitzEventIncrementUsage));
     }
     public void OnEnable()
     {
         eventManager.StopListening(EventName.OnLevelDefeat, new Action(DisableButton));
         eventManager.StopListening(EventName.OnLevelRetreat, new Action(DisableButton));
         eventManager.StopListening(EventName.OnLevelVictory, new Action(DisableButton));
+        eventManager.StopListening(EventName.OnBlitzHappened, new Action<PinName>(BlitzEventIncrementUsage));
+
     }
     private void Start()
     {
@@ -90,6 +97,12 @@ public class Pin1 : MonoBehaviour
         if (m_numOfUsages >= 1)
             return true;
         return false;
+    }
+
+    private void BlitzEventIncrementUsage(PinName name)
+    {
+        if(name==m_pinConfig.name)
+            IncrementUsages();
     }
     
 }

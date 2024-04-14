@@ -13,6 +13,8 @@ namespace LevelDesign
     {
         public GameData.ShapeData shapeData;
         public GameData.EventData shapeEvent;
+        public GameData.EventData event2Save;
+        public bool IsShapeEventCreated=false;
         SpriteRenderer spriteRenderer;
         EditorShapesColorManager shapesColorManager;
         private void OnDestroy()
@@ -28,8 +30,15 @@ namespace LevelDesign
             spriteRenderer=gameObject.GetComponentsInChildren<SpriteRenderer>()[1];
             shapesColorManager=new EditorShapesColorManager(); ;
             SetInitialData();
+            shapeEvent = null;
             LevelDesignBoard._instance.OnColorAdded += AddColor;
             LevelDesignBoard._instance.OnColorRemoved += RemoveColorRoutine;
+            shapeEvent = new GameData.EventData();
+            shapeEvent.Pins2Add = new List<bool>();
+            for (int i = 0; i < LevelDesignBoard._instance.GetData<PinConfig>().pins.Count; i++)
+            {
+                shapeEvent.Pins2Add.Add(false);
+            }
 
         }
         public void SetInitialData()
@@ -45,17 +54,18 @@ namespace LevelDesign
         public int GetShapeId()=> shapeData.shapeId;
         public void SetColorFromEditorWindow(GameEnums.GameColorName colorName)
         {
-            ConfigData.ShapeConfigData SelectedColorData = EditorDataManager._instance.GetData<ConfigData.ShapeConfigData>((int)colorName);
+            ConfigData.ShapeConfigData SelectedColorData = LevelDesignBoard._instance.GetData<ConfigData.ShapeConfigData>((int)colorName);
             shapeData.ColorData = SelectedColorData.color;
             spriteRenderer.sprite = SelectedColorData.sprite;
         }
         public void SetEventData(VectorInt color,float time, int number)
         {
-            shapeEvent = new GameData.EventData();
+            IsShapeEventCreated = true; 
             shapeEvent.shapeAddedNumber=number;
             shapeEvent.time=time;
             shapeEvent.changeToColor=color;
             shapeEvent.shapeId=shapeData.shapeId;
+            event2Save = shapeEvent;
         }
         public void AddColor(int shapeEffected, VectorInt addedColor)
         {
@@ -118,7 +128,8 @@ namespace LevelDesign
         }       
         public void EventAddedNumber(int number)
         {
-            if (shapesColorManager.GetColorName(shapeData.ColorData) == GameColorName.White || shapesColorManager.GetColorName(shapeData.ColorData) == GameColorName.Jam)
+            Debug.Log(shapeData.ColorData);
+            if (shapesColorManager.GetColorName(shapeEvent.changeToColor) == GameColorName.White || shapesColorManager.GetColorName(shapeEvent.changeToColor) == GameColorName.Jam)
                 GetComponentInChildren<RTLTMPro.RTLTextMeshPro>().text = "";
             else
                 GetComponentInChildren<RTLTMPro.RTLTextMeshPro>().text = number.ToString();

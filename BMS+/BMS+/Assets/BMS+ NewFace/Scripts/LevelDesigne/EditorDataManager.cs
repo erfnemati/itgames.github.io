@@ -8,9 +8,9 @@ namespace LevelDesign
 {
 
     [ExecuteInEditMode]
-    public class EditorDataManager : DataManager
+    public class EditorDataManager1 : DataManager
     {
-        public static EditorDataManager _instance;
+        public static EditorDataManager1 _instance;
         private void Awake()
         {
             if (_instance == null)

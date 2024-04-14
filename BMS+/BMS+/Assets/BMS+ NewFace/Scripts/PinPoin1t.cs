@@ -66,45 +66,16 @@ public class Pinpoint1 : MonoBehaviour
         m_pinPoint = GetComponent<Button>();
         m_initialPinPointHeight = m_pinPointRect.rect.height;
         m_initialPinPointWidth = m_pinPointRect.rect.width;
+        SetInitialSprite();
     }
  //   public void SetClickEvent() => GetComponent<Button>().onClick.AddListener(() => GetComponent<Pinpoint1>().ClickPinPoint()); //[kasif] idk witch componant should handle this;
-
-
-    private void ChangePinpointSprite()
+    private void SetInitialSprite()
     {
-        if (m_currentPin == null)
+        if(m_PinPointColor != VectorInt.White)
         {
-            RemoveSprite();
+            Image image = gameObject.GetComponent<Image>();
+            image.sprite = dataManager.GetData<PinConfigData>(m_PinPointColor).sprite;
         }
-        else
-        {
-            AddSprite();
-        }
-    }
-
-    private void AddSprite()
-    {
-        Sprite chosenSprite = ChooseSprite();
-
-        float heightToWidthAspectRatio = chosenSprite.rect.height / chosenSprite.rect.width;
-
-        m_pinPointRect.sizeDelta =
-            new Vector2(m_additionalPinPointScaleFactor * m_initialPinPointWidth,
-            m_additionalPinPointScaleFactor * m_initialPinPointWidth * heightToWidthAspectRatio);
-
-        m_pinPoint.image.color = new Color(255, 255, 255, 255);
-    }
-
-    private Sprite ChooseSprite()
-    {
-        return dataManager.GetData<ConfigData.PinConfigData>(m_PinPointColor).sprite;
-    }
-
-    private void RemoveSprite()
-    {
-        m_pinPointRect.sizeDelta = new Vector2(m_initialPinPointWidth, m_initialPinPointHeight);
-        m_pinPoint.image.sprite = pinpointInitalSprite;
-        m_pinPoint.image.color = pinpointInitialColor;
     }
 
     public void ClickPinPoint()

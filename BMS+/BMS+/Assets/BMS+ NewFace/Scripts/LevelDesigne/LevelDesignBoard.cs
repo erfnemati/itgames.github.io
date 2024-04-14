@@ -1,3 +1,4 @@
+using ConfigData;
 using GameData;
 using GameEnums;
 using System;
@@ -16,6 +17,13 @@ namespace LevelDesign
     [ExecuteInEditMode]
     public class LevelDesignBoard : MonoBehaviour
     {
+        //DataManager fields
+        [SerializeField] private PinConfig pinData;
+        [SerializeField] private ShapeConfig shapeColor;
+        [SerializeField] private PrefabConfig prefabConfig;
+        [SerializeField] private SpriteConfig spriteConfig;
+        [SerializeField] private GuideCanvasConfig guideCanvasConfig;
+
         public Action<int, VectorInt> OnColorAdded;
         public Action<int, VectorInt> OnColorRemoved;
 
@@ -44,7 +52,7 @@ namespace LevelDesign
         public GameObject guideCanvas;
         public GameObject pinPlaceholder;
 
-        void Start()
+        void Awake()
         {
             if (_instance == null)
             {
@@ -56,10 +64,17 @@ namespace LevelDesign
             referenceShapeManagerList= new List<EditorShapeManager>();
             pinPointList = new List<EditorPinPoint>();
             pinsChecker = new List<bool>();
-            for (int i = 0;i< EditorDataManager._instance.GetData<PinConfig>().pins.Count;i++)
+            for (int i = 0;i< LevelDesignBoard._instance.GetData<PinConfig>().pins.Count;i++)
             {
                 pinsChecker.Add(false);
             }
+        }
+        private void OnDestroy()
+        {
+            DestroyImmediate(referenceBoard);
+            DestroyImmediate(guideCanvas);
+            DestroyImmediate(pinPlaceholder);
+
         }
         public void CreateNewLevel()
         {
@@ -82,12 +97,14 @@ namespace LevelDesign
         }
         private void CreateGuideCanvas()
         {
-            GameObject guideCanvasPrefab = EditorDataManager._instance.GetData<ConfigData.GuideCanvasConfigData>((int)selectedGuideCanvasName).prefab;
+            DestroyIfExist(guideCanvas);    
+            GameObject guideCanvasPrefab = _instance.GetData<ConfigData.GuideCanvasConfigData>((int)selectedGuideCanvasName).prefab;
             guideCanvas = Instantiate(guideCanvasPrefab, InitialGuideCanvasPosition, Quaternion.identity);
             guideCanvas.name = "GuideCanvas";
         }
         private void InstantiateSelectedPins()
         {
+            DestroyIfExist(pinPlaceholder);
             pinPlaceholder = new GameObject();
             pinPlaceholder.transform.position = InitialPinPlaceHolderPosition;
             pinPlaceholder.name = "PinPlaceHolder";
@@ -96,10 +113,10 @@ namespace LevelDesign
             {
                 if (pinsChecker[i])
                 {
-                    GameObject pinPrefab = EditorDataManager._instance.GetData<PrefabConfig>().PinPrefab;
+                    GameObject pinPrefab = _instance.GetData<PrefabConfig>().PinPrefab;
                     GameObject pinObject = Instantiate(pinPrefab, pinPlaceholder.transform);
                     EditorPin pin = pinObject.AddComponent<EditorPin>();
-                    ConfigData.PinConfigData data = EditorDataManager._instance.GetData<ConfigData.PinConfigData>(i);
+                    ConfigData.PinConfigData data = _instance.GetData<ConfigData.PinConfigData>(i);
                     pin.SetPinColorData(data);
                     Debug.Log(data.color);
                     Debug.Log(pin);
@@ -116,6 +133,11 @@ namespace LevelDesign
             grid.constraintCount = 1;
             grid.childAlignment = TextAnchor.MiddleCenter;
             grid.cellSize = new Vector2(0.7f, 0.7f);
+        }
+        public void DestroyIfExist(GameObject g)
+        {
+            if(g != null)
+                DestroyImmediate(g);
         }
         #region DefaultSaves
         public void SaveToConfig(GameObject pinPlaceHolder, List<EditorPin> pins)
@@ -172,7 +194,7 @@ namespace LevelDesign
             foreach (EditorShapeManager refShape in referenceShapeManagerList )
             {
                 if(refShape.shapeEvent != null)
-                    eventList.Add(refShape.shapeEvent);
+                    eventList.Add(refShape.event2Save);
 
             }
             level.events = eventList;
@@ -193,6 +215,57 @@ namespace LevelDesign
             level.GameBoardCanvas = data;
         }
         #endregion
+        #region DataManageMent
+        public T GetData<T>(VectorInt color)
+        {
+            switch (typeof(T).Name)
+            {
+                case var type when type == typeof(PinConfigData).Name:
+                    return (T)(object)pinData.pins.Find(pin => pin.color == color);
+                case var type when type == typeof(ShapeConfigData).Name:
+                    return (T)(object)shapeColor.shapeColors.Find(shape => shape.color == color);
+                default:
+                    return (T)(object)null;
+            }
+        }
+
+        public T GetData<T>(int id)
+        {
+            switch (typeof(T).Name)
+            {
+                case var type when type == typeof(PinConfigData).Name:
+                    foreach (PinConfigData pin in pinData.pins)
+                        Debug.Log((int)pin.name == id);
+                    return (T)(object)pinData.pins.Find(pin => (int)pin.name == id);
+                case var type when type == typeof(ShapeConfigData).Name:
+                    return (T)(object)shapeColor.shapeColors.Find(shape => (int)shape.name == id);
+                case var type when type == typeof(SpriteConfigData).Name:
+                    return (T)(object)spriteConfig.sprites.Find(sprite => (int)sprite.name == id);
+                case var type when type == typeof(GuideCanvasConfigData).Name:
+                    return (T)(object)guideCanvasConfig.guideCanvases.Find(guideCanvas => (int)guideCanvas.name == id);
+                default:
+                    return (T)(object)null;
+            }
+        }
+        public T GetData<T>()
+        {
+
+            switch (typeof(T).Name)
+            {
+                case var type when type == typeof(PinConfig).Name:
+                    return (T)(object)pinData;
+                case var type when type == typeof(PrefabConfig).Name:
+                    return (T)(object)prefabConfig;
+                case var type when type == typeof(SpriteConfig).Name:
+                    return (T)(object)spriteConfig;
+                case var type when type == typeof(ShapeConfig).Name:
+                    return (T)(object)shapeColor;
+                default:
+                    return (T)(object)null;
+            }
+        }
+        #endregion
+
     }
 
 }
