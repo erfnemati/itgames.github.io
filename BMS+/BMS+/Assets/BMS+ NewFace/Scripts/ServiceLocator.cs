@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public interface IGameService {
-    public void PreDestroy();
+    public void OnDisable();
 }
 
 public class ServiceLocator
@@ -29,20 +29,23 @@ public class ServiceLocator
 
     public void Register<T>(T service, GameObject gameObject) where T : IGameService
     {
-        if (services.ContainsKey(typeof(T).Name))
-            Unregister<T>();
-        services[typeof(T).Name] = service;
-       GameObject.DontDestroyOnLoad(gameObject);
+        if (!services.ContainsKey(typeof(T).Name))
+        {
+            services[typeof(T).Name] = service;
+            GameObject.DontDestroyOnLoad(gameObject);
+
+        }
     }
     public void Register<T>(T service) where T : IGameService
     {
-        services[typeof(T).Name] = service;
+        if(!services.ContainsKey(typeof(T).Name))
+            services[typeof(T).Name] = service;
     }
 
     public void Unregister<T>() where T : IGameService
     {
         services.TryGetValue(typeof(T).Name, out var service);
-        service.PreDestroy();
+        service.OnDisable();
         services.Remove(typeof(T).Name);
     }
 }

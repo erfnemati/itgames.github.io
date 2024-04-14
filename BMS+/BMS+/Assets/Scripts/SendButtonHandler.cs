@@ -16,7 +16,7 @@ public class SendButtonHandler : MonoBehaviour
         
         if (m_textInputManager.ValidateText())
         {
-            PersistentDataManager._instance.SaveData(m_textInputManager.GetConvertedString());
+            ServiceLocator._instance.Get<PersistentDataManager>().SaveData(m_textInputManager.GetConvertedString());
             GetComponent<Button>().gameObject.SetActive(false);
             Invoke(nameof(LoadNextLevel), 0.5f);
         }
@@ -46,7 +46,7 @@ public class SendButtonHandler : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        BmsPlusSceneManager._instance.LoadNextLevel();
+        ServiceLocator._instance.Get<BmsPlusSceneManager>().LoadNextLevel();
     }
 
 

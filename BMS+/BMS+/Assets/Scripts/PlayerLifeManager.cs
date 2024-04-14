@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // [q] how to handle this small classes
-public class PlayerLifeManager : MonoBehaviour,IGameService
+public class PlayerLifeManager : IGameService
 {
-    public static PlayerLifeManager _instance;
+    //public static PlayerLifeManager _instance;
 
-    public delegate void GameOver();
-    public static event GameOver GameIsOver;
+    //public delegate void GameOver();
+    //public static event GameOver GameIsOver;
 
     [SerializeField] int m_currentNumOfLives = 3;// get this from config
     [SerializeField] int m_initialNumberOfLives;
 
-    private void Awake()
+    public  PlayerLifeManager()
     {
-        //ServiceLocator._instance.Register(this);
+        ServiceLocator._instance.Register(this);
         InitializeVariables();
     }
     public void InitializeVariables()
@@ -23,7 +23,7 @@ public class PlayerLifeManager : MonoBehaviour,IGameService
         //m_currentNumOfLives = 
 
     }
-    public void PreDestroy()
+    public void OnDisable()
     {
 
     }
@@ -45,10 +45,8 @@ public class PlayerLifeManager : MonoBehaviour,IGameService
         if (m_currentNumOfLives <=0)
         {
             m_currentNumOfLives = 0;
-            if (PersistentDataManager._instance != null)
-            {
-                GameIsOver();
-            }
+            ServiceLocator._instance.Get<EventManager>().TriggerEvent(EventName.GameOver);
+
         }
     }
     

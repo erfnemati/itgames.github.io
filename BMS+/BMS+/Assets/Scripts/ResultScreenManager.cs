@@ -12,7 +12,7 @@ public class ResultScreenManager : MonoBehaviour
 
     private void Start()
     {
-        m_currentPlayerData = PersistentDataManager._instance.GetCurrentPlayerData();
+        m_currentPlayerData = ServiceLocator._instance.Get<PersistentDataManager>().GetCurrentPlayerData();
         SetTimeRecord();
         SetHpCounter();
         SetPlayerRank();
@@ -38,7 +38,7 @@ public class ResultScreenManager : MonoBehaviour
 
     private void SetPlayerRank()
     {
-        float playerCluster = PersistentDataManager._instance.GetPlayerCluster();
+        float playerCluster = ServiceLocator._instance.Get<PersistentDataManager>().GetPlayerCluster();
 
         if (playerCluster - 0.25f < Mathf.Epsilon)
         {

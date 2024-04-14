@@ -20,7 +20,7 @@ public class LevelInitializer
 
     private List<ShapeManager> m_shapes = new List<ShapeManager>();
     private List<ReferenceShapeManager> m_referenceShapes = new List<ReferenceShapeManager>();
-    private List<Pinpoint1> m_pinPoints = new List<Pinpoint1>();
+    private List<Pinpoint> m_pinPoints = new List<Pinpoint>();
 
     private DataManager m_dataManager;
     public LevelConfigData levelConfig { get; set; }
@@ -29,7 +29,7 @@ public class LevelInitializer
         this.levelConfig = levelConfig;
         m_dataManager = ServiceLocator._instance.Get<DataManager>();
     }
-    public  void GenerateLevel()
+    public  void InitalizeLevelFromConfig()
     {
         InstantiateGameBoard();
         InstantiateReferenceBoard();
@@ -47,7 +47,7 @@ public class LevelInitializer
         }
         else if(levelConfig.gameMode == GameMode.Blitz) 
         {
-            //ServiceLocator._instance.Get<LevelTimer>().SetBlitzModeInitials(levelConfig.events);
+            ServiceLocator._instance.Get<LevelTimer>().SetBlitzModeInitials(levelConfig.events);
         }
     }
 
@@ -137,7 +137,7 @@ public class LevelInitializer
         {
             GameObject pinpointObject = GameObject.Instantiate(pinPointPrefab, gameBoardCanvas.transform);
             pinpointObject.transform.localPosition = pinpointData.position;
-            Pinpoint1 pinPointScript = pinpointObject.AddComponent<Pinpoint1>();
+            Pinpoint pinPointScript = pinpointObject.AddComponent<Pinpoint>();
             m_pinPoints.Add(pinPointScript);
             List<ShapeManager> ShapesCorrespandingToConfigIDs = m_shapes.Where(shape => pinpointData.neighborShapes.Contains(shape.shapeId)).ToList();
             pinPointScript.InitializePinPoint(ShapesCorrespandingToConfigIDs, pinpointData.pinPointColor, pinpointData.InitialColor, pinpointData.neighborShapes);
@@ -149,12 +149,12 @@ public class LevelInitializer
         GameObject pinObject = GameObject.Instantiate(pinPrefab, parent);
         Pin1 pinScript = pinObject.GetComponent<Pin1>();
         Button button = pinScript.GetComponentInChildren<Button>();
-        pinScript.GetComponentInChildren<Button>().onClick.AddListener(() => ServiceLocator._instance.Get<Player1>().PickPin(pinScript));
+        pinScript.GetComponentInChildren<Button>().onClick.AddListener(() => ServiceLocator._instance.Get<Player>().PickPin(pinScript));
         pinScript.InitializePin(pinData.pincolor, pinData.pinCapacity);
     }
     private void SetHalfWayThereInitials()
     {
-        foreach(Pinpoint1 pinPoint in m_pinPoints)
+        foreach(Pinpoint pinPoint in m_pinPoints)
         {
             if(pinPoint.GetPinPointColor == VectorInt.White)
             {
@@ -164,7 +164,7 @@ public class LevelInitializer
     }
     private void SetNormalInitials()
     {
-        foreach (Pinpoint1 pinPoint in m_pinPoints)
+        foreach (Pinpoint pinPoint in m_pinPoints)
                 pinPoint.GetComponent<Button>().onClick.AddListener(() => pinPoint.ClickPinPoint());
     }
     public List<ShapeManager> GetGeneratedShapes() => m_shapes;

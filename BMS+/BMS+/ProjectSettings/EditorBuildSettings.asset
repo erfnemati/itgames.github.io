@@ -9,102 +9,105 @@ EditorBuildSettings:
     path: Assets/Scenes/DemoVersion/StartScreen 2.unity
     guid: 1201a0fdc322f954194599729dc5a261
   - enabled: 1
+    path: Assets/BMS+ NewFace/Scenes/1.Level 3.unity
+    guid: bb461ed163b00054d86cf5aceae4799c
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/Tutorial.unity
     guid: 461a2667b284e7e4094c031240fa588b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/1.Level 3.unity
     guid: 65dc97b653d98464fa69c480b8e05aff
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/2.Level 5.unity
     guid: a5050e68f9cc0ff4999a5d0c22a82113
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/3.Level 6.unity
     guid: b3531bda765f17b4caed09a917cbcc5b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/4.Level 21.unity
     guid: eb031b2132b4d04439e21572b66e53b0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/5.Level 48.unity
     guid: 20bea08ff617020408cac5b46fba07f2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/6.Level 54.unity
     guid: b1db4bb77353df14eb462ba8ba27c1cf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/7.Level 33.unity
     guid: 98c96d92024d29f4c81f5f16aee680f2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/8.Level 30.unity
     guid: a4ad122e6f239694bba516bef2d6c9c7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/9.Level 13.unity
     guid: 232457535c8652044bc0032da5b37228
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/10.Level 29.unity
     guid: 36bfd2e39fd58ea42874b6234c8cb0b0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/11.Level 26.unity
     guid: aa5df38f37b800848ababe26590fd2ee
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/12.Level 37.unity
     guid: 58d2b63b3dd1a814c93da2b9a1f02f8d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/13.Level 10.unity
     guid: e3a4a015ce756b145b870d119e61ead7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/14.Level 41.unity
     guid: d4951dcc0d6a8f44d977aa63d9253a07
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/15.Level 15.unity
     guid: ca02354579fc3904a8644e6e83a006ec
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/16.Level 20.unity
     guid: 8884bbb3c4ce8ef41ba681b9c2023e6f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/17.Level 28.unity
     guid: 9e6fbd6be8d877945af23a41eb4c1ca6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/18.Level 40.unity
     guid: 478dd7bd6842fd34aba047206d8deb70
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/19.Level 32.unity
     guid: 238f78be395fde04199e2cf9af1de918
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/20.Level 12.unity
     guid: 87d81722b7156414d8c512e7cd5c7a6c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/21.Level 53.unity
     guid: 72cdaadcca827384ead9656c0f494c01
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/22.Level 25.unity
     guid: 6061a19fc5ce6b64c8049819be64c5af
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/23.Level 22.unity
     guid: c18eb030889da494090226cffd134f2a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/24.Level 20.unity
     guid: d555950e4eba570419c4d821cf85579a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/25.Level 14.unity
     guid: dedebfc45ad95d8489898589e7665801
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/26.Level 16.unity
     guid: 868d0cdca8663df45b88c13ac42933cb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/27.Level 55.unity
     guid: bab2427262cd79046ae7e506467e44c0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/28.Level 38.unity
     guid: d347b4cc5a799ae418f460b8c3cb5495
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/29.Level 23.unity
     guid: 6432524ddd2ae504cb9e6e8dcbacc2c7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/30.Level 27.unity
     guid: cceeeeb5c82d8884eb6b38f53285be66
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/PhoneScreen.unity
     guid: 24798812ad06a244d859cceefac2b145
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoVersion/ResultScreen 1.unity
     guid: 5b0b0b72da2f9414a80d850fe5a2b8d2
   m_configObjects: {}

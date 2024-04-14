@@ -61,6 +61,6 @@ public class Pin : MonoBehaviour
             return true;
         return false;
     }
-    public int GetNumberOfUsage() => m_numOfUsages;  
+
     
 }

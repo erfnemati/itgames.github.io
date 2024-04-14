@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using System;
 
 public class UiManager : MonoBehaviour
 {
@@ -18,23 +19,27 @@ public class UiManager : MonoBehaviour
     [SerializeField] GameObject m_twoThirdAntenna;
     [SerializeField] GameObject m_CompleteAntenna;
 
-
+    private EventManager eventManager;
     private void OnEnable()
     {
-        LevelManager.OnLevelVictory += InvokeVictoryScreen;
-        LevelManager.OnLevelDefeat += ShowDefeatScreen;
-        LevelManager.OnLevelRetreat += ShowRetreatScreen;
+        eventManager.StartListening(EventName.OnLevelVictory, new Action(this.InvokeVictoryScreen));
+        eventManager.StartListening(EventName.OnLevelDefeat, new Action(this.ShowDefeatScreen));
+        eventManager.StartListening(EventName.OnLevelRetreat, new Action(this.ShowRetreatScreen));
         //Debug.Log("Ui manager enabling");
     }
 
     private void OnDisable()
     {
-        LevelManager.OnLevelDefeat -= ShowDefeatScreen;
-        LevelManager.OnLevelVictory -= InvokeVictoryScreen;
-        LevelManager.OnLevelRetreat -= ShowRetreatScreen;
+        eventManager.StopListening(EventName.OnLevelVictory, new Action(this.InvokeVictoryScreen));
+        eventManager.StopListening(EventName.OnLevelDefeat, new Action(this.ShowDefeatScreen));
+        eventManager.StopListening(EventName.OnLevelRetreat, new Action(this.ShowRetreatScreen));
         //Debug.Log("Ui manager disabling");
     }
 
+    private void Awake()
+    {
+        eventManager = ServiceLocator._instance.Get<EventManager>();
+    }
     private void Start()
     {
         UpdateNumberOfLives();
@@ -66,7 +71,7 @@ public class UiManager : MonoBehaviour
 
     private void ShowDefeatScreen()
     {
-        int m_numberOfLives = PlayerLifeManager._instance.GetCurrentNumberOfLives();
+        int m_numberOfLives = ServiceLocator._instance.Get<PlayerLifeManager>().GetCurrentNumberOfLives();
         m_blurredBackground.gameObject.SetActive(true);
         if (m_numberOfLives < 1)
         {
@@ -87,12 +92,8 @@ public class UiManager : MonoBehaviour
 
     private void UpdateNumberOfLives()
     {
-        if (PlayerLifeManager._instance == null)
-        {
-            return;
-        }
 
-        int m_numberOfLives = PlayerLifeManager._instance.GetCurrentNumberOfLives();
+        int m_numberOfLives = ServiceLocator._instance.Get<PlayerLifeManager>().GetCurrentNumberOfLives();
 
         if (m_numberOfLives == 1)
         {

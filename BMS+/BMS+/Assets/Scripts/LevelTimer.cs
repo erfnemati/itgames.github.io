@@ -3,39 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using RTLTMPro;
+using System;
+using GameData;
+using System.Linq;
 
-public class LevelTimer : MonoBehaviour
+
+public class LevelTimer : MonoBehaviour , IGameService
 {
-    public delegate void TimeOverAction();
-    public static event TimeOverAction OnTimeOver;
+
     bool m_isLevelOver = false;
     bool m_isLevelNearOver = false;
-
+    float offset = 0.25f;
     [SerializeField] float m_remainingTimer;
     [SerializeField] Slider m_timerSlider;
     [SerializeField] RTLTextMeshPro m_timerText;
     [SerializeField] AudioClip m_levelDefeatSoundEffect;
     [SerializeField] AudioClip m_nearLevelDefeatSoundEffect;
 
+    private EventManager eventManager;
+
+    private List<GameData.EventData> events;
     private void OnEnable()
     {
-        LevelManager.OnLevelVictory += StopTimer;
-        LevelManager.OnLevelDefeat += StopTimer;
-        LevelManager.OnLevelDefeat += PlayLevelDefeatSound;
-        LevelManager.OnLevelRetreat += PlayLevelDefeatSound;
-        LevelManager.OnLevelRetreat += StopTimer;
+        eventManager.StartListening(EventName.OnLevelVictory, new Action(StopTimer));
+        eventManager.StartListening(EventName.OnLevelDefeat, new Action(StopTimer));
+        eventManager.StartListening(EventName.OnLevelRetreat, new Action(StopTimer));
+        eventManager.StartListening(EventName.OnLevelRetreat, new Action(this.PlayLevelDefeatSound));
+        eventManager.StartListening(EventName.OnLevelDefeat, new Action(this.PlayLevelDefeatSound));
         //Debug.Log("Level Timer enabling");
     }
 
-  // [q] have multiple events function acroos the project
-    private void OnDisable()
+    private void Awake()
     {
-        LevelManager.OnLevelVictory -= StopTimer;
-        LevelManager.OnLevelDefeat -= StopTimer;
-        LevelManager.OnLevelDefeat -= PlayLevelDefeatSound;
-        LevelManager.OnLevelRetreat -= PlayLevelDefeatSound;
-        LevelManager.OnLevelRetreat -= StopTimer;
-        //Debug.Log("Level Timer disabling");
+        ServiceLocator._instance.Register(this);
+        eventManager = ServiceLocator._instance.Get<EventManager>();
+    }
+    // [q] have multiple events function acroos the project
+    public void OnDisable()
+    {
+        eventManager.StopListening(EventName.OnLevelVictory, new Action(StopTimer));
+        eventManager.StopListening(EventName.OnLevelDefeat, new Action(StopTimer));
+        eventManager.StopListening(EventName.OnLevelRetreat, new Action(StopTimer));
+        eventManager.StopListening(EventName.OnLevelRetreat, new Action(this.PlayLevelDefeatSound));
+        eventManager.StopListening(EventName.OnLevelDefeat, new Action(this.PlayLevelDefeatSound));
     }
     private void Start()
     {
@@ -56,16 +66,27 @@ public class LevelTimer : MonoBehaviour
     private void UpdateTimer()
     {
         m_remainingTimer -= Time.deltaTime;
+        CheckForBlitzEvent();
         if (m_remainingTimer < Mathf.Epsilon)
         {
             m_isLevelOver = true;
             //PlayerLifeManager._instance.DecrementNumOfLives();
-            OnTimeOver();
+            eventManager.TriggerEvent(EventName.OnTimeOver);
         }
         UpdateTimerUi();
     }
 
-    
+    private void CheckForBlitzEvent()
+    {
+        if(events != null)
+        {
+            EventData firstEvent = events.First();
+            if(m_remainingTimer + offset > firstEvent.time && m_remainingTimer - offset < firstEvent.time)
+            {
+                eventManager.TriggerEvent<EventData>(EventName.OnBlitzHappened,firstEvent);
+            }
+        }
+    }
     private void UpdateTimerUi()
     {
         UpdateTimerSlider();
@@ -115,5 +136,8 @@ public class LevelTimer : MonoBehaviour
         SoundManager._instance.PlaySoundEffect(m_levelDefeatSoundEffect);
     }
 
-    
+    public void SetBlitzModeInitials(List<EventData> events)
+    {
+        this.events = events;
+    }
 }

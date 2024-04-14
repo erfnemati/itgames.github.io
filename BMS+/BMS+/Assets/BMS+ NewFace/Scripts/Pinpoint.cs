@@ -8,7 +8,7 @@ using System.Linq;
 using RTLTMPro;
 using static UnityEngine.GraphicsBuffer;
 using System;
-public class Pinpoint1 : MonoBehaviour
+public class Pinpoint : MonoBehaviour
 {
     [SerializeField] List<ShapeManager> m_ownedShapes; //[Arch]: how to handle this in board designer 
     private Sprite pinpointInitalSprite;
@@ -32,13 +32,13 @@ public class Pinpoint1 : MonoBehaviour
     private DataManager dataManager;
     private LevelManager levelManager;
     private EventManager eventManager;
-    private Player1 player;
+    private Player player;
 
     private void Awake()
     {
         dataManager = ServiceLocator._instance.Get<DataManager>();
-        //levelManager = ServiceLocator._instance.Get<LevelManager>();
-        player = ServiceLocator._instance.Get<Player1>();
+        levelManager = ServiceLocator._instance.Get<LevelManager>();
+        player = ServiceLocator._instance.Get<Player>();
         eventManager = ServiceLocator._instance.Get<EventManager>();    
              
     }

@@ -15,8 +15,8 @@ public class PersistentDataManager : MonoBehaviour,IGameService
 {
 
     public const string m_playersInfoString = "PlayersInfo";
-    public static PersistentDataManager _instance;
 
+    private EventManager eventManager;
     PlayersInfo m_playersInfo;
     PlayerPersistentData m_currentData;
 
@@ -39,29 +39,41 @@ public class PersistentDataManager : MonoBehaviour,IGameService
 
     private void Awake()
     {
-       // ServiceLocator._instance.Register(this);
+        eventManager = ServiceLocator._instance.Get<EventManager>();
+        ServiceLocator._instance.Register(this);
         AddEvents();
     }
     private void AddEvents()
     {
-        LevelManager.OnLevelDefeat += IncrementNumOfConsumedLives;
-        PhoneScreenManager.EndLevel += TurnOffTimer;
-        PlayerLifeManager.GameIsOver += GetLevel;
-        LevelManager.OnLevelRetreat += GetLevel;
-        LevelManager.OnGameWin += GetLevelAfterWin;
+        eventManager.StartListening(EventName.OnLevelDefeat, new Action(IncrementNumOfConsumedLives));
+        eventManager.StartListening(EventName.EndLevel, new Action(TurnOffTimer));
+        eventManager.StartListening(EventName.GameIsOver, new Action(GetLevel));
+        eventManager.StartListening(EventName.OnLevelRetreat, new Action(GetLevel));
+        eventManager.StartListening(EventName.OnGameWin, new Action(GetLevelAfterWin));
+        //LevelManager.OnLevelDefeat += IncrementNumOfConsumedLives;
+        //PhoneScreenManager.EndLevel += TurnOffTimer;
+        //PlayerLifeManager.GameIsOver += GetLevel;
+        //LevelManager.OnLevelRetreat += GetLevel;
+        //LevelManager.OnGameWin += GetLevelAfterWin;
     }
 
-    public void PreDestroy()
+    public void OnDisable()
     {
-        LevelManager.OnLevelDefeat -= IncrementNumOfConsumedLives;
-        PhoneScreenManager.EndLevel -= TurnOffTimer;
-        PlayerLifeManager.GameIsOver -= GetLevel;
-        LevelManager.OnLevelRetreat -= GetLevel;
-        LevelManager.OnGameWin -= GetLevelAfterWin;
+        eventManager.StartListening(EventName.OnLevelDefeat, new Action(IncrementNumOfConsumedLives));
+        eventManager.StartListening(EventName.EndLevel, new Action(TurnOffTimer));
+        eventManager.StartListening(EventName.GameIsOver, new Action(GetLevel));
+        eventManager.StartListening(EventName.OnLevelRetreat, new Action(GetLevel));
+        eventManager.StartListening(EventName.OnGameWin, new Action(GetLevelAfterWin));
+        //LevelManager.OnLevelDefeat -= IncrementNumOfConsumedLives;
+        //PhoneScreenManager.EndLevel -= TurnOffTimer;
+        //PlayerLifeManager.GameIsOver -= GetLevel;
+        //LevelManager.OnLevelRetreat -= GetLevel;
+        //LevelManager.OnGameWin -= GetLevelAfterWin;
 
     }
     private void Start()
     {
+
         m_playersInfo = new PlayersInfo();
         Debug.Log("Instantiating new playersInfo object");
         m_saveDataPath = Application.dataPath + "LeaderBoardTextFile.json";
@@ -154,14 +166,14 @@ public class PersistentDataManager : MonoBehaviour,IGameService
     public void GetLevel()
     {
         Debug.Log("Getting Level");
-        int level = BmsPlusSceneManager._instance.GetCurrentLevel();
+        int level = ServiceLocator._instance.Get<BmsPlusSceneManager>().GetCurrentLevel();
         m_currentData.SetPlayerLastLevel(level -1);
         m_playerLastLevel = level -1;
     }
 
     public void GetLevelAfterWin()
     {
-        int level = BmsPlusSceneManager._instance.GetCurrentLevel();
+        int level = ServiceLocator._instance.Get<BmsPlusSceneManager>().GetCurrentLevel();
         m_currentData.SetPlayerLastLevel(level);
         m_playerLastLevel = level;
         Debug.Log("Our level is : " + level);

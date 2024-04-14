@@ -35,14 +35,14 @@ public class Pin1 : MonoBehaviour
         eventManager.StartListening(EventName.OnLevelDefeat, new Action(DisableButton));
         eventManager.StartListening(EventName.OnLevelRetreat, new Action(DisableButton));
         eventManager.StartListening(EventName.OnLevelVictory, new Action(DisableButton));
-        eventManager.StartListening(EventName.OnBlitzHappened, new Action<PinName>(BlitzEventIncrementUsage));
+       // eventManager.StartListening(EventName.OnBlitzHappened, new Action<PinName>(BlitzEventIncrementUsage));
     }
     public void OnEnable()
     {
         eventManager.StopListening(EventName.OnLevelDefeat, new Action(DisableButton));
         eventManager.StopListening(EventName.OnLevelRetreat, new Action(DisableButton));
         eventManager.StopListening(EventName.OnLevelVictory, new Action(DisableButton));
-        eventManager.StopListening(EventName.OnBlitzHappened, new Action<PinName>(BlitzEventIncrementUsage));
+        //eventManager.StopListening(EventName.OnBlitzHappened, new Action<PinName>(BlitzEventIncrementUsage));
 
     }
     private void Start()

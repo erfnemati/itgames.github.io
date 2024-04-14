@@ -22,12 +22,13 @@ public class TutorialManager : MonoBehaviour
         //m_currentState.SetActive(false);
         Destroy(m_currentState.gameObject);
         //The worst code here :
-        Player._instance = null;
         m_stateList[m_lastListIndex].SetActive(true);
         m_currentState = m_stateList[m_lastListIndex];
 
         
     }
+
+    public void SkipTutorial() => ServiceLocator._instance.Get<BmsPlusSceneManager>().LoadNextLevel();
 
     
 

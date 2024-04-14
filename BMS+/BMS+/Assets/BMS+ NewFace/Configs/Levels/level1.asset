@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52874fb3155104a41b439201daa3d087, type: 3}
   m_Name: level1
   m_EditorClassIdentifier: 
-  gameMode: 2
+  gameMode: 0
   shapeType: 0
   dificaulty: 0
   pins:

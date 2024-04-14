@@ -21,7 +21,10 @@ public enum EventName
     OnBlitzHappened,
     //
     TheEnd,
-    GameDuration
+    GameDuration,
+    //
+    EndLevel,
+    GameIsOver,
 }
 
 
@@ -106,5 +109,5 @@ public class EventManager : IGameService
             }
         }
     }
-    public void PreDestroy() { }
+    public void OnDisable() { }
 }

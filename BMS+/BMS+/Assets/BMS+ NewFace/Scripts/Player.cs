@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player1 :IGameService
+public class Player :IGameService
 {
     public Pin1 m_currentPlayerPin {  get; private set; }
 
     private AudioClip m_playerChoosingSound;
     LevelManager m_levelManager;
 
-    public Player1()
+    public Player()
     {
         ServiceLocator._instance.Register(this);
         AddEvents();
@@ -23,7 +23,7 @@ public class Player1 :IGameService
     {
         m_playerChoosingSound=ServiceLocator._instance.Get<DataManager>().GetData<ConfigData.SoundConfigData>((int)GameEnums.SoundName.playerChoosingSound).audioClip;
     }
-    public void PreDestroy()
+    public void OnDisable()
     {
     }
 

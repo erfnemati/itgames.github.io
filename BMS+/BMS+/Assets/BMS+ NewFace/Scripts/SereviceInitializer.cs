@@ -11,12 +11,12 @@ public class SereviceInitializer : MonoBehaviour,IGameService
         ServiceLocator._instance.Register<SereviceInitializer>(this, gameObject);
         InitializeService<EventManager>();
         InitializeService<PersistentDataManager>();
-        InitializeService<PlayerLifeManager>();
+        //InitializeService<PlayerLifeManager>();
 
     }
 
     private void InitalizeServiceLocator()=>ServiceLocator.Initialize();
     private void InitializeService<T>() where T : new() => new T();
 
-    public void PreDestroy() { }
+    public void OnDisable() { }
 }

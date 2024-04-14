@@ -17,45 +17,42 @@ public class LeaderBoardManager : MonoBehaviour
     private void LoadLeaderBoard()
     {
         m_cashedData.Clear();
-        if (PersistentDataManager._instance != null)
-        {
-            List<PlayerPersistentData> playerPersistentDatas = PersistentDataManager._instance.GetPlayersInfo();
+        List<PlayerPersistentData> playerPersistentDatas = ServiceLocator._instance.Get<PersistentDataManager>().GetPlayersInfo();
          
-            Vector3 initialLocalPos = m_leaderboardElement.GetComponent<RectTransform>().localPosition;
-            float leaderboardElementHeight = m_leaderboardElement.GetComponent<RectTransform>().rect.height;
-            int i = 0;
-            int numberOfCashedItems = 0;
-            while (numberOfCashedItems < m_numOfLeaderboardItems)
+        Vector3 initialLocalPos = m_leaderboardElement.GetComponent<RectTransform>().localPosition;
+        float leaderboardElementHeight = m_leaderboardElement.GetComponent<RectTransform>().rect.height;
+        int i = 0;
+        int numberOfCashedItems = 0;
+        while (numberOfCashedItems < m_numOfLeaderboardItems)
+        {
+            if(i > playerPersistentDatas.Count -1)
             {
-                if(i > playerPersistentDatas.Count -1)
-                {
-                    break;
-                }
+                break;
+            }
 
-                if (m_cashedData.Contains(playerPersistentDatas[i].GetPhoneNumber()))
-                {
-                    i++;
-                    continue;
+            if (m_cashedData.Contains(playerPersistentDatas[i].GetPhoneNumber()))
+            {
+                i++;
+                continue;
                   
-                }
-                else
-                {
-                    int rank = numberOfCashedItems + 1;
-                    string phoneNumber = playerPersistentDatas[i].GetPhoneNumber();
-                    int passedTime = (int)playerPersistentDatas[i].GetPlayingTime();
-                    int lastPassedLevel = playerPersistentDatas[i].GetPlayerLastLevel();
-                    m_cashedData.Add(phoneNumber);
+            }
+            else
+            {
+                int rank = numberOfCashedItems + 1;
+                string phoneNumber = playerPersistentDatas[i].GetPhoneNumber();
+                int passedTime = (int)playerPersistentDatas[i].GetPlayingTime();
+                int lastPassedLevel = playerPersistentDatas[i].GetPlayerLastLevel();
+                m_cashedData.Add(phoneNumber);
 
-                    GameObject temp = Instantiate(m_leaderboardElement, m_leaderboardObject.transform);
-                    temp.GetComponent<LeaderBoardElementHandler>().SetElements(rank, phoneNumber, lastPassedLevel, passedTime);
-                    temp.transform.localPosition = new Vector3
-                        (initialLocalPos.x,
-                        initialLocalPos.y - (leaderboardElementHeight * numberOfCashedItems),
-                        initialLocalPos.z);
-                    temp.gameObject.SetActive(true);
-                    numberOfCashedItems++;
-                    i++;
-                }
+                GameObject temp = Instantiate(m_leaderboardElement, m_leaderboardObject.transform);
+                temp.GetComponent<LeaderBoardElementHandler>().SetElements(rank, phoneNumber, lastPassedLevel, passedTime);
+                temp.transform.localPosition = new Vector3
+                    (initialLocalPos.x,
+                    initialLocalPos.y - (leaderboardElementHeight * numberOfCashedItems),
+                    initialLocalPos.z);
+                temp.gameObject.SetActive(true);
+                numberOfCashedItems++;
+                i++;
             }
         }
     }

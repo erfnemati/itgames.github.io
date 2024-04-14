@@ -1,56 +1,61 @@
+using ConfigData;
+using GameEnums;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : MonoBehaviour, IGameService
 {
-    public static LevelManager _instance;
-    [SerializeField] ReferenceGameBoard m_referenceGameBoard;
-    [SerializeField] GameBoard m_gameBoard;
-    [SerializeField] List<Button> m_towerButtons = new List<Button>();
+    //[SerializeField] ReferenceGameBoard m_referenceGameBoard;
+    //[SerializeField] GameBoard m_gameBoard;
+    //[SerializeField] List<Button> m_towerButtons = new List<Button>();
     [SerializeField] AudioClip m_victorySound;
+    private EventManager eventManager;
+    private BmsPlusSceneManager bmsPlusSceneManager;
+    private PlayerLifeManager playerLifeManager;
+    private PersistentDataManager persistentDataManager;
+    private LevelInitializer levelInitalizer;
+    private LevelConfigData levelConfig;
+    private List<ShapeManager> shapeManagerList;
+    private List<ReferenceShapeManager> referenceShapeManagerList;
 
-    public delegate void EndLevelAction();
-    public static event EndLevelAction OnLevelVictory;
-    public static event EndLevelAction OnLevelDefeat;
-    public static event EndLevelAction OnLevelRetreat;
-    public static event EndLevelAction OnGameWin;
+    //public delegate void EndLevelAction();
+    //public static event EndLevelAction OnLevelVictory;
+    //public static event EndLevelAction OnLevelDefeat;
+    //public static event EndLevelAction OnLevelRetreat;
+    //public static event EndLevelAction OnGameWin;
 
 
     private void OnEnable()
     {
-        LevelTimer.OnTimeOver += LostLevel;
-        //LevelTimer.OnTimeOver += DeactivateTowerButtons;
-        OnLevelDefeat += DeactivateTowerButtons;
-        OnLevelVictory += PlayVictorySound;
-        OnLevelVictory += DeactivateTowerButtons;
-        OnLevelRetreat += DeactivateTowerButtons;
+
+        eventManager.StartListening(EventName.OnTimeOver, new Action(this.LostLevel));
+        eventManager.StartListening(EventName.OnLevelVictory,new Action(this.PlayVictorySound));
+
         //Debug.Log("Level manager enabling");
 
     }
-
-    private void OnDisable()
+    public void OnDisable()
     {
-        LevelTimer.OnTimeOver -= LostLevel;
-        //LevelTimer.OnTimeOver -= DeactivateTowerButtons;
-        OnLevelDefeat -= DeactivateTowerButtons;
-        OnLevelVictory -= PlayVictorySound;
-        OnLevelVictory -= DeactivateTowerButtons;
-        OnLevelRetreat -= DeactivateTowerButtons;
-        //Debug.Log("Level manager disabling");
+        eventManager.StopListening(EventName.OnTimeOver, new Action(this.LostLevel));
+        eventManager.StopListening(EventName.OnLevelVictory, new Action(this.PlayVictorySound));
     }
 
     private void Awake()
     {
-        if(_instance != null && _instance!= this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            _instance = this;
-        }
+        ServiceLocator._instance.Register(this);
+        m_victorySound = ServiceLocator._instance.Get<DataManager>().GetData<SoundConfigData>((int)SoundName.victorySound).audioClip;
+        eventManager = ServiceLocator._instance.Get<EventManager>();
+        levelConfig = ServiceLocator._instance.Get<BmsPlusSceneManager>().levelToLoad;
+        playerLifeManager = new PlayerLifeManager();
+        levelInitalizer = new LevelInitializer(levelConfig);
+        new Player();
+        levelInitalizer.InitalizeLevelFromConfig();
+        shapeManagerList = levelInitalizer.GetGeneratedShapes();
+        referenceShapeManagerList = levelInitalizer.GetGeneratedReferenceShapes();
+
     }
 
     private void Update() //[con]: whats this for
@@ -65,20 +70,18 @@ public class LevelManager : MonoBehaviour
 
     public void CompareBoards()
     {
-        List<Hexagon> gameBoardHexagons = m_gameBoard.GetHexagons();
-        List<ReferenceHexagon> referenceHexagons = m_referenceGameBoard.GetReferenceHexagons();
 
-        if (gameBoardHexagons.Count != referenceHexagons.Count)
+        if (shapeManagerList.Count != referenceShapeManagerList.Count)
         {
             Debug.Log("Something wrong with gameboard hexagons and reference hexagons");
             return;
         }
         
-        for(int i = 0; i <gameBoardHexagons.Count; i++)
+        for(int i = 0; i <shapeManagerList.Count; i++)
         {
-            if (gameBoardHexagons[i].GetHexagonColor() == referenceHexagons[i].GetHexagonColor())
+            if (shapeManagerList[i].GetShapeColor() == referenceShapeManagerList[i].GetShapeColor())
             {
-                if (gameBoardHexagons[i].GetHexagonNumber() == referenceHexagons[i].GetHexagonNumber())
+                if (shapeManagerList[i].GetShapeColor() == referenceShapeManagerList[i].GetShapeColor())
                 {
                     continue;
                 }
@@ -98,22 +101,16 @@ public class LevelManager : MonoBehaviour
         WinLevel();
     }
 
-    private void DeactivateTowerButtons()
-    {
-        foreach(Button tempButton in m_towerButtons)
-        {
-            tempButton.enabled = false;
-        }
-    }
 
     private void WinLevel()
     {
         
         Debug.Log("You have won");
-        OnLevelVictory();
-        if (BmsPlusSceneManager._instance.IsLastLvl())
+        eventManager.TriggerEvent(EventName.OnLevelVictory);
+        if (bmsPlusSceneManager.IsLastLvl())
         {
-            OnGameWin();
+            eventManager.TriggerEvent(EventName.OnGameWin);
+
         }
 
     }
@@ -121,11 +118,8 @@ public class LevelManager : MonoBehaviour
     private void LostLevel()
     {
         Debug.Log("You have lost");
-        if (PlayerLifeManager._instance != null)
-        {
-            PlayerLifeManager._instance.DecrementNumOfLives();
-        }
-        OnLevelDefeat();
+        playerLifeManager.DecrementNumOfLives();
+        eventManager.TriggerEvent(EventName.OnLevelDefeat);
     }
 
     public void RetreatLevel()
@@ -135,17 +129,14 @@ public class LevelManager : MonoBehaviour
 
     public void RetreatMainMenu()
     {
-        int numOfCurrentLives = PlayerLifeManager._instance.GetCurrentNumberOfLives();
+        int numOfCurrentLives = playerLifeManager.GetCurrentNumberOfLives();
         for (int i = 0; i < numOfCurrentLives;i++)
         {
             Debug.Log("Oops i am here");
-            if(PersistentDataManager._instance != null)
-            {
-                PersistentDataManager._instance.IncrementNumOfConsumedLives();
-            }
-            PlayerLifeManager._instance.DecrementNumOfLives();
+            persistentDataManager.IncrementNumOfConsumedLives();
+            playerLifeManager.DecrementNumOfLives();
         }
-        OnLevelRetreat();
+        eventManager.TriggerEvent(EventName.OnLevelRetreat);
     }
 
     private void PlayVictorySound()
