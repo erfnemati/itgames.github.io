@@ -61,12 +61,6 @@ public class ResultScreenManager : MonoBehaviour
 
     public void QuitFromResultScreen()
     {
-        PersistentDataManager persistentDataManager = FindObjectOfType<PersistentDataManager>();
-        if (persistentDataManager != null)
-        {
-            Destroy(persistentDataManager);
-        }
-
-        SceneManager.LoadScene(0);
+        ServiceLocator._instance.Get<BmsPlusSceneManager>().LoadMainMenu();
     }
 }

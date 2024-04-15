@@ -14,7 +14,7 @@ public class ReferenceShapeManager : ShapeManager
         eventManager.StopListening(EventName.OnColorAdded, new Action<int, VectorInt>(AddColorRoutine));
         eventManager.StopListening(EventName.OnColorRemoved, new Action<int, VectorInt>(RemoveColorRoutine));
     }
-    private void OnDisable()
+    private void OnDestroy()
     {
         eventManager.StopListening(EventName.OnBlitzHappened, new Action<int, VectorInt>(BlitzEventRoutine));
     }

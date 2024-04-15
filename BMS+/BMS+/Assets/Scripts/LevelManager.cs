@@ -15,7 +15,6 @@ public class LevelManager : MonoBehaviour, IGameService
     private EventManager eventManager;
     private BmsPlusSceneManager bmsPlusSceneManager;
     private PlayerLifeManager playerLifeManager;
-    private PersistentDataManager persistentDataManager;
     private LevelInitializer levelInitalizer;
     private LevelConfigData levelConfig;
     private List<ShapeManager> shapeManagerList;
@@ -37,10 +36,11 @@ public class LevelManager : MonoBehaviour, IGameService
         //Debug.Log("Level manager enabling");
 
     }
-    public void OnDisable()
+    public void OnDestroy()
     {
         eventManager.StopListening(EventName.OnTimeOver, new Action(this.LostLevel));
         eventManager.StopListening(EventName.OnLevelVictory, new Action(this.PlayVictorySound));
+        ServiceLocator._instance.Unregister<LevelManager>();
     }
 
     private void Awake()
@@ -49,7 +49,7 @@ public class LevelManager : MonoBehaviour, IGameService
         m_victorySound = ServiceLocator._instance.Get<DataManager>().GetData<SoundConfigData>((int)SoundName.victorySound).audioClip;
         eventManager = ServiceLocator._instance.Get<EventManager>();
         levelConfig = ServiceLocator._instance.Get<BmsPlusSceneManager>().levelToLoad;
-        playerLifeManager = new PlayerLifeManager();
+        bmsPlusSceneManager = ServiceLocator._instance.Get<BmsPlusSceneManager>();
         levelInitalizer = new LevelInitializer(levelConfig);
         new Player();
         levelInitalizer.InitalizeLevelFromConfig();
@@ -58,13 +58,13 @@ public class LevelManager : MonoBehaviour, IGameService
 
     }
 
-    private void Update() //[con]: whats this for
-    {
-        if (Input.GetKeyUp(KeyCode.RightArrow))
-        {
-            WinLevel();
-        }
-    }
+    //private void Update() //[con]: whats this for
+    //{
+    //    if (Input.GetKeyUp(KeyCode.RightArrow))
+    //    {
+    //        WinLevel();
+    //    }
+    //}
 
 
 
@@ -118,7 +118,6 @@ public class LevelManager : MonoBehaviour, IGameService
     private void LostLevel()
     {
         Debug.Log("You have lost");
-        playerLifeManager.DecrementNumOfLives();
         eventManager.TriggerEvent(EventName.OnLevelDefeat);
     }
 
@@ -133,7 +132,7 @@ public class LevelManager : MonoBehaviour, IGameService
         for (int i = 0; i < numOfCurrentLives;i++)
         {
             Debug.Log("Oops i am here");
-            persistentDataManager.IncrementNumOfConsumedLives();
+            ServiceLocator._instance.Get<PersistentDataManager>().IncrementNumOfConsumedLives();
             playerLifeManager.DecrementNumOfLives();
         }
         eventManager.TriggerEvent(EventName.OnLevelRetreat);

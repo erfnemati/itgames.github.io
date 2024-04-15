@@ -253,6 +253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 167459322}
   - component: {fileID: 167459321}
+  - component: {fileID: 167459323}
   m_Layer: 0
   m_Name: UiManager
   m_TagString: Untagged
@@ -298,6 +299,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &167459323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167459320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 494cc52158d00a44f84402768abb476c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &240711378 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1890465822349113175, guid: 4887be68de67777498269945c5546e7f, type: 3}
@@ -725,6 +738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf73d5fa24de44440a6dd5dab32794ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_victorySound: {fileID: 0}
 --- !u!4 &1033321826
 Transform:
   m_ObjectHideFlags: 0
@@ -1177,10 +1191,26 @@ PrefabInstance:
     - target: {fileID: 326192572, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 167459323}
+    - target: {fileID: 326192572, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMainMenue
+      objectReference: {fileID: 0}
+    - target: {fileID: 326192572, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIButtonManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 102001893260820326, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 167459323}
+    - target: {fileID: 102001893260820326, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RetryAfterLooseLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 102001893260820326, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIButtonManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 153913289284048097, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_Pivot.x
@@ -1269,22 +1299,54 @@ PrefabInstance:
     - target: {fileID: 290403949397159404, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 167459323}
+    - target: {fileID: 290403949397159404, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadNextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 290403949397159404, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIButtonManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1871486455199820101, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 167459323}
+    - target: {fileID: 1871486455199820101, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RetryAfterLooseLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871486455199820101, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIButtonManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4539182031391647371, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 167459323}
     - target: {fileID: 4539182031391647371, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RetreatMainMenu
+      value: LoadMainMenue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539182031391647371, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIButtonManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5073621847664679800, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 167459323}
+    - target: {fileID: 5073621847664679800, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RetryAfterWinLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073621847664679800, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIButtonManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741838548151641909, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6899264033022579493, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

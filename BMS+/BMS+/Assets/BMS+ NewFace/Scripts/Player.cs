@@ -23,7 +23,7 @@ public class Player :IGameService
     {
         m_playerChoosingSound=ServiceLocator._instance.Get<DataManager>().GetData<ConfigData.SoundConfigData>((int)GameEnums.SoundName.playerChoosingSound).audioClip;
     }
-    public void OnDisable()
+    public void OnDestroy()
     {
     }
 

@@ -28,7 +28,7 @@ public class UiManager : MonoBehaviour
         //Debug.Log("Ui manager enabling");
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         eventManager.StopListening(EventName.OnLevelVictory, new Action(this.InvokeVictoryScreen));
         eventManager.StopListening(EventName.OnLevelDefeat, new Action(this.ShowDefeatScreen));
@@ -63,8 +63,8 @@ public class UiManager : MonoBehaviour
     {
         targetGameObject.gameObject.SetActive(true);
         Vector3 initialScale = targetGameObject.transform.localScale;
-        targetGameObject.transform.localScale = Vector3.zero;
-        targetGameObject.transform.DOScale(initialScale, m_scalingTime).SetEase(Ease.InOutCubic);
+        //targetGameObject.transform.localScale = Vector3.zero;
+        //targetGameObject.transform.DOScale(initialScale, m_scalingTime).SetEase(Ease.InOutCubic);[Bug]
 
     }
 

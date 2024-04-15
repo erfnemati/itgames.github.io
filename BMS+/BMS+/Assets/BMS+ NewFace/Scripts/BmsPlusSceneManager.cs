@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,9 +11,10 @@ public class BmsPlusSceneManager : MonoBehaviour, IGameService
         MainMenu,
         //Tutorial,
         levelScene,
-        phoneScreen
+        phoneScreen,
+        ResualtScreen
     }
-    private int currentLevel=0;
+    private int currentLevel=-1;
     private List<LevelConfigData> levels;
     private PlayerLifeManager playerLifeManager;
     public LevelConfigData levelToLoad { get; private set; }
@@ -32,7 +34,7 @@ public class BmsPlusSceneManager : MonoBehaviour, IGameService
     {
 
         //playerLifeManager.ResetNumOfLives(); // this should be done in events OnLeveREatreat ...
-        levelToLoad = levels[currentLevel++];
+        levelToLoad = levels[++currentLevel];
         SceneManager.LoadScene((int)SceneName.levelScene);
     }
   //  public void LoadTutorial() => SceneManager.LoadScene((int)SceneName.Tutorial);
@@ -44,7 +46,6 @@ public class BmsPlusSceneManager : MonoBehaviour, IGameService
         SceneManager.LoadScene((int)SceneName.levelScene);
         
     }
-
     public void LoadMainMenu()
     {
         //Debug.Log("Loading main menu");
@@ -88,5 +89,10 @@ public class BmsPlusSceneManager : MonoBehaviour, IGameService
         }
         return false;
     }
-    public void OnDisable() { }
+    public void OnDestroy() { }
+
+    public void LoeadRsualtScreen()
+    {
+        SceneManager.LoadScene((int)SceneName.ResualtScreen);
+    }
 }

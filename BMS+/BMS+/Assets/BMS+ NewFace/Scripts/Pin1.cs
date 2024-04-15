@@ -37,8 +37,9 @@ public class Pin1 : MonoBehaviour
         eventManager.StartListening(EventName.OnLevelVictory, new Action(DisableButton));
        // eventManager.StartListening(EventName.OnBlitzHappened, new Action<PinName>(BlitzEventIncrementUsage));
     }
-    public void OnEnable()
+    public void OnDestroy()
     {
+        Debug.Log("Pin Bye Bye");
         eventManager.StopListening(EventName.OnLevelDefeat, new Action(DisableButton));
         eventManager.StopListening(EventName.OnLevelRetreat, new Action(DisableButton));
         eventManager.StopListening(EventName.OnLevelVictory, new Action(DisableButton));

@@ -23,6 +23,7 @@ public class SkipButtonController : MonoBehaviour
         if (m_numOfTries  >= m_waitForExit)
         {
             Debug.Log("Skipping");
+            ServiceLocator._instance.Get<PlayerLifeManager>().ResetNumOfLives();
             ServiceLocator._instance.Get<BmsPlusSceneManager>().LoadNextLevel();
         }
         m_numOfTries++;

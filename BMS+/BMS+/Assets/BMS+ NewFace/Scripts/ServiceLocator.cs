@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public interface IGameService {
-    public void OnDisable();
+    public void OnDestroy();
 }
 
 public class ServiceLocator
@@ -45,7 +45,7 @@ public class ServiceLocator
     public void Unregister<T>() where T : IGameService
     {
         services.TryGetValue(typeof(T).Name, out var service);
-        service.OnDisable();
+        //service.OnDestroy();
         services.Remove(typeof(T).Name);
     }
 }

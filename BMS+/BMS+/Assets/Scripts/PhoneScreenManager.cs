@@ -7,24 +7,23 @@ public class PhoneScreenManager : MonoBehaviour
 {
 
     public static string _phoneScreenLevelName = "PhoneScreen";
-    public delegate void TheEnd();
-    public static event TheEnd EndLevel;
+
 
     // Start is called before the first frame update
     private void Start()
     {
-        EndLevel();
+        ServiceLocator._instance.Get<EventManager>().TriggerEvent(EventName.TheEnd);
     }
 
     public void QuitFromPhoneScreen()
     {
-        PersistentDataManager persistentDataManager = FindObjectOfType<PersistentDataManager>();
-        if (persistentDataManager != null)
-        {
-            Destroy(persistentDataManager);
-        }
+        //PersistentDataManager persistentDataManager = FindObjectOfType<PersistentDataManager>();
+        //if (persistentDataManager != null)
+        //{
+        //    Destroy(persistentDataManager);
+        //}
 
-        SceneManager.LoadScene(0);
+        ServiceLocator._instance.Get<BmsPlusSceneManager>().LoadMainMenu();
     }
 
 

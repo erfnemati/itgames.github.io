@@ -23,7 +23,7 @@ public class PlayerLifeManager : IGameService
         //m_currentNumOfLives = 
 
     }
-    public void OnDisable()
+    public void OnDestroy()
     {
 
     }

@@ -39,7 +39,7 @@ public class LevelTimer : MonoBehaviour , IGameService
         eventManager = ServiceLocator._instance.Get<EventManager>();
     }
     // [q] have multiple events function acroos the project
-    public void OnDisable()
+    public void OnDestroy()
     {
         eventManager.StopListening(EventName.OnLevelVictory, new Action(StopTimer));
         eventManager.StopListening(EventName.OnLevelDefeat, new Action(StopTimer));

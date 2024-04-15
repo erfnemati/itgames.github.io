@@ -1,0 +1,1464 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52874fb3155104a41b439201daa3d087, type: 3}
+  m_Name: 28.Level 38
+  m_EditorClassIdentifier: 
+  gameMode: 0
+  shapeType: 0
+  dificaulty: 0
+  pins:
+    boardLocation: {x: 1.64, y: 1.8, z: 0}
+    boardScale: {x: 1, y: 1, z: 1}
+    shapes:
+    - pinCapacity: 3
+      pincolor:
+        a: 1
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    - pinCapacity: 4
+      pincolor:
+        a: 0
+        b: 1
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    - pinCapacity: 5
+      pincolor:
+        a: 0
+        b: 0
+        c: 1
+        d: 0
+        e: 0
+        f: 0
+  GameBoardCanvas:
+    boardLocation: {x: 0.8, y: 0.4, z: 0.03}
+    boardScale: {x: 0.8, y: 0.8, z: 0.8}
+    shapes:
+    - shapeId: 0
+      Position: {x: -1.2155073, y: 3.1142693, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 0
+    - shapeId: 1
+      Position: {x: -1.9655073, y: 3.1142693, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 0
+    - shapeId: 2
+      Position: {x: -2.7255073, y: 3.1142693, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 0
+    - shapeId: 3
+      Position: {x: -0.8255074, y: 2.4542694, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 0
+    - shapeId: 4
+      Position: {x: -1.5755074, y: 2.4542694, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 0
+    - shapeId: 5
+      Position: {x: -2.3355074, y: 2.4542694, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 0
+    - shapeId: 6
+      Position: {x: -3.0955074, y: 2.4542694, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 0
+    - shapeId: 7
+      Position: {x: -0.4355073, y: 1.8042694, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 0
+    - shapeId: 8
+      Position: {x: -1.1855073, y: 1.8042694, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 0
+    - shapeId: 9
+      Position: {x: -1.9455073, y: 1.8042694, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 0
+    - shapeId: 10
+      Position: {x: -2.7055073, y: 1.8042694, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 0
+    - shapeId: 11
+      Position: {x: -3.4355073, y: 1.8042694, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 0
+    - shapeId: 12
+      Position: {x: -0.8355073, y: 1.1442696, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 0
+    - shapeId: 13
+      Position: {x: -1.5855074, y: 1.1442696, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 0
+    - shapeId: 14
+      Position: {x: -2.3455074, y: 1.1442696, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 0
+    - shapeId: 15
+      Position: {x: -3.1055071, y: 1.1442696, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 0
+    - shapeId: 16
+      Position: {x: -1.1955073, y: 0.4942695, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 0
+    - shapeId: 17
+      Position: {x: -1.9555073, y: 0.4942695, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 0
+    - shapeId: 18
+      Position: {x: -2.715507, y: 0.4942695, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 0
+  ReferenceGameBoard:
+    boardLocation: {x: 2, y: -2, z: 0.03}
+    boardScale: {x: 0.6, y: 0.6, z: 0.6}
+    shapes:
+    - shapeId: 0
+      Position: {x: -1.16, y: 3.2, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 1
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 1
+    - shapeId: 1
+      Position: {x: -1.931, y: 3.192, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 1
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 1
+    - shapeId: 2
+      Position: {x: -2.708, y: 3.206, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 1
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 1
+    - shapeId: 3
+      Position: {x: -0.758, y: 2.534, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 1
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 2
+    - shapeId: 4
+      Position: {x: -1.541, y: 2.528, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 1
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 3
+    - shapeId: 5
+      Position: {x: -2.323, y: 2.528, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 1
+        c: 1
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 2
+    - shapeId: 6
+      Position: {x: -3.093, y: 2.529, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 1
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 1
+    - shapeId: 7
+      Position: {x: -0.368, y: 1.862, z: -0.036807645}
+      ColorData:
+        a: 1
+        b: 0
+        c: 1
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 2
+    - shapeId: 8
+      Position: {x: -1.146, y: 1.869, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 0
+        c: 1
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 2
+    - shapeId: 9
+      Position: {x: -1.928, y: 1.856, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 1
+        c: 1
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 3
+    - shapeId: 10
+      Position: {x: -2.711, y: 1.851, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 1
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 2
+    - shapeId: 11
+      Position: {x: -3.481, y: 1.859, z: -0.036807645}
+      ColorData:
+        a: 0
+        b: 1
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 1
+    - shapeId: 12
+      Position: {x: -0.759, y: 1.192, z: -0.036807645}
+      ColorData:
+        a: 1
+        b: 0
+        c: 1
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 2
+    - shapeId: 13
+      Position: {x: -1.526, y: 1.185, z: -0.036807645}
+      ColorData:
+        a: 1
+        b: 0
+        c: 1
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 2
+    - shapeId: 14
+      Position: {x: -2.314, y: 1.172, z: -0.036807645}
+      ColorData:
+        a: 1
+        b: 1
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 2
+    - shapeId: 15
+      Position: {x: -3.098, y: 1.173, z: -0.036807645}
+      ColorData:
+        a: 1
+        b: 1
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 2
+    - shapeId: 16
+      Position: {x: -1.137, y: 0.509, z: -0.036807645}
+      ColorData:
+        a: 1
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 1
+    - shapeId: 17
+      Position: {x: -1.909, y: 0.51, z: -0.036807645}
+      ColorData:
+        a: 1
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 1
+    - shapeId: 18
+      Position: {x: -2.695, y: 0.503, z: -0.036807645}
+      ColorData:
+        a: 1
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+      shapeAddedNumber: 1
+  gameBoardPinPoints:
+  - position: {x: -2.7189999, y: 3.541, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 02000000
+  - position: {x: -3.102, y: 3.3309999, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 02000000
+  - position: {x: -3.102, y: 2.8899999, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 0200000006000000
+  - position: {x: -3.4699998, y: 2.672, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 06000000
+  - position: {x: -3.4699998, y: 2.224, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 060000000b000000
+  - position: {x: -3.813, y: 2.017, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 0b000000
+  - position: {x: -3.813, y: 1.589, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 0b000000
+  - position: {x: -3.4699998, y: 1.3740001, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 0b0000000f000000
+  - position: {x: -3.4699998, y: 0.93200004, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 0f000000
+  - position: {x: -3.102, y: 0.70500004, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 0f00000012000000
+  - position: {x: -3.102, y: 0.28499997, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 12000000
+  - position: {x: -2.7189999, y: 0.06400001, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 12000000
+  - position: {x: -2.3339999, y: 0.28499997, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 1200000011000000
+  - position: {x: -1.9549999, y: 0.06400001, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 11000000
+  - position: {x: -1.573, y: 0.26900005, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 1100000010000000
+  - position: {x: -1.194, y: 0.06400001, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 10000000
+  - position: {x: -0.809, y: 0.28499997, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 10000000
+  - position: {x: -0.8249999, y: 0.70500004, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 0c00000010000000
+  - position: {x: -0.4649999, y: 0.93200004, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 0c000000
+  - position: {x: -0.44599998, y: 1.358, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 070000000c000000
+  - position: {x: -0.06099999, y: 1.589, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 07000000
+  - position: {x: -0.06099999, y: 2.017, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 07000000
+  - position: {x: -0.44599998, y: 2.247, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 0300000007000000
+  - position: {x: -0.44599998, y: 2.672, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 03000000
+  - position: {x: -0.83599997, y: 2.8990002, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 0000000003000000
+  - position: {x: -0.844, y: 3.3309999, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 00000000
+  - position: {x: -1.207, y: 3.541, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 00000000
+  - position: {x: -1.589, y: 3.355, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 0000000001000000
+  - position: {x: -1.9549999, y: 3.541, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 01000000
+  - position: {x: -2.345, y: 3.337, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 0100000002000000
+  - position: {x: -2.7189999, y: 2.672, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 020000000500000006000000
+  - position: {x: -2.345, y: 2.8990002, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 010000000200000005000000
+  - position: {x: -1.9549999, y: 2.684, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 010000000400000005000000
+  - position: {x: -1.5889999, y: 2.89, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 000000000100000004000000
+  - position: {x: -1.1999999, y: 2.693, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 000000000300000004000000
+  - position: {x: -3.077, y: 2.026, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 060000000a0000000b000000
+  - position: {x: -2.7189999, y: 2.238, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 05000000060000000a000000
+  - position: {x: -2.327, y: 2.026, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 05000000090000000a000000
+  - position: {x: -1.9549999, y: 2.247, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 040000000500000009000000
+  - position: {x: -1.5639999, y: 2.026, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 040000000800000009000000
+  - position: {x: -1.1940001, y: 2.238, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 030000000400000008000000
+  - position: {x: -0.8089999, y: 2.026, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 030000000700000008000000
+  - position: {x: -3.077, y: 1.58, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 0a0000000b0000000f000000
+  - position: {x: -2.7189999, y: 1.3580002, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 0a0000000e0000000f000000
+  - position: {x: -2.3270001, y: 1.58, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 090000000a0000000e000000
+  - position: {x: -1.9729999, y: 1.3739998, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 090000000d0000000e000000
+  - position: {x: -1.564, y: 1.5800002, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 08000000090000000d000000
+  - position: {x: -1.2070001, y: 1.3740001, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 080000000c0000000d000000
+  - position: {x: -0.8089999, y: 1.5800002, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 07000000080000000c000000
+  - position: {x: -2.728, y: 0.93200004, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 0e0000000f00000012000000
+  - position: {x: -2.334, y: 0.70500004, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 0e0000001100000012000000
+  - position: {x: -1.9649999, y: 0.93200004, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 0d0000000e00000011000000
+  - position: {x: -1.573, y: 0.70500004, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 0d0000001000000011000000
+  - position: {x: -1.207, y: 0.919, z: 0}
+    pinPointColor:
+      a: 0
+      b: 0
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    pinData:
+      pinCapacity: 0
+      pincolor:
+        a: 0
+        b: 0
+        c: 0
+        d: 0
+        e: 0
+        f: 0
+    InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
+    neighborShapes: 0c0000000d00000010000000
+  GuideCanvas:
+    position: {x: -1.4, y: -1.11, z: 0}
+    name: 1
+  events: []

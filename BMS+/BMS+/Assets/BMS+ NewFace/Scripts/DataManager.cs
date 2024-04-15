@@ -73,5 +73,5 @@ public class DataManager : MonoBehaviour, IGameService
                 return (T)(object)null;
         }
     }
-    public void OnDisable() { }
+    public void OnDestroy() { }
 }

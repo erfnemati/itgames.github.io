@@ -11,7 +11,7 @@ using Google.Apis.Services;
 
 
 // [change] should get time from level Timer
-public class PersistentDataManager : MonoBehaviour,IGameService
+public class PersistentDataManager : IGameService
 {
 
     public const string m_playersInfoString = "PlayersInfo";
@@ -37,11 +37,12 @@ public class PersistentDataManager : MonoBehaviour,IGameService
     private string m_sheetKeyName = "SheetKey.json";
     private string m_spreadSheetId = "1ezyZpRn0TlhcrO6R0u8J8GZViRCU5xdVkZKH1_GLUmU";
 
-    private void Awake()
+    public PersistentDataManager()
     {
-        eventManager = ServiceLocator._instance.Get<EventManager>();
         ServiceLocator._instance.Register(this);
+        eventManager = ServiceLocator._instance.Get<EventManager>();
         AddEvents();
+        Start();
     }
     private void AddEvents()
     {
@@ -57,13 +58,13 @@ public class PersistentDataManager : MonoBehaviour,IGameService
         //LevelManager.OnGameWin += GetLevelAfterWin;
     }
 
-    public void OnDisable()
+    public void OnDestroy()
     {
-        eventManager.StartListening(EventName.OnLevelDefeat, new Action(IncrementNumOfConsumedLives));
-        eventManager.StartListening(EventName.EndLevel, new Action(TurnOffTimer));
-        eventManager.StartListening(EventName.GameIsOver, new Action(GetLevel));
-        eventManager.StartListening(EventName.OnLevelRetreat, new Action(GetLevel));
-        eventManager.StartListening(EventName.OnGameWin, new Action(GetLevelAfterWin));
+        eventManager.StopListening(EventName.OnLevelDefeat, new Action(IncrementNumOfConsumedLives));
+        eventManager.StopListening(EventName.EndLevel, new Action(TurnOffTimer));
+        eventManager.StopListening(EventName.GameIsOver, new Action(GetLevel));
+        eventManager.StopListening(EventName.OnLevelRetreat, new Action(GetLevel));
+        eventManager.StopListening(EventName.OnGameWin, new Action(GetLevelAfterWin));
         //LevelManager.OnLevelDefeat -= IncrementNumOfConsumedLives;
         //PhoneScreenManager.EndLevel -= TurnOffTimer;
         //PlayerLifeManager.GameIsOver -= GetLevel;
@@ -73,11 +74,10 @@ public class PersistentDataManager : MonoBehaviour,IGameService
     }
     private void Start()
     {
-
         m_playersInfo = new PlayersInfo();
         Debug.Log("Instantiating new playersInfo object");
         m_saveDataPath = Application.dataPath + "LeaderBoardTextFile.json";
-        //StartNewPlaythrough();
+        StartNewPlaythrough();
         RetrieveData();
         //Debug.Log(GetSpreadsheet(m_spreadSheetId).SpreadsheetUrl);
     }

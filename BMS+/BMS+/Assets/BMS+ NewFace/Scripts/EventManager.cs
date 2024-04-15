@@ -59,6 +59,7 @@ public class EventManager : IGameService
         if (eventDictionary.ContainsKey(eventName))
         {
             eventDictionary[eventName] = System.Delegate.Remove(eventDictionary[eventName], listener);
+
         }
     }
     public void TriggerEvent<T1,T2>(EventName eventName, T1 eventArg1,T2 eventArg2)
@@ -109,5 +110,5 @@ public class EventManager : IGameService
             }
         }
     }
-    public void OnDisable() { }
+    public void OnDestroy() { }
 }
