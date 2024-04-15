@@ -89,7 +89,7 @@ public class SceneToConfigCreator : MonoBehaviour
         foreach (Pinpoint pinpoint in GameBoard.GetComponentsInChildren<Pinpoint>())
         {
             PinPointData data = new PinPointData();
-            data.position = pinpoint.transform.localPosition;
+            data.position = pinpoint.transform.localPosition + new Vector3(-1.92f, 1.85f, 0);
             data.neighborShapes = new List<int>();
             data.pinPointColor=VectorInt.White;
             data.InitialColor = new Color(1, 1, 1, 0.4f);
