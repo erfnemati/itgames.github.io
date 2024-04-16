@@ -10,7 +10,7 @@ public class PlayerLifeManager : IGameService
     //public delegate void GameOver();
     //public static event GameOver GameIsOver;
 
-    [SerializeField] int m_currentNumOfLives = 3;// get this from config
+    [SerializeField] int m_currentNumOfLives;// get this from config
     [SerializeField] int m_initialNumberOfLives;
 
     public  PlayerLifeManager()
@@ -20,7 +20,8 @@ public class PlayerLifeManager : IGameService
     }
     public void InitializeVariables()
     {
-        //m_currentNumOfLives = 
+        m_currentNumOfLives = 3;
+        m_initialNumberOfLives = 3;
 
     }
     public void OnDestroy()

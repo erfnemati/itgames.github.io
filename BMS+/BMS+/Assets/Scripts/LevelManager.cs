@@ -41,6 +41,8 @@ public class LevelManager : MonoBehaviour, IGameService
         eventManager.StopListening(EventName.OnTimeOver, new Action(this.LostLevel));
         eventManager.StopListening(EventName.OnLevelVictory, new Action(this.PlayVictorySound));
         ServiceLocator._instance.Unregister<LevelManager>();
+        ServiceLocator._instance.Unregister<Player>();
+
     }
 
     private void Awake()

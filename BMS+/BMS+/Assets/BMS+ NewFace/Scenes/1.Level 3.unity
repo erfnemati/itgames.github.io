@@ -1206,7 +1206,7 @@ PrefabInstance:
       objectReference: {fileID: 167459323}
     - target: {fileID: 102001893260820326, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RetryAfterLooseLevel
+      value: TopBarRetryLevel
       objectReference: {fileID: 0}
     - target: {fileID: 102001893260820326, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

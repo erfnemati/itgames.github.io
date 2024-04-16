@@ -6,10 +6,12 @@ public class UIButtonManager : MonoBehaviour
 {
     BmsPlusSceneManager sceneManager;
     PlayerLifeManager playerLifeManager;
+    PersistentDataManager persistentDataManager;
     private void Awake()
     {
         sceneManager = ServiceLocator._instance.Get<BmsPlusSceneManager>();
         playerLifeManager= ServiceLocator._instance.Get<PlayerLifeManager>();
+        persistentDataManager = ServiceLocator._instance.Get<PersistentDataManager>();
     }
     public void LoadMainMenue()
     {
@@ -28,7 +30,15 @@ public class UIButtonManager : MonoBehaviour
     }
     public void LoadNextLevel()
     {
+
         playerLifeManager.ResetNumOfLives();
         sceneManager.LoadNextLevel();
+    }
+    public void TopBarRetryLevel()
+    {
+        playerLifeManager.DecrementNumOfLives();
+        persistentDataManager.GetLevel();
+        persistentDataManager.IncrementNumOfConsumedLives();
+        sceneManager.RestartLevel();
     }
 }

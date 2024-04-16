@@ -31,6 +31,10 @@ public class LevelTimer : MonoBehaviour , IGameService
         eventManager.StartListening(EventName.OnLevelRetreat, new Action(this.PlayLevelDefeatSound));
         eventManager.StartListening(EventName.OnLevelDefeat, new Action(this.PlayLevelDefeatSound));
         //Debug.Log("Level Timer enabling");
+        eventManager.StartListening(EventName.OnLevelVictory, new Action(SetGameDuration));
+        eventManager.StartListening(EventName.OnLevelDefeat, new Action(SetGameDuration));
+        eventManager.StartListening(EventName.OnLevelRetreat, new Action(SetGameDuration));
+
     }
 
     private void Awake()
@@ -46,6 +50,11 @@ public class LevelTimer : MonoBehaviour , IGameService
         eventManager.StopListening(EventName.OnLevelRetreat, new Action(StopTimer));
         eventManager.StopListening(EventName.OnLevelRetreat, new Action(this.PlayLevelDefeatSound));
         eventManager.StopListening(EventName.OnLevelDefeat, new Action(this.PlayLevelDefeatSound));
+
+        eventManager.StopListening(EventName.OnLevelVictory, new Action(SetGameDuration));
+        eventManager.StopListening(EventName.OnLevelDefeat, new Action(SetGameDuration));
+        eventManager.StopListening(EventName.OnLevelRetreat, new Action(SetGameDuration));
+        ServiceLocator._instance.Unregister<LevelTimer>();
     }
     private void Start()
     {
@@ -130,6 +139,7 @@ public class LevelTimer : MonoBehaviour , IGameService
     {
         m_isLevelOver = true;
     }
+    private void SetGameDuration() => ServiceLocator._instance.Get<PersistentDataManager>().GetCurrentPlayerData().UpdateTime(m_timerSlider.maxValue-m_remainingTimer);
 
     private void PlayLevelDefeatSound()
     {

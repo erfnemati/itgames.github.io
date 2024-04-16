@@ -47,10 +47,11 @@ public class PersistentDataManager : IGameService
     private void AddEvents()
     {
         eventManager.StartListening(EventName.OnLevelDefeat, new Action(IncrementNumOfConsumedLives));
-        eventManager.StartListening(EventName.EndLevel, new Action(TurnOffTimer));
-        eventManager.StartListening(EventName.GameIsOver, new Action(GetLevel));
         eventManager.StartListening(EventName.OnLevelRetreat, new Action(GetLevel));
         eventManager.StartListening(EventName.OnGameWin, new Action(GetLevelAfterWin));
+        eventManager.StartListening(EventName.OnLevelVictory, new Action(GetLevelAfterWin));
+
+
         //LevelManager.OnLevelDefeat += IncrementNumOfConsumedLives;
         //PhoneScreenManager.EndLevel += TurnOffTimer;
         //PlayerLifeManager.GameIsOver += GetLevel;
@@ -61,10 +62,10 @@ public class PersistentDataManager : IGameService
     public void OnDestroy()
     {
         eventManager.StopListening(EventName.OnLevelDefeat, new Action(IncrementNumOfConsumedLives));
-        eventManager.StopListening(EventName.EndLevel, new Action(TurnOffTimer));
-        eventManager.StopListening(EventName.GameIsOver, new Action(GetLevel));
         eventManager.StopListening(EventName.OnLevelRetreat, new Action(GetLevel));
         eventManager.StopListening(EventName.OnGameWin, new Action(GetLevelAfterWin));
+        eventManager.StopListening(EventName.OnLevelVictory, new Action(GetLevelAfterWin));
+
         //LevelManager.OnLevelDefeat -= IncrementNumOfConsumedLives;
         //PhoneScreenManager.EndLevel -= TurnOffTimer;
         //PlayerLifeManager.GameIsOver -= GetLevel;
@@ -82,15 +83,6 @@ public class PersistentDataManager : IGameService
         //Debug.Log(GetSpreadsheet(m_spreadSheetId).SpreadsheetUrl);
     }
 
-    // [change] this should be removed
-    private void Update()
-    {
-        if (m_currentData != null && m_isLevelOver == false )
-        {
-            m_currentData.UpdateTime(Time.deltaTime);
-            m_passedTime = m_currentData.GetPlayingTime();
-        }
-    }
 
     public void StartNewPlaythrough()
     {
@@ -152,11 +144,6 @@ public class PersistentDataManager : IGameService
         m_currentData.IncrementConsumedLives();
     }
 
-    public void TurnOffTimer()
-    {
-        Debug.Log("Timer is off");
-        m_isLevelOver = true;
-    }
 
     public PlayerPersistentData GetCurrentPlayerData()
     {
