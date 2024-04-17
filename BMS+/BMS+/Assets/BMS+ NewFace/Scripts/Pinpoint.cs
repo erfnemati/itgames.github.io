@@ -83,13 +83,13 @@ public class Pinpoint : MonoBehaviour
         if (m_currentPin == null && player.GetPlayerPin() != null)
         {
             AddPin(player.GetPlayerPin());
-            SoundManager._instance.PlaySoundEffect(m_pinSound);//I should recycle it later.
+            ServiceLocator._instance.Get<SoundManager>().PlaySoundEffect(m_pinSound);//I should recycle it later.
             player.ReleasePin();
         }
         else if (m_currentPin != null)
         {
             player.ReloadPin(m_currentPin);
-            SoundManager._instance.PlaySoundEffect(m_pinSound);//I should recycle it later.
+            ServiceLocator._instance.Get<SoundManager>().PlaySoundEffect(m_pinSound);//I should recycle it later.
             RemovePin();
         }
 

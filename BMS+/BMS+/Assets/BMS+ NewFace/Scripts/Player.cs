@@ -49,7 +49,7 @@ public class Player :IGameService
             m_currentPlayerPin.ResetPinUi();
         }
         m_currentPlayerPin = selectedPin;
-        SoundManager._instance.PlaySoundEffect(m_playerChoosingSound);
+        ServiceLocator._instance.Get<SoundManager>().PlaySoundEffect(m_playerChoosingSound);
     }
 
 

@@ -2,9 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SereviceInitializer : MonoBehaviour,IGameService
 {
+    [SerializeField] SoundManager soundManager;
+    [SerializeField] DataManager dataManager;
+    [SerializeField] BmsPlusSceneManager sceneManager;
     private void Awake()
     {
         InitalizeServiceLocator();
@@ -12,8 +16,7 @@ public class SereviceInitializer : MonoBehaviour,IGameService
         InitializeService<EventManager>();
         InitializeService<PersistentDataManager>();
         InitializeService<PlayerLifeManager>();
-        ServiceLocator._instance.Get<PersistentDataManager>();
-
+        ServiceLocator._instance.Register(soundManager);
 
     }
 

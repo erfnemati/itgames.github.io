@@ -3,17 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+public enum SceneName
+{
+    MainMenu,
+    TutorialScene,
+    levelScene,
+    phoneScreen,
+    ResualtScreen
+}
 public class BmsPlusSceneManager : MonoBehaviour, IGameService
 {
-    public enum SceneName
-    {
-        MainMenu,
-        //Tutorial,
-        levelScene,
-        phoneScreen,
-        ResualtScreen
-    }
+
     private int currentLevel=-1;
     private List<LevelConfigData> levels;
     private PlayerLifeManager playerLifeManager;
@@ -25,53 +25,23 @@ public class BmsPlusSceneManager : MonoBehaviour, IGameService
         //playerLifeManager = ServiceLocator._instance.Get<PlayerLifeManager>();
 
     }
-    private void Start()
-    {
-        levels = ServiceLocator._instance.Get<DataManager>().GetData<LevelsConfig>().levels;
 
-    }
+    public void SetLevels(List<LevelConfigData> levels) => this.levels = levels;
+    public int GetCurrentLevel() => currentLevel; 
     public void LoadNextLevel()
     {
 
         //playerLifeManager.ResetNumOfLives(); // this should be done in events OnLeveREatreat ...
+        Debug.Log(levels.Count);
         levelToLoad = levels[++currentLevel];
         SceneManager.LoadScene((int)SceneName.levelScene);
     }
-  //  public void LoadTutorial() => SceneManager.LoadScene((int)SceneName.Tutorial);
-
     public void RestartLevel()
     {
-        SoundManager._instance.StopAllSoundEffects();
+        ServiceLocator._instance.Get<SoundManager>().StopAllSoundEffects();
         levelToLoad = levels[currentLevel];
         SceneManager.LoadScene((int)SceneName.levelScene);
         
-    }
-    public void LoadMainMenu()
-    {
-        //Debug.Log("Loading main menu");
-        if (SoundManager._instance != null)
-        {
-            SoundManager._instance.StopAllSoundEffects();
-        }
-
-        //if (playerLifeManager != null)
-        //{
-        //    playerLifeManager.ResetNumOfLives();
-        //}
-        SceneManager.LoadScene((int)SceneName.MainMenu);
-        
-    }
-
-    public void LoadPhoneScreenLevel()
-    {
-        SoundManager._instance.StopAllSoundEffects();
-        //playerLifeManager.ResetNumOfLives();
-        SceneManager.LoadScene((int)SceneName.phoneScreen);
-    }
-
-    public int GetCurrentLevel()
-    {
-        return currentLevel;
     }
 
     public void OnApplicationQuit()
@@ -91,8 +61,9 @@ public class BmsPlusSceneManager : MonoBehaviour, IGameService
     }
     public void OnDestroy() { }
 
-    public void LoeadRsualtScreen()
+    public void LoadScene(SceneName sceneName)
     {
-        SceneManager.LoadScene((int)SceneName.ResualtScreen);
+        ServiceLocator._instance.Get<SoundManager>().StopAllSoundEffects();
+        SceneManager.LoadScene((int)sceneName);
     }
 }

@@ -16,7 +16,7 @@ public class UIButtonManager : MonoBehaviour
     public void LoadMainMenue()
     {
         playerLifeManager.ResetNumOfLives();
-        sceneManager.LoadPhoneScreenLevel();
+        sceneManager.LoadScene(SceneName.phoneScreen);
     }
     public void RetryAfterWinLevel()
     {
