@@ -420,6 +420,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   randomOffset: 1
+  m_LevelsConfig: {fileID: 11400000, guid: 8532cb431445b5f44a3f6a751153e34e, type: 2}
 --- !u!4 &363732928
 Transform:
   m_ObjectHideFlags: 0
