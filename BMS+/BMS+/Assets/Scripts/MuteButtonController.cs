@@ -15,12 +15,12 @@ public class MuteButtonController : MonoBehaviour
     {
         m_buttonImage = GetComponentInChildren<Image>();
         UpdateButtonImage();
-        m_isMute = SoundManager._instance.GetMuteState();
+        m_isMute = ServiceLocator._instance.Get<SoundManager>().GetMuteState();
     }
 
     private void UpdateButtonImage()
     {
-        bool muteState = SoundManager._instance.GetMuteState();
+        bool muteState = ServiceLocator._instance.Get<SoundManager>().GetMuteState();
         
         if (muteState == true)
         {
@@ -36,13 +36,13 @@ public class MuteButtonController : MonoBehaviour
     {
         if (m_isMute == false)
         {
-            SoundManager._instance.MuteSound();
+            ServiceLocator._instance.Get<SoundManager>().MuteSound();
             m_isMute = true;
             
         }
         else
         {
-            SoundManager._instance.UnmuteSound();
+            ServiceLocator._instance.Get<SoundManager>().UnmuteSound();
             m_isMute = false;
         }
         UpdateButtonImage();

@@ -46,7 +46,7 @@ public class SendButtonHandler : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        ServiceLocator._instance.Get<BmsPlusSceneManager>().LoeadRsualtScreen();
+        ServiceLocator._instance.Get<BmsPlusSceneManager>().LoadScene(SceneName.ResualtScreen);
     }
 
 

@@ -61,6 +61,6 @@ public class ResultScreenManager : MonoBehaviour
 
     public void QuitFromResultScreen()
     {
-        ServiceLocator._instance.Get<BmsPlusSceneManager>().LoadMainMenu();
+        ServiceLocator._instance.Get<BmsPlusSceneManager>().LoadScene(SceneName.MainMenu);
     }
 }

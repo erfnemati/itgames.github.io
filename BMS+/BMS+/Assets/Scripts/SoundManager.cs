@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : MonoBehaviour, IGameService
 {
-    public static SoundManager _instance;
     [SerializeField] AudioSource m_musicSource;
     [SerializeField] AudioSource m_soundEffectSource;
     [SerializeField] bool m_isMute = false;
@@ -17,21 +16,10 @@ public class SoundManager : MonoBehaviour
     {
         m_lastMusicVolume = m_musicSource.volume;
         m_lastSoundEffectVolume = m_soundEffectSource.volume;
+        m_musicSource = GetComponentsInChildren<AudioSource>()[0];
+        m_soundEffectSource = GetComponentsInChildren<AudioSource>()[1];
     }
 
-
-    private void Awake()
-    {
-        if(_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            _instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-    }
 
     public void PlaySoundEffect(AudioClip clip)
     {
@@ -75,6 +63,9 @@ public class SoundManager : MonoBehaviour
     public bool GetMuteState()
     {
         return m_isMute;
+    }
+    public void OnDestroy()
+    {
     }
 
 

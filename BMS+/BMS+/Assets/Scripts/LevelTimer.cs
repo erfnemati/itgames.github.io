@@ -6,6 +6,8 @@ using RTLTMPro;
 using System;
 using GameData;
 using System.Linq;
+using ConfigData;
+using GameEnums;
 
 
 public class LevelTimer : MonoBehaviour , IGameService
@@ -59,7 +61,15 @@ public class LevelTimer : MonoBehaviour , IGameService
     private void Start()
     {
         m_timerSlider.maxValue = m_remainingTimer;
+        InittializeVariables();
         UpdateTimerUi();
+    }
+
+    private void InittializeVariables()
+    {
+        m_levelDefeatSoundEffect = ServiceLocator._instance.Get<DataManager>().GetData<SoundConfigData>((int)SoundName.levelDefeatSoundEffect).audioClip;
+        m_nearLevelDefeatSoundEffect = ServiceLocator._instance.Get<DataManager>().GetData<SoundConfigData>((int)SoundName.nearLevelDefeatSoundEffect).audioClip;
+
     }
 
     void Update()
@@ -112,7 +122,7 @@ public class LevelTimer : MonoBehaviour , IGameService
         {
 
             //SoundManager._instance.FadeBackgroundMusic();
-            SoundManager._instance.PlaySoundEffect(m_nearLevelDefeatSoundEffect);
+            ServiceLocator._instance.Get<SoundManager>().PlaySoundEffect(m_nearLevelDefeatSoundEffect);
             m_isLevelNearOver = true;
         }
         if (m_remainingTimer - 60.0f < Mathf.Epsilon)
@@ -143,7 +153,7 @@ public class LevelTimer : MonoBehaviour , IGameService
 
     private void PlayLevelDefeatSound()
     {
-        SoundManager._instance.PlaySoundEffect(m_levelDefeatSoundEffect);
+        ServiceLocator._instance.Get<SoundManager>().PlaySoundEffect(m_levelDefeatSoundEffect);
     }
 
     public void SetBlitzModeInitials(List<EventData> events)

@@ -23,7 +23,7 @@ public class PhoneScreenManager : MonoBehaviour
         //    Destroy(persistentDataManager);
         //}
 
-        ServiceLocator._instance.Get<BmsPlusSceneManager>().LoadMainMenu();
+        ServiceLocator._instance.Get<BmsPlusSceneManager>().LoadScene(SceneName.MainMenu);
     }
 
 

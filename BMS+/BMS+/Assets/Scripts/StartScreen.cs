@@ -13,13 +13,13 @@ public class StartScreen : MonoBehaviour
         {
             if (Touchscreen.current.primaryTouch.press.isPressed)
             {
-                ServiceLocator._instance.Get<BmsPlusSceneManager>().LoadNextLevel();
+                ServiceLocator._instance.Get<BmsPlusSceneManager>().LoadScene(SceneName.TutorialScene);
             }
         }
 
         else if (Input.anyKeyDown)
         {
-            ServiceLocator._instance.Get<BmsPlusSceneManager>().LoadNextLevel();
+            ServiceLocator._instance.Get<BmsPlusSceneManager>().LoadScene(SceneName.TutorialScene);
         }
     }
 

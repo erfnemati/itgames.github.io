@@ -143,7 +143,7 @@ public class LevelManager : MonoBehaviour, IGameService
     private void PlayVictorySound()
     {
         Debug.Log("Play victory sound");
-        SoundManager._instance.StopAllSoundEffects();
-        SoundManager._instance.PlaySoundEffect(m_victorySound);
+        ServiceLocator._instance.Get<SoundManager>().StopAllSoundEffects();
+        ServiceLocator._instance.Get<SoundManager>().PlaySoundEffect(m_victorySound);
     }
 }
