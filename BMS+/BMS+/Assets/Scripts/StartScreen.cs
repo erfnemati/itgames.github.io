@@ -17,7 +17,7 @@ public class StartScreen : MonoBehaviour
             }
         }
 
-        else if (Input.anyKeyDown)
+        if (Input.GetMouseButtonUp(0)) ;
         {
             ServiceLocator._instance.Get<BmsPlusSceneManager>().LoadScene(SceneName.TutorialScene);
         }
