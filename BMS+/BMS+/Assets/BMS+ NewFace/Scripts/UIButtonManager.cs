@@ -23,6 +23,16 @@ public class UIButtonManager : MonoBehaviour
         playerLifeManager.ResetNumOfLives();
         sceneManager.RestartLevel();
     }
+    public void RetryTopBar()
+    {
+        if (playerLifeManager.GetCurrentNumberOfLives() == 1)
+            ServiceLocator._instance.Get<EventManager>().TriggerEvent(EventName.OnLevelRetreat);
+        else
+            ServiceLocator._instance.Get<EventManager>().TriggerEvent(EventName.OnLevelDefeat);
+
+
+    }
+
     public void RetryAfterLooseLevel()
     {
         playerLifeManager.DecrementNumOfLives();

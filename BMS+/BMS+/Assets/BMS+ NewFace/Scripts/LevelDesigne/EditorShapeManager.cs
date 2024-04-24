@@ -1,4 +1,5 @@
 using GameEnums;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,15 +29,9 @@ namespace LevelDesign
             spriteRenderer=gameObject.GetComponentsInChildren<SpriteRenderer>()[1];
             shapesColorManager=new EditorShapesColorManager(); ;
             SetInitialData();
-            shapeEvent = null;
+            shapeEvent = new GameData.EventData();
             LevelDesignBoard._instance.OnColorAdded += AddColor;
             LevelDesignBoard._instance.OnColorRemoved += RemoveColorRoutine;
-            shapeEvent = new GameData.EventData();
-            shapeEvent.Pins2Add = new List<bool>();
-            for (int i = 0; i < LevelDesignBoard._instance.GetData<PinConfig>().pins.Count; i++)
-            {
-                shapeEvent.Pins2Add.Add(false);
-            }
 
         }
         public void SetInitialData()
@@ -63,7 +58,7 @@ namespace LevelDesign
             shapeEvent.time=time;
             shapeEvent.changeToColor=color;
             shapeEvent.shapeId=shapeData.shapeId;
-            event2Save = shapeEvent;
+            SaveEventData();
         }
         public void AddColor(int shapeEffected, VectorInt addedColor)
         {
@@ -141,5 +136,13 @@ namespace LevelDesign
                 spriteRenderer.sprite = addedColorSprite;
         }
 
+        public void SaveEventData()
+        {
+            event2Save = new GameData.EventData();
+            event2Save.time = shapeEvent.time;
+            event2Save.shapeId = shapeEvent.shapeId;
+            event2Save.shapeAddedNumber = shapeEvent.shapeAddedNumber;
+            event2Save.changeToColor = shapeEvent.changeToColor;
+        }
     }
 }

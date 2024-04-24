@@ -12,9 +12,6 @@ public class UiManager : MonoBehaviour
     [SerializeField] GameObject m_defeatScreen;
     [SerializeField] GameObject m_gameOverScreen;
     [SerializeField] float m_scalingTime;
-    [SerializeField] GameObject m_firstHeart;
-    [SerializeField] GameObject m_secHeart;
-    [SerializeField] GameObject m_thirdHeart;
     [SerializeField] GameObject m_oneThirdAntenna;
     [SerializeField] GameObject m_twoThirdAntenna;
     [SerializeField] GameObject m_CompleteAntenna;
@@ -22,7 +19,7 @@ public class UiManager : MonoBehaviour
     private EventManager eventManager;
     private void OnEnable()
     {
-        eventManager.StartListening(EventName.OnLevelVictory, new Action(this.InvokeVictoryScreen));
+        eventManager.StartListening(EventName.OnLevelVictory, new Action(this.ShowVictoryScreen));
         eventManager.StartListening(EventName.OnLevelDefeat, new Action(this.ShowDefeatScreen));
         eventManager.StartListening(EventName.OnLevelRetreat, new Action(this.ShowRetreatScreen));
         //Debug.Log("Ui manager enabling");
@@ -30,7 +27,7 @@ public class UiManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        eventManager.StopListening(EventName.OnLevelVictory, new Action(this.InvokeVictoryScreen));
+        eventManager.StopListening(EventName.OnLevelVictory, new Action(this.ShowVictoryScreen));
         eventManager.StopListening(EventName.OnLevelDefeat, new Action(this.ShowDefeatScreen));
         eventManager.StopListening(EventName.OnLevelRetreat, new Action(this.ShowRetreatScreen));
         //Debug.Log("Ui manager disabling");

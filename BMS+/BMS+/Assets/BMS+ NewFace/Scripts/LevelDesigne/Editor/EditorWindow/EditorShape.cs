@@ -42,13 +42,9 @@ public class EditorShapeWindow : Editor
         }
         GUILayout.EndHorizontal();
 
-        occuranceTime = EditorGUILayout.FloatField("Occurance TIme", shapeManager.shapeEvent.time);
-        shapeAddedNumber = EditorGUILayout.IntField("Number OF Collors",
+        shapeManager.shapeEvent.time = EditorGUILayout.FloatField("Occurance TIme", shapeManager.shapeEvent.time);
+        shapeManager.shapeEvent.shapeAddedNumber = EditorGUILayout.IntField("Number OF Collors",
             shapeManager.shapeEvent.shapeAddedNumber);
-        GUILayout.Label("NeededPins");
-        for(int i = 0 ; i<LevelDesignBoard._instance.pinList.Count;i++)
-            shapeManager.shapeEvent.Pins2Add[i] = EditorGUILayout.Toggle(((GameEnums.PinName)i).ToString(), shapeManager.shapeEvent.Pins2Add[i]);
-
 
         if(GUILayout.Button("Add Event"))
         {
@@ -57,6 +53,7 @@ public class EditorShapeWindow : Editor
         }
         if (GUILayout.Button("Save Events"))
         {
+            shapeManager.SaveEventData();
             LevelDesignBoard._instance.SaveEventsToConfig();
         }
 
