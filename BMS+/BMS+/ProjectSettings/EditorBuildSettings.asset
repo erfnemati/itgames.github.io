@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/BMS+ NewFace/Scenes/StartScreen 2.unity
     guid: 6ec5d529bdebc3a42bdd1b0933ecffc7
   - enabled: 1
-    path: Assets/Scripts/TutorialScripts/Tutorial.unity
+    path: Assets/BMS+ NewFace/Scenes/Tutorial.unity
     guid: 0cfb5128733e2674696208c084ae432a
   - enabled: 1
     path: Assets/BMS+ NewFace/Scenes/1.Level 3.unity
