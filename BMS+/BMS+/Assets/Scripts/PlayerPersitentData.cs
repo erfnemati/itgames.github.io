@@ -5,11 +5,11 @@ using UnityEngine;
 [Serializable]
 public class PlayerPersistentData:IComparable
 {
-    [SerializeField] private int m_playerId;
-    [SerializeField] private string m_phoneNumber;
-    [SerializeField] private int m_numOfConsumedLives;
-    [SerializeField] private float m_playingTime;
-    [SerializeField] private int m_playerLastLevel;
+    [SerializeField] private int playerId;
+    [SerializeField] public string phoneNumber;
+    [SerializeField] public int numberOfConsumedLives;
+    [SerializeField] public float playTime;
+    [SerializeField] public int playerLastLevel;
     
 
     public PlayerPersistentData()
@@ -18,7 +18,7 @@ public class PlayerPersistentData:IComparable
         SetPlayingTime();
         SetNumOfConsumedLives();
         SetPlayerLastLevel();
-        SetPlayerId();
+        //SetPlayerId();
     }
 
     public PlayerPersistentData(string phoneNumber,int lives,float time,int lastLevel,int id=-1)
@@ -27,62 +27,62 @@ public class PlayerPersistentData:IComparable
         SetNumOfConsumedLives(lives);
         SetPlayingTime(time);
         SetPlayerLastLevel(lastLevel);
-        SetPlayerId(id);
+        //SetPlayerId(id);
     }
 
     public string GetPhoneNumber()
     {
-        return m_phoneNumber;
+        return phoneNumber;
     }
 
     public int GetNumOfConsumedLives()
     {
-        return m_numOfConsumedLives;
+        return numberOfConsumedLives;
     }
 
     public float GetPlayingTime()
     {
-        return m_playingTime;
+        return playTime;
     }
 
     public void SetPhoneNumber(string phoneNumber="Not Added Yet")
     {
-        m_phoneNumber = phoneNumber;
+        this.phoneNumber = phoneNumber;
     }
 
     public void SetNumOfConsumedLives(int lives=0)
     {
-        m_numOfConsumedLives = lives;
+        numberOfConsumedLives = lives;
     }
 
     public void SetPlayingTime(float time=0)
     {
-        m_playingTime = time;
+        playTime = time;
     }
 
     public void IncrementConsumedLives()
     {
-        m_numOfConsumedLives += 1;
+        numberOfConsumedLives += 1;
     }
 
     public void UpdateTime(float deltaTime)
     {
-        m_playingTime += deltaTime;
+        playTime += deltaTime;
     }
 
     public void SetPlayerLastLevel(int level=0)
     {
-        m_playerLastLevel = level;
+        playerLastLevel = level;
     }
 
     public int GetPlayerLastLevel()
     {
-        return m_playerLastLevel;
+        return playerLastLevel;
     }
 
     public int GetPlayerId()
     {
-        return m_playerId;
+        return playerId;
     }
 
     private void SetPlayerId(int id = -1)
@@ -90,11 +90,11 @@ public class PlayerPersistentData:IComparable
         if (id == -1)
         {
             var random = new System.Random();
-            m_playerId = random.Next(1000000, 2000000);
+            playerId = random.Next(1000000, 2000000);
         }
         else
         {
-            m_playerId = id;
+            playerId = id;
         }
         
     }
@@ -122,11 +122,11 @@ public class PlayerPersistentData:IComparable
 
     private int CompareWithLevel(PlayerPersistentData playerPersistentData)
     {
-        if (playerPersistentData.m_playerLastLevel > this.m_playerLastLevel)
+        if (playerPersistentData.playerLastLevel > this.playerLastLevel)
         {
             return 1;
         }
-        else if (playerPersistentData.m_playerLastLevel < this.m_playerLastLevel)
+        else if (playerPersistentData.playerLastLevel < this.playerLastLevel)
         {
             return -1;
         }
@@ -138,11 +138,11 @@ public class PlayerPersistentData:IComparable
 
     private int CompareWithPlayingTime(PlayerPersistentData playerPersistentData)
     {
-        if (playerPersistentData.m_playingTime < this.m_playingTime)
+        if (playerPersistentData.playTime < this.playTime)
         {
             return 1;
         }
-        else if (playerPersistentData.m_playingTime > this.m_playingTime)
+        else if (playerPersistentData.playTime > this.playTime)
         {
             return -1;
         }

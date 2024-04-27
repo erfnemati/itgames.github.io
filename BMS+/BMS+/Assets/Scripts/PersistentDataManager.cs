@@ -8,15 +8,17 @@ using Google.Apis.Auth.OAuth2;
 using Google.Apis.Sheets.v4;
 using Google.Apis.Sheets.v4.Data;
 using Google.Apis.Services;
-
+using Newtonsoft.Json;
+using System.Net.Sockets;
 
 // [change] should get time from level Timer
-public class PersistentDataManager : IGameService
+public class PersistentDataManager : MonoBehaviour,IGameService
 {
 
     public const string m_playersInfoString = "PlayersInfo";
 
     private EventManager eventManager;
+    private ApiManager apiManager;
     PlayersInfo m_playersInfo;
     PlayerPersistentData m_currentData;
 
@@ -37,12 +39,10 @@ public class PersistentDataManager : IGameService
     private string m_sheetKeyName = "SheetKey.json";
     private string m_spreadSheetId = "1ezyZpRn0TlhcrO6R0u8J8GZViRCU5xdVkZKH1_GLUmU";
 
-    public PersistentDataManager()
+    public void Awake()
     {
-        ServiceLocator._instance.Register(this);
-        eventManager = ServiceLocator._instance.Get<EventManager>();
-        AddEvents();
-        Start();
+        //ServiceLocator._instance.Register(this);
+
     }
     private void AddEvents()
     {
@@ -73,8 +73,11 @@ public class PersistentDataManager : IGameService
         //LevelManager.OnGameWin -= GetLevelAfterWin;
 
     }
-    private void Start()
+    public void Start()
     {
+        eventManager = ServiceLocator._instance.Get<EventManager>();
+        apiManager = ServiceLocator._instance.Get<ApiManager>();
+        AddEvents();
         m_playersInfo = new PlayersInfo();
         Debug.Log("Instantiating new playersInfo object");
         m_saveDataPath = Application.dataPath + "LeaderBoardTextFile.json";
@@ -94,49 +97,67 @@ public class PersistentDataManager : IGameService
         m_playersInfo.m_playersInfoList.Add
             (new PlayerPersistentData
                 (phoneNumber,m_currentData.GetNumOfConsumedLives(),m_currentData.GetPlayingTime(),
-                m_currentData.GetPlayerLastLevel(),m_currentData.GetPlayerId())
+                m_currentData.GetPlayerLastLevel())
             );
     }
 
     public void SaveData(string enteredText)
     {
         string phoneNumber = enteredText;
-
+        Debug.Log(phoneNumber);
         SetPhoneNumber(phoneNumber);
         AddData(phoneNumber);
         SortPlayersList();
+        string jsonData =  JsonConvert.SerializeObject(m_currentData);
+        Debug.Log(jsonData);
+        apiManager.CallApi(Apis.addLeaderboardData, ApiManager.NetworkMethod.Post, data: jsonData);
 
-        string jsonString = JsonUtility.ToJson(m_playersInfo,true);
-        Debug.Log("Here is saved note: " + jsonString);
-        File.WriteAllText(Application.dataPath + "LeaderBoardTextFile.json", jsonString);
-        //PlayerPrefs.SetString(m_playersInfoString, jsonString);
-        //PlayerPrefs.Save();
+        string jsonString = JsonUtility.ToJson(m_playersInfo, true);
+        //Debug.Log("Here is saved note: " + jsonString);
+        //File.WriteAllText(Application.dataPath + "LeaderBoardTextFile.json", jsonString);
+        PlayerPrefs.SetString(m_playersInfoString, jsonString);
+        PlayerPrefs.Save();
     }
 
     private void SetPhoneNumber(string phoneNumber)
     {
         m_currentData.SetPhoneNumber(phoneNumber);
+        Debug.Log(phoneNumber);
+
     }
 
     public void RetrieveData()
     {
-        //string jsonString = PlayerPrefs.GetString(m_playersInfoString, "Empty");
-        Debug.Log("Retriving");
-        if (File.Exists(m_saveDataPath))
-        {
-            string retrivedJsonString = File.ReadAllText(m_saveDataPath);
-            Debug.Log(retrivedJsonString);
-            if (retrivedJsonString != null)
-            {
-                m_playersInfo = JsonUtility.FromJson<PlayersInfo>(retrivedJsonString);
-            }
-            else
-            {
-                Debug.Log("Nothing to show for now");
-            }
+      apiManager.CallApi(Apis.fetchLeaderBoard, ApiManager.NetworkMethod.Get, SetPlayerInfos);
 
-        }
     }
+    void SetPlayerInfos(string data)
+    {
+        if(data !=null)
+            m_playersInfo.m_playersInfoList = JsonConvert.DeserializeObject<List<PlayerPersistentData>>(data);
+        else
+            m_playersInfo = JsonUtility.FromJson<PlayersInfo>(PlayerPrefs.GetString(m_playersInfoString));
+
+    }
+    //public void RetrieveData()
+    //{
+    //    //string jsonString = PlayerPrefs.GetString(m_playersInfoString, "Empty");
+    //    Debug.Log("Retriving");
+    //    if (File.Exists(m_saveDataPath))
+    //    {
+    //        string retrivedJsonString = File.ReadAllText(m_saveDataPath);
+    //        Debug.Log(retrivedJsonString);
+    //        if (retrivedJsonString != null)
+    //        {
+    //            m_playersInfo = JsonUtility.FromJson<PlayersInfo>(retrivedJsonString);
+    //        }
+    //        else
+    //        {
+    //            Debug.Log("Nothing to show for now");
+    //        }
+
+    //    }
+    //}
 
     public void IncrementNumOfConsumedLives()
     {

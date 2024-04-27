@@ -14,10 +14,10 @@ public class SoundManager : MonoBehaviour, IGameService
 
     private void Start()
     {
-        m_lastMusicVolume = m_musicSource.volume;
-        m_lastSoundEffectVolume = m_soundEffectSource.volume;
         m_musicSource = GetComponentsInChildren<AudioSource>()[0];
         m_soundEffectSource = GetComponentsInChildren<AudioSource>()[1];
+        m_lastMusicVolume = m_musicSource.volume;
+        m_lastSoundEffectVolume = m_soundEffectSource.volume;
     }
 
 

@@ -9,14 +9,17 @@ public class SereviceInitializer : MonoBehaviour,IGameService
     [SerializeField] SoundManager soundManager;
     [SerializeField] DataManager dataManager;
     [SerializeField] BmsPlusSceneManager sceneManager;
+    [SerializeField] PersistentDataManager persistentDataManager;
+    [SerializeField] ApiManager apiManager;
     private void Awake()
     {
         InitalizeServiceLocator();
         ServiceLocator._instance.Register<SereviceInitializer>(this, gameObject);
         InitializeService<EventManager>();
-        InitializeService<PersistentDataManager>();
         InitializeService<PlayerLifeManager>();
+        ServiceLocator._instance.Register(persistentDataManager);
         ServiceLocator._instance.Register(soundManager);
+        ServiceLocator._instance.Register(apiManager);
 
     }
 
