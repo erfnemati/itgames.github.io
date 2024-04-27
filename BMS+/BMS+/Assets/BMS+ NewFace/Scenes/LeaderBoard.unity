@@ -1220,6 +1220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7aa1e25eb6425941800cc6b5b3d0b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_phoneNumberText: {fileID: 0}
+  m_maxNumberOfChars: 11
 --- !u!1 &1014153951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,7 +1319,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1340,6 +1342,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -2000,6 +2003,9 @@ MonoBehaviour:
   m_phoneNumber: {fileID: 1753996953}
   m_lastPassedLevel: {fileID: 1595161377}
   m_passedTime: {fileID: 1498582983}
+  m_goldMedal: {fileID: 0}
+  m_silverMedal: {fileID: 0}
+  m_bronzeMedal: {fileID: 0}
 --- !u!114 &1735026276
 MonoBehaviour:
   m_ObjectHideFlags: 0
