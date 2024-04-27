@@ -278,9 +278,6 @@ MonoBehaviour:
   m_defeatScreen: {fileID: 1518641232}
   m_gameOverScreen: {fileID: 1518641231}
   m_scalingTime: 0.5
-  m_firstHeart: {fileID: 1518641235}
-  m_secHeart: {fileID: 1518641234}
-  m_thirdHeart: {fileID: 1518641233}
   m_oneThirdAntenna: {fileID: 355472256}
   m_twoThirdAntenna: {fileID: 240711378}
   m_CompleteAntenna: {fileID: 2020133921}
@@ -378,7 +375,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -827,6 +824,14 @@ PrefabInstance:
     - target: {fileID: 1924681855020250850, guid: 0702018e5add41d41ab3a8343067f15e, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924681855020250852, guid: 0702018e5add41d41ab3a8343067f15e, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.603
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924681855020250852, guid: 0702018e5add41d41ab3a8343067f15e, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 1924681855020250853, guid: 0702018e5add41d41ab3a8343067f15e, type: 3}
       propertyPath: m_Camera
@@ -1440,6 +1445,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: OverlayCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 9213184076672091868, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.602
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213184076672091868, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1080
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4887be68de67777498269945c5546e7f, type: 3}
 --- !u!1 &1518641231 stripped
@@ -1450,21 +1463,6 @@ GameObject:
 --- !u!1 &1518641232 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 646633207554419516, guid: 4887be68de67777498269945c5546e7f, type: 3}
-  m_PrefabInstance: {fileID: 1518641230}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1518641233 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1489717735, guid: 4887be68de67777498269945c5546e7f, type: 3}
-  m_PrefabInstance: {fileID: 1518641230}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1518641234 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2017789958, guid: 4887be68de67777498269945c5546e7f, type: 3}
-  m_PrefabInstance: {fileID: 1518641230}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1518641235 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2066914524, guid: 4887be68de67777498269945c5546e7f, type: 3}
   m_PrefabInstance: {fileID: 1518641230}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1621437851
@@ -1930,6 +1928,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Leaderboard (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7089486237758980997, guid: 3dd4e9426318ff54ba8d45ca30892aca, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.612
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089486237758980997, guid: 3dd4e9426318ff54ba8d45ca30892aca, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1200
+      objectReference: {fileID: 0}
     - target: {fileID: 7089486237758980999, guid: 3dd4e9426318ff54ba8d45ca30892aca, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2023,6 +2029,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9148829318095153804, guid: 9e6c800cfe93c4349a586279b3582ebf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -145.40002
+      objectReference: {fileID: 0}
     - target: {fileID: 9148829318836934296, guid: 9e6c800cfe93c4349a586279b3582ebf, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2110,6 +2120,18 @@ PrefabInstance:
     - target: {fileID: 9148829318836934308, guid: 9e6c800cfe93c4349a586279b3582ebf, type: 3}
       propertyPath: m_Name
       value: BackgroundCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148829318836934310, guid: 9e6c800cfe93c4349a586279b3582ebf, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.607
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148829318836934310, guid: 9e6c800cfe93c4349a586279b3582ebf, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1400
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148829318836934310, guid: 9e6c800cfe93c4349a586279b3582ebf, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 9148829318836934311, guid: 9e6c800cfe93c4349a586279b3582ebf, type: 3}
       propertyPath: m_Camera
