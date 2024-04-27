@@ -97,14 +97,14 @@ public class PersistentDataManager : MonoBehaviour,IGameService
         m_playersInfo.m_playersInfoList.Add
             (new PlayerPersistentData
                 (phoneNumber,m_currentData.GetNumOfConsumedLives(),m_currentData.GetPlayingTime(),
-                m_currentData.GetPlayerLastLevel(),m_currentData.GetPlayerId())
+                m_currentData.GetPlayerLastLevel())
             );
     }
 
     public void SaveData(string enteredText)
     {
         string phoneNumber = enteredText;
-
+        Debug.Log(phoneNumber);
         SetPhoneNumber(phoneNumber);
         AddData(phoneNumber);
         SortPlayersList();
@@ -112,7 +112,7 @@ public class PersistentDataManager : MonoBehaviour,IGameService
         Debug.Log(jsonData);
         apiManager.CallApi(Apis.addLeaderboardData, ApiManager.NetworkMethod.Post, data: jsonData);
 
-        string jsonString = JsonUtility.ToJson(m_currentData, true);
+        string jsonString = JsonUtility.ToJson(m_playersInfo, true);
         //Debug.Log("Here is saved note: " + jsonString);
         //File.WriteAllText(Application.dataPath + "LeaderBoardTextFile.json", jsonString);
         PlayerPrefs.SetString(m_playersInfoString, jsonString);
@@ -122,6 +122,8 @@ public class PersistentDataManager : MonoBehaviour,IGameService
     private void SetPhoneNumber(string phoneNumber)
     {
         m_currentData.SetPhoneNumber(phoneNumber);
+        Debug.Log(phoneNumber);
+
     }
 
     public void RetrieveData()
