@@ -16,7 +16,6 @@ public class ShapesColorManager
     {
         VectorInt resaultColor = baseColor + addedColor;
 
-
         ShapeConfigData data = dataManager.GetData<ShapeConfigData>(resaultColor);
         if (data == null)
             return resaultColor;
@@ -26,7 +25,7 @@ public class ShapesColorManager
 
     public bool IsJammedCheck(VectorInt resaultColor)
     {
-        if (resaultColor.f == 1)
+        if (resaultColor.f != 0)
             return true;
         else
             return false;
@@ -47,6 +46,7 @@ public class ShapesColorManager
     public Sprite GetSprite(VectorInt color)
     {
         ShapeConfigData data;
+        color=VectorInt.GetLerpValue(color);
         if (IsJammedCheck(color))
             data = dataManager.GetData<ShapeConfigData>(VectorInt.Jammed);
         else
@@ -59,6 +59,7 @@ public class ShapesColorManager
     public GameColorName? GetColorName(VectorInt color)
     {
         ShapeConfigData data;
+        color = VectorInt.GetLerpValue(color);
         if (IsJammedCheck(color))
             data = dataManager.GetData<ShapeConfigData>(VectorInt.Jammed);
         else
