@@ -10,6 +10,7 @@ public class LevelConfigData : ScriptableObject
     public GameMode gameMode;//{ get; private set; } // [q] how to handle this?
     public ShapeType shapeType;
     public float dificaulty;//{ get; private set; }
+    public float levelTime;
     
     public boardData<PinData> pins;
 

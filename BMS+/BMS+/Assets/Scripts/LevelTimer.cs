@@ -16,6 +16,7 @@ public class LevelTimer : MonoBehaviour , IGameService
     bool m_isLevelOver = false;
     bool m_isLevelNearOver = false;
     float offset = 0.25f;
+    float levelTime;
     [SerializeField] float m_remainingTimer;
     [SerializeField] Slider m_timerSlider;
     [SerializeField] RTLTextMeshPro m_timerText;
@@ -60,10 +61,12 @@ public class LevelTimer : MonoBehaviour , IGameService
     }
     private void Start()
     {
-        m_timerSlider.maxValue = m_remainingTimer;
+        m_remainingTimer = levelTime;
+        m_timerSlider.maxValue = levelTime;
         InittializeVariables();
         UpdateTimerUi();
     }
+    public void SetlevelTime(float levelTime) => this.levelTime = levelTime;
 
     private void InittializeVariables()
     {
@@ -97,12 +100,13 @@ public class LevelTimer : MonoBehaviour , IGameService
 
     private void CheckForBlitzEvent()
     {
-        if(events != null)
+        if(events.Count > 0)
         {
             EventData firstEvent = events.First();
             if(m_remainingTimer + offset > firstEvent.time && m_remainingTimer - offset < firstEvent.time)
             {
                 eventManager.TriggerEvent<EventData>(EventName.OnBlitzHappened,firstEvent);
+                events.Remove(firstEvent);
             }
         }
     }
