@@ -29,7 +29,7 @@ namespace LevelDesign
         {
             pinPointData = new GameData.PinPointData();
             pinPointData.position = transform.localPosition;
-            pinPointData.InitialColor = Color.black;
+            pinPointData.InitialColor = new Color(0,0,0,0.38f);
             pinPointData.neighborShapes = new List<int>();
         }
         public void SetNeighborShapes()

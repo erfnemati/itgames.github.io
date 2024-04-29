@@ -16,7 +16,7 @@ public class Pinpoint : MonoBehaviour
     private Button m_pinPoint;
     private Pin1 m_currentPin = null;
     [SerializeField] bool m_isTutorialMode = false;
-    private VectorInt m_PinPointColor;
+    public VectorInt m_PinPointColor;
     public VectorInt GetPinPointColor { get { return m_PinPointColor; } }
 
     //Ui stuff here,maybe recycle later:
@@ -60,7 +60,6 @@ public class Pinpoint : MonoBehaviour
     }
     private void InitializeVariables()
     {
-        pinpointInitalSprite = dataManager.GetData<ConfigData.SpriteConfigData>((int)SpriteName.PinPoint).sprite;
         m_pinSound = dataManager.GetData<ConfigData.SoundConfigData>((int)SoundName.playerChoosingSound).audioClip;
         m_pinPointRect = GetComponent<RectTransform>();
         m_pinPoint = GetComponent<Button>();
@@ -75,6 +74,11 @@ public class Pinpoint : MonoBehaviour
         {
             Image image = gameObject.GetComponent<Image>();
             image.sprite = dataManager.GetData<PinConfigData>(m_PinPointColor).sprite;
+        }
+        else
+        {
+            pinpointInitalSprite = dataManager.GetData<ConfigData.SpriteConfigData>((int)SpriteName.PinPoint).sprite;
+
         }
     }
 
