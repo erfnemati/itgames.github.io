@@ -47,7 +47,7 @@ public class LevelInitializer
         }
         else if(levelConfig.gameMode == GameMode.Blitz) 
         {
-            ServiceLocator._instance.Get<LevelTimer>().SetBlitzModeInitials(levelConfig.events);
+            //ServiceLocator._instance.Get<LevelTimer>().SetBlitzModeInitials(levelConfig.events);
         }
     }
 

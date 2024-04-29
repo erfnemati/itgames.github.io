@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System;
 using GameEnums;
 using ConfigData;
+using GameData;
 
 public class Pin1 : MonoBehaviour
 {
@@ -35,7 +36,9 @@ public class Pin1 : MonoBehaviour
         eventManager.StartListening(EventName.OnLevelDefeat, new Action(DisableButton));
         eventManager.StartListening(EventName.OnLevelRetreat, new Action(DisableButton));
         eventManager.StartListening(EventName.OnLevelVictory, new Action(DisableButton));
-       // eventManager.StartListening(EventName.OnBlitzHappened, new Action<PinName>(BlitzEventIncrementUsage));
+        // eventManager.StartListening(EventName.OnBlitzHappened, new Action<PinName>(BlitzEventIncrementUsage));
+        eventManager.StartListening(EventName.OnBlitzHappened, new Action<EventData>(BlitzEventRoutine));
+
     }
     public void OnDestroy()
     {
@@ -44,6 +47,8 @@ public class Pin1 : MonoBehaviour
         eventManager.StopListening(EventName.OnLevelRetreat, new Action(DisableButton));
         eventManager.StopListening(EventName.OnLevelVictory, new Action(DisableButton));
         //eventManager.StopListening(EventName.OnBlitzHappened, new Action<PinName>(BlitzEventIncrementUsage));
+        eventManager.StopListening(EventName.OnBlitzHappened, new Action<EventData>(BlitzEventRoutine));
+
 
     }
     private void Start()
@@ -105,5 +110,13 @@ public class Pin1 : MonoBehaviour
         if(name==m_pinConfig.name)
             IncrementUsages();
     }
-    
+    private void BlitzEventRoutine(EventData eventData)
+    {
+        Debug.Log("Here3");
+        if (VectorInt.Contains(m_pinColor, eventData.changeToColor))
+            m_numOfUsages++;
+            
+
+    }
+
 }

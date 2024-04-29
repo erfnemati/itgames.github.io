@@ -57,6 +57,23 @@ public struct VectorInt
             return true;
 
     }
+    public static bool Contains(VectorInt x, VectorInt y)
+    {
+        if(x.a >0 && y.a >0)
+            return true;
+        else if ( x.b > 0 && y.b>0)
+            return true;
+        else if (x.c > 0 && y.c > 0)
+            return true;
+        else if (x.d > 0 && y.d > 0)
+            return true;
+        else if (x.e > 0 && y.e > 0)
+            return true;
+        else if (x.f > 0 && y.f > 0)
+            return true;
+        else 
+            return false;
+    }
     public override string ToString()
     {
         return $"VectorInt{{a={this.a}, b={this.b}, c={this.c}, d={this.d}, e={this.e}, f={this.f}}}";
