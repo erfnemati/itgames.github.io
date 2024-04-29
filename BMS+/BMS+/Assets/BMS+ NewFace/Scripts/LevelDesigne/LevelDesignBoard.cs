@@ -158,7 +158,10 @@ namespace LevelDesign
         }
         public void SaveToConfig(List<EditorPinPoint> gameBoardPinPoints)
         {
-            level.gameBoardPinPoints = gameBoardPinPoints.Select(pinPoint => pinPoint.pinPointData).ToList();
+            level.gameBoardPinPoints = gameBoardPinPoints.Select(pinPoint => {
+                pinPoint.pinPointData.pinPointColor = VectorInt.White;
+                return pinPoint.pinPointData;
+            }).ToList();
         }
         public void SaveToConfig(GameObject guidCanvas)
         {
@@ -192,7 +195,7 @@ namespace LevelDesign
             eventList = new List<EventData>();
             foreach (EditorShapeManager refShape in referenceShapeManagerList )
             {
-                if(refShape.shapeEvent != null)
+                if(refShape.event2Save != null)
                     eventList.Add(refShape.event2Save);
 
             }
@@ -201,6 +204,10 @@ namespace LevelDesign
 
         #endregion
         #region SaveHalfWayThereMode
+        public void SaveHalfWayThereToConfig(List<EditorPinPoint> gameBoardPinPoints)
+        {
+            level.gameBoardPinPoints = gameBoardPinPoints.Select(pinPoint => (PinPointData)pinPoint.pinPointData.Clone()).ToList();
+        }
         public void SaveHalfWayThereToConfig(RectTransform gameBoardCanvas, List<EditorShapeManager> boardShapes)
         {
             boardData<ShapeData> data = new boardData<ShapeData>();

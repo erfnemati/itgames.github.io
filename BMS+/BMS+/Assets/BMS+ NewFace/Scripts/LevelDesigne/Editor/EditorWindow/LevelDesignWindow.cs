@@ -29,6 +29,7 @@ public class LevelDesignWindow : ExtendedEditorWindow
 
     void OnGUI()
     {
+        ShowNavigationWindow();
         if (board.phase == LevelDesignPhase.Phase1)
             ShowInitialWindow();
         else if (board.phase == LevelDesignPhase.Phase2)
@@ -37,13 +38,14 @@ public class LevelDesignWindow : ExtendedEditorWindow
             ShowGameBoardWindow();
         else if (board.phase == LevelDesignPhase.Phase4)
             ShowSaveWindow();
-        //else if (board.phase == LevelDesignPhase.Phase5)
+        else if (board.phase == LevelDesignPhase.Phase5)
+            ShowBlitzSaveWindow();
 
     }
     private void ShowNavigationWindow()
     {
         GUILayout.BeginHorizontal();
-        if(GUILayout.Button("back") && board.phase>LevelDesignPhase.Phase3)
+        if(GUILayout.Button("back") && board.phase>LevelDesignPhase.Phase1)
         {
             board.phase--;
         }
@@ -70,7 +72,6 @@ public class LevelDesignWindow : ExtendedEditorWindow
     }
     private void ShowLevelWindow()
     {
-        ShowNavigationWindow();
         GUILayout.BeginVertical();
         GUILayout.Label("Pins", EditorStyles.boldLabel);
         for (int i = 0; i < board.pinsChecker.Count; i++)
@@ -90,7 +91,6 @@ public class LevelDesignWindow : ExtendedEditorWindow
     }
     private void ShowGameBoardWindow()
     {
-        ShowNavigationWindow();
         GUILayout.BeginVertical();
         board.level.shapeType = (ShapeType)EditorGUILayout.EnumPopup("Choose Shape Type", board.level.shapeType);
         GUILayout.BeginHorizontal();
@@ -125,7 +125,10 @@ public class LevelDesignWindow : ExtendedEditorWindow
     }
     private void ShowSaveWindow()
     {
-        ShowNavigationWindow();
+        GUILayout.Label("Dificaulty", EditorStyles.boldLabel);
+        board.level.dificaulty = EditorGUILayout.FloatField("Enter dificaulty", (float)board.level.dificaulty);
+        GUILayout.Label("LevelTime", EditorStyles.boldLabel);
+        board.level.levelTime = EditorGUILayout.FloatField("Enter timer", (float)board.level.levelTime);
 
         switch (board.level.gameMode)
         {
@@ -153,6 +156,7 @@ public class LevelDesignWindow : ExtendedEditorWindow
                 if(GUILayout.Button(" Save Initial Board "))
                 {
                     SaveDefaultToConfig();
+                    board.SaveHalfWayThereToConfig(board.pinPointList);
                     board.SaveHalfWayThereToConfig(board.GetComponent<RectTransform>(), board.shapeManagerList);
                 }
                 if(GUILayout.Button("Save Goal Board"))
@@ -177,7 +181,12 @@ public class LevelDesignWindow : ExtendedEditorWindow
         board.SetForSave();
     }
 
-    private void ShowBlitzSaveWindow() { }
+    private void ShowBlitzSaveWindow() {
+        if (GUILayout.Button("Save Events"))
+        {
+            board.SaveEventsToConfig();
+        }
+    }
 
     public void GenerateBoardShapes(ShapeType type)
     {
