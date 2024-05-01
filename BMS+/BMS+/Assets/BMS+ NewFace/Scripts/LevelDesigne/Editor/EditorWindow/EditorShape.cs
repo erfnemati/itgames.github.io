@@ -11,8 +11,6 @@ public class EditorShapeWindow : Editor
 {
     private Rect windowRect = new Rect(20, 20, 120, 50);
     private EditorShapeManager shapeManager;
-    float occuranceTime = 0f;
-    int shapeAddedNumber = 0;
     VectorInt eventColor;
     private void Awake()
     {
@@ -48,21 +46,17 @@ public class EditorShapeWindow : Editor
 
         if(GUILayout.Button("Add Event"))
         {
-            shapeManager.SetEventData(eventColor, occuranceTime, shapeAddedNumber);
-            shapeManager.EventAddedNumber(shapeAddedNumber);
-        }
-        if (GUILayout.Button("Save Events"))
-        {
             shapeManager.SaveEventData();
-            LevelDesignBoard._instance.SaveEventsToConfig();
+            shapeManager.EventAddedNumber(shapeManager.shapeEvent.shapeAddedNumber);
         }
+
 
         GUI.DragWindow(new Rect(0, 0, 10000, 10000));
     }
      void SetShapeColor(ShapeConfigData color)
     {
         target.GetComponentsInChildren<SpriteRenderer>()[1].sprite=color.sprite;
-        eventColor=color.color;
+        shapeManager.shapeEvent.changeToColor=color.color;
     }
 
 }

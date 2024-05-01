@@ -48,6 +48,7 @@ namespace LevelDesign
         public Sprite GetSprite(VectorInt color)
         {
             ShapeConfigData data;
+            color = VectorInt.GetLerpValue(color);
             if (IsJammedCheck(color))
                 data = LevelDesignBoard._instance.GetData<ShapeConfigData>(VectorInt.Jammed);
             else
@@ -60,6 +61,7 @@ namespace LevelDesign
         public GameColorName? GetColorName(VectorInt color)
         {
             ShapeConfigData data;
+            color=VectorInt.GetLerpValue(color);
             if (IsJammedCheck(color))
                 data = LevelDesignBoard._instance.GetData<ShapeConfigData>(VectorInt.Jammed);
             else
