@@ -13,7 +13,6 @@ namespace LevelDesign
         public GameData.ShapeData shapeData;
         public GameData.EventData shapeEvent;
         public GameData.EventData event2Save;
-        public bool IsShapeEventCreated=false;
         SpriteRenderer spriteRenderer;
         EditorShapesColorManager shapesColorManager;
         private void OnDestroy()
@@ -50,15 +49,6 @@ namespace LevelDesign
             ConfigData.ShapeConfigData SelectedColorData = LevelDesignBoard._instance.GetData<ConfigData.ShapeConfigData>((int)colorName);
             shapeData.ColorData = SelectedColorData.color;
             spriteRenderer.sprite = SelectedColorData.sprite;
-        }
-        public void SetEventData(VectorInt color,float time, int number)
-        {
-            IsShapeEventCreated = true; 
-            shapeEvent.shapeAddedNumber=number;
-            shapeEvent.time=time;
-            shapeEvent.changeToColor=color;
-            shapeEvent.shapeId=shapeData.shapeId;
-            SaveEventData();
         }
         public void AddColor(int shapeEffected, VectorInt addedColor)
         {
@@ -140,7 +130,7 @@ namespace LevelDesign
         {
             event2Save = new GameData.EventData();
             event2Save.time = shapeEvent.time;
-            event2Save.shapeId = shapeEvent.shapeId;
+            event2Save.shapeId = shapeData.shapeId;
             event2Save.shapeAddedNumber = shapeEvent.shapeAddedNumber;
             event2Save.changeToColor = shapeEvent.changeToColor;
         }

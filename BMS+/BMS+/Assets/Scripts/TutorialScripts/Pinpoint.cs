@@ -35,7 +35,7 @@ namespace Tutotrial
 
         private void GetInitialColor()
         {
-            m_initialPinPointColor = GetComponent<Image>().color;
+            m_initialPinPointColor = new Color(0,0,0,0.38f);
         }
 
         private void Start()

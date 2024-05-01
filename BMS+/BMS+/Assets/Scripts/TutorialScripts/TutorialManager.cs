@@ -17,6 +17,7 @@ namespace Tutotrial
         }
 
         public void SkipTutorial() => ServiceLocator._instance.Get<BmsPlusSceneManager>().LoadNextLevel();
+        public void RetryTutorial() => ServiceLocator._instance.Get<BmsPlusSceneManager>().LoadScene(SceneName.TutorialScene);
 
         public void LoadNextState()
         {

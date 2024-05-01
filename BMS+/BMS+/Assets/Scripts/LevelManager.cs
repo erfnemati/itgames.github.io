@@ -3,6 +3,7 @@ using GameEnums;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -67,7 +68,12 @@ public class LevelManager : MonoBehaviour, IGameService
     //        WinLevel();
     //    }
     //}
-
+    private void Start()
+    {
+        ServiceLocator._instance.Get<LevelTimer>().SetlevelTime(levelConfig.levelTime);
+        if ( levelConfig.gameMode==GameMode.Blitz)
+            ServiceLocator._instance.Get<LevelTimer>().SetBlitzModeInitials(levelConfig.events.OrderByDescending(e => e.time).ToList());
+    }
 
 
     public void CompareBoards()

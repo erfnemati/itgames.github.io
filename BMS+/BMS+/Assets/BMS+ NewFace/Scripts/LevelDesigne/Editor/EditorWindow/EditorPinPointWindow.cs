@@ -46,6 +46,7 @@ public class EditorPinPointWindow : Editor
         {
             pin.AddPinNum();
             pinPointManager.stationedPin = pin;
+            pinPointManager.pinPointData.pinPointColor = pin.pinData.pincolor;
             pinPointManager.InvokeAddColorEvent(pin.pinColorData.color);
             Image image= target.GetComponent<Image>();
             image.sprite = pin.pinColorData.sprite;
@@ -60,6 +61,7 @@ public class EditorPinPointWindow : Editor
         if(pinPointManager.stationedPin != null)
         {
             pinPointManager.stationedPin.RemovePinNum();
+            pinPointManager.pinPointData.pinPointColor= VectorInt.White;
             pinPointManager.InvokeRemoveColorEvent(pinPointManager.stationedPin.pinColorData.color);
             pinPointManager.stationedPin.GetComponentInChildren<RTLTextMeshPro>().text=pinPointManager.stationedPin.pinData.pinCapacity.ToString();//kasif
             pinPointManager.stationedPin = null;

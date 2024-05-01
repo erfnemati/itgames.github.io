@@ -31,13 +31,16 @@ namespace GameData
     }
 
     [Serializable]
-    public class PinPointData:IPlaceable
+    public class PinPointData:IPlaceable, ICloneable
     {
         public Vector3 position;
         public VectorInt pinPointColor;
-        public PinData pinData; // get the pin from color and reset the number of pins
         public Color InitialColor;
         public List<int> neighborShapes;
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 
     [Serializable]
