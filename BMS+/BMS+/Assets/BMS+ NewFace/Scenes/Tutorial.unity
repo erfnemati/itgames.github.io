@@ -13918,7 +13918,11 @@ PrefabInstance:
       objectReference: {fileID: 311690212}
     - target: {fileID: 4539182031391647371, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadMainMenuTopBar
+      value: LoadMainMenue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539182031391647371, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIButtonManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4698481994140539509, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_AnchoredPosition.y

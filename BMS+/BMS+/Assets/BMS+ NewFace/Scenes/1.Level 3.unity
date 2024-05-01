@@ -1211,7 +1211,7 @@ PrefabInstance:
       objectReference: {fileID: 167459323}
     - target: {fileID: 102001893260820326, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TopBarRetryLevel
+      value: RetryTopBar
       objectReference: {fileID: 0}
     - target: {fileID: 102001893260820326, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1301,6 +1301,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 235103037262414194, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 235103037262414194, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 235103037262414194, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 235103037262414194, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 235103037262414194, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 235103037262414194, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 290403949397159404, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1325,13 +1349,29 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UIButtonManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 3931478466806509265, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931478466806509265, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931478466806509265, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931478466806509265, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4539182031391647371, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 167459323}
     - target: {fileID: 4539182031391647371, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadMainMenue
+      value: LoadMainMenuTopBar
       objectReference: {fileID: 0}
     - target: {fileID: 4539182031391647371, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1444,6 +1484,22 @@ PrefabInstance:
     - target: {fileID: 8103538483809854323, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_Name
       value: OverlayCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067253882819275767, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067253882819275767, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067253882819275767, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067253882819275767, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9213184076672091868, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_MatchWidthOrHeight
