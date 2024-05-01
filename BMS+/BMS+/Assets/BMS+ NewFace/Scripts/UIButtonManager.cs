@@ -7,17 +7,16 @@ public class UIButtonManager : MonoBehaviour
     BmsPlusSceneManager sceneManager;
     PlayerLifeManager playerLifeManager;
     PersistentDataManager persistentDataManager;
+    EventManager eventManager;
     private void Awake()
     {
         sceneManager = ServiceLocator._instance.Get<BmsPlusSceneManager>();
         playerLifeManager= ServiceLocator._instance.Get<PlayerLifeManager>();
         persistentDataManager = ServiceLocator._instance.Get<PersistentDataManager>();
+        eventManager = ServiceLocator._instance.Get<EventManager>();
     }
-    public void TopBarLoafMainMenu()
-    {
-        ServiceLocator._instance.Get<EventManager>().TriggerEvent(EventName.OnLevelRetreat);
-    }
-    public void LoadMainMenu()
+    public void LoadMainMenuTopBar() => eventManager.TriggerEvent(EventName.OnLevelRetreat);
+    public void LoadMainMenue()
     {
         playerLifeManager.ResetNumOfLives();
         sceneManager.LoadScene(SceneName.phoneScreen);
@@ -30,9 +29,9 @@ public class UIButtonManager : MonoBehaviour
     public void RetryTopBar()
     {
         if (playerLifeManager.GetCurrentNumberOfLives() == 1)
-            ServiceLocator._instance.Get<EventManager>().TriggerEvent(EventName.OnLevelRetreat);
+            eventManager.TriggerEvent(EventName.OnLevelRetreat);
         else
-            ServiceLocator._instance.Get<EventManager>().TriggerEvent(EventName.OnLevelDefeat);
+            eventManager.TriggerEvent(EventName.OnLevelDefeat);
 
 
     }
@@ -48,11 +47,11 @@ public class UIButtonManager : MonoBehaviour
         playerLifeManager.ResetNumOfLives();
         sceneManager.LoadNextLevel();
     }
-    public void TopBarRetryLevel()
-    {
-        playerLifeManager.DecrementNumOfLives();
-        persistentDataManager.GetLevel();
-        persistentDataManager.IncrementNumOfConsumedLives();
-        sceneManager.RestartLevel();
-    }
+    //public void TopBarRetryLevel()
+    //{
+    //    playerLifeManager.DecrementNumOfLives();
+    //    persistentDataManager.GetLevel();
+    //    persistentDataManager.IncrementNumOfConsumedLives();
+    //    sceneManager.RestartLevel();
+    //}
 }
