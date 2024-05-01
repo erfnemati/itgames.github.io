@@ -100,14 +100,18 @@ public class LevelTimer : MonoBehaviour , IGameService
 
     private void CheckForBlitzEvent()
     {
-        if(events.Count > 0)
+        if(events != null)
         {
-            EventData firstEvent = events.First();
-            if(m_remainingTimer + offset > firstEvent.time && m_remainingTimer - offset < firstEvent.time)
+            if(events.Count > 0)
             {
-                eventManager.TriggerEvent<EventData>(EventName.OnBlitzHappened,firstEvent);
-                events.Remove(firstEvent);
+                EventData firstEvent = events.First();
+                if(m_remainingTimer + offset > firstEvent.time && m_remainingTimer - offset < firstEvent.time)
+                {
+                    eventManager.TriggerEvent<EventData>(EventName.OnBlitzHappened,firstEvent);
+                    events.Remove(firstEvent);
+                }
             }
+
         }
     }
     private void UpdateTimerUi()
