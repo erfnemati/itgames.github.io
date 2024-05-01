@@ -13,7 +13,11 @@ public class UIButtonManager : MonoBehaviour
         playerLifeManager= ServiceLocator._instance.Get<PlayerLifeManager>();
         persistentDataManager = ServiceLocator._instance.Get<PersistentDataManager>();
     }
-    public void LoadMainMenue()
+    public void TopBarLoafMainMenu()
+    {
+        ServiceLocator._instance.Get<EventManager>().TriggerEvent(EventName.OnLevelRetreat);
+    }
+    public void LoadMainMenu()
     {
         playerLifeManager.ResetNumOfLives();
         sceneManager.LoadScene(SceneName.phoneScreen);
