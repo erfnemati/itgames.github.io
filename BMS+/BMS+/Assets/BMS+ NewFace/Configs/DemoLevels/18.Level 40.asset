@@ -15,7 +15,7 @@ MonoBehaviour:
   gameMode: 0
   shapeType: 0
   dificaulty: 36
-  levelTime: 0
+  levelTime: 45
   pins:
     boardLocation: {x: 1.64, y: 1.8, z: 0}
     boardScale: {x: 1, y: 1, z: 1}
