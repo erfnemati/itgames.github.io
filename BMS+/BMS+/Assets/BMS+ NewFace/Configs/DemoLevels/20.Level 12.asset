@@ -15,6 +15,7 @@ MonoBehaviour:
   gameMode: 0
   shapeType: 0
   dificaulty: 40
+  levelTime: 0
   pins:
     boardLocation: {x: 1.64, y: 1.8, z: 0}
     boardScale: {x: 1, y: 1, z: 1}
@@ -440,15 +441,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 02000000
   - position: {x: -3.102, y: 3.3309999, z: 0}
@@ -459,15 +451,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 02000000
   - position: {x: -3.102, y: 2.8899999, z: 0}
@@ -478,15 +461,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 0200000006000000
   - position: {x: -3.4699998, y: 2.672, z: 0}
@@ -497,15 +471,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 06000000
   - position: {x: -3.4699998, y: 2.224, z: 0}
@@ -516,15 +481,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 060000000b000000
   - position: {x: -3.813, y: 2.017, z: 0}
@@ -535,15 +491,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 0b000000
   - position: {x: -3.813, y: 1.589, z: 0}
@@ -554,15 +501,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 0b000000
   - position: {x: -3.4699998, y: 1.3740001, z: 0}
@@ -573,15 +511,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 0b0000000f000000
   - position: {x: -3.4699998, y: 0.93200004, z: 0}
@@ -592,15 +521,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 0f000000
   - position: {x: -3.102, y: 0.70500004, z: 0}
@@ -611,15 +531,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 0f00000012000000
   - position: {x: -3.102, y: 0.28499997, z: 0}
@@ -630,15 +541,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 12000000
   - position: {x: -2.7189999, y: 0.06400001, z: 0}
@@ -649,15 +551,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 12000000
   - position: {x: -2.3339999, y: 0.28499997, z: 0}
@@ -668,15 +561,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 1200000011000000
   - position: {x: -1.9549999, y: 0.06400001, z: 0}
@@ -687,15 +571,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 11000000
   - position: {x: -1.573, y: 0.26900005, z: 0}
@@ -706,15 +581,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 1100000010000000
   - position: {x: -1.194, y: 0.06400001, z: 0}
@@ -725,15 +591,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 10000000
   - position: {x: -0.809, y: 0.28499997, z: 0}
@@ -744,15 +601,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 10000000
   - position: {x: -0.8249999, y: 0.70500004, z: 0}
@@ -763,15 +611,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 0c00000010000000
   - position: {x: -0.4649999, y: 0.93200004, z: 0}
@@ -782,15 +621,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 0c000000
   - position: {x: -0.44599998, y: 1.358, z: 0}
@@ -801,15 +631,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 070000000c000000
   - position: {x: -0.06099999, y: 1.589, z: 0}
@@ -820,15 +641,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 07000000
   - position: {x: -0.06099999, y: 2.017, z: 0}
@@ -839,15 +651,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 07000000
   - position: {x: -0.44599998, y: 2.247, z: 0}
@@ -858,15 +661,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 0300000007000000
   - position: {x: -0.44599998, y: 2.672, z: 0}
@@ -877,15 +671,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 03000000
   - position: {x: -0.83599997, y: 2.8990002, z: 0}
@@ -896,15 +681,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 0000000003000000
   - position: {x: -0.844, y: 3.3309999, z: 0}
@@ -915,15 +691,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 00000000
   - position: {x: -1.207, y: 3.541, z: 0}
@@ -934,15 +701,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 00000000
   - position: {x: -1.589, y: 3.355, z: 0}
@@ -953,15 +711,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 0000000001000000
   - position: {x: -1.9549999, y: 3.541, z: 0}
@@ -972,15 +721,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 01000000
   - position: {x: -2.345, y: 3.337, z: 0}
@@ -991,15 +731,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 0100000002000000
   - position: {x: -2.7189999, y: 2.672, z: 0}
@@ -1010,15 +741,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 020000000500000006000000
   - position: {x: -2.345, y: 2.8990002, z: 0}
@@ -1029,15 +751,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 010000000200000005000000
   - position: {x: -1.9549999, y: 2.684, z: 0}
@@ -1048,15 +761,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 010000000400000005000000
   - position: {x: -1.5889999, y: 2.89, z: 0}
@@ -1067,15 +771,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 000000000100000004000000
   - position: {x: -1.1999999, y: 2.693, z: 0}
@@ -1086,15 +781,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 000000000300000004000000
   - position: {x: -3.077, y: 2.026, z: 0}
@@ -1105,15 +791,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 060000000a0000000b000000
   - position: {x: -2.7189999, y: 2.238, z: 0}
@@ -1124,15 +801,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 05000000060000000a000000
   - position: {x: -2.327, y: 2.026, z: 0}
@@ -1143,15 +811,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 05000000090000000a000000
   - position: {x: -1.9549999, y: 2.247, z: 0}
@@ -1162,15 +821,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 040000000500000009000000
   - position: {x: -1.5639999, y: 2.026, z: 0}
@@ -1181,15 +831,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 040000000800000009000000
   - position: {x: -1.1940001, y: 2.238, z: 0}
@@ -1200,15 +841,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 030000000400000008000000
   - position: {x: -0.8089999, y: 2.026, z: 0}
@@ -1219,15 +851,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 030000000700000008000000
   - position: {x: -3.077, y: 1.58, z: 0}
@@ -1238,15 +861,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 0a0000000b0000000f000000
   - position: {x: -2.7189999, y: 1.3580002, z: 0}
@@ -1257,15 +871,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 0a0000000e0000000f000000
   - position: {x: -2.3270001, y: 1.58, z: 0}
@@ -1276,15 +881,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 090000000a0000000e000000
   - position: {x: -1.9729999, y: 1.3739998, z: 0}
@@ -1295,15 +891,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 090000000d0000000e000000
   - position: {x: -1.564, y: 1.5800002, z: 0}
@@ -1314,15 +901,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 08000000090000000d000000
   - position: {x: -1.2070001, y: 1.3740001, z: 0}
@@ -1333,15 +911,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 080000000c0000000d000000
   - position: {x: -0.8089999, y: 1.5800002, z: 0}
@@ -1352,15 +921,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 07000000080000000c000000
   - position: {x: -2.728, y: 0.93200004, z: 0}
@@ -1371,15 +931,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 0e0000000f00000012000000
   - position: {x: -2.334, y: 0.70500004, z: 0}
@@ -1390,15 +941,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 0e0000001100000012000000
   - position: {x: -1.9649999, y: 0.93200004, z: 0}
@@ -1409,15 +951,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 0d0000000e00000011000000
   - position: {x: -1.573, y: 0.70500004, z: 0}
@@ -1428,15 +961,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 0d0000001000000011000000
   - position: {x: -1.207, y: 0.919, z: 0}
@@ -1447,15 +971,6 @@ MonoBehaviour:
       d: 0
       e: 0
       f: 0
-    pinData:
-      pinCapacity: 0
-      pincolor:
-        a: 0
-        b: 0
-        c: 0
-        d: 0
-        e: 0
-        f: 0
     InitialColor: {r: 1, g: 1, b: 1, a: 0.4}
     neighborShapes: 0c0000000d00000010000000
   GuideCanvas:
