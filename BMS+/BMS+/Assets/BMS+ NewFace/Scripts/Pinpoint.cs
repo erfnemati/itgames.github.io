@@ -50,7 +50,7 @@ public class Pinpoint : MonoBehaviour
     {
         m_ownedShapes = ConfigownedShapes;
         m_PinPointColor = configPinPointColor;
-        pinpointInitialColor = initialpinpointColor;
+        pinpointInitialColor = new Color(0, 0, 0, 0.38f);//initialpinpointColor;
         this.m_shapesId = m_shapesId;
 
     }
@@ -127,8 +127,7 @@ public class Pinpoint : MonoBehaviour
             m_currentPin = null;
             Image image = gameObject.GetComponent<Image>();
             image.sprite = dataManager.GetData<SpriteConfigData>((int)SpriteName.PinPoint).sprite;
-            image.color = Color.black;
-
+            image.color = pinpointInitialColor;
         }
     }
 
