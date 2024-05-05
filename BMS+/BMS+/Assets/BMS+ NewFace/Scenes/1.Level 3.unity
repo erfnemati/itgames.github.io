@@ -278,9 +278,6 @@ MonoBehaviour:
   m_defeatScreen: {fileID: 1518641232}
   m_gameOverScreen: {fileID: 1518641231}
   m_scalingTime: 0.5
-  m_firstHeart: {fileID: 1518641235}
-  m_secHeart: {fileID: 1518641234}
-  m_thirdHeart: {fileID: 1518641233}
   m_oneThirdAntenna: {fileID: 355472256}
   m_twoThirdAntenna: {fileID: 240711378}
   m_CompleteAntenna: {fileID: 2020133921}
@@ -1206,7 +1203,7 @@ PrefabInstance:
       objectReference: {fileID: 167459323}
     - target: {fileID: 102001893260820326, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TopBarRetryLevel
+      value: RetryTopBar
       objectReference: {fileID: 0}
     - target: {fileID: 102001893260820326, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1326,7 +1323,7 @@ PrefabInstance:
       objectReference: {fileID: 167459323}
     - target: {fileID: 4539182031391647371, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadMainMenue
+      value: LoadMainMenuTopBar
       objectReference: {fileID: 0}
     - target: {fileID: 4539182031391647371, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1450,21 +1447,6 @@ GameObject:
 --- !u!1 &1518641232 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 646633207554419516, guid: 4887be68de67777498269945c5546e7f, type: 3}
-  m_PrefabInstance: {fileID: 1518641230}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1518641233 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1489717735, guid: 4887be68de67777498269945c5546e7f, type: 3}
-  m_PrefabInstance: {fileID: 1518641230}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1518641234 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2017789958, guid: 4887be68de67777498269945c5546e7f, type: 3}
-  m_PrefabInstance: {fileID: 1518641230}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1518641235 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2066914524, guid: 4887be68de67777498269945c5546e7f, type: 3}
   m_PrefabInstance: {fileID: 1518641230}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1621437851
