@@ -19,7 +19,7 @@ public class PersistentDataManager : MonoBehaviour,IGameService
 
     private EventManager eventManager;
     private ApiManager apiManager;
-    PlayersInfo m_playersInfo;
+    public List<PlayerPersistentData> m_players;
     PlayerPersistentData m_currentData;
 
     private bool m_isLevelOver = false;
@@ -78,11 +78,11 @@ public class PersistentDataManager : MonoBehaviour,IGameService
         eventManager = ServiceLocator._instance.Get<EventManager>();
         apiManager = ServiceLocator._instance.Get<ApiManager>();
         AddEvents();
-        m_playersInfo = new PlayersInfo();
         Debug.Log("Instantiating new playersInfo object");
         m_saveDataPath = Application.dataPath + "LeaderBoardTextFile.json";
         StartNewPlaythrough();
         RetrieveData();
+
         //Debug.Log(GetSpreadsheet(m_spreadSheetId).SpreadsheetUrl);
     }
 
@@ -94,7 +94,7 @@ public class PersistentDataManager : MonoBehaviour,IGameService
 
     public void AddData(string phoneNumber)
     {
-        m_playersInfo.m_playersInfoList.Add
+        m_players.Add
             (new PlayerPersistentData
                 (phoneNumber,m_currentData.GetNumOfConsumedLives(),m_currentData.GetPlayingTime(),
                 m_currentData.GetPlayerLastLevel())
@@ -103,19 +103,18 @@ public class PersistentDataManager : MonoBehaviour,IGameService
 
     public void SaveData(string enteredText)
     {
-        string phoneNumber = enteredText;
-        Debug.Log(phoneNumber);
-        SetPhoneNumber(phoneNumber);
-        AddData(phoneNumber);
-        SortPlayersList();
+        SetPhoneNumber(enteredText);
+        m_players.Add(m_currentData);
+        //AddData(enteredText);
+        m_players.Sort();
         string jsonData =  JsonConvert.SerializeObject(m_currentData);
         Debug.Log(jsonData);
         apiManager.CallApi(Apis.addLeaderboardData, ApiManager.NetworkMethod.Post, data: jsonData);
 
-        string jsonString = JsonUtility.ToJson(m_playersInfo, true);
         //Debug.Log("Here is saved note: " + jsonString);
         //File.WriteAllText(Application.dataPath + "LeaderBoardTextFile.json", jsonString);
-        PlayerPrefs.SetString(m_playersInfoString, jsonString);
+        string jsonAllData = JsonConvert.SerializeObject(m_players);
+        PlayerPrefs.SetString(m_playersInfoString, jsonAllData);
         PlayerPrefs.Save();
     }
 
@@ -134,9 +133,12 @@ public class PersistentDataManager : MonoBehaviour,IGameService
     void SetPlayerInfos(string data)
     {
         if(data !=null)
-            m_playersInfo.m_playersInfoList = JsonConvert.DeserializeObject<List<PlayerPersistentData>>(data);
+            m_players = JsonConvert.DeserializeObject<List<PlayerPersistentData>>(data);
         else
-            m_playersInfo = JsonUtility.FromJson<PlayersInfo>(PlayerPrefs.GetString(m_playersInfoString));
+            if(PlayerPrefs.HasKey(m_playersInfoString))
+                m_players = JsonConvert.DeserializeObject<List<PlayerPersistentData>>(PlayerPrefs.GetString(m_playersInfoString));
+            else
+                m_players= new List<PlayerPersistentData>();
 
     }
     //public void RetrieveData()
@@ -187,14 +189,22 @@ public class PersistentDataManager : MonoBehaviour,IGameService
         Debug.Log("Our level is : " + level);
     }
 
-    private void SortPlayersList()
-    {
-        m_playersInfo.Sort();
-    }
 
+    public int GetIndex(int id)
+    {
+        for (int i = 0; i < m_players.Count; i++)
+        {
+            if (m_players[i].GetPlayerId() == id)
+            {
+                return i;
+            }
+
+        }
+        return -1;
+    }
     public float  GetPlayerCluster()
     {
-        if (m_playersInfo.m_playersInfoList.Count <= 4)
+        if (m_players.Count <= 4)
         {
             if (m_currentData.GetPlayerLastLevel() >= 11 && m_currentData.GetPlayerLastLevel() <= 14)
             {
@@ -207,8 +217,8 @@ public class PersistentDataManager : MonoBehaviour,IGameService
             }
         }
 
-        int playerRank = m_playersInfo.GetIndex(m_currentData.GetPlayerId()) + 1;
-        float playerCluster = (float)playerRank / m_playersInfo.m_playersInfoList.Count;
+        int playerRank = GetIndex(m_currentData.GetPlayerId()) + 1;
+        float playerCluster = (float)playerRank / m_players.Count;
         Debug.Log("Player cluster is : " + playerCluster);
         return playerCluster;
         //Debug.Log("Player rank is : " + m_playersInfo.GetIndex(m_currentData.GetPlayerId()));
@@ -217,7 +227,7 @@ public class PersistentDataManager : MonoBehaviour,IGameService
 
     public List<PlayerPersistentData> GetPlayersInfo()
     {
-        return m_playersInfo.m_playersInfoList;
+        return m_players;
     }
 
     public Spreadsheet CreateSpreadsheet(string title)
@@ -277,7 +287,12 @@ public class PersistentDataManager : MonoBehaviour,IGameService
 [Serializable]
 public class PlayersInfo
 {
-    public List<PlayerPersistentData> m_playersInfoList = new List<PlayerPersistentData>();
+    public List<PlayerPersistentData> m_playersInfoList;
+    public PlayersInfo()
+    {
+        m_playersInfoList= new List<PlayerPersistentData>();
+
+    }
 
     public  void Sort()
     {

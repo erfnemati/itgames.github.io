@@ -60,8 +60,8 @@ public class UiManager : MonoBehaviour
     {
         targetGameObject.gameObject.SetActive(true);
         Vector3 initialScale = targetGameObject.transform.localScale;
-        //targetGameObject.transform.localScale = Vector3.zero;
-        //targetGameObject.transform.DOScale(initialScale, m_scalingTime).SetEase(Ease.InOutCubic);[Bug]
+        targetGameObject.transform.localScale = Vector3.zero;
+        targetGameObject.transform.DOScale(1f, 0.5f).SetEase(Ease.InOutCubic);
 
     }
 

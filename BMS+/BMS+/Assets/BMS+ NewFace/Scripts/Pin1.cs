@@ -31,7 +31,7 @@ public class Pin1 : MonoBehaviour
 
 
     }
-    public void OnDisable()
+    public void OnEnable()
     {
         eventManager.StartListening(EventName.OnLevelDefeat, new Action(DisableButton));
         eventManager.StartListening(EventName.OnLevelRetreat, new Action(DisableButton));
@@ -114,8 +114,7 @@ public class Pin1 : MonoBehaviour
     {
         Debug.Log("Here3");
         if (VectorInt.Contains(m_pinColor, eventData.changeToColor))
-            m_numOfUsages++;
-            
+            IncrementUsages();            
 
     }
 

@@ -16,7 +16,7 @@ namespace Tutotrial
             m_currentState = m_stateList[m_lastListIndex];
         }
 
-        public void SkipTutorial() => ServiceLocator._instance.Get<BmsPlusSceneManager>().LoadNextLevel();
+        public void SkipTutorial() => ServiceLocator._instance.Get<BmsPlusSceneManager>().RestartLevel();
         public void RetryTutorial() => ServiceLocator._instance.Get<BmsPlusSceneManager>().LoadScene(SceneName.TutorialScene);
 
         public void LoadNextState()
