@@ -199,4 +199,13 @@ public class ShapeGenerator
         for(int i=0;i<pinpointCount; i++)
             GameObject.DestroyImmediate(board.pinPointList.First().gameObject);
     }
+
+    public void RemoveUnUsedPinPoints()
+    { 
+
+        List<EditorPinPoint> unUsedPinpoints=board.pinPointList.Where(item => item.pinPointData.neighborShapes.Count == 0).ToList();
+        var count = unUsedPinpoints.Count;
+        for (int i = 0; i <count ; i++)
+            GameObject.DestroyImmediate(unUsedPinpoints.ElementAt(i).gameObject);
+    }
 }

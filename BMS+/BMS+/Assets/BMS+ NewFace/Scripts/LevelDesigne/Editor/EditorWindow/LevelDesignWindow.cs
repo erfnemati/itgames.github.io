@@ -106,6 +106,7 @@ public class LevelDesignWindow : ExtendedEditorWindow
         if (GUILayout.Button("Set PinPoint Neighbor Shapes"))
         {
             shapeGenerator.AddPinPointNeighbors();
+            shapeGenerator.RemoveUnUsedPinPoints();
         }
         if(GUILayout.Button("RemoveShapes"))
         {
