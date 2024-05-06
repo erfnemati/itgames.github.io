@@ -54,12 +54,17 @@ namespace LevelDesign
                 case GameEnums.PinName.Unkown:
                     List<int> orderedShapes=pinPointData.neighborShapes.OrderByDescending(n=>n).ToList();
                     List<VectorInt> addedColors = new List<VectorInt> { VectorInt.Red, VectorInt.Green, VectorInt.Blue };
-                    for (int i =0; i<pinPointData.neighborShapes.Count; i++)
-                    {
-                        LevelDesignBoard._instance.OnColorAdded?.Invoke(orderedShapes[i], addedColors[i]);
-                        Debug.Log(addedColors[i]);
-                        Debug.Log(pinPointData.neighborShapes[i]);
-                    }
+                    List<VectorInt> addedColorsFlip = new List<VectorInt> { VectorInt.Green, VectorInt.Blue, VectorInt.Red };
+                    if (orderedShapes[0] - orderedShapes[1]==1)
+                        for (int i = 0; i < pinPointData.neighborShapes.Count; i++)
+                        {
+                            LevelDesignBoard._instance.OnColorAdded?.Invoke(orderedShapes[i], addedColorsFlip[i]);
+                            Debug.Log(orderedShapes[i]);
+                            Debug.Log(addedColorsFlip[i]);
+                        }
+                    else
+                        for (int i =0; i<pinPointData.neighborShapes.Count; i++)
+                            LevelDesignBoard._instance.OnColorAdded?.Invoke(orderedShapes[i], addedColors[i]);
                     break;
                 default:
                     for (int i = 0; i < pinPointData.neighborShapes.Count; i++)
@@ -74,12 +79,14 @@ namespace LevelDesign
                 case GameEnums.PinName.Unkown:
                     List<int> orderedShapes = pinPointData.neighborShapes.OrderByDescending(n => n).ToList();
                     List<VectorInt> RemovedColors = new List<VectorInt> { VectorInt.Red, VectorInt.Green, VectorInt.Blue };
-                    for (int i = 0; i < pinPointData.neighborShapes.Count; i++)
-                    {
-                        Debug.Log(RemovedColors[i]);
-                        Debug.Log(pinPointData.neighborShapes[i]);
-                        LevelDesignBoard._instance.OnColorRemoved?.Invoke(orderedShapes[i], RemovedColors[i]);
-                    }
+                    List<VectorInt> RemovedColorsFlip = new List<VectorInt> { VectorInt.Green, VectorInt.Blue, VectorInt.Red };
+                    if (orderedShapes[0] - orderedShapes[1]==1)
+                        for (int i = 0; i < pinPointData.neighborShapes.Count; i++)
+                            LevelDesignBoard._instance.OnColorRemoved?.Invoke(orderedShapes[i], RemovedColorsFlip[i]);
+                    else
+                        for (int i = 0; i < pinPointData.neighborShapes.Count; i++)
+                            LevelDesignBoard._instance.OnColorRemoved?.Invoke(orderedShapes[i], RemovedColors[i]);
+
                     break;
                 default:
                     for (int i = 0; i < pinPointData.neighborShapes.Count; i++)
