@@ -135,13 +135,16 @@ public class Pinpoint : MonoBehaviour
     {
         switch (GetPinName())
         {
-            case GameEnums.PinName.Unkown:
+            case GameEnums.PinName.Magical:
                 List<int> orderedShapes = m_shapesId.OrderByDescending(n => n).ToList();
                 List<VectorInt> addedColors = new List<VectorInt> { VectorInt.Red, VectorInt.Green, VectorInt.Blue };
-                for (int i = 0; i < m_shapesId.Count; i++)
-                {
-                    eventManager.TriggerEvent<int, VectorInt>(EventName.OnColorAdded, orderedShapes[i], addedColors[i]);
-                }
+                List<VectorInt> addedColorsFlip = new List<VectorInt> { VectorInt.Green, VectorInt.Blue, VectorInt.Red };
+                if (orderedShapes[0] - orderedShapes[1] == 1)
+                    for (int i = 0; i < m_shapesId.Count; i++)
+                        eventManager.TriggerEvent<int, VectorInt>(EventName.OnColorAdded, orderedShapes[i], addedColorsFlip[i]);
+                else
+                    for (int i = 0; i < m_shapesId.Count; i++)
+                        eventManager.TriggerEvent<int, VectorInt>(EventName.OnColorAdded, orderedShapes[i], addedColors[i]);
                 break;
             default:
                 for (int i = 0; i < m_shapesId.Count; i++)
@@ -154,13 +157,17 @@ public class Pinpoint : MonoBehaviour
     {
         switch (GetPinName())// should this be implemented here?
         {
-            case GameEnums.PinName.Unkown:
+            case GameEnums.PinName.Magical:
                 List<int> orderedShapes = m_shapesId.OrderByDescending(n => n).ToList();
                 List<VectorInt> RemovedColors = new List<VectorInt> { VectorInt.Red, VectorInt.Green, VectorInt.Blue };
-                for (int i = 0; i < m_shapesId.Count; i++)
-                {
-                    eventManager.TriggerEvent<int, VectorInt>(EventName.OnColorRemoved, orderedShapes[i], RemovedColors[i]);
-                }
+                List<VectorInt> RemovedColorsFlip = new List<VectorInt> { VectorInt.Green, VectorInt.Blue, VectorInt.Red };
+                if (orderedShapes[0] - orderedShapes[1] == 1)
+                    for (int i = 0; i < m_shapesId.Count; i++)
+                        eventManager.TriggerEvent<int, VectorInt>(EventName.OnColorRemoved, orderedShapes[i], RemovedColorsFlip[i]);
+                else
+                    for (int i = 0; i < m_shapesId.Count; i++)
+                        eventManager.TriggerEvent<int, VectorInt>(EventName.OnColorRemoved, orderedShapes[i], RemovedColors[i]);
+
                 break;
             default:
                 for (int i = 0; i < m_shapesId.Count; i++)
