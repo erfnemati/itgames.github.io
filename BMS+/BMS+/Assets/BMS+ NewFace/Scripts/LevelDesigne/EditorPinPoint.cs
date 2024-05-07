@@ -51,7 +51,7 @@ namespace LevelDesign
         {
             switch (stationedPin.pinColorData.name)
             {
-                case GameEnums.PinName.Unkown:
+                case GameEnums.PinName.Magical:
                     List<int> orderedShapes=pinPointData.neighborShapes.OrderByDescending(n=>n).ToList();
                     List<VectorInt> addedColors = new List<VectorInt> { VectorInt.Red, VectorInt.Green, VectorInt.Blue };
                     List<VectorInt> addedColorsFlip = new List<VectorInt> { VectorInt.Green, VectorInt.Blue, VectorInt.Red };
@@ -76,7 +76,7 @@ namespace LevelDesign
         {
             switch (stationedPin.pinColorData.name)// should this be implemented here?
             {
-                case GameEnums.PinName.Unkown:
+                case GameEnums.PinName.Magical:
                     List<int> orderedShapes = pinPointData.neighborShapes.OrderByDescending(n => n).ToList();
                     List<VectorInt> RemovedColors = new List<VectorInt> { VectorInt.Red, VectorInt.Green, VectorInt.Blue };
                     List<VectorInt> RemovedColorsFlip = new List<VectorInt> { VectorInt.Green, VectorInt.Blue, VectorInt.Red };

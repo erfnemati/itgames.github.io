@@ -31,7 +31,12 @@ namespace GameEnums
         Red,
         Blue,
         Jammer,
-        Unkown
+        Magical,
+        Orange,
+        Green,
+        Purple,
+        Brown
+        
     }
     public enum SpriteName
     {
