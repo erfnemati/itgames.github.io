@@ -17,7 +17,7 @@ public class SereviceInitializer : MonoBehaviour,IGameService
         ServiceLocator._instance.Register<SereviceInitializer>(this, gameObject);
         InitializeService<EventManager>();
         InitializeService<PlayerLifeManager>();
-        ServiceLocator._instance.Register(persistentDataManager);
+        ServiceLocator._instance.Register(persistentDataManager,gameObject);
         ServiceLocator._instance.Register(soundManager);
         ServiceLocator._instance.Register(apiManager);
 

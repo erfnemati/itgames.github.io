@@ -48,7 +48,7 @@ MonoBehaviour:
       e: 0
       f: 1
     _name: 3
-    _sprite: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}
+    _sprite: {fileID: 21300000, guid: 4a3f58404960f754fa34b09992527204, type: 3}
   - _color:
       a: 0
       b: 0
@@ -57,4 +57,40 @@ MonoBehaviour:
       e: 1
       f: 0
     _name: 4
+    _sprite: {fileID: 21300000, guid: ea114cd78a6b7be4fbb92978cc7bb280, type: 3}
+  - _color:
+      a: 1
+      b: 1
+      c: 0
+      d: 0
+      e: 0
+      f: 0
+    _name: 5
+    _sprite: {fileID: 21300000, guid: 8d5404ca273a7ea4893a69832b67e941, type: 3}
+  - _color:
+      a: 0
+      b: 1
+      c: 1
+      d: 0
+      e: 0
+      f: 0
+    _name: 6
+    _sprite: {fileID: 21300000, guid: 1b35331c0b1091644a54b90a122e3483, type: 3}
+  - _color:
+      a: 1
+      b: 0
+      c: 1
+      d: 0
+      e: 0
+      f: 0
+    _name: 7
+    _sprite: {fileID: 21300000, guid: b07e049c9aafa8546b4ef4e4e89f5e4b, type: 3}
+  - _color:
+      a: 1
+      b: 1
+      c: 1
+      d: 0
+      e: 0
+      f: 0
+    _name: 8
     _sprite: {fileID: 21300000, guid: 2cdef3f4a0bac7c4d9b360ecaaf62075, type: 3}

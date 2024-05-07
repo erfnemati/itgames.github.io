@@ -42,18 +42,18 @@ public class EditorPinPointWindow : Editor
     }
     private void AddClickedPin(EditorPin pin)
     {
-        if(pinPointManager.stationedPin ==null)
-        {
-            pin.AddPinNum();
-            pinPointManager.stationedPin = pin;
-            pinPointManager.pinPointData.pinPointColor = pin.pinData.pincolor;
-            pinPointManager.InvokeAddColorEvent(pin.pinColorData.color);
-            Image image= target.GetComponent<Image>();
-            image.sprite = pin.pinColorData.sprite;
-            image.color=Color.white;
-            pin.GetComponentInChildren<RTLTextMeshPro>().text=pin.pinData.pinCapacity.ToString();//kasif
+        ResetPinPoint();
+        pin.AddPinNum();
+        pinPointManager.stationedPin = pin;
+        pinPointManager.pinPointData.pinPointColor = pin.pinData.pincolor;
+        Debug.Log(pinPointManager.pinPointData.pinPointColor);
+        pinPointManager.InvokeAddColorEvent(pin.pinColorData.color);
+        Image image= target.GetComponent<Image>();
+        image.sprite = pin.pinColorData.sprite;
+        image.color=Color.white;
+        pin.GetComponentInChildren<RTLTextMeshPro>().text=pin.pinData.pinCapacity.ToString();//kasif
 
-        }
+
     }
     // initial color is not black
     private void ResetPinPoint()
@@ -67,7 +67,7 @@ public class EditorPinPointWindow : Editor
             pinPointManager.stationedPin = null;
             Image image = target.GetComponent<Image>();
             image.sprite = pinPointManager.initialSprite;
-            image.color = Color.black;
+            image.color = new Color(0, 0, 0, 0.38f);
 
         }
     }

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using LevelDesign;
 using GameEnums;
 using System;
+using UnityEngine.SceneManagement;
 
 public class LevelDesignWindow : ExtendedEditorWindow
 {
@@ -20,11 +21,14 @@ public class LevelDesignWindow : ExtendedEditorWindow
     [MenuItem("Level Design/LevelDesigner")]
     public static void ShowWIndow()
     {
-        LevelDesignWindow window=GetWindow<LevelDesignWindow>("LevelDesignWindow");
-        GameObject board =Instantiate(Resources.Load("DesignBoard") as GameObject);
-        Debug.Log(board);
-        window.board = board.GetComponent<LevelDesignBoard>();
-        window.shapeGenerator = new ShapeGenerator(window.board);
+        if(SceneManager.sceneCount== (int)SceneName.TutorialScene)
+        {
+            LevelDesignWindow window=GetWindow<LevelDesignWindow>("LevelDesignWindow");
+            GameObject board =Instantiate(Resources.Load("DesignBoard") as GameObject);
+            window.board = board.GetComponent<LevelDesignBoard>();
+            window.shapeGenerator = new ShapeGenerator(window.board);
+
+        }
     }
 
     void OnGUI()
@@ -106,6 +110,7 @@ public class LevelDesignWindow : ExtendedEditorWindow
         if (GUILayout.Button("Set PinPoint Neighbor Shapes"))
         {
             shapeGenerator.AddPinPointNeighbors();
+            shapeGenerator.RemoveUnUsedPinPoints();
         }
         if(GUILayout.Button("RemoveShapes"))
         {
@@ -137,6 +142,7 @@ public class LevelDesignWindow : ExtendedEditorWindow
                 {
                     board.phase = LevelDesignPhase.Phase1;
                     SaveDefaultToConfig();
+                    board.SaveToConfig(board.pinPointList);
                     board.SaveToConfig(board.GetComponent<RectTransform>(), board.shapeManagerList);
                     board.SaveToConfig(board.referenceBoard.transform, board.referenceShapeManagerList);
 
@@ -147,6 +153,7 @@ public class LevelDesignWindow : ExtendedEditorWindow
                 {
                     board.phase = LevelDesignPhase.Phase5;
                     SaveDefaultToConfig();
+                    board.SaveToConfig(board.pinPointList);
                     board.SaveToConfig(board.referenceBoard.transform, board.referenceShapeManagerList);
                     board.SaveToConfig(board.GetComponent<RectTransform>(), board.shapeManagerList);
                 }
@@ -175,7 +182,6 @@ public class LevelDesignWindow : ExtendedEditorWindow
 
     private void SaveDefaultToConfig()
     {
-        board.SaveToConfig(board.pinPointList);
         board.SaveToConfig(board.pinPlaceholder, board.pinList);
         board.SaveToConfig(board.guideCanvas);
         board.SetForSave();

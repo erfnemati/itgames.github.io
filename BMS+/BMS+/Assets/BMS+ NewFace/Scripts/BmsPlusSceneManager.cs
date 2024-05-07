@@ -14,7 +14,7 @@ public enum SceneName
 public class BmsPlusSceneManager : MonoBehaviour, IGameService
 {
 
-    private int currentLevel=-1;
+    private int currentLevel=0;
     private List<LevelConfigData> levels;
     private PlayerLifeManager playerLifeManager;
     public LevelConfigData levelToLoad { get; private set; }

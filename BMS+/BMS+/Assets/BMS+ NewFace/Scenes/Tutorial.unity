@@ -13868,6 +13868,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1277362191455068712, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3598945015025379228, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -13976,6 +13980,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 653891748}
+    - target: {fileID: 7760584662556667473, guid: 4887be68de67777498269945c5546e7f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8103538483809854323, guid: 4887be68de67777498269945c5546e7f, type: 3}
       propertyPath: m_Name
       value: OverlayCanvas

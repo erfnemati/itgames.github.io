@@ -1,25 +1,33 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
 public class LevelsPicker : MonoBehaviour
 {
+    [SerializeField] bool enableLevelPicker = true;
     [SerializeField] List<AnimationCurve> collectionCurves = new List<AnimationCurve>();
-    [SerializeField] int randomOffset;
+    [SerializeField] float randomOffset;
     [SerializeField] LevelsConfig m_LevelsConfig;
     private List<LevelsConfig> SelectedLevels;
     void Start()
     {
-        SelectedLevels = new List<LevelsConfig>();
-        foreach (AnimationCurve curve in collectionCurves)
+        if( enableLevelPicker)
         {
-            SelectedLevels.Add(GenerateConfig(curve));
+            SelectedLevels = new List<LevelsConfig>();
+            foreach (AnimationCurve curve in collectionCurves)
+            {
+                SelectedLevels.Add(GenerateConfig(curve));
+            }
+            System.Random rand = new System.Random();
+            int index = rand.Next(SelectedLevels.Count);
+            ServiceLocator._instance.Get<BmsPlusSceneManager>().SetLevels( SelectedLevels[index].levels);
         }
-        System.Random rand = new System.Random();
-        int index = rand.Next(SelectedLevels.Count);
-        ServiceLocator._instance.Get<BmsPlusSceneManager>().SetLevels( SelectedLevels[index].levels);
+        else
+            ServiceLocator._instance.Get<BmsPlusSceneManager>().SetLevels(m_LevelsConfig.levels);
+
     }
     LevelsConfig GenerateConfig(AnimationCurve collection)
     {
@@ -43,12 +51,19 @@ public class LevelsPicker : MonoBehaviour
                 nearestCollection.Add(level);
             }
         }
-        if (nearestCollection.Count == 0)
+        if (nearestCollection.Count != 0)
         {
-            Debug.LogError("LevelConfigError: null level");
+            System.Random rand = new System.Random();
+            int index = rand.Next(nearestCollection.Count);
+            return nearestCollection[index];
         }
-        System.Random rand = new System.Random();
-        int index = rand.Next(nearestCollection.Count);
-        return nearestCollection[index];
+        else
+        {
+                        Debug.LogError("LevelConfigError: null level");
+
+            System.Random rand = new System.Random();
+            int index = rand.Next(m_LevelsConfig.levels.Count);
+            return m_LevelsConfig.levels[index];
+        }
     }
 }
